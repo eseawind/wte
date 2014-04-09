@@ -40,7 +40,6 @@
     <ul class="nav bs-sidenav">
 	  <li class="nav-header"></li>
 		  <#--<li ><a href="ea_organize_index.do" target="mainFrame">组织架构</a></li>
-		  <li ><a href="ea_user_menu_user.do" target="mainFrame">用户管理</a></li>
 		  <li ><a href="ea_rule_menu_rule.do" target="mainFrame">信息发布</a></li>
 		  <li ><a href="ea_smtp_menu_smtp.do" target="mainFrame">邮箱系统</a></li>
 		  <li ><a href="ea_ea_menu_mail_list.do" target="mainFrame">邮件发送工具</a></li>
@@ -51,8 +50,9 @@
  		  <li ><a href="ea_report_assessment.do" target="mainFrame">技术管理</a></li>
  		  -->
  		  <#--<li ><a href="exam_knowledge_menu_knowledge.do" target="mainFrame">知识领域</a></li>-->
-		  <li ><a href="exam_item_list.do" target="mainFrame">题库管理</a></li>
 		  <#--<li ><a href="exam_template_list.do" target="mainFrame">模板管理</a></li>-->
+		  <li ><a href="ea_user_menu_user.do" target="mainFrame">用户管理</a></li>
+		  <li ><a href="exam_item_list.do" target="mainFrame">题库管理</a></li>
 		  <li ><a href="exam_paper_list.do" target="mainFrame">试卷管理</a></li>
 		  <li ><a href="exam_exam_exam_list.do" target="mainFrame">阅卷管理</a></li><#--common_activiti_menu_task_list.do-->
 		  <li ><a href="exam_exam_exam_record_list.do" target="mainFrame">考试查询</a></li>
