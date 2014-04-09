@@ -1,0 +1,1 @@
+mvn dependency:copy-dependencies  -DoutputDirectory=lib -Dmaven.mode.online=false
