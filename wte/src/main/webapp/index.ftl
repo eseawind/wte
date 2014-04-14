@@ -1,4 +1,7 @@
 
 <script type="text/javascript" language="javascript">
-      document.location="login.ftl";
+      document.location="lang.do?lang=en";
+                      
 </script>
+
+

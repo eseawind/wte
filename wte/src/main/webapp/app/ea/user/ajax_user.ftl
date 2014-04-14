@@ -9,12 +9,12 @@
 			</#if>
 			<th  >Level</th>
 			<th  >email</th>
-			<th  >score</th>
+			<#--<th  >score</th>
 			<th  >kso</th>
 			<th  >sog</th>
 
 	
-			<th ></th>
+			<th ></th>-->
 			
 		</tr>
 	</thead>
@@ -49,7 +49,7 @@
 			</td>
 			
 			<td onmouseover="rowOver(this)" onmouseout="rowOut(this)"><input  style="width:200px"   type="text"  value='${x.email?if_exists}' onchange="javascript:action_user('update.do','column=email&id=${x.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))" /></td>					
-			<td onmouseover="rowOver(this)" onmouseout="rowOut(this)"><input  style="width:30px"   type="text"  value='${x.score?if_exists}' onchange="javascript:action_user('update.do','column=score&id=${x.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))" /></td>					
+			<#--<td onmouseover="rowOver(this)" onmouseout="rowOut(this)"><input  style="width:30px"   type="text"  value='${x.score?if_exists}' onchange="javascript:action_user('update.do','column=score&id=${x.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))" /></td>					
 			
 			<td onmouseover="rowOver(this)" onmouseout="rowOut(this)"><input  style="width:30px"   type="text"  value='${x.sognumber?if_exists}' onchange="javascript:action_user('update.do','column=sognumber&id=${x.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))" /></td>					
 			<td onmouseover="rowOver(this)" onmouseout="rowOut(this)"><input  style="width:30px"   type="text"  value='${x.ksonumber?if_exists}' onchange="javascript:action_user('update.do','column=ksonumber&id=${x.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))" /></td>					
@@ -70,7 +70,7 @@
 				<a  title="删除" onclick="javascript:action_user('delete.do','id=${x.id}');"  title=删除 >删除</a>
 			</span>
 			
-			</td>
+			</td>-->
 		</tr>
 	</#list> 
 	</tbody>

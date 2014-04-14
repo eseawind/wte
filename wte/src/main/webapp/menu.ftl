@@ -42,8 +42,8 @@
 		  <li ><a href="manager_wo_list.do" target="mainFrame">Work Order Manager</a></li>
 		  <li ><a href="ea_organize_admin_by_user.do" target="mainFrame">Team Admin</a></li>	
 		    -->
-		  <li ><a href="exam_exam_exam_list.do" target="mainFrame">考试通知</a></li>
-		  <li ><a href="exam_exam_exam_record_list.do" target="mainFrame">考试查询</a></li>
+		  <li ><a href="exam_exam_exam_list.do" target="mainFrame"><@i18n "menu_exam_info" /></a></li>
+		  <li ><a href="exam_exam_exam_record_list.do" target="mainFrame"><@i18n "menu_query_exam" /></a></li>
 		 
     </ul>
   </div>

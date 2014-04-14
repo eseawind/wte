@@ -24,9 +24,9 @@ border-bottom-style: solid;border-bottom-width: 3px;border-bottom-color: #224888
 
 <frameset rows="67,*" frameborder="no" marginwidth="0" framespacing="0" id="frameset01">
 	<frame src="top.ftl" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" style=""/>
-	<frameset cols="180,*" framespacing="0" frameborder="no" framespacing="0" id="frameset02">
-		<frame src="menu.do" name="leftFrame" frameborder="no" noresize="noresize" id="leftFrame" />
-		<frame src="exam_exam_exam_list.do" frameborder="0" scrolling="auto" noresize="noresize" name="mainFrame">
+	<frameset cols="50%,*" framespacing="0" frameborder="no" framespacing="0" id="frameset02">
+		<frame src="exam_exam_exam_list.do" name="leftFrame" frameborder="0" scrolling="auto" noresize="noresize" name="mainFrame">
+		<frame src="exam_exam_exam_record_list.do"  frameborder="no" noresize="noresize" id="leftFrame" /><#--menu.do-->
 	</frameset>
 </frameset>
 

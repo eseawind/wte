@@ -49,7 +49,7 @@
 	    </tr>
   </table>
 </body>
-
+<#--
 <br>
 可以访问的资源： <br>
 <table>
@@ -60,5 +60,5 @@
         <td><a href=${node.actionUrl?if_exists} target=_blank >${node.actionUrl?if_exists} </a></td>
     </tr>
 </#list>
-
+-->
 </table>

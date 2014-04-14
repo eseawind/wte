@@ -32,8 +32,17 @@ public class ItemAction extends BaseEaAction {
 
 	public String list() throws Exception {
 		String sql = getSearchSql(get_list_sql());
+		Set<Item> list = new HashSet<Item>();
 		getPageData(sql);
-		
+		if(knowledgevalue.size() != 0){
+			for (String knowledge : knowledgevalue) {
+				Knowledge kl = (Knowledge)baseDao.loadById("Knowledge", Long.valueOf(knowledge));
+				list.addAll(kl.getItems());
+			}
+		}else{
+			list.addAll((Collection<? extends Item>) rhs.get("dataList"));
+		}
+		rhs.put("dataList", list);
 		rhs.put("knowledgeRootList", common_get_tree_root("Knowledge"));
 		return "success";
 	}
@@ -119,6 +128,7 @@ public class ItemAction extends BaseEaAction {
 			rhs.put("page", "editpage");
 		}
 		baseDao.update(item);
+		knowledgevalue.clear();
 		return list();
 	}
 

@@ -51,11 +51,11 @@
  		  -->
  		  <#--<li ><a href="exam_knowledge_menu_knowledge.do" target="mainFrame">知识领域</a></li>-->
 		  <#--<li ><a href="exam_template_list.do" target="mainFrame">模板管理</a></li>-->
-		  <li ><a href="ea_user_menu_user.do" target="mainFrame">用户管理</a></li>
-		  <li ><a href="exam_item_list.do" target="mainFrame">题库管理</a></li>
-		  <li ><a href="exam_paper_list.do" target="mainFrame">试卷管理</a></li>
-		  <li ><a href="exam_exam_exam_list.do" target="mainFrame">阅卷管理</a></li><#--common_activiti_menu_task_list.do-->
-		  <li ><a href="exam_exam_exam_record_list.do" target="mainFrame">考试查询</a></li>
+		  <li ><a href="ea_user_menu_user.do" target="mainFrame"><@i18n "menu_user" /></a></li>
+		  <li ><a href="exam_item_list.do" target="mainFrame"><@i18n "menu_item" /></a></li>
+		  <li ><a href="exam_paper_list.do" target="mainFrame"><@i18n "menu_paper" /></a></li>
+		  <li ><a href="exam_exam_exam_list.do" target="mainFrame"><@i18n "menu_judge" /></a></li><#--common_activiti_menu_task_list.do-->
+		  <li ><a href="exam_exam_exam_record_list.do" target="mainFrame"><@i18n "menu_query_exam" /></a></li>
     </ul>
   </div>
 </body> 

@@ -2,19 +2,19 @@
 <div class="panel panel-primary">
        
   <div class="panel-heading">
-  	<strong>Process List</strong>
+  	<strong>Exam Information List</strong>
   </div>
   <div class="panel-body">
 		<table class="table table-condensed table-hover">
 				<thead>
 				<tr>
 					<td width=25px><strong>#</strong></td>
-					<td ><strong>Exam Name</strong></td>
-					<td ><strong>Passmark mark</strong></td>
-					<td ><strong>Total mark</strong></td>
-					<td ><strong>Exam Time</strong></td>
-					<td ><strong>Create Time</strong></td>
-					<td ><strong>Operation</strong></td>
+					<td ><strong><@i18n "title_name" /></strong></td>
+					<td ><strong><@i18n "title_passmark" /></strong></td>
+					<td ><strong><@i18n "title_totalmark" /></strong></td>
+					<td ><strong><@i18n "title_examtime" /></strong></td>
+					<td ><strong><@i18n "title_createtime" /></strong></td>
+					<td ><strong><@i18n "title_operation" /></strong></td>
 				</tr>
 				</thead>
 				<tbody>

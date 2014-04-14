@@ -5,18 +5,19 @@
 				<input type="hidden" name="paper.id" value='<#if rhs["paper"]?exists >${rhs["paper"].id?if_exists }</#if>' />
 				<div class="panel panel-primary">
 				    <div class="panel-heading">
-				    	选择模板
+				    	<@i18n "title_select_template" />
 				    </div>
 					<div class="panel-body">
 					 <table class="table table-condensed table-bordered table-striped">
 						<tr>
-							<td>模板</td>
+							<td><@i18n "title_template" /></td>
 							<td>
 								<select value="模板" name="templateid" style="width:300px;">
 									<#list rhs["dataList"]?sort_by("id") as x>
 										<option value="${x.id}">${x.title}</option>
 					 				</#list>
 								</select>
+								<a style="margin-left:10px;margin-top:5px;" class="btn btn-xs btn-info "  href="exam_template_list.do"><@i18n "menu_template" /></a>
 							</td>
 						</tr>
 						<tr>
@@ -29,7 +30,7 @@
 				</div>
 			</form>
 			<div id="div_scoll" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:400px;z-index:10000;display:none;" class="panel panel-default"><!--style="border:2px solid #eee;"-->
-			 	<div id="operation_title" class="panel-heading"><strong>选择题目</strong></div>
+			 	<div id="operation_title" class="panel-heading"><strong><@i18n "title_select_item" /></strong></div>
 			 	<a class="pull-right" onclick="show_dir();" class="btn btn-xs  btn-default" ><span class=ui-icon ui-icon-close></span></a>
 			 	<div class="panel-body" id="div_select_item" style="cursor:hander;"> 
 			 	
