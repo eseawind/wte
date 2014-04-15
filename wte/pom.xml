@@ -11,7 +11,28 @@
 	<artifactId>wte</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-	
+	<build>
+	  	 <plugins>
+					 <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>8.1.14.v20131031</version>
+                <configuration>
+  				<connectors>
+                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                            <port>9090</port>
+                        </connector>
+                    </connectors>                    	
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <webAppSourceDirectory>${basedir}src/main/webapp/</webAppSourceDirectory>
+                    <webAppConfig>
+                        <contextPath>/demo</contextPath>
+                        <descriptor>${basedir}/src/main/webapp/WEB-INF/web.xml</descriptor>
+                    </webAppConfig>
+                </configuration>
+            </plugin>
+         </plugins>
+  </build>    	
 	 
 	<dependencies>
 		<dependency>
