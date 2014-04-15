@@ -24,7 +24,7 @@
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>classpath:/database-mysql.properties</value>
+				<value>classpath:/database-${online}.properties</value>
 			</list>
 		</property>
 		<property name="fileEncoding" value="UTF-8" />
@@ -32,9 +32,9 @@
    <!--基础服务接口部分 -->
 	<bean id="impEa"
 		class="com.app.ea.api.ImpEa">
-			<property name="infDemo">
+		<property name="infDemo">
 			<ref bean="impItCompany" />
-		    </property>
+		</property>
 	</bean>
 		 
 </beans>
