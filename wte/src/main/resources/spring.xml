@@ -33,7 +33,7 @@
 	<bean id="impEa"
 		class="com.app.ea.api.ImpEa">
 			<property name="infDemo">
-			<ref bean="impItCompany" />
+			<ref bean="impExam" />
 		    </property>
 	</bean>
 		 

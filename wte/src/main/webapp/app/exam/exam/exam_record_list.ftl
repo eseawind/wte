@@ -12,17 +12,19 @@
 					<td ><strong><@i18n "title_totalmark" /></strong></td>
 					<td ><strong><@i18n "title_passmark" /></strong></td>
 					<td ><strong><@i18n "title_result" /></strong></td>
-					<td ><strong><@i18n "title_remark" /></strong></td>
+					<#--<td ><strong><@i18n "title_remark" /></strong></td>-->
 				</tr>
 				<#list rhs["datalist"] as record>
+					<#if record.paper?exists>
 					<tr>
 						<td>${record_index+1}</td>
 						<td>${record.paper.name}</td><#--<a href="exam_exam_exam_record_detail.do?paperId=${record.paper.id}&recordsId=${record.id}" ></a>-->
 						<td>${record.paper.totalmark}</td>
 						<td>${record.paper.passmark}</td>
 						<td >${record.singlechoicemark?number + record.multichoicemark?number + record.blankmark?number + record.essaymark?number}</td>
-						<td >${record.remark?if_exists}</td>
+						<#--<td >${record.remark?if_exists}</td>-->
 					</tr>
+					</#if>
 				</#list>
 			</table>
 			

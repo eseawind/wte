@@ -62,7 +62,7 @@
        
         <hr>
         <input type="hidden" class="text" name=sysName value="oa">
-        <input type="text" placeholder="Input your log here..." class="input-block-level" placeholder="Account" name=account value= >
+        <input type="text" placeholder="" class="input-block-level" placeholder="Account" name=account value= >
         <input type="password" class="input-block-level" placeholder="Password" name=password value=abc123 >
         <!--
         <label class="checkbox">
