@@ -8,11 +8,15 @@
       <div class="panel-body">
       	 <table class="table table-condensed table-bordered table-striped">
       		<tr>
-      			<td>试卷名称: <#if rhs["paper"]?exists > ${rhs["paper"].name?if_exists} </#if></td>
+      			<td><@i18n "title_name" />: <#if rhs["paper"]?exists > ${rhs["paper"].name?if_exists} </#if></td>
       			<input type="hidden" value="<#if rhs["paper"]?exists >${rhs["paper"].id?if_exists}</#if>" name="paperid" />
       		</tr>
       		<tr>
-      		<td>选择考试人: 
+      		<td><@i18n "title_candidate" />: <#--<input type="checkbox" name="candidate" />Tom &nbsp;&nbsp;&nbsp;&nbsp;
+      		<input type="checkbox" name="candidate" />HongBin &nbsp;&nbsp;&nbsp;&nbsp;
+      		<input type="checkbox" name="candidate" />Jacky &nbsp;&nbsp;&nbsp;&nbsp;
+      		<input type="checkbox" name="candidate" />Mandy &nbsp;&nbsp;&nbsp;&nbsp;
+      		<input type="checkbox" name="candidate" />Mike &nbsp;&nbsp;&nbsp;&nbsp;-->
       			<input type="hidden" id="assignee" name="assignee"/>
 				<input type="text" class="input-small" id="assigneeText" 
 					onclick="javascript:open_select_users_dialog(document.getElementById('assigneeText'),document.getElementById('assignee'),2);" />
@@ -20,7 +24,7 @@
       		</tr>
       		<#if rhs["autojudge"]?exists>	
       		<tr>
-      			<td>选择阅卷人: 
+      			<td><@i18n "title_judge" />: 
       			<input type="hidden" id="judge" name="judge"/>
 				<input type="text" class="input-small" id="assigneejudgeText" 
 					onclick="javascript:open_select_users_dialog(document.getElementById('assigneejudgeText'),document.getElementById('judge'),1);" />

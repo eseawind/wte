@@ -6,7 +6,7 @@
    
     <div class="pull-left"><img class="logo" style="height:60px;padding-top:2px;padding-bottom:3px;padding-left:10px;" src="common/images/elogo.png" /></div>
     <div class="pull-right" style="padding:10px;   " >
-		<#if Session?exists&&Session["userlogined"]?exists>   用户：${Session["userlogined"].name?if_exists}  </#if><#--<a href="ea_user_profile.do" target=mainFrame></a>-->
+		<#if Session?exists&&Session["userlogined"]?exists>   User：${Session["userlogined"].name?if_exists}  </#if><#--<a href="ea_user_profile.do" target=mainFrame></a>-->
 		&nbsp;&nbsp;
   	<#if Session?exists&&Session["userlogined"]?exists>
 		<#--

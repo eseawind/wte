@@ -27,7 +27,7 @@
 <link rel="stylesheet" type="text/css" href="<@context/>common/highslide-4-1-13/highslide/highslide.css" />
 <script type="text/javascript"          src="<@context/>common/highslide-4-1-13/highslide/highslide-with-html.js"></script>
 <style type="text/css">
-* {font-family:inherit,Arial,verdana,tahoma;margin:0px;padding:0px;font-size:12px;}
+* {font-family:Arial;margin:0px;padding:0px;font-size:12px;}
 <#--juqery-ui图标-->
 ul#icons li {cursor: pointer; float: left;  list-style: none;}
 ul#icons span.ui-icon {float: left; margin: 0 2px;}

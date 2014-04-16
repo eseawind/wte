@@ -19,6 +19,7 @@
 				</thead>
 				<tbody>
 				<#list rhs["oatasklist"] as item>
+					<#if item.obj?exists>
 					<tr>
 						<td>${item_index+1}</td>
 						<td>${item.obj.name}</td>
@@ -35,6 +36,7 @@
 							</a>
 						</td>
 					</tr>
+					</#if>
 				</#list>
 				</tbody>
 			</table>
@@ -49,10 +51,8 @@
 </div>
 <script>
 	function   toFull(url){
-	  document.execCommand("Refresh")
-	  if(window.name=="fullscreen")return;   
-	  var a =window.open("","fullscreen","fullscreen=1,scrollbars=yes")   
-	  a.location = url
-	  window.opener=null   
+	  if(window.name=="fullscreen")
+	  	return; 
+	  var a =window.open(url,"fullscreen","fullscreen=1,scrollbars=yes");
 	}
 </script>

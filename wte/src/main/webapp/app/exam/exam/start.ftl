@@ -6,9 +6,15 @@
 <div class="panel panel-primary" style="margin-top: 18px;">
       <div class="panel-heading"><strong>Start Exam</strong></div>
       <div class="panel-body">
+      <div id="timeshow" style="left:1px;top:1px;width:250px;height:20px;line-height:20px;text-align:center;font-size:12px;color:#000;background-color:#CCC;border:1px solid #333;"></div> 
+	<br />
       	<table class="table table-condensed table-bordered table-striped">
-      	<tr><td colspan="8"><font color="red"><strong>考试中请勿关闭浏览器，否则会导致考试失败</strong></font></td></tr>
-      	<tr><td colspan="8"><div id="timeshow" style="left:1px;top:1px;width:250px;height:20px;line-height:20px;text-align:center;font-size:12px;color:#000;background-color:#CCC;border:1px solid #333;"></div></td></tr>
+      		<tr><td colspan="8"><font color="red"><strong>
+      			1. Do NOT press WIN button and ALT button, or the exam will commit automatic! <br/>
+      			2. Do NOT CLOSE window before done the  exam, or the exam will commit automatic!
+      			</strong></font>
+      		</td>
+      		</tr>
       		<tr>
       			<td><strong><@i18n "title_name" /></strong></td>
       			<td><#if rhs["paper"]?exists > ${rhs["paper"].name}</#if></td>
@@ -33,7 +39,7 @@
 					</tr>
 				</#list>
 				<input type="hidden" value="${singleitem.id}" name="result[${i}].item.id" />
-				<input type="hidden" value="${rhs["paper"].singlechoicemark}" name="result[${i}].mark" />
+				<input type="hidden" value="<#if singleitem.mark?exists >${singleitem.mark}<#else>${rhs["paper"].singlechoicemark}</#if>" name="result[${i}].mark" />
 				<#assign i = i + 1 > 
 		  	</#list>
       	</table>
@@ -50,7 +56,7 @@
 					</tr>
 				</#list>
 				<input type="hidden" value="${multiitem.id}" name="result[${i}].item.id" />
-				<input type="hidden" value="${rhs["paper"].multichoicemark}" name="result[${i}].mark" />
+				<input type="hidden" value="<#if multiitem.mark?exists>${multiitem.mark}<#else>${rhs["paper"].multichoicemark}</#if>" name="result[${i}].mark" />
 				<#assign i = i + 1 > 
 	      	</#list>
       	</table>
@@ -63,7 +69,7 @@
 				<tr>
 					<td><input type="text"  name="result[${i}].answer"/></td>
 					<input type="hidden" value="${blankitem.id}" name="result[${i}].item.id" />
-					<input type="hidden" value="${rhs["paper"].blankmark}" name="result[${i}].mark" />
+					<input type="hidden" value="<#if blankitem.mark?exists >${blankitem.mark}<#else>${rhs["paper"].blankmark}</#if>" name="result[${i}].mark" />
 				</tr>
 				<#assign i = i + 1 > 
 	      	</#list>
@@ -77,7 +83,7 @@
 				<tr>
 					<td><textarea name="result[${i}].answer"> </textarea></td>
 					<input type="hidden" value="${essayitem.id}" name="result[${i}].item.id" />
-					<input type="hidden" value="${rhs["paper"].essaymark}" name="result[${i}].mark" />
+					<input type="hidden" value="<#if essayitem.mark?exists>${essayitem.mark}<#else>${rhs["paper"].essaymark}</#if>" name="result[${i}].mark" />
 				</tr>
 				<#assign i = i + 1 > 
 	      	</#list>
@@ -92,67 +98,8 @@
 </form>
 </body>
 <script>
-	$('#submitButton').click(function () {
-		var btn = $(this);
-		btn.button('loading');
-		document.getElementsByName("form_item")[0].submit();
-		window.close();
-	});
-	document.oncontextmenu=function(){
-    	alert('禁止鼠标右键菜单!');
-    	return false;
-	}
-	document.onkeydown=function(e){
-	    e=e||event;
-	    //alert(e.keyCode);//可查看各个按键的keyCode是多少
-		//屏蔽F5刷新键
-	    if(e.keyCode==116){
-	        alert('禁止F5刷新!');
-	        e.keyCode = 0;
-	        return false;
-	    }
-		//屏蔽esc键
-		if(e.keyCode == 27){
-			alert('禁止ESC！');
-			e.keyCode = 0;
-			 return false;
-		}
-		//屏蔽alt
-		if(e.keyCode == 18){
-			alert('禁止ALT！');
-			e.keyCode = 0;
-			return false;
-		}
-		//屏蔽F11
-		if(e.keyCode == 122){
-			//alert('禁止F11！');
-			e.keyCode = 0;
-			return false;
-		}
-		if((e.ctrlKey)&&(e.keyCode==78)){
-			alert('禁止Ctrl + N！');
-			e.keyCode = 0;
-			return false;
-		}
-	}
-	//失去焦点后的动作
-	function c(){  
-        window.close();  
-    }
-	//为窗口注册失去焦点事件  
-    window.onblur = c;
-    
-    //当关闭窗口时提示是否提交考试 
-    window.onbeforeunload = function()  {  
-        return "当前数据还没有保存，关闭、刷新或切换窗口会自动完成考试，是否继续?";       
-    }
-    
-    //窗口关闭后给出提示  
-    window.onunload = function(){
-    	document.getElementsByName("form_item")[0].submit();
-        alert("已成功提交考试！");  
-    }
-    var h=0; //设置考试时间(小时单位) 
+	var interval;
+	var h=0; //设置考试时间(小时单位) 
 	var m=1; //设置考试时间(分钟单位) 
 	var timeShowId="timeshow"; //设置时间显示层ID 
 	var TimeNum=h*60*60+parseInt(${rhs["paper"].time})*60; 
@@ -164,10 +111,93 @@
 		}else{ 
 			document.getElementsByName("form_item")[0].submit();
 		} 
-		document.getElementById(timeShowId).innerHTML="在线考试系统提示你的时间还剩"+Math.floor(TimeNum/60)+"分"+TimeNum%60+"秒"; 
-	}
+		document.getElementById(timeShowId).innerHTML="Time Remain:"+Math.floor(TimeNum/60)+":"+TimeNum%60+""; 
+} 
+	$('#submitButton').click(function () {
+		var btn = $(this);
+		btn.button('loading');
+		document.getElementsByName("form_item")[0].submit();
+		window.close();
+	});
 	$(document).ready(function(){
-     	window.opener=null;
      	ChangeTime();
 	});
+	document.oncontextmenu=function(){
+    	alert('Can not use right mouse key!');
+    	return false;
+	}
+	document.onkeydown=function(e){
+	    e=e||event;
+	    //alert(e.keyCode);//可查看各个按键的keyCode是多少
+		//屏蔽F5刷新键
+	    if(e.keyCode==116){
+	        alert('Can not use F5!');
+	        e.keyCode = 0;
+	        return false;
+	    }
+		//屏蔽esc键
+		if(e.keyCode == 27){
+			alert('Can not use ESC！');
+			e.keyCode = 0;
+			 return false;
+		}
+		//屏蔽alt
+		if(e.keyCode == 18){
+			alert('Warning: Can not use ALT！Or the exam will be commited!');
+			e.keyCode = 0;
+			document.getElementsByName("form_item")[0].submit();
+			window.close();
+			return false;
+		}
+		//屏蔽F11
+		if(e.keyCode == 122){
+			//alert('Can not use F11！');
+			e.keyCode = 0;
+			return false;
+		}
+		if((e.ctrlKey)&&(e.keyCode==78)){
+			alert('Can not use Ctrl + N！');
+			e.keyCode = 0;
+			return false;
+		}
+		if((e.ctrlKey)&&(e.keyCode==67)){
+			alert('Can not use Ctrl + C！');
+			e.keyCode = 0;
+			return false;
+		}
+		if((e.ctrlKey)&&(e.keyCode==65)){
+			alert('Can not use Ctrl + A！');
+			e.keyCode = 0;
+			return false;
+		}
+		//屏蔽win键
+		if(e.keyCode == 91){
+			alert('Can not use Win button！');
+			e.keyCode = 0;
+			document.getElementsByName("form_item")[0].submit();
+			 window.close();
+			 return false;
+		}
+	}
+    
+    //当关闭窗口时提示是否提交考试 
+    //window.onbeforeunload = function() {
+        //return "Data has not been saved，CLOSE or SWITCH windows will auto commit the exam，continue?";       
+    //}
+    
+    //窗口关闭后给出提示  
+    window.onunload = function()  {
+    	document.getElementsByName("form_item")[0].submit();
+    }
+
+	window.onfocus=function(){
+		interval=window.setInterval("clipboardData.setData('text','')",100);
+	} 
+	function d(){
+		window.clearInterval(interval);
+		//window.close();
+	}
+	//为窗口注册失去焦点事件
+    window.onblur = d;
+    
 </script>

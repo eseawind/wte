@@ -19,10 +19,11 @@
 <body> 
    		<#include "include_add_search.ftl">
 		<br><br>
-		<a style="margin-left:7px;margin-top:5px;" class="btn btn-info "  href="exam_paper_save.do?method=show"><@i18n "menu_paper_new" /></a>
-		<a style="margin-left:7px;margin-top:5px;" class="btn btn-xs btn-info "  href="exam_template_list.do"><@i18n "menu_template" /></a>
+		<a style="margin-left:7px;margin-top:15px;" class="btn btn-xs btn-primary "  href="exam_item_import_itembyxls.do"><@i18n "menu_paper_byexcel" /></a>
+		<#--<a style="margin-left:7px;margin-top:5px;" class="btn btn-xs btn-info "  href="exam_paper_save.do?method=show"><@i18n "menu_paper_new" /></a>
+		<a style="margin-left:7px;margin-top:5px;" class="btn btn-xs btn-info "  href="exam_template_list.do"><@i18n "menu_template" /></a>-->
 		
-	<div class="panel panel-primary" style="margin-top: 18px;">
+	<div class="panel panel-primary" style="margin-top: 20px;">
       <div class="panel-heading"><strong>Paper List</strong></div>
       <div class="panel-body">
 			
@@ -32,7 +33,8 @@
 	    <thead>
 			<tr>
 			    <td width=25px><strong>#</strong></td>
-				<td width=500px><strong><@i18n "title_title" /></strong></td>
+				<td width=300px><strong><@i18n "title_title" /></strong></td>
+				<td width=200px><strong><@i18n "title_createtime" /></strong></td>
 				<td width=100px><strong><@i18n "title_passmark" /></strong></td>
 				<td width=100px><strong><@i18n "title_totalmark" /></strong></td>
 				<td width=100px><strong><@i18n "title_examtime" /></strong></td>
@@ -45,6 +47,7 @@
 			 <tr>
 			    <td class=nob >${x_index+1}</td>
 				<td>${x.businessModel.name?if_exists}</td>
+				<td>2014/04/15 15:34:21</td>
 				<td>${x.businessModel.passmark?if_exists}</td>
 				<td>${x.businessModel.totalmark?if_exists}</td>
 				<td>${x.businessModel.time?if_exists} &nbsp;(Minutes)</td>

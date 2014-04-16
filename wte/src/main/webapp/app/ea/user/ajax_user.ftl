@@ -1,14 +1,14 @@
- <table   class="table table-bordered table-condensed  table-indie">
+ <table   class="table table-bordered table-condensed table-striped">
     <thead>
 		<tr>
-			<th >name</th>
-			<th  >account</th>
-			<th  >password</th>
-			<#if rhs["system_para_map"]?exists&& rhs["system_para_map"]["user-status"]?exists>
-			<th  >status</th>
+			<th >Name</th>
+			<th  >Account</th>
+			<th  >Password</th>
+			<#--<#if rhs["system_para_map"]?exists&& rhs["system_para_map"]["user-status"]?exists>
+			<th  >Status</th>
 			</#if>
-			<th  >Level</th>
-			<th  >email</th>
+			<th  >Level</th>-->
+			<th  >Email</th>
 			<#--<th  >score</th>
 			<th  >kso</th>
 			<th  >sog</th>
@@ -26,7 +26,7 @@
 			<td onmouseover="rowOver(this)" onmouseout="rowOut(this)"><input style="width:100px"  type="text"  value='${x.account?if_exists}'   onchange="javascript:action_user('update.do','column=account&id=${x.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))" /></td>
 			<td onmouseover="rowOver(this)" onmouseout="rowOut(this)"><input style="width:100px"  type="text"  value='${x.passwd?if_exists}' onchange="javascript:action_user('update.do','column=passwd&id=${x.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))"/></td>
 			
-			<#if  rhs["system_para_map"]?exists&&rhs["system_para_map"]["user-status"]?exists>
+			<#--<#if  rhs["system_para_map"]?exists&&rhs["system_para_map"]["user-status"]?exists>
 			<td onmouseover="rowOver(this)" onmouseout="rowOut(this)">
 				<select class=input  style="width:60px"   onchange="javascript:action_user('update.do','column=status&id=${x.id?if_exists}&columnValue='+this.value)">
 				    <#if x.status?exists><option value="${x.status?if_exists}">${rhs["system_para_map"]["user-status"][x.status]?if_exists}</option>
@@ -47,7 +47,7 @@
 	  				<option value="C">C</option>
 	  			<select>
 			</td>
-			
+			-->
 			<td onmouseover="rowOver(this)" onmouseout="rowOut(this)"><input  style="width:200px"   type="text"  value='${x.email?if_exists}' onchange="javascript:action_user('update.do','column=email&id=${x.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))" /></td>					
 			<#--<td onmouseover="rowOver(this)" onmouseout="rowOut(this)"><input  style="width:30px"   type="text"  value='${x.score?if_exists}' onchange="javascript:action_user('update.do','column=score&id=${x.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))" /></td>					
 			
@@ -81,10 +81,9 @@
 				<#if (rhs.currentPage < rhs.maxPage) ><a  onclick="javascript:action_user('ajax_page_data.do','pageId=${rhs.currentPage+1}')">下一页</a></#if>
 				<#if (rhs.currentPage < rhs.maxPage) ><a   onclick="javascript:action_user('ajax_page_data.do','pageId=${rhs.maxPage}')">最后页</a></#if>
 
-			第${rhs.currentPage}页&nbsp;
-			共${rhs.maxPage}页&nbsp;
-			总${rhs.count}条记录
-			显示条数<select style="WIDTH: 60px"   onchange="javascript:action_user('change_page_number.do','maxSize='+this.value)" >
+			Current:${rhs.currentPage}/${rhs.maxPage} Page,
+			${rhs.count} Records &nbsp;
+			<select style="WIDTH: 60px"   onchange="javascript:action_user('change_page_number.do','maxSize='+this.value)" >
 					    <option value="${rhs["maxSize"]}">${rhs["maxSize"]}</option>
 		  				<option value="5">5</option>
 		  				<option value="10">10</option>
