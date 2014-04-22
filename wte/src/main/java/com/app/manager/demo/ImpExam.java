@@ -115,6 +115,10 @@ public class ImpExam extends ParentDemo implements InfDemo{
 		
 		
 		//add exam information
+		Set<Knowledge> knowledges1 = new HashSet<Knowledge>();
+		Set<Knowledge> knowledges2 = new HashSet<Knowledge>();
+		Set<Knowledge> knowledges3 = new HashSet<Knowledge>();
+		Set<Knowledge> knowledges4 = new HashSet<Knowledge>();
 		//知识领域
 		Knowledge kl1 = new Knowledge();
 		kl1.setName("language");
@@ -123,15 +127,17 @@ public class ImpExam extends ParentDemo implements InfDemo{
 		Knowledge kl11 = new Knowledge();
 		kl11.setName("C");
 		kl11.setParentModel(kl1);
+		knowledges1.add(kl11);
 		
 		Knowledge kl12 = new Knowledge();
 		kl12.setName("Java");
 		kl12.setParentModel(kl1);
+		knowledges2.add(kl12);
 		
 		Knowledge kl13 = new Knowledge();
 		kl13.setName("Shell");
 		kl13.setParentModel(kl1);
-		
+		knowledges3.add(kl13);
 		
 		Knowledge kl2 = new Knowledge();
 		kl2.setName("business");
@@ -140,6 +146,7 @@ public class ImpExam extends ParentDemo implements InfDemo{
 		Knowledge kl21 = new Knowledge();
 		kl21.setName("SIM");
 		kl21.setParentModel(kl2);
+		knowledges4.add(kl21);
 		
 		Knowledge kl22 = new Knowledge();
 		kl22.setName("GPRS");
@@ -152,24 +159,28 @@ public class ImpExam extends ParentDemo implements InfDemo{
 		item1.setType(1);
 		item1.setRefkey("3");
 		item1.setMark("25");
+		item1.setKnowledge(knowledges1);
 		
 		Item item2 = new Item();
 		item2.setContent("Java test question demo 2");
 		item2.setType(1);
 		item2.setRefkey("2");
 		item2.setMark("25");
+		item2.setKnowledge(knowledges2);
 		
 		Item item3 = new Item();
 		item3.setContent("Java test question demo 3");
 		item3.setType(1);
 		item3.setRefkey("3");
 		item3.setMark("25");
+		item3.setKnowledge(knowledges3);
 		
 		Item item4 = new Item();
 		item4.setContent("Java test question demo 4");
 		item4.setType(1);
 		item4.setRefkey("1");
 		item4.setMark("25");
+		item4.setKnowledge(knowledges4);
 		
 		
 		//选项
@@ -207,6 +218,40 @@ public class ImpExam extends ParentDemo implements InfDemo{
 		choiceitem7.setItem(item2);
 		choiceitem8.setItem(item2);
 		
+		Choiceitem choiceitem9 = new Choiceitem();
+		Choiceitem choiceitem10 = new Choiceitem();
+		Choiceitem choiceitem11 = new Choiceitem();
+		Choiceitem choiceitem12 = new Choiceitem();
+		choiceitem9.setRefid(1);
+		choiceitem9.setValue("Option 1");
+		choiceitem10.setRefid(2);
+		choiceitem10.setValue("Option 2");
+		choiceitem11.setRefid(3);
+		choiceitem11.setValue("Option 3");
+		choiceitem12.setRefid(4);
+		choiceitem12.setValue("Option 4");
+		choiceitem9.setItem(item3);
+		choiceitem10.setItem(item3);
+		choiceitem11.setItem(item3);
+		choiceitem12.setItem(item3);
+		
+		Choiceitem choiceitem13 = new Choiceitem();
+		Choiceitem choiceitem14 = new Choiceitem();
+		Choiceitem choiceitem15 = new Choiceitem();
+		Choiceitem choiceitem16 = new Choiceitem();
+		choiceitem13.setRefid(1);
+		choiceitem13.setValue("Option 1");
+		choiceitem14.setRefid(2);
+		choiceitem14.setValue("Option 2");
+		choiceitem15.setRefid(3);
+		choiceitem15.setValue("Option 3");
+		choiceitem16.setRefid(4);
+		choiceitem16.setValue("Option 4");
+		choiceitem13.setItem(item4);
+		choiceitem14.setItem(item4);
+		choiceitem15.setItem(item4);
+		choiceitem16.setItem(item4);
+		
 		baseDao.create(kl1);
 		baseDao.create(kl2);
 		baseDao.create(kl11);
@@ -228,7 +273,14 @@ public class ImpExam extends ParentDemo implements InfDemo{
 		baseDao.create(choiceitem6);
 		baseDao.create(choiceitem7);
 		baseDao.create(choiceitem8);
-		
+		baseDao.create(choiceitem9);
+		baseDao.create(choiceitem10);
+		baseDao.create(choiceitem11);
+		baseDao.create(choiceitem12);
+		baseDao.create(choiceitem13);
+		baseDao.create(choiceitem14);
+		baseDao.create(choiceitem15);
+		baseDao.create(choiceitem16);
 		
 		Template template = new Template();
 		int p = 0,j = 0,k = 0,l = 0;

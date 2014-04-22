@@ -47,7 +47,7 @@
 			 <tr>
 			    <td class=nob >${x_index+1}</td>
 				<td>${x.businessModel.name?if_exists}</td>
-				<td>2014/04/15 15:34:21</td>
+				<td>${x.businessModel.createdate?if_exists}</td>
 				<td>${x.businessModel.passmark?if_exists}</td>
 				<td>${x.businessModel.totalmark?if_exists}</td>
 				<td>${x.businessModel.time?if_exists} &nbsp;(Minutes)</td>

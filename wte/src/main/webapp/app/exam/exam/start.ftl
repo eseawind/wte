@@ -117,6 +117,7 @@
 		var btn = $(this);
 		btn.button('loading');
 		document.getElementsByName("form_item")[0].submit();
+		window.opener=null;
 		window.close();
 	});
 	$(document).ready(function(){
