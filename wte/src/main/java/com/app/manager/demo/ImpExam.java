@@ -159,30 +159,35 @@ public class ImpExam extends ParentDemo implements InfDemo{
 		item1.setType(1);
 		item1.setRefkey("3");
 		item1.setMark("25");
+
 		item1.setKnowledge(knowledges1);
-		
+
 		Item item2 = new Item();
 		item2.setContent("Java test question demo 2");
 		item2.setType(1);
 		item2.setRefkey("2");
 		item2.setMark("25");
+
 		item2.setKnowledge(knowledges2);
-		
+
 		Item item3 = new Item();
 		item3.setContent("Java test question demo 3");
 		item3.setType(1);
 		item3.setRefkey("3");
 		item3.setMark("25");
+
 		item3.setKnowledge(knowledges3);
 		
+
 		Item item4 = new Item();
 		item4.setContent("Java test question demo 4");
 		item4.setType(1);
 		item4.setRefkey("1");
 		item4.setMark("25");
+
 		item4.setKnowledge(knowledges4);
 		
-		
+
 		//选项
 		Choiceitem choiceitem1 = new Choiceitem();
 		Choiceitem choiceitem2 = new Choiceitem();
