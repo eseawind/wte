@@ -2,7 +2,7 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <script type="text/javascript" src="<@context_module/>user.js"></script>
 <div  style="margin:5px">
-	&nbsp;&nbsp;&nbsp;<a class="btn btn-xs btn-primary" onclick="javascript:action_user('create.do','');action_user('ajax_page_data.do','pageId=${rhs.maxPage}');"  ><@i18n "menu_user_new" /></a>
+	&nbsp;&nbsp;&nbsp;<a style="margin-top:10px;" class="btn btn-xs btn-primary" onclick="javascript:action_user('create.do','');action_user('ajax_page_data.do','pageId=${rhs.maxPage}');"  ><@i18n "menu_user_new" /></a>
 	<#--
 	<a href="ea_ea_menu_person_deploy.do" target="_blank">&nbsp;&nbsp;人员部署</a>  
 	<a href="ea_ea_report_user_check.do?resultftl=menu_check_deploy_error" target="_blank">&nbsp;&nbsp;人员分配合理性检查</a><br>
@@ -29,6 +29,6 @@
 		 			<select>
 		 			</#if>	
     <br>		-->
-	<div id=div_user_table><#include "ajax_user.ftl"></div>
+	<div id=div_user_table style="margin-top:10px;"><#include "ajax_user.ftl"></div>
 </div>
 
