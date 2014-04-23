@@ -34,6 +34,7 @@
 		 			<select>
 		 			</#if>	
     <br>		-->
+
 	<div id=div_user_table><#include "ajax_user.ftl"></div>
 	      </div>
     </div>
