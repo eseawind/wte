@@ -17,13 +17,16 @@
 
 </script>
 <body> 
+<div style="margin:5px">
+        <#--
    		<#include "include_add_search.ftl">
-		<br><br>
-		<a style="margin-left:7px;margin-top:15px;" class="btn btn-xs btn-primary "  href="exam_item_import_itembyxls.do"><@i18n "menu_paper_byexcel" /></a>
+   		-->
+		&nbsp;&nbsp;&nbsp;
+		<a  class="btn btn-xs btn-primary "  href="exam_item_import_itembyxls.do"><@i18n "menu_paper_byexcel" /></a>
 		<#--<a style="margin-left:7px;margin-top:5px;" class="btn btn-xs btn-info "  href="exam_paper_save.do?method=show"><@i18n "menu_paper_new" /></a>
 		<a style="margin-left:7px;margin-top:5px;" class="btn btn-xs btn-info "  href="exam_template_list.do"><@i18n "menu_template" /></a>-->
 		
-	<div class="panel panel-primary" style="margin-top: 20px;">
+	<div class="panel panel-primary" >
       <div class="panel-heading"><strong>Paper List</strong></div>
       <div class="panel-body">
 			
@@ -66,5 +69,5 @@
       </div>
     </div>
 		
-		
+</div>	
 </body>

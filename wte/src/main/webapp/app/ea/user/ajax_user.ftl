@@ -12,9 +12,9 @@
 			<#--<th  >score</th>
 			<th  >kso</th>
 			<th  >sog</th>
-
+-->
 	
-			<th ></th>-->
+			<th ></th>
 			
 		</tr>
 	</thead>
@@ -54,23 +54,22 @@
 			<td onmouseover="rowOver(this)" onmouseout="rowOut(this)"><input  style="width:30px"   type="text"  value='${x.sognumber?if_exists}' onchange="javascript:action_user('update.do','column=sognumber&id=${x.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))" /></td>					
 			<td onmouseover="rowOver(this)" onmouseout="rowOut(this)"><input  style="width:30px"   type="text"  value='${x.ksonumber?if_exists}' onchange="javascript:action_user('update.do','column=ksonumber&id=${x.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))" /></td>					
 			
-			
+			-->
 			<td >
+			
 			<span style="width:220px">
-		<a href="ea_user_profile.do?id=${x.id?if_exists}" target=mainFrame>edit</a>
-			     <a target="mainFrame" href='common_edit_edit_bean_property.do?objectname=User&op=r&propertyname=mark&id=${x.id?if_exists}' onclick="return hs.htmlExpand(this, { objectType: 'iframe' })">mark</a>&nbsp;&nbsp;
-	   <a  href="common_notify_send_email.do?userId=${x.id?if_exists}" onclick="return hs.htmlExpand(this, { objectType: 'iframe' })">email</a>&nbsp;&nbsp;
-				
-	   
-	    
+		<#--
+			<a href="ea_user_profile.do?id=${x.id?if_exists}" target=mainFrame>edit</a>
+				     <a target="mainFrame" href='common_edit_edit_bean_property.do?objectname=User&op=r&propertyname=mark&id=${x.id?if_exists}' onclick="return hs.htmlExpand(this, { objectType: 'iframe' })">mark</a>&nbsp;&nbsp;
+		   <a  href="common_notify_send_email.do?userId=${x.id?if_exists}" onclick="return hs.htmlExpand(this, { objectType: 'iframe' })">email</a>&nbsp;&nbsp;
 				<a  href="common_file_image_upload.do?id=${x.id?if_exists}&beanname=User&op=r&propertyfilepath=imgfilename" onclick="return hs.htmlExpand(this, { objectType: 'iframe' })">照片</a>&nbsp;&nbsp;
 					
 				<a  href="ea_ea_iframe_get_rolelist_of_user.do?id=${x.id?if_exists}" onclick="return hs.htmlExpand(this, { objectType: 'iframe' })">职位</a>&nbsp;&nbsp;
-				
+			-->	
 				<a  title="删除" onclick="javascript:action_user('delete.do','id=${x.id}');"  title=删除 >删除</a>
 			</span>
 			
-			</td>-->
+			</td>
 		</tr>
 	</#list> 
 	</tbody>

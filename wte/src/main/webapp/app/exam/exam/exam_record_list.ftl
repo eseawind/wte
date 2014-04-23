@@ -42,5 +42,6 @@
 			</form>
 			<#include "../../../common/freemarker/macro_pagination.ftl">
 			<@pagination  "search_form" />
+			
   </div>
 </div>
