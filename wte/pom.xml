@@ -39,6 +39,10 @@
 			<artifactId>ea-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>			
-		
+		<dependency>			
+		     <groupId>ea</groupId>			
+		     <artifactId>ea-template</artifactId>			
+		     <version>${project.version}</version>	
+		     </dependency>				
 	</dependencies>
 	</project>
