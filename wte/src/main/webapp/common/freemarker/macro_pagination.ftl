@@ -9,7 +9,7 @@ function page_list_commit(pageNo){
 
 <p align=right>
 	<#-- ${rhs.count} -->
-	
+	 <#if (rhs.maxPage> 1)>
 	    <#if (rhs.currentPage > 1)><a onclick="javascript:page_list_commit(${rhs.currentPage-1})" href="#">«</a></#if><#-- 上一页 -->
 	    page
 	    <#if (rhs.currentPage > 1)><a onclick="javascript:page_list_commit(1)" href="#"> 1</a></#if><#-- 第一页 -->
@@ -17,7 +17,7 @@ function page_list_commit(pageNo){
 	    <#if (rhs.currentPage < rhs.maxPage)><a onclick="javascript:page_list_commit(${rhs.maxPage})" href="#">${rhs.maxPage}</a></#if><#-- 最后一页 -->
 	    <#if (rhs.currentPage < rhs.maxPage)><a onclick="javascript:page_list_commit(${rhs.currentPage+1})" href="#">»</a></#if><#-- 下一页  -->
 	   
-	    <#if (rhs.maxPage> 2)>
+	   
 		<select style="WIDTH: 60px"  id=changeMaxSize onchange="javascript:page_list_commit(1)" >
 		    <option value="${rhs.maxSize}">${rhs.maxSize}</option>
 			<option value="5">5</option>
@@ -26,6 +26,6 @@ function page_list_commit(pageNo){
 			<option value="50">50</option>
 			<option value="200">200</option>
 		<select>
-        </#if>
+    </#if>
 </P>
 </#macro>

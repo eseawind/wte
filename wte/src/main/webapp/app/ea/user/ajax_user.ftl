@@ -74,7 +74,8 @@
 	</#list> 
 	</tbody>
 </table>     
-	<p class="pull-right">
+ <#if (rhs.maxPage> 1)>
+	<p align=right>
 				<#if (rhs.currentPage > 1) ><a onclick="javascript:action_user('ajax_page_data.do','pageId=1')">第一页</a></#if>
 				<#if (rhs.currentPage > 1) ><a   onclick="javascript:action_user('ajax_page_data.do','pageId=${rhs.currentPage-1}')">上一页</a></#if>
 				<#if (rhs.currentPage < rhs.maxPage) ><a  onclick="javascript:action_user('ajax_page_data.do','pageId=${rhs.currentPage+1}')">下一页</a></#if>
@@ -91,6 +92,6 @@
 		  				<option value="200">200</option>
 		  				<option value="1000">1000</option>
 		 			<select>		
-
 	</p>
+</#if>
 <span id="div_action_result" style="display:none">${rhs["info"]?if_exists}</span>   
