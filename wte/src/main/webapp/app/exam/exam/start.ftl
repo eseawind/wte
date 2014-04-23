@@ -200,5 +200,4 @@
 	}
 	//为窗口注册失去焦点事件
     window.onblur = d;
-    
 </script>
