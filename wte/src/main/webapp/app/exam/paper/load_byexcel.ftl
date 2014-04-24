@@ -13,9 +13,10 @@
 						<tr>
 							<td> <@i18n "title_name" /> </td>
 							<td style="width:300px;" colspan="2"> <input type="text" <#if rhs.readonly>disabled</#if> name="paper.name" value="<#if rhs["paper"]?exists >${rhs["paper"].name?if_exists}</#if>" style="width:300px;"/></td>
-							<td><@i18n "title_knowledge" /></td>
+							<td><@i18n "title_createtime" /></td>
 							<td>
-								<#list rhs["knowledgeRootList"] as knowledge>
+								<input type="text" disabled  value="<#if rhs["paper"]?exists >${rhs["paper"].createdate?if_exists}</#if>"/>
+								<#--<#list rhs["knowledgeRootList"] as knowledge>
 									<#if knowledge.getChildKnowledges()?exists >
 										<#list knowledge.getChildKnowledges() as knowledgenode>
 											<input type="checkbox"  <#if rhs.readonly>disabled</#if> name="knowledgevalue" value="${knowledgenode.id}" 
@@ -27,7 +28,8 @@
 											/>&nbsp;&nbsp;${knowledgenode.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										</#list>
 									</#if>
-								</#list>
+								</#list>-->
+								
 							</td>
 						</tr>
 						<tr>

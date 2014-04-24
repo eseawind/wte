@@ -6,17 +6,22 @@
 		<div class="panel-body">
 			<table class="table table-condensed table-bordered table-striped">
 				<tr>
-					<td colspan="2">
-						1. The paper template as below:
+					<td colspan="2" style="color:red">
+						<strong>1. The paper template as below:</strong>
 					</td>
-				</tr>
-				<tr>
-					<td colspan="2"><img src="<@context/>common/images/uploadtemplate.jpg" alt="Upload file template" /></td>
 				</tr>
 				<tr>
 					<td colspan="2">
 					Please upload excel template file.
-					<input type="File"  name="file" /> <input type="button" class="btn btn-xs btn-info" value="Save" id="submitButton"/>					
+					<input type="File"  name="file" /> 
+					<hr/>
+					<img src="<@context/>common/images/uploadtemplate.jpg" alt="Upload file template" />
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						<input type="button" class="btn btn-xs btn-info" value="Save" id="submitButton"/>	
 					</td>
 				</tr>
 			</table>
