@@ -31,9 +31,9 @@
 						</tr>
 						<tr>
 							<td><@i18n "title_single_rmd" /></td>
-							<td><input type="text" name="template.rmdsinglechoice" value="<#if rhs["template"]?exists >${rhs["template"].rmdsinglechoice?if_exists}</#if>" id="rmdsinglechoice" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td><input type="text" name="template.rmdsinglechoice" value="<#if rhs["template"]?exists >${rhs["template"].rmdsinglechoice?if_exists}</#if>" id="rmdsinglechoice" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
 							<td><@i18n "title_multi_rmd" /></td>
-							<td><input type="text" name="template.rmdmultichoice" value="<#if rhs["template"]?exists >${rhs["template"].rmdmultichoice?if_exists}</#if>" id="rmdmultichoice" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td><input type="text" name="template.rmdmultichoice" value="<#if rhs["template"]?exists >${rhs["template"].rmdmultichoice?if_exists}</#if>" id="rmdmultichoice" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
 						</tr>
 						<#if rhs["template"]?exists >
 						<tr>
@@ -67,9 +67,9 @@
 						</#if>
 						<tr>
 							<td><@i18n "title_blank_rmd" /></td>
-							<td><input type="text" name="template.rmdblank" value="<#if rhs["template"]?exists >${rhs["template"].rmdblank?if_exists}</#if>" id="trmdblank" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td><input type="text" name="template.rmdblank" value="<#if rhs["template"]?exists >${rhs["template"].rmdblank?if_exists}</#if>" id="trmdblank" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
 							<td><@i18n "title_essay_rmd" /></td>
-							<td><input type="text" name="template.rmdessay" value="<#if rhs["template"]?exists >${rhs["template"].rmdessay?if_exists}</#if>" id="rmdessay" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td><input type="text" name="template.rmdessay" value="<#if rhs["template"]?exists >${rhs["template"].rmdessay?if_exists}</#if>" id="rmdessay" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
 						</tr>
 						<#if rhs["template"]?exists >
 						<tr>

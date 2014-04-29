@@ -1,5 +1,6 @@
 <#include "../../../common/freemarker/include_header.ftl">
-<#include "../../../common/freemarker/include_select_users.ftl">
+<#include "include_select_users.ftl">
+<script type="text/javascript" src="<@context_module/>assign.js"></script>
 
 <form name="form_item" action="exam_exam_complete_task.do" method="post">
 <input type="hidden" value="<#if rhs.method?exists >${rhs["method"]}</#if>" name="method"/>

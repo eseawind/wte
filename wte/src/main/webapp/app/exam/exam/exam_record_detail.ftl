@@ -20,7 +20,7 @@
 		  	<strong><@i18n "title_single" /></strong>(total:${rhs["template"].singlechoice + rhs["template"].rmdsinglechoice}, each: ${rhs["paper"].singlechoicemark})
 		  	<#list rhs["singleitems"]?sort_by("id") as singleitem>
 				<tr>
-					<td><strong>${singleitem_index+1}.&nbsp;${singleitem.item.content}</strong> <div class="pull-right"><@i18n "title_score" />：<input disabled type="text" name="singlechoicemark" value="${singleitem.mark}" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></div></td>
+					<td><strong>${singleitem_index+1}.&nbsp;${singleitem.item.content}</strong> <div class="pull-right"><@i18n "title_score" />：<input disabled type="text" name="singlechoicemark" value="${singleitem.mark}" /></div></td>
 				<tr>
 				<#list singleitem.item.choiceitem?sort_by("id") as choiceitem>
 					<tr>
@@ -35,7 +35,7 @@
 	      	<strong><@i18n "title_multi" /></strong>(total:${rhs["template"].multichoice + rhs["template"].rmdmultichoice}, each: ${rhs["paper"].multichoicemark})
 	      	<#list rhs["multiitems"]?sort_by("id") as multiitem>
 	      		<tr>
-					<td><strong>${multiitem_index+1}.&nbsp;${multiitem.item.content}</strong> <div class="pull-right"><@i18n "title_score" />：<input disabled type="text" name="multichoicemark" value="${multiitem.mark}" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></div></td>
+					<td><strong>${multiitem_index+1}.&nbsp;${multiitem.item.content}</strong> <div class="pull-right"><@i18n "title_score" />：<input disabled type="text" name="multichoicemark" value="${multiitem.mark}" /></div></td>
 				<tr>
 				<#list multiitem.item.choiceitem?sort_by("id") as choiceitem>
 					<tr>
@@ -49,7 +49,7 @@
 	      	<strong><@i18n "title_blank" /></strong>(total:${rhs["template"].blank + rhs["template"].rmdblank}, each: ${rhs["paper"].blankmark})
 	      	<#list rhs["blankitems"]?sort_by("id") as blankitem>
 	      		<tr>
-					<td><strong>${blankitem_index+1}.&nbsp;${blankitem.item.content}</strong> <div class="pull-right"><@i18n "title_score" />：<input disabled type="text" name="blankmark" value="${blankitem.mark}" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></div></td>
+					<td><strong>${blankitem_index+1}.&nbsp;${blankitem.item.content}</strong> <div class="pull-right"><@i18n "title_score" />：<input disabled type="text" name="blankmark" value="${blankitem.mark}" /></div></td>
 				<tr>
 				<tr>
 					<td><input disabled type="text" value="${blankitem.answer}" name=""/> <@i18n "title_refkey" />: <font color=red>${blankitem.item.refkey}</font></td>
@@ -61,7 +61,7 @@
 	      	<strong><@i18n "title_essay" /></strong>(total:${rhs["template"].essay + rhs["template"].rmdessay}, each: ${rhs["paper"].essaymark})
 	      	<#list rhs["essayitems"]?sort_by("id") as essayitem>
 	      		<tr>
-					<td><strong>${essayitem_index+1}.&nbsp;${essayitem.item.content}</strong> <div class="pull-right"><@i18n "title_score" />：<input disabled type="text" name="essaymark" value="${essayitem.mark}" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></div></td>
+					<td><strong>${essayitem_index+1}.&nbsp;${essayitem.item.content}</strong> <div class="pull-right"><@i18n "title_score" />：<input disabled type="text" name="essaymark" value="${essayitem.mark}" /></div></td>
 				<tr>
 				<tr>
 					<td><textarea disabled name="">${essayitem.answer}</textarea> <@i18n "title_refkey" />：<font color=red>${essayitem.item.refkey}</font></td>
