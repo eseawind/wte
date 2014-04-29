@@ -36,7 +36,7 @@
 					<tr>
 						<td><@i18n "title_mark" /></td>
 						<td>
-							<input class='input' type='text' value='' name='item.mark' onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}" />
+							<input class='input' type='text' value='' name='item.mark' onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" />
 						</td>
 					</tr>
 					<tr>
