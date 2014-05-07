@@ -12,7 +12,7 @@
       }
 
       .form-signin {
-        max-width: 300px;
+        max-width: 400px;
         padding: 19px 29px 29px;
         margin: 0 auto 20px;
         background-color: #fff;
@@ -25,7 +25,7 @@
         font-size: 16px;
         height: auto;
         margin-bottom: 15px;
-        padding: 7px 9px;
+        padding: 10px 9px;
       }
 
     </style>
@@ -61,19 +61,38 @@
 
        
         <hr>
-        <input type="hidden" class="text" name=sysName value="oa">
-        <input type="text" placeholder="" class="input-block-level" placeholder="Account" name=account value= >
-        <input type="password" class="input-block-level" placeholder="Password" name=password value=abc123 >
+        <table>
+        <tr >
+        	<td rowspan="2" style="width:130px;height:130px;">
+        		<img src="common/images/login_1.jpg" style="width:100px;height:100px;" />
+        	</td>
+        	<td>
+        		<input type="text" placeholder="" class="input-block-level" placeholder="Account" name=account value= >
+        	</td>
+        </tr>
+        <tr>
+        	<td>
+        		<input type="password" class="input-block-level" placeholder="Password" name=password value=abc123 >
+		        <input type="hidden" class="text" name=sysName value="oa">
+        	</td>
+        </tr>
+        
+
+        
         <!--
         <label class="checkbox">
           <input type="checkbox" value="remember-me"> Remember me
         </label>
         -->
-        <br>
         
-      
-        <button class="btn btn-lg  btn-primary" type="submit"> <@i18n "submit" /></button>
-        <#if rhs?exists>${rhs["tipInfo"]?if_exists}</#if>
+      	<tr>
+      		<td style="width:100px;"></td>
+      		<td>
+        		<#if rhs?exists>${rhs["tipInfo"]?if_exists}</#if>
+        		<button class="btn btn-lg  btn-primary pull-right" type="submit"> <@i18n "submit" /></button>
+        	</td>
+        </tr>
+        </table>
       </form>
     </div> <!-- /container -->
 
