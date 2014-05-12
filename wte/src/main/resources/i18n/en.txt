@@ -67,3 +67,4 @@ title_score            =Score
 title_candidate        =Choose Candidate
 title_judge            =Choose Judge
 title_mark             =Mark
+title_time             =Date
