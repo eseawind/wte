@@ -66,22 +66,22 @@
 					<td ><strong><@i18n "title_totalmark" /></strong></td>-->
 					<td ><strong><@i18n "title_passmark" /></strong></td>
 					<td ><strong><@i18n "title_result" /></strong></td>
-					<td></td>
+					<td><strong><@i18n "title_time" /></strong></td>
 					<#--<td ><strong><@i18n "title_result" /></strong></td>-->
 					<#--<td ><strong><@i18n "title_remark" /></strong></td>-->
 				</tr>
 				<#assign index=1 />
 				<#list rhs["datalist"]?keys as papername>
-					<#assign i=1>
-					<#list rhs["datalist"][papername] as record>
+					<#assign index=1>
+					<#list (rhs["datalist"][papername]?sort_by("id"))?reverse as record>
 					<tr>
 						<td>${index}</td>
 						<td>${papername} </td><#--onclick="javascript:showresult(${rhs["datalist"][papername][0].paper.id});"-->
 						<td>${rhs["datalist"][papername][0].paper.passmark}</td>
 						<td>${record.singlechoicemark?number + record.multichoicemark?number + record.blankmark?number + record.essaymark?number}</td>
-						<td><#if rhs["export"]><div class="pull-right"><a href="exam_exam_export_record.do?paperId=${rhs["datalist"][papername][0].paper.id}" class="btn btn-xs btn-primary" >Export to Excel</a></div></#if></td>
+						<td>${record.recordtime?if_exists}</td><#--<#if rhs["export"]><div class="pull-right"><a href="exam_exam_export_record.do?paperId=${rhs["datalist"][papername][0].paper.id}" class="btn btn-xs btn-primary" >Export to Excel</a></div></#if>-->
 					</tr>
-					<#assign i = i + 1 />
+					<#assign index = index + 1 />
 					</#list>
 				</#list>
 			</table>

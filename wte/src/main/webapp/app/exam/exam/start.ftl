@@ -43,7 +43,7 @@
 				<#assign i = i + 1 > 
 		  	</#list>
       	</table>
-      	
+      	<#if (rhs["multiitems"] > 0) >
       	<table class="table table-condensed table-bordered table-striped">
 	      	<strong><@i18n "title_multi" /></strong>(total:${rhs["template"].multichoice + rhs["template"].rmdmultichoice})
 	      	<#list rhs["multiitems"]?sort_by("id") as multiitem>
@@ -60,6 +60,8 @@
 				<#assign i = i + 1 > 
 	      	</#list>
       	</table>
+      	</#if>
+      	<#if (rhs["blankitems"]?size > 0 )>
       	<table class="table table-condensed table-bordered table-striped">
 	      	<strong><@i18n "title_blank" /></strong>(total:${rhs["template"].blank + rhs["template"].rmdblank})
 	      	<#list rhs["blankitems"]?sort_by("id") as blankitem>
@@ -74,6 +76,8 @@
 				<#assign i = i + 1 > 
 	      	</#list>
       	</table>
+      	</#if>
+      	<#if (rhs["essayitems"]?size > 0) >
       	<table class="table table-condensed table-bordered table-striped">
 	      	<strong><@i18n "title_essay" /></strong>(total:${rhs["template"].essay + rhs["template"].rmdessay})
 	      	<#list rhs["essayitems"]?sort_by("id") as essayitem>
@@ -88,6 +92,7 @@
 				<#assign i = i + 1 > 
 	      	</#list>
 	    </table>
+	    </#if>
 	    <table class="table table-condensed table-bordered table-striped">
 	    	<tr>
       			<td><input type="button" class="btn btn-xs btn-info" value="Save" id="submitButton"/></td>
@@ -118,7 +123,8 @@
 		var btn = $(this);
 		btn.button('loading');
 		document.getElementsByName("form_item")[0].submit();
-		window.opener=null;
+		//window.opener=null;
+		opener.location.reload();
 		window.close();
 	});
 	$(document).ready(function(){
