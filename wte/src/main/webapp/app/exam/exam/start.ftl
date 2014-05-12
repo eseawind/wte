@@ -98,6 +98,7 @@
 </form>
 </body>
 <script>
+	var warn=0;
 	var interval;
 	var h=0; //设置考试时间(小时单位) 
 	var m=1; //设置考试时间(分钟单位) 
@@ -146,8 +147,11 @@
 		if(e.keyCode == 18){
 			alert('Warning: Can not use ALT！Or the exam will be commited!');
 			e.keyCode = 0;
-			document.getElementsByName("form_item")[0].submit();
-			window.close();
+			if(warn > 1){
+				document.getElementsByName("form_item")[0].submit();
+				window.close();
+			}
+			warn=warn+1;
 			return false;
 		}
 		//屏蔽F11
