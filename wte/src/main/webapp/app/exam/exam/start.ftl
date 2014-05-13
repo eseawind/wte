@@ -43,7 +43,7 @@
 				<#assign i = i + 1 > 
 		  	</#list>
       	</table>
-      	<#if (rhs["multiitems"] > 0) >
+      	<#if (rhs["multiitems"]?size > 0) >
       	<table class="table table-condensed table-bordered table-striped">
 	      	<strong><@i18n "title_multi" /></strong>(total:${rhs["template"].multichoice + rhs["template"].rmdmultichoice})
 	      	<#list rhs["multiitems"]?sort_by("id") as multiitem>
