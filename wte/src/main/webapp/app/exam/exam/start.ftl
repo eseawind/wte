@@ -28,10 +28,10 @@
       	</table>
       	<#assign i = 0 >
   		<table class="table table-condensed table-bordered table-striped">
-		  	<strong><@i18n "title_single" /></strong>(total:${rhs["template"].singlechoice + rhs["template"].rmdsinglechoice})
+		  	<strong><@i18n "title_single" /></strong>(total:${rhs["paper"].singlechoice + rhs["paper"].rmdsinglechoice}, each: ${rhs["paper"].singlechoicemark})
 		  	<#list rhs["singleitems"]?sort_by("id") as singleitem>
 				<tr>
-					<td><strong>${singleitem_index+1}.&nbsp;${singleitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if singleitem.mark?exists&&singleitem.mark!="">${singleitem.mark}<#else>${rhs["paper"].singlechoicemark}</#if></div></td>
+					<td><strong>${singleitem_index+1}.&nbsp;${singleitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if singleitem.mark?exists&&singleitem.mark!="0">${singleitem.mark}<#else>${rhs["paper"].singlechoicemark}</#if></div></td>
 				<tr>
 				<#list singleitem.choiceitem?sort_by("id") as choiceitem>
 					<tr>
@@ -43,12 +43,12 @@
 				<#assign i = i + 1 > 
 		  	</#list>
       	</table>
-      	<#if (rhs["multiitems"] > 0) >
+      	<#if (rhs["multiitems"]?size > 0) >
       	<table class="table table-condensed table-bordered table-striped">
-	      	<strong><@i18n "title_multi" /></strong>(total:${rhs["template"].multichoice + rhs["template"].rmdmultichoice})
+	      	<strong><@i18n "title_multi" /></strong>(total:${rhs["paper"].multichoice + rhs["paper"].rmdmultichoice}, each: ${rhs["paper"].multichoicemark})
 	      	<#list rhs["multiitems"]?sort_by("id") as multiitem>
 	      		<tr>
-					<td><strong>${multiitem_index+1}.&nbsp;${multiitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if multiitem.mark?exists&&multiitem.mark!="">${multiitem.mark}<#else>${rhs["paper"].multichoicemark}</#if></div></td>
+					<td><strong>${multiitem_index+1}.&nbsp;${multiitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if multiitem.mark?exists&&multiitem.mark!="0">${multiitem.mark}<#else>${rhs["paper"].multichoicemark}</#if></div></td>
 				<tr>
 				<#list multiitem.choiceitem?sort_by("id") as choiceitem>
 					<tr>
@@ -63,10 +63,10 @@
       	</#if>
       	<#if (rhs["blankitems"]?size > 0 )>
       	<table class="table table-condensed table-bordered table-striped">
-	      	<strong><@i18n "title_blank" /></strong>(total:${rhs["template"].blank + rhs["template"].rmdblank})
+	      	<strong><@i18n "title_blank" /></strong>(total:${rhs["paper"].blank + rhs["paper"].rmdblank}, each: ${rhs["paper"].blankmark})
 	      	<#list rhs["blankitems"]?sort_by("id") as blankitem>
 	      		<tr>
-					<td><strong>${blankitem_index+1}.&nbsp;${blankitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if blankitem.mark?exists&&blankitem.mark!="">${blankitem.mark}<#else>${rhs["paper"].blankmark}</#if></div></td>
+					<td><strong>${blankitem_index+1}.&nbsp;${blankitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if blankitem.mark?exists&&blankitem.mark!="0">${blankitem.mark}<#else>${rhs["paper"].blankmark}</#if></div></td>
 				<tr>
 				<tr>
 					<td><input type="text"  name="result[${i}].answer"/></td>
@@ -79,10 +79,10 @@
       	</#if>
       	<#if (rhs["essayitems"]?size > 0) >
       	<table class="table table-condensed table-bordered table-striped">
-	      	<strong><@i18n "title_essay" /></strong>(total:${rhs["template"].essay + rhs["template"].rmdessay})
+	      	<strong><@i18n "title_essay" /></strong>(total:${rhs["paper"].essay + rhs["paper"].rmdessay}, each: ${rhs["paper"].essaymark})
 	      	<#list rhs["essayitems"]?sort_by("id") as essayitem>
 	      		<tr>
-					<td><strong>${essayitem_index+1}.&nbsp;${essayitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if essayitem.mark?exists&&essayitem.mark!="">${essayitem.mark}<#else>${rhs["paper"].essaymark}</#if></div></td>
+					<td><strong>${essayitem_index+1}.&nbsp;${essayitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if essayitem.mark?exists&&essayitem.mark!="0">${essayitem.mark}<#else>${rhs["paper"].essaymark}</#if></div></td>
 				<tr>
 				<tr>
 					<td><textarea name="result[${i}].answer"> </textarea></td>
@@ -118,15 +118,18 @@
 			document.getElementsByName("form_item")[0].submit();
 		} 
 		document.getElementById(timeShowId).innerHTML="Time Remain:"+Math.floor(TimeNum/60)+":"+TimeNum%60+""; 
-} 
+	} 
 	$('#submitButton').click(function () {
 		var btn = $(this);
 		btn.button('loading');
 		document.getElementsByName("form_item")[0].submit();
-		//window.opener=null;
-		opener.location.reload();
-		window.close();
+		setTimeout("refresh()",100);
 	});
+	function refresh(){
+		window.opener.location.href = 'exam_exam_exam_complete.do';
+		window.close();
+		//alert("refresh");
+	}
 	$(document).ready(function(){
      	ChangeTime();
 	});
@@ -199,6 +202,7 @@
     //窗口关闭后给出提示  
     window.onunload = function()  {
     	document.getElementsByName("form_item")[0].submit();
+    	refresh();
     }
 
 	window.onfocus=function(){

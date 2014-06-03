@@ -2,7 +2,7 @@
 			<form name="form_item" action="exam_item_save.do" metiod="post">
 				<div class="panel panel-primary">
 				    <div class="panel-heading">
-				    	<@i18n "menu_item_new" />
+				    	<@i18n "menu_item_new" /> <a style="margin-left:10px;color:#FFFFFF" href="exam_item_add_psychological_item.do"><@i18n "menu_psychological_add" /></a>
 				    </div>
 					<div class="panel-body">
 				 <table class="table table-condensed table-bordered table-striped">
@@ -33,12 +33,12 @@
 							</#list>
 						</td>
 					</tr>
-					<tr>
+					<#--<tr>
 						<td><@i18n "title_mark" /></td>
 						<td>
-							<input class='input' type='text' value='' name='item.mark' onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" />
+							<input class='input' type='text' value='' name='item.mark' onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/>
 						</td>
-					</tr>
+					</tr>-->
 					<tr>
 						<td colspan="2" >
 						    <input type="button" class="btn btn-xs btn-info" value="Save" id="submitButton"/>

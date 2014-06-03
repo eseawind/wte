@@ -20,7 +20,7 @@
 				<#list rhs["datalist"]?keys as papername>
 					<tr>
 						<td>${index}</td>
-						<td onclick="javascript:showresult(${rhs["datalist"][papername][0].paper.id});">${papername} </td>
+						<td >${papername} <button onclick="javascript:showresult(${rhs["datalist"][papername][0].paper.id});" class="btn btn-xs btn-primary pull-right" name="detail">Detail</button></td>
 						<td>${rhs["datalist"][papername][0].paper.totalmark}</td>
 						<td>${rhs["datalist"][papername][0].paper.passmark}</td>
 						<td><#if rhs["export"]><div class="pull-right"><a href="exam_exam_export_record.do?paperId=${rhs["datalist"][papername][0].paper.id}" class="btn btn-xs btn-primary" >Export to Excel</a></div></#if></td>
@@ -45,7 +45,7 @@
 										<#--<td>${record.paper.totalmark}</td>-->
 										<#--<td>${record.paper.passmark}</td>-->
 										<td>${record.singlechoicemark?number + record.multichoicemark?number + record.blankmark?number + record.essaymark?number}</td>
-										<td>${record.recordtime?if_exists}</td>
+										<td>${record.recorddate?if_exists}</td>
 										<td></td>
 										<#--<td >${record.remark?if_exists}</td>-->
 									</tr>
