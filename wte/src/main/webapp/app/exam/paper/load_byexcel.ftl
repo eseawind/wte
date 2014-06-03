@@ -13,10 +13,9 @@
 						<tr>
 							<td> <@i18n "title_name" /> </td>
 							<td style="width:300px;" colspan="2"> <input type="text" <#if rhs.readonly>disabled</#if> name="paper.name" value="<#if rhs["paper"]?exists >${rhs["paper"].name?if_exists}</#if>" style="width:300px;"/></td>
-							<td><@i18n "title_createtime" /></td>
+							<td><@i18n "title_knowledge" /></td>
 							<td>
-								<input type="text" disabled  value="<#if rhs["paper"]?exists >${rhs["paper"].createdate?if_exists}</#if>"/>
-								<#--<#list rhs["knowledgeRootList"] as knowledge>
+								<#list rhs["knowledgeRootList"] as knowledge>
 									<#if knowledge.getChildKnowledges()?exists >
 										<#list knowledge.getChildKnowledges() as knowledgenode>
 											<input type="checkbox"  <#if rhs.readonly>disabled</#if> name="knowledgevalue" value="${knowledgenode.id}" 
@@ -28,49 +27,39 @@
 											/>&nbsp;&nbsp;${knowledgenode.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										</#list>
 									</#if>
-								</#list>-->
-								
+								</#list>
 							</td>
 						</tr>
 						<tr>
 							<td><@i18n "title_single" /></td>
-							<td colspan="2"><input type="text" disabled name="paper.template.singlechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].template.singlechoice}</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
-							<#--<td><@i18n "title_rmd" />:<input type="text" disabled name="paper.template.rmdsinglechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].template.rmdsinglechoice}</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>-->
-							<td><@i18n "title_totalmark" /></td>
-							<td><input type="text" disabled  value="<#if rhs["paper"]?exists >${rhs["paper"].totalmark?if_exists}</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
-							<input type="hidden" value="<#if rhs["paper"]?exists >${rhs["paper"].totalmark?if_exists}</#if>" name="paper.totalmark" />
-						</tr>
-						<#--<tr>
+							<td colspan="2"><@i18n "title_req" />:<input type="text" readonly name="paper.singlechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].singlechoice}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
 							<td><@i18n "title_multi" /></td>
-							<td><@i18n "title_req" />:<input type="text" disabled name="paper.template.multichoice" value="<#if rhs["paper"]?exists >${rhs["paper"].template.multichoice}</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
-							<td><@i18n "title_rmd" />:<input type="text" disabled name="paper.template.rmdmultichoice" value="<#if rhs["paper"]?exists >${rhs["paper"].template.rmdmultichoice}</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
-							<td><@i18n "title_multi_mark" /></td>
-							<td><input type="text" <#if rhs.readonly>disabled</#if> name="paper.multichoicemark" value="<#if rhs["paper"]?exists >${rhs["paper"].multichoicemark?if_exists}</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
+							<td colspan="2"><@i18n "title_req" />:<input type="text" readonly name="paper.multichoice" value="<#if rhs["paper"]?exists >${rhs["paper"].multichoice}</#if>" /></td>
 						</tr>
 						<tr>
 							<td><@i18n "title_blank" /></td>
-							<td><@i18n "title_req" />:<input type="text" disabled name="paper.template.blank" value="<#if rhs["paper"]?exists >${rhs["paper"].template.blank}</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
-							<td><@i18n "title_rmd" />:<input type="text" disabled name="paper.template.rmdblank" value="<#if rhs["paper"]?exists >${rhs["paper"].template.rmdblank}</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
-							<td><@i18n "title_blank_mark" /></td>
-							<td><input type="text" <#if rhs.readonly>disabled</#if> name="paper.blankmark" value="<#if rhs["paper"]?exists >${rhs["paper"].blankmark?if_exists}</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
+							<td colspan="2"><@i18n "title_req" />:<input type="text" readonly name="paper.blank" value="<#if rhs["paper"]?exists >${rhs["paper"].blank}</#if>" /></td>
+							<td><@i18n "title_essay" /></td>
+							<td colspan="2"><@i18n "title_req" />:<input type="text" readonly name="paper.essay" value="<#if rhs["paper"]?exists >${rhs["paper"].essay}</#if>" /></td>
 						</tr>
 						<tr>
-							<td><@i18n "title_essay" /></td>
-							<td><@i18n "title_req" />:<input type="text" disabled name="paper.template.essay" value="<#if rhs["paper"]?exists >${rhs["paper"].template.essay}</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
-							<td><@i18n "title_rmd" />:<input type="text" disabled name="paper.template.rmdessay" value="<#if rhs["paper"]?exists >${rhs["paper"].template.rmdessay}</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
-							<td><@i18n "title_essay_mark" /></td>
-							<td><input type="text" <#if rhs.readonly>disabled</#if> name="paper.essaymark" value="<#if rhs["paper"]?exists >${rhs["paper"].essaymark?if_exists}</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
-						</tr>-->
-						<tr>
 							<td><@i18n "title_examtime" />(minutes)</td>
-							<td colspan="2"><input type="text" <#if rhs.readonly>disabled</#if> name="paper.time" value="<#if rhs["paper"]?exists >${rhs["paper"].time}</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></td>
-							<td> <@i18n "title_template" /></td>
-							<td> <input type="text" disabled name="paper.template.title" value="<#if rhs["paper"]?exists >${rhs["paper"].template.title}</#if>"<td>
-							<input type="hidden" value="<#if rhs["paper"]?exists >${rhs["paper"].template.id}</#if>" name="templateid"/>
+							<td colspan="2"><input type="text" <#if rhs.readonly>readonly</#if> name="paper.time" value="<#if rhs["paper"]?exists >${rhs["paper"].time}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td><@i18n "title_totalmark" /></td>
+							<td><input type="text" disabled name="totalmark" value="<#if rhs["paper"]?exists >${rhs["paper"].totalmark?if_exists}</#if>" /></td>
+							<input type="hidden" name="paper.totalmark" value="<#if rhs["paper"]?exists >${rhs["paper"].totalmark?if_exists}</#if>" />
+							<#--<@i18n "title_template" />-->
+							<#-- <input type="text" disabled name="paper.template.title" value="<#if rhs["paper"]?exists >${rhs["paper"].template.title}</#if>"/>-->
+							<#--<input type="hidden" value="<#if rhs["paper"]?exists >${rhs["paper"].template.id}</#if>" name="templateid"/>-->
 						</tr>
 						<tr>
 							<td><@i18n "title_passmark" /></td>
-							<td colspan="4"><input type="text" <#if rhs.readonly>disabled</#if>  name="paper.passmark" value="<#if rhs["paper"]?exists >${rhs["paper"].passmark}</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" /></td>
+							<td colspan="2"><input type="text" <#if rhs.readonly>readonly</#if>  name="paper.passmark" value="<#if rhs["paper"]?exists >${rhs["paper"].passmark}</#if>" /></td>
+							<td><@i18n "title_createtime" /></td>
+							<td><input type="text" disabled  name="paper.createdate" value="<#if rhs["paper"]?exists >${rhs["paper"].createdate?if_exists}</#if>" /></td>
+							<input type="hidden" name="paper.createdate" value="<#if rhs["paper"]?exists >${rhs["paper"].createdate?if_exists}</#if>" />
+							<input type="hidden" name="paper.createuser" value="<#if rhs["paper"]?exists >${rhs["paper"].createuser?if_exists}</#if>" />
+							<input type="hidden" name="paper.papergroup.id" value="<#if rhs["paper"].papergroup?exists >${rhs["paper"].papergroup.id?if_exists}</#if>" />
 						</tr>
 						<tr>
 							<td colspan="5" >

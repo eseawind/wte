@@ -19,7 +19,7 @@
       	</table>
       	<#assign i = 0 >
   		<table class="table table-condensed table-bordered table-striped">
-		  	<strong><@i18n "title_single" /></strong>(total:${rhs["template"].singlechoice + rhs["template"].rmdsinglechoice}, each: ${rhs["paper"].singlechoicemark})
+		  	<strong><@i18n "title_single" /></strong>(total:${rhs["paper"].singlechoice + rhs["paper"].rmdsinglechoice}, each: ${rhs["paper"].singlechoicemark})
 		  	<#list rhs["singleitems"]?sort_by("id") as singleitem>
 				<tr>
 					<td><strong>${singleitem_index+1}.&nbsp;${singleitem.item.content}</strong> <div class="pull-right"><@i18n "title_score" />：<input type="text" name="result[${i}].mark" value="<#if singleitem.answer?exists&&singleitem.answer == singleitem.item.refkey ><#if singleitem.item.mark?exists>${singleitem.item.mark}<#else>${singleitem.mark}</#if><#else>0</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></div></td>
@@ -35,7 +35,7 @@
       	</table>
       	
       	<table class="table table-condensed table-bordered table-striped">
-	      	<strong><@i18n "title_multi" /></strong>(total:${rhs["template"].multichoice + rhs["template"].rmdmultichoice}, each: ${rhs["paper"].multichoicemark})
+	      	<strong><@i18n "title_multi" /></strong>(total:${rhs["paper"].multichoice + rhs["paper"].rmdmultichoice}, each: ${rhs["paper"].multichoicemark})
 	      	<#list rhs["multiitems"]?sort_by("id") as multiitem>
 	      		<tr>
 					<td><strong>${multiitem_index+1}.&nbsp;${multiitem.item.content}</strong> <div class="pull-right"><@i18n "title_score" />：<input type="text" name="result[${i}].mark" value="<#if multiitem.answer?exists&&multiitem.answer == multiitem.item.refkey ><#if multiitem.item.mark?exists>${multiitem.item.mark}<#else>${multiitem.mark}</#if><#else>0</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></div></td>
@@ -50,7 +50,7 @@
 	      	</#list>
       	</table>
       	<table class="table table-condensed table-bordered table-striped">
-	      	<strong><@i18n "title_blank" /></strong>(total:${rhs["template"].blank + rhs["template"].rmdblank}, each: ${rhs["paper"].blankmark})
+	      	<strong><@i18n "title_blank" /></strong>(total:${rhs["paper"].blank + rhs["paper"].rmdblank}, each: ${rhs["paper"].blankmark})
 	      	<#list rhs["blankitems"]?sort_by("id") as blankitem>
 	      		<tr>
 					<td><strong>${blankitem_index+1}.&nbsp;${blankitem.item.content}</strong> <div class="pull-right"><@i18n "title_score" />：<input type="text" name="result[${i}].mark" value="<#if blankitem.answer?exists&&blankitem.answer == blankitem.item.refkey ><#if blankitem.item.mark?exists>${blankitem.item.mark}<#else>${blankitem.mark}</#if><#else>0</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></div></td>
@@ -63,7 +63,7 @@
 	      	</#list>
       	</table>
       	<table class="table table-condensed table-bordered table-striped">
-	      	<strong><@i18n "title_essay" /></strong>(total:${rhs["template"].essay + rhs["template"].rmdessay}, each: ${rhs["paper"].essaymark})
+	      	<strong><@i18n "title_essay" /></strong>(total:${rhs["paper"].essay + rhs["paper"].rmdessay}, each: ${rhs["paper"].essaymark})
 	      	<#list rhs["essayitems"]?sort_by("id") as essayitem>
 	      		<tr>
 					<td><strong>${essayitem_index+1}.&nbsp;${essayitem.item.content}</strong> <div class="pull-right"><@i18n "title_score" />：<input type="text" name="result[${i}].mark" value="<#if essayitem.answer?exists&&essayitem.answer == essayitem.item.refkey ><#if essayitem.item.mark?exists>${essayitem.item.mark}<#else>${essayitem.mark}</#if><#else>0</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></div></td>
@@ -85,9 +85,11 @@
 </form>
 <script>
 	$('#submitButton').click(function () {
-		var btn = $(this);
-		btn.button('loading');
-		$('#dialog').dialog('open');
-		document.getElementsByName("form_item")[0].submit();
+		if (confirm("Are you sure submit the paper?")){
+			var btn = $(this);
+			btn.button('loading');
+			$('#dialog').dialog('open');
+			document.getElementsByName("form_item")[0].submit();
+		}
 	});
 </script>
