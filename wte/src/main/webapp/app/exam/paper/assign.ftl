@@ -13,11 +13,13 @@
       			<input type="hidden" value="<#if rhs["paper"]?exists >${rhs["paper"].id?if_exists}</#if>" name="paperid" />
       		</tr>
       		<tr>
-      		<td><@i18n "title_candidate" />: <#--<input type="checkbox" name="candidate" />Tom &nbsp;&nbsp;&nbsp;&nbsp;
-      		<input type="checkbox" name="candidate" />HongBin &nbsp;&nbsp;&nbsp;&nbsp;
-      		<input type="checkbox" name="candidate" />Jacky &nbsp;&nbsp;&nbsp;&nbsp;
-      		<input type="checkbox" name="candidate" />Mandy &nbsp;&nbsp;&nbsp;&nbsp;
-      		<input type="checkbox" name="candidate" />Mike &nbsp;&nbsp;&nbsp;&nbsp;-->
+      			<td>
+      			Start Time from <input type="text"  style="width:135px" class="input-small" id="starttime" name="starttime" onclick="javascript:WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'});" value='' />
+				 to <input type="text"  style="width:135px" class="input-small" id="endtime" name="endtime" onclick="javascript:WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'});" value='' />
+      			</td>
+      		</tr>
+      		<tr>
+      			<td><@i18n "title_candidate" />:
       			<input type="hidden" id="assignee" name="assignee"/>
 				<input type="text" class="input-small" id="assigneeText" 
 					onclick="javascript:open_select_users_dialog(document.getElementById('assigneeText'),document.getElementById('assignee'),2);" />
@@ -44,8 +46,30 @@
 <script>
 	$('#submitButton').click(function () {
 		var btn = $(this);
-		btn.button('loading');
-		$('#dialog').dialog('open');
-		document.getElementsByName("form_item")[0].submit();
+		var starttime = $("#starttime").val();
+		var endtime = $("#endtime").val();
+		var assignee = $("#assignee").val();
+		var judge = $("#judge").val();
+		
+		if(endtime < starttime){
+			alert("Invalid Time!");
+			return false;
+		}
+		
+		if(assignee == null || assignee == ""){
+			alert("Please select one candidate!");
+			return false;
+		}
+		if(judge == ""){
+			alert("Please select one judge!");
+			return false;
+		}
+		if (confirm("Are you sure start the exam?")){
+			$("#dialog").dialog("open");
+			btn.button("loading");
+			document.getElementsByName("form_item")[0].submit();
+		}
 	});
+	
+	
 </script>

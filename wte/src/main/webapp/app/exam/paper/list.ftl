@@ -20,7 +20,7 @@
    		<#include "include_add_search.ftl">
 		<br><br>
 		<a style="margin-left:7px;margin-top:15px;" class="btn btn-xs btn-info "  href="exam_paper_create.do?method=newpaper"><@i18n "menu_paper_new" /></a>
-		<a style="margin-left:7px;margin-top:15px;" class="btn btn-xs btn-info "  href="exam_item_import_itembyxls.do"><@i18n "menu_paper_new_excel" /></a> <br />
+		<a style="margin-left:7px;margin-top:15px;" class="btn btn-xs btn-info "  href="exam_item_import_itembyxls.do?method=paper"><@i18n "menu_paper_new_excel" /></a> <br />
 		<#--<a style="margin-left:7px;margin-top:5px;" class="btn btn-xs btn-info "  href="exam_template_list.do"><@i18n "menu_template" /></a>-->
 		
 	<div class="panel panel-primary" style="margin-top: 25px;">
@@ -38,7 +38,7 @@
 				<td width=100px><strong><@i18n "title_passmark" /></strong></td>
 				<td width=100px><strong><@i18n "title_totalmark" /></strong></td>
 				<td width=100px><strong><@i18n "title_examtime" /></strong></td>
-				<td width=100px><strong><@i18n "title_status" /></strong></td>
+				<#--<td width=100px><strong><@i18n "title_status" /></strong></td>-->
 				<td><strong><@i18n "title_operation" /></strong></td>
 				<td></td>
 			</tr>
@@ -54,7 +54,7 @@
 				<td>${x.businessModel.passmark?if_exists}</td>
 				<td>${x.businessModel.totalmark?if_exists}</td>
 				<td>${x.businessModel.time?if_exists} &nbsp;(Minutes)</td>
-				<td>${x.processInstanceStatus}</td>
+				<#--<td>${x.processInstanceStatus}</td>-->
 				<td><a href="exam_paper_load.do?method=edit&id=${x.businessModel.id}"><@i18n "title_edit" /></a> | <a href="exam_paper_load.do?method=show&id=${x.businessModel.id}"> <@i18n "title_view" /></a> <#if (!(x.businessModel.processInstanceId?exists&&x.businessModel.processInstanceId != "") && x.processInstanceStatus == 'New' || x.processInstanceStatus == 'Done') >| <a href="exam_paper_delete.do?id=${x.businessModel.id}"><@i18n "title_delete" /></a> </#if> </td>
 				<td>
 				<a id="startProcess${x.businessModel.id}" title="Start Process" class="btn btn-xs btn-primary"

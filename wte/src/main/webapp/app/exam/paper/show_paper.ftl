@@ -1,6 +1,21 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <script type="text/javascript" src="<@context_module/>paper.js"></script>
 <script type="text/javascript" src="<@context_module/>template.js"></script>
+<script>
+	function counttotalmark(){
+		var singlechoice = parseInt($("#reqsinglechoicecount").val()) + parseInt($("#rmdsinglechoice").val());
+		var multichoice = parseInt($("#reqmultichoicecount").val()) + parseInt($("#rmdmultichoice").val());
+		//var blank = parseInt($("#reqblankcount").val()) + parseInt($("#rmdblank").val());
+		//var essay = parseInt($("#reqessaycount").val()) + parseInt($("#rmdessay").val());
+		var singlechoicemark = parseInt($("#singlechoicemark").val());
+		var multichoicemark = parseInt($("#multichoicemark").val());
+		//var blankmark = parseInt($("#blankmark").val());
+		//var essaymark = parseInt($("#essaymark").val());
+		var totalmark = singlechoice * singlechoicemark + multichoice * multichoicemark;
+		//+ blank * blankmark + essay * essaymark;
+		$("#totalmark").val(totalmark);
+	}
+</script>
 			<form name="form_item" action="exam_paper_create.do" metiod="post">
 				<input type="hidden" name="method" value='setpaper' />
 				<input type="hidden" name="paper.id" value='<#if rhs["paper"]?exists >${rhs["paper"].id?if_exists }</#if>' />
@@ -13,7 +28,37 @@
 					<div class="panel-body">
 					 <table class="table table-condensed table-bordered table-striped">
 						<tr>
-							<td> <@i18n "title_name" /> </td>
+						<td colspan=4> 
+						<@i18n "title_name" />
+						<input type="text" name="paper.name" value="<#if rhs["paper"]?exists >${rhs["paper"].name?if_exists}</#if>" style="width:200px;"/>
+						&nbsp;&nbsp;&nbsp;<@i18n "title_examtime" /><input type="text"  style="width:50px;" name="paper.time" value="<#if rhs["paper"]?exists >${rhs["paper"].time}<#else>30</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/>(minutes)
+						&nbsp;&nbsp;&nbsp;<@i18n "title_passmark" /><input type="text"  name="paper.passmark"   style="width:50px;"  value="<#if rhs["paper"]?exists >${rhs["paper"].passmark}<#else>60</#if>" />
+						&nbsp;&nbsp;&nbsp;<@i18n "title_totalmark" /><input readonly type="text" style="width:30px;"  id="totalmark" name="paper.totalmark" value="<#if rhs["paper"]?exists >${rhs["paper"].totalmark}</#if>" />
+				
+						</td>
+						</tr>
+						<tr>
+							<td  colspan="4"><@i18n "title_knowledge" />:
+								<#list rhs["knowledgeRootList"] as knowledge>
+									<#if knowledge.getChildKnowledges()?exists >
+										<#list knowledge.getChildKnowledges() as knowledgenode>
+											<input type="checkbox" name="knowledgevalue" value="${knowledgenode.id}" 
+											<#if rhs["paper"]?exists && rhs["paper"].knowledge?exists >
+												<#list rhs["paper"].knowledge as paperknowledge>
+													<#if paperknowledge.id == knowledgenode.id> checked</#if>
+												</#list>
+											</#if>
+											/>&nbsp;&nbsp;${knowledgenode.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</#list>
+									</#if>
+								</#list>
+							</td>
+						</tr>
+						<tr><td  colspan="4"><br></td>
+						</tr>					
+						<#--
+						<tr>
+							<td> <@i18n "title_name" /></td>
 							<td style="width:300px;"> <input type="text" name="paper.name" value="<#if rhs["paper"]?exists >${rhs["paper"].name?if_exists}</#if>" style="width:300px;"/></td>
 							<td><@i18n "title_knowledge" /></td>
 							<td colspan="2">
@@ -32,21 +77,25 @@
 								</#list>
 							</td>
 						</tr>
+						-->
 						<tr>
 							<#--<td><@i18n "title_single" /></td>
 							<td><@i18n "title_req" />:<input type="text" disabled name="paper.template.singlechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].template.singlechoice}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
 							<td><@i18n "title_rmd" />:<input type="text" disabled name="paper.template.rmdsinglechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].template.rmdsinglechoice}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>-->
-							<td><@i18n "title_single_mark" /></td>
-							<td><input type="text" name="paper.singlechoicemark" onchange="javascript:counttotalmark();" id="singlechoicemark" value="<#if rhs["paper"]?exists >${rhs["paper"].singlechoicemark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
-							<td><@i18n "title_multi_mark" /></td>
-							<td><input type="text" name="paper.multichoicemark" onchange="javascript:counttotalmark();" id="multichoicemark" value="<#if rhs["paper"]?exists >${rhs["paper"].multichoicemark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td width=20%><@i18n "title_single_mark" /></td>
+							<td><input type="text" style="width:30px;" name="paper.singlechoicemark" onblur="javascript:counttotalmark();" id="singlechoicemark" value="<#if rhs["paper"]?exists >${rhs["paper"].singlechoicemark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td width=20%><@i18n "title_multi_mark" /></td>
+							<td><input type="text" style="width:30px;" name="paper.multichoicemark" onblur="javascript:counttotalmark();" id="multichoicemark" value="<#if rhs["paper"]?exists >${rhs["paper"].multichoicemark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
 						</tr>
 						<tr>
 							<td><@i18n "title_single_rmd" /></td>
-							<td><input type="text" name="paper.rmdsinglechoice" onchange="javascript:counttotalmark();" id="rmdsinglechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdsinglechoice?if_exists}</#if>" id="rmdsinglechoice" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td><input type="text" style="width:30px;" name="paper.rmdsinglechoice" onblur="javascript:counttotalmark();" id="rmdsinglechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdsinglechoice?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
 							<td><@i18n "title_multi_rmd" /></td>
-							<td><input type="text" name="paper.rmdmultichoice" onchange="javascript:counttotalmark();" id="rmdmultichoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdmultichoice?if_exists}</#if>" id="rmdmultichoice" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td><input type="text" style="width:30px;" name="paper.rmdmultichoice" onblur="javascript:counttotalmark();" id="rmdmultichoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdmultichoice?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
 						</tr>
+						
+
+						
 						<#if rhs["paper"]?exists >
 						<tr>
 							<td><@i18n "title_single_req" /> <br/> <button onclick="javascript:additem(1,${rhs["paper"].id?if_exists });return false;" class="btn btn-xs btn-info"><@i18n "menu_item_new" /></button></td>
@@ -83,20 +132,20 @@
 							</td>
 						</tr>
 						</#if>
-						<tr>
-							<#--<td><@i18n "title_blank" /></td>
+						<#--<tr>
+							<td><@i18n "title_blank" /></td>
 							<td><@i18n "title_req" />:<input type="text" disabled name="paper.template.blank" value="<#if rhs["paper"]?exists >${rhs["paper"].template.blank}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
-							<td><@i18n "title_rmd" />:<input type="text" disabled name="paper.template.rmdblank" value="<#if rhs["paper"]?exists >${rhs["paper"].template.rmdblank}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>-->
+							<td><@i18n "title_rmd" />:<input type="text" disabled name="paper.template.rmdblank" value="<#if rhs["paper"]?exists >${rhs["paper"].template.rmdblank}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
 							<td><@i18n "title_blank_mark" /></td>
-							<td><input type="text" name="paper.blankmark" onchange="javascript:counttotalmark();" id="blankmark" value="<#if rhs["paper"]?exists >${rhs["paper"].blankmark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td><input type="text" name="paper.blankmark" onblur="javascript:counttotalmark();" id="blankmark" value="<#if rhs["paper"]?exists >${rhs["paper"].blankmark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
 							<td><@i18n "title_essay_mark" /></td>
-							<td><input type="text" name="paper.essaymark" onchange="javascript:counttotalmark();" id="essaymark" value="<#if rhs["paper"]?exists >${rhs["paper"].essaymark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td><input type="text" name="paper.essaymark" onblur="javascript:counttotalmark();" id="essaymark" value="<#if rhs["paper"]?exists >${rhs["paper"].essaymark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
 						</tr>
 						<tr>
 							<td><@i18n "title_blank_rmd" /></td>
-							<td><input type="text" name="paper.rmdblank" onchange="javascript:counttotalmark();" id="rmdblank" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdblank?if_exists}</#if>" id="trmdblank" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td><input type="text" name="paper.rmdblank" onblur="javascript:counttotalmark();" id="rmdblank" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdblank?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
 							<td><@i18n "title_essay_rmd" /></td>
-							<td><input type="text" name="paper.rmdessay" onchange="javascript:counttotalmark();" id="rmdessay" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdessay?if_exists}</#if>" id="rmdessay" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td><input type="text" name="paper.rmdessay" onblur="javascript:counttotalmark();" id="rmdessay" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdessay?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
 						</tr>
 						<#if rhs["paper"]?exists >
 						<tr>
@@ -134,18 +183,22 @@
 							</td>
 						</tr>
 						</#if>
+						-->
+						
+						<#--
 						<tr>
 							<td><@i18n "title_examtime" />(minutes)</td>
 							<td><input type="text" name="paper.time" value="<#if rhs["paper"]?exists >${rhs["paper"].time}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
-							<td> <@i18n "title_totalmark" /></td><#--<@i18n "title_template" />-->
-							<td><input readonly type="text" id="totalmark" name="paper.totalmark" value="<#if rhs["paper"]?exists >${rhs["paper"].totalmark}</#if>" /></td><#-- <input type="text" disabled name="paper.template.title" value="<#if rhs["paper"]?exists >${rhs["paper"].template.title}</#if>" />-->
+							<td> <@i18n "title_totalmark" /></td>
+							<td><input readonly type="text" id="totalmark" name="paper.totalmark" value="<#if rhs["paper"]?exists >${rhs["paper"].totalmark}</#if>" /></td>
 						</tr>
 						<tr>
 							<td><@i18n "title_passmark" /></td>
 							<td colspan="3"><input type="text" name="paper.passmark" value="<#if rhs["paper"]?exists >${rhs["paper"].passmark}</#if>" /></td>
 						</tr>
+						-->
 						<tr>
-							<td colspan="4" >
+							<td colspan="4" align=center>
 							    <input type="button" class="btn btn-xs btn-info" value="Submit" id="submitButton"/>
 							    <#--<a  class="btn btn-xs btn-info" href="exam_paper_list.do">Return</a>-->
 							</td>
@@ -176,17 +229,5 @@
 	  }else{
 	    document.getElementById('div_scoll').style.display='none';
 	  }
-	}
-	function counttotalmark(){
-		var singlechoice = parseInt($('#reqsinglechoicecount').val()) + parseInt($('#rmdsinglechoice').val());
-		var multichoice = parseInt($('#reqmultichoicecount').val()) + parseInt($('#rmdmultichoice').val());
-		var blank = parseInt($('#reqblankcount').val()) + parseInt($('#rmdblank').val());
-		var essay = parseInt($('#reqessaycount').val()) + parseInt($('#rmdessay').val());
-		var singlechoicemark = parseInt($('#singlechoicemark').val());
-		var multichoicemark = parseInt($('#multichoicemark').val());
-		var blankmark = parseInt($('#blankmark').val());
-		var essaymark = parseInt($('#essaymark').val());
-		var totalmark = singlechoice * singlechoicemark + multichoice * multichoicemark + blank * blankmark + essay * essaymark;
-		$('#totalmark').val(totalmark);
 	}
 </script>

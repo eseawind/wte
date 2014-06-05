@@ -1,6 +1,6 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <form name="form_item" action="exam_item_import_itembyxls_save.do" method="post" enctype="multipart/form-data" >
-<input type="hidden" mane="method" value="import" />
+<input type="hidden" name="method" value="${rhs["method"]}" />
 	<div class="panel panel-primary" style="margin-top: 18px;">
 		<div class="panel-heading"><strong><@i18n "menu_item_import" /></strong></div>
 		<div class="panel-body">
