@@ -22,7 +22,7 @@
 						<td>${item.obj.name}</td>
 						<td >${item.obj.passmark}</td>
 						<td >${item.obj.totalmark}</td>
-						<td >${item.obj.time}</td>
+						<td >${item.obj.time}(minutes)</td>
 						<td>${item.task.createTime?datetime}</td>
 						<td >
 							<#--<a href="common_activiti_process_diagram.do?processInstanceId=${item.task.processInstanceId}" target=_blank>

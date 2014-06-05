@@ -3,7 +3,7 @@
 <#assign k = 0 />
 <#assign l = 0 />
 <#list rhs["datalist"] as item>
-	<a href="#" onclick="javascript:ajax_show_item('exam_item_load.do','method=show&id=${item.id}');" >${item.content}</a><br/>
+	${item_index+1}. <a href="#" onclick="javascript:ajax_show_item('exam_item_load.do','method=show&id=${item.id}');" >${item.content}</a><br/>
 	<#if rhs["itemtype"] == "1" >
 		<input type="hidden" name="reqsinglechoice" value="${item.id}"/>
 		<#assign i = i + 1 />

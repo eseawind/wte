@@ -46,7 +46,7 @@
 										<#--<td>${record.paper.passmark}</td>-->
 										<td>${record.singlechoicemark?number + record.multichoicemark?number + record.blankmark?number + record.essaymark?number}</td>
 										<td>${record.recorddate?if_exists}</td>
-										<td></td>
+										<td><a onclick="javascript:showlog('${record.taskid}','${record.paper.id}','${record.userid}');" class="btn btn-xs btn-info">Show Log</a></td>
 										<#--<td >${record.remark?if_exists}</td>-->
 									</tr>
 									<#assign i = i + 1 />
@@ -66,10 +66,15 @@
 			
   </div>
 </div>
-<#macro listresult papername>
-	
-</#macro>
+<div id="div_scoll" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:400px;z-index:10000;display:none;" class="panel panel-default"><!--style="border:2px solid #eee;"-->
+			 	<div id="operation_title" class="panel-heading"><strong>Log</strong></div>
+			 	<a class="pull-right" onclick="show_dir();" class="btn btn-xs  btn-default" ><span class=ui-icon ui-icon-close></span></a>
+			 	<div class="panel-body" id="div_select_item" style="cursor:hander;"> 
+			 	
+			 	</div>
+			</div>
 <script>
+	$(function() {$( "#div_scoll" ).draggable();});  
 	function showresult(paperid){
 		var resultstyle = $("#"+paperid).attr("style");
 		if(resultstyle.indexOf("none") < 0){
@@ -79,4 +84,26 @@
 		}
 	
 	}
+	
+	function  show_dir(){  //定位层
+	  if( document.getElementById('div_scoll').style.display=='none'){
+	  	document.getElementById('div_scoll').style.display='block';
+	  }else{
+	    document.getElementById('div_scoll').style.display='none';
+	  }
+	}
+	function showlog(taskid,paperid,userid){
+		$('#div_scoll').attr("style","margin-left:450px;margin-top:50px; cursor:hander;position:absolute;width:400px;z-index:10000;display:block;");
+		$.ajax({
+			type : "POST",
+			url : "exam_exam_showlog.do",
+			data : "taskid=" + taskid + "&paperid=" + paperid + "&userid=" +userid,
+			cache : false,
+			success : function(html) {
+				document.getElementById("div_select_item").innerHTML = html;
+			}
+		});
+	}
+	
+	
 </script>

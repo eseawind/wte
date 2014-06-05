@@ -3,6 +3,9 @@
       <div class="panel-heading"><strong><@i18n "menu_paper_view" /></strong></div>
       <div class="panel-body">
 		<br />
+		<p align="center">
+      	<a  class="btn btn-xs btn-info" href="exam_paper_list.do">Return</a>
+      	</p>
       	<table class="table table-condensed table-bordered table-striped">
       		<tr><td colspan="8"><font color="red"><strong>
       			Preview</strong></font>
@@ -77,5 +80,8 @@
 		  	</#list>
       	</table>
       	</#if>
+      	<p align="center">
+      	<a  class="btn btn-xs btn-info" href="exam_paper_list.do">Return</a>
+      	</p>
       </div>
 </div>

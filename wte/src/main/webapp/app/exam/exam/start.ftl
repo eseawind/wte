@@ -11,7 +11,8 @@
       	<table class="table table-condensed table-bordered table-striped">
       		<tr><td colspan="8"><font color="red"><strong>
       			1. Do NOT press WIN button and ALT button, or the exam will commit automatic! <br/>
-      			2. Do NOT CLOSE window before done the  exam, or the exam will commit automatic!
+      			2. Do NOT CLOSE window before done the exam!
+      			3. Every keyboard during exam will be record!
       			</strong></font>
       		</td>
       		</tr>
@@ -142,39 +143,45 @@
 	    //alert(e.keyCode);//可查看各个按键的keyCode是多少
 		//屏蔽F5刷新键
 	    if(e.keyCode==116){
+	    	record_keycode("F5");
 	        alert('Can not use F5!');
 	        e.keyCode = 0;
 	        return false;
 	    }
 		//屏蔽esc键
 		if(e.keyCode == 27){
+			record_keycode("ESC");
 			alert('Can not use ESC！');
 			e.keyCode = 0;
 			 return false;
 		}
 		//屏蔽alt
 		if(e.keyCode == 18){
+			record_keycode("ALT");
 			alert('Warning: Can not use ALT！Or the exam will be commited!');
 			e.keyCode = 0;
 			if(warn > 1){
 				document.getElementsByName("form_item")[0].submit();
-				window.close();
+				setTimeout("refresh()",100);
+				//window.close();
 			}
 			warn=warn+1;
 			return false;
 		}
 		//屏蔽F11
 		if(e.keyCode == 122){
-			//alert('Can not use F11！');
+			record_keycode("F11");
 			e.keyCode = 0;
 			return false;
 		}
 		if((e.ctrlKey)&&(e.keyCode==78)){
+			record_keycode("Ctrl + N");
 			alert('Can not use Ctrl + N！');
 			e.keyCode = 0;
 			return false;
 		}
 		if((e.ctrlKey)&&(e.keyCode==67)){
+			record_keycode("Ctrl + C");
 			alert('Can not use Ctrl + C！');
 			e.keyCode = 0;
 			return false;
@@ -186,10 +193,15 @@
 		}
 		//屏蔽win键
 		if(e.keyCode == 91){
+			record_keycode("Win");
 			alert('Can not use Win button！');
 			e.keyCode = 0;
-			document.getElementsByName("form_item")[0].submit();
-			 window.close();
+			if(warn > 1){
+				document.getElementsByName("form_item")[0].submit();
+				setTimeout("refresh()",100);
+				 //window.close();
+			 }
+			 warn=warn+1;
 			 return false;
 		}
 	}
@@ -199,14 +211,31 @@
         //return "Data has not been saved，CLOSE or SWITCH windows will auto commit the exam，continue?";       
     //}
     
+    //记录键盘按键
+    function record_keycode(keycode){
+    	$.ajax({
+			type : "POST",
+			url : "exam_exam_monitorexam.do",
+			data : "taskid=" + ${rhs["task"].id} +"&keycode=" + keycode,
+			cache : false,
+			success : function(html) {
+				//document.getElementById("starttime_" + taskid).innerHTML = html;
+			}
+		});
+    }
+    
     //窗口关闭后给出提示  
     window.onunload = function()  {
-    	document.getElementsByName("form_item")[0].submit();
-    	refresh();
+    	//document.getElementsByName("form_item")[0].submit();
+    	//refresh();
     }
 
 	window.onfocus=function(){
-		interval=window.setInterval("clipboardData.setData('text','')",100);
+		try{
+			interval=window.setInterval("clipboardData.setData('text','')",100);
+		}catch(e){
+			alert("Denied by Browser!!");
+		}
 	} 
 	function d(){
 		window.clearInterval(interval);
