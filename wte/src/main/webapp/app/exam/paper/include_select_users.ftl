@@ -66,8 +66,16 @@ function init_select_users(){
 				var s = optionValues.join(",");
 				window.returnValueObj.value = s;
 				
+				window.returnTextObj.value = "";
 				if(optionTexts.length > 2)
-					window.returnTextObj.value = optionTexts[0] + "," + optionTexts[1] + ",...";
+					//window.returnTextObj.value = optionTexts[0] + "," + optionTexts[1] + ",...";
+					for(var i = 0; i < optionTexts.length; i++){
+						if(window.returnTextObj.value == ""){
+							window.returnTextObj.value = optionTexts[i];
+						}else{
+							window.returnTextObj.value = window.returnTextObj.value + "," + optionTexts[i];
+						}
+					}
 				else
 					window.returnTextObj.value = optionTexts.join(",");
 					

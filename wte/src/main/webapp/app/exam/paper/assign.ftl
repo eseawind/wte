@@ -21,8 +21,8 @@
       		<tr>
       			<td><@i18n "title_candidate" />:
       			<input type="hidden" id="assignee" name="assignee"/>
-				<input type="text" class="input-small" id="assigneeText" 
-					onclick="javascript:open_select_users_dialog(document.getElementById('assigneeText'),document.getElementById('assignee'),2);" />
+				<textarea class="input-small" id="assigneeText" style="height:40px;width:300px;"
+					onclick="javascript:open_select_users_dialog(document.getElementById('assigneeText'),document.getElementById('assignee'),2);" ></textarea>
       			</td>
       		</tr>
       		<#if rhs["autojudge"]?exists>	
@@ -51,7 +51,7 @@
 		var assignee = $("#assignee").val();
 		var judge = $("#judge").val();
 		
-		if(endtime < starttime){
+		if((endtime < starttime) || starttime == "" || endtime == ""){
 			alert("Invalid Time!");
 			return false;
 		}
