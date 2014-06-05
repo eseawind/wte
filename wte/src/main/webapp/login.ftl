@@ -46,7 +46,7 @@
 			    
 
     <div class="container">
-	<#--<form name="formlang" id="formlang" action="lang.do" method="post" >
+	<form name="formlang" id="formlang" action="lang.do" method="post" >
                             language
 	    <select class=input name="lang" size="1" onchange="document.getElementById('formlang').submit();" value="${Session["lang"]}">
 			    <option value="${Session["lang"]}">${language_name[Session["lang"]]}</option>
@@ -54,7 +54,7 @@
 				   <option value="${key}">${language_name[key]}</option>
 				</#list> 
 		</select> 			                            
-    </form>-->
+    </form>
                             
       <form class="form-signin" name="loginForm" action="login.do" method="post">
         <#-- -->
