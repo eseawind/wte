@@ -38,9 +38,9 @@ function open_select_users_dialog(textObj, valueObj, flag){
 	window.returnTextObj = textObj;
 	window.returnValueObj = valueObj;
 	window.selectFlag = flag;
-	var title = "用户多选";
+	var title = "Select User";
 	if(flag && flag == 1)
-		title = "用户单选";
+		title = "Select User";
 	$("#include_select_users_div").dialog("option", "title", title);
 	$("#include_select_users_div").dialog("open");
 }
@@ -303,7 +303,7 @@ function menu_active(obj){
 <!--  html  -->
 <div id="include_select_users_div" style="display:none;">
 	<div class="select_users_div">
-		<div class="select_users_top">按拼音搜索
+		<div class="select_users_top">Quickly Search
 			<input style="width:150px;" id="auto_text" type="text" class="search-query"/>
 		
 		

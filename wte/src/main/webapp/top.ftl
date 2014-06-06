@@ -18,6 +18,17 @@
         <li><a href="access.ftl" target="mainFrame">access</a></li>
              -->
         </#if>
+	<br/>
+	<form name="formlang" id="formlang" action="common_edit_lang.do" method="post" class="pull-right">
+                            Language
+	    <select class=input name="lang" size="1" onchange="document.getElementById('formlang').submit();" value="${Session["lang"]}">
+			    <option value="${Session["lang"]}">${language_name[Session["lang"]]}</option>
+			    <#list language_name?keys as key>
+				   <option value="${key}">${language_name[key]}</option>
+				</#list> 
+		</select> 			                            
+    </form>
+
 	   <#if Session?exists&&Session["currnetProject"]?exists>
 				&nbsp;&nbsp;项目
 				<select style="WIDTH: 130px"  id="userid"  onchange="javascript: changeProject(this.value)">

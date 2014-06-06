@@ -10,7 +10,7 @@
 				<#list rhs["knowledgeRootList"] as knowledge>
 					<#if knowledge.getChildKnowledges()?exists >
 						<#list knowledge.getChildKnowledges() as knowledgenode>
-							<input type="checkbox" name="knowledgevalue" value="${knowledgenode.id}" />&nbsp;&nbsp;${knowledgenode.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" <#list rhs["knowledgevalue"] as val> <#if val?number == knowledgenode.id >checked</#if> </#list> onclick="document.getElementById('search_form').submit();" name="knowledgevalue" value="${knowledgenode.id}" />&nbsp;&nbsp;${knowledgenode.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						</#list>
 					</#if>
 				</#list>

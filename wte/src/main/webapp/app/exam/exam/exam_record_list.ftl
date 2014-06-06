@@ -4,6 +4,12 @@
   <div class="panel-heading">
   	<strong>Exam History List</strong>
   </div>
+  <div id="div_scoll" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:400px;z-index:10000;display:none;" class="panel panel-default"><!--style="border:2px solid #eee;"-->
+			 	<div id="operation_title" class="panel-heading"><strong>Log</strong><a class="pull-right" onclick="show_dir();" class="btn btn-xs  btn-default" ><span class=ui-icon ui-icon-close></span></a></div>
+			 	<div class="panel-body" id="div_select_item" style="cursor:hander;"> 
+			 	
+			 	</div>
+			</div>
   <div class="panel-body">
 		<table class="table table-condensed table-bordered">
 				<tr>
@@ -46,7 +52,14 @@
 										<#--<td>${record.paper.passmark}</td>-->
 										<td>${record.singlechoicemark?number + record.multichoicemark?number + record.blankmark?number + record.essaymark?number}</td>
 										<td>${record.recorddate?if_exists}</td>
-										<td><a onclick="javascript:showlog('${record.taskid}','${record.paper.id}','${record.userid}');" class="btn btn-xs btn-info">Show Log</a></td>
+										<td>
+											<#list rhs["monitorlist"]?keys as recordid>
+												<#if recordid == record.id?string && (rhs["monitorlist"][recordid]?size > 0) >
+													<a onclick="javascript:showlog('${record.taskid}','${record.paper.id}','${record.userid}');" class="btn btn-xs btn-info">Show Log</a>
+												</#if>
+											</#list>
+										</td>
+										
 										<#--<td >${record.remark?if_exists}</td>-->
 									</tr>
 									<#assign i = i + 1 />
@@ -66,13 +79,6 @@
 			
   </div>
 </div>
-<div id="div_scoll" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:400px;z-index:10000;display:none;" class="panel panel-default"><!--style="border:2px solid #eee;"-->
-			 	<div id="operation_title" class="panel-heading"><strong>Log</strong></div>
-			 	<a class="pull-right" onclick="show_dir();" class="btn btn-xs  btn-default" ><span class=ui-icon ui-icon-close></span></a>
-			 	<div class="panel-body" id="div_select_item" style="cursor:hander;"> 
-			 	
-			 	</div>
-			</div>
 <script>
 	$(function() {$( "#div_scoll" ).draggable();});  
 	function showresult(paperid){

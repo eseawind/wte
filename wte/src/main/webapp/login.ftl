@@ -92,6 +92,12 @@
         		<button class="btn btn-lg  btn-primary pull-right" type="submit"> <@i18n "submit" /></button>
         	</td>
         </tr>
+        <tr>
+        	<td style="width:100px;"></td>
+        	<td class="pull-right">
+        		<small>${rhs["url"]?if_exists}</small>
+        	</td>
+        </tr>
         </table>
       </form>
     </div> <!-- /container -->
