@@ -11,8 +11,10 @@
 						<td>
 							<input type="radio" name="item.type" value="1" onclick="javascript:generateitem(1)"/><@i18n "title_single" />
 							<input type="radio" name="item.type" value="2" onclick="javascript:generateitem(2)"/><@i18n "title_multi" />
+							<#--
 							<input type="radio" name="item.type" value="3" onclick="javascript:generateitem(3)"/><@i18n "title_blank" />
 							<input type="radio" name="item.type" value="4" onclick="javascript:generateitem(4)"/><@i18n "title_essay" />
+						    -->
 						</td>
 					</tr>
 					<tr>
