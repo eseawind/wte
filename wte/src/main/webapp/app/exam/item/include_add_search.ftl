@@ -8,11 +8,10 @@
 				<input type="hidden" name="maxSize" id="pageMaxSize">      		        <#-- 这里必须加上，不然修改显示条数会不正常，且id和name不能修改为其他值	-->
 				<input type="hidden" name="orderBy" id="orderBy" value=${rhs["orderBy"]?if_exists}>
 				<#list rhs["knowledgeRootList"] as knowledge>
+					<input type="checkbox" <#list rhs["knowledgevalue"] as val> <#if val?number == knowledge.id >checked</#if> </#list> onclick="document.getElementById('search_form').submit();" name="knowledgevalue" value="${knowledge.id}"/>&nbsp;&nbsp;<font color='red'>${knowledge.name}</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<#if knowledge.getChildKnowledges()?exists >
 						<#list knowledge.getChildKnowledges() as knowledgenode>
-							
 							<input type="checkbox" <#list rhs["knowledgevalue"] as val> <#if val?number == knowledgenode.id >checked</#if> </#list> onclick="document.getElementById('search_form').submit();" name="knowledgevalue" value="${knowledgenode.id}"/>&nbsp;&nbsp;${knowledgenode.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						
 						</#list>
 					</#if>
 				</#list>
