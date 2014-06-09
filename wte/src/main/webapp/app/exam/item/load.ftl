@@ -12,8 +12,10 @@
 							<td>
 								<input type="radio" name="item.type" value="1" onclick="javascript:generateitem(1)" <#if rhs["item"].type == 1> checked</#if> <#if rhs.readonly>disabled</#if>/><@i18n "title_single" />
 								<input type="radio" name="item.type" value="2" onclick="javascript:generateitem(2)" <#if rhs["item"].type == 2> checked</#if> <#if rhs.readonly>disabled</#if>/><@i18n "title_multi" />
+								<#--
 								<input type="radio" name="item.type" value="3" onclick="javascript:generateitem(3)" <#if rhs["item"].type == 3> checked</#if> <#if rhs.readonly>disabled</#if>/><@i18n "title_blank" />
 								<input type="radio" name="item.type" value="4" onclick="javascript:generateitem(4)" <#if rhs["item"].type == 4> checked</#if> <#if rhs.readonly>disabled</#if>/><@i18n "title_essay" />
+							    -->
 							</td>
 						</tr>
 						<tr>
@@ -26,7 +28,7 @@
 									</#if>
 									<div id='choice' >
 										<#list rhs["item"].choiceitem?sort_by("id") as choiceitems>
-											<input type='radio' name='item.refkey' value='${choiceitems_index+1}' <#if rhs.readonly>disabled</#if><#if rhs["item"].refkey?exists&&rhs["item"].refkey?number==choiceitems.refid> checked</#if> /><input style='margin-left:3px;' type='text' name='choiceitemvalue' value='${choiceitems.value}' <#if rhs.readonly>disabled</#if>/><br/>
+											<input type='radio' name='item.refkey' value='${choiceitems_index+1}' <#if rhs.readonly>disabled</#if><#if rhs["item"].refkey?exists&&rhs["item"].refkey?number==choiceitems.refid> checked</#if> /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' value='${choiceitems.value?if_exists}' <#if rhs.readonly>disabled</#if>/><br/>
 											<input type="hidden" name="choiceitemid" value='${choiceitems.id}' />
 										</#list>
 									</div>

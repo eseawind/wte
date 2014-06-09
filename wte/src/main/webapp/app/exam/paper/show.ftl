@@ -12,7 +12,7 @@
 						<tr>
 							<td> <@i18n "title_name" /> </td>
 							<td style="width:300px;" colspan="2"> <input type="text" name="paper.name" value="<#if rhs["paper"]?exists >${rhs["paper"].name?if_exists}</#if>" style="width:300px;"/></td>
-							<td><@i18n "title_knowledge" /></td>
+							<td><@i18n "title_knowledge" /> scope:</td>
 							<td>
 								<#list rhs["knowledgeRootList"] as knowledge>
 									<#if knowledge.getChildKnowledges()?exists >

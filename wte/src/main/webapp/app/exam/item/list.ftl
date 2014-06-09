@@ -2,8 +2,10 @@
 <body> 
    		<#include "include_add_search.ftl">
 		<br><br>
-		<a style="margin-left:7px;margin-top:15px;" class="btn btn-xs btn-info "  href="exam_item_save.do?method=show"><@i18n "menu_item_new" /></a>
-		<a style="margin-left:10px;margin-top:15px;" class="btn btn-xs btn-info "  href="exam_knowledge_menu_knowledge.do"><@i18n "menu_knowledge" /></a>
+		<a style="margin-left:10px;" class="btn btn-xs btn-info "  href="exam_item_save.do?method=show"><@i18n "menu_item_new" /></a>
+		 <a  class="btn btn-xs btn-info "  href="exam_item_import_itembyxls.do?method=item">Import By Excel<#---<@i18n "menu_item_new_excel" />--></a>
+		
+		<a  class="btn btn-xs btn-info "  href="exam_knowledge_menu_knowledge.do"><@i18n "menu_knowledge" /></a>
 		
 		
 	<div class="panel panel-primary" style="margin-top: 25px;">
@@ -41,7 +43,7 @@
 						<@i18n "title_essay" />
 					</#if>
 				</td>
-				<td><a href="exam_item_load.do?method=edit&id=${x.id}"><@i18n "title_edit" /></a> | <a href="exam_item_load.do?method=show&id=${x.id}"> <@i18n "title_view" /></a> | <a href="exam_item_delete.do?id=${x.id}"><@i18n "title_delete" /></a></td>
+				<td><a href="exam_item_load.do?method=edit&id=${x.id}"><@i18n "title_edit" /></a> <!--| <a href="exam_item_load.do?method=show&id=${x.id}"> <@i18n "title_view" /></a> -->| <a href="exam_item_delete.do?id=${x.id}"><@i18n "title_delete" /></a></td>
 				<td></td>
 			</tr>
 			</#list>
