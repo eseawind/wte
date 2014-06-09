@@ -53,10 +53,12 @@
 		  <#--<li ><a href="exam_template_list.do" target="mainFrame">模板管理</a></li>-->
 		  <#--<li ><a href="common_edit_list_file.do" target="mainFrame"><@i18n "menu_edit_para" /></a></li>-->
 		  <li ><a href="ea_user_menu_user.do" target="mainFrame"><@i18n "menu_user" /></a></li>
-		  <li ><a href="exam_item_list.do" target="mainFrame"><@i18n "menu_item" /></a></li>
-		  <li ><a href="exam_paper_list.do" target="mainFrame"><@i18n "menu_paper" /></a></li>
+		  <li ><a href="exam_item_list.do" target="mainFrame">Question Library<#--<@i18n "menu_item" />--></a></li>
+		  <li ><a href="exam_paper_list.do" target="mainFrame">Examination Management<#--<@i18n "menu_paper" />--></a></li>
+		  <#--
 		  <li ><a href="exam_exam_exam_list.do" target="mainFrame"><@i18n "menu_judge" /></a></li>
-		  <li ><a href="exam_exam_exam_record_list.do" target="mainFrame"><@i18n "menu_query_exam" /></a></li>
+		  -->
+		  <li ><a href="exam_exam_exam_record_list.do" target="mainFrame"> Result Management<#--<@i18n "menu_query_exam" />--></a></li>
     </ul>
   </div>
 </body> 

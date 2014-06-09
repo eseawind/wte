@@ -55,7 +55,7 @@ function init_select_users(){
 		width: 750,
 		height: 462,
 		buttons: {
-	        "确定": function(){
+	        "Submit": function(){
 	        	var options = document.getElementById("users_selected").options;
 	        	var optionValues = new Array();
 	        	var optionTexts = new Array();
@@ -92,7 +92,7 @@ function init_select_users(){
 					}
 				});*/
 	        },
-	        "取消": function(){
+	        "Cancel": function(){
 	        	$(this).dialog("close");
 	        }
       	},
@@ -303,19 +303,19 @@ function menu_active(obj){
 <!--  html  -->
 <div id="include_select_users_div" style="display:none;">
 	<div class="select_users_div">
-		<div class="select_users_top">Quickly Search
+		<div class="select_users_top">Quick Search
 			<input style="width:150px;" id="auto_text" type="text" class="search-query"/>
 		
-		
+		     <#--
 			 <a  href="#" onclick="javascript:_clear();" ><span class="label label-default">X</span>  </a>
-			
+			-->
 		</div>
 		
 		<div id="all_users" class="select_users_content select_users_content_border">
 			<div class="radio_div">
 				<ul class="nav nav-pills">
 				  <!--<li id="usually_radio" class="disabled" onclick="change_tree(this);menu_active(this);"><a href="javascript:void(0);">常选</a></li>-->
-				  <li id="department_radio" onclick="change_tree(this);menu_active(this);"><a href="javascript:void(0);">部门</a></li>
+				  <li id="department_radio" onclick="change_tree(this);menu_active(this);"><#--<a href="javascript:void(0);">部门</a>--></li>
 				
 				</ul>
 			</div>
@@ -341,18 +341,18 @@ function menu_active(obj){
 		<br>
 		<br>
 		<br>
-		<button class="btn btn-info btn-xs " onclick="javascript:add_to_selected();">添加 ></button>
+		<button class="btn btn-info btn-xs " onclick="javascript:add_to_selected();">Add ></button>
 		<br>
 		<br>
 		<br>
 		<br>
 		<br>
 		<br>
-		<button class="btn btn-info btn-xs " onclick="javascript:remove_from_selected();">< 删除</button>
+		<button class="btn btn-info btn-xs " onclick="javascript:remove_from_selected();">< Delete</button>
 	</div>
 	<div class="select_users_div">
 		<div class="select_users_top">
-		已选：
+		&nbsp;
 		</div>
 		<select class="select_users_content select_users_content_border" id="users_selected" multiple="multiple" size="15">
 		</select>

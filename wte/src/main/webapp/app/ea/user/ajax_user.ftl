@@ -66,7 +66,7 @@
 					
 				<a  href="ea_ea_iframe_get_rolelist_of_user.do?id=${x.id?if_exists}" onclick="return hs.htmlExpand(this, { objectType: 'iframe' })">职位</a>&nbsp;&nbsp;
 			-->	
-				<a  title="删除" onclick="javascript:action_user('delete.do','id=${x.id}');"  title=删除 >删除</a>
+				<a  title="delete" onclick="javascript:action_user('delete.do','id=${x.id}');"   >Delete</a>
 			</span>
 			
 			</td>

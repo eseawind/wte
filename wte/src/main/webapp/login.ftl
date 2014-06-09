@@ -42,18 +42,20 @@
 </script>
 
 <body>
-
+<p class="pull-right"><small>${rhs["url"]?if_exists}</small></p>
 			    
 
     <div class="container">
 	<form name="formlang" id="formlang" action="lang.do" method="post" >
+	   <#---
                             language
 	    <select class=input name="lang" size="1" onchange="document.getElementById('formlang').submit();" value="${Session["lang"]}">
 			    <option value="${Session["lang"]}">${language_name[Session["lang"]]}</option>
 			    <#list language_name?keys as key>
 				   <option value="${key}">${language_name[key]}</option>
 				</#list> 
-		</select> 			                            
+		</select> 
+		-->			                            
     </form>
                             
       <form class="form-signin" name="loginForm" action="login.do" method="post">
@@ -72,7 +74,7 @@
         </tr>
         <tr>
         	<td>
-        		<input type="password" class="input-block-level" placeholder="Password" name=password value=abc123 >
+        		<input type="password" class="input-block-level" placeholder="Password" name=password value= >
 		        <input type="hidden" class="text" name=sysName value="oa">
         	</td>
         </tr>
@@ -92,12 +94,7 @@
         		<button class="btn btn-lg  btn-primary pull-right" type="submit"> <@i18n "submit" /></button>
         	</td>
         </tr>
-        <tr>
-        	<td style="width:100px;"></td>
-        	<td class="pull-right">
-        		<small>${rhs["url"]?if_exists}</small>
-        	</td>
-        </tr>
+       
         </table>
       </form>
     </div> <!-- /container -->
