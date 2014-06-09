@@ -160,7 +160,7 @@
 			record_keycode("ALT");
 			alert('Warning: Can not use ALT！Or the exam will be commited!');
 			e.keyCode = 0;
-			if(warn > 1){
+			if(warn == 1){
 				document.getElementsByName("form_item")[0].submit();
 				setTimeout("refresh()",100);
 				//window.close();
@@ -196,7 +196,7 @@
 			record_keycode("Win");
 			alert('Can not use Win button！');
 			e.keyCode = 0;
-			if(warn > 1){
+			if(warn == 1){
 				document.getElementsByName("form_item")[0].submit();
 				setTimeout("refresh()",100);
 				 //window.close();
