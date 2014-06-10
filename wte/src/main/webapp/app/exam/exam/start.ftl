@@ -95,7 +95,7 @@
 	    </table>
 	    </#if>
 	    <table class="table table-condensed table-bordered table-striped">
-	    	<tr>
+	    	<tr align=center>
       			<td><input type="button" class="btn btn-xs btn-info" value="Save" id="submitButton"/></td>
       		</tr>
 	    </table>
@@ -131,6 +131,14 @@
 		window.close();
 		//alert("refresh");
 	}
+	
+	function isIE() { //ie?  
+    	if (!!window.ActiveXObject || "ActiveXObject" in window)  
+        	return true;  
+    	else  
+        	return false;  
+	}
+	
 	$(document).ready(function(){
      	ChangeTime();
 	});
