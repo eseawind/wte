@@ -3,7 +3,13 @@
 <script type="text/javascript">
 	window.onload = function()
 	{
-		CKEDITOR.replace( 'text'); 
+		CKEDITOR.replace( 'text',{
+			toolbar : [ 
+							
+							['Bold','Italic','Underline'] ,
+							['Font','FontSize','TextColor','BGColor' ]
+					  ]
+		}); 
 	}
 </script>
 			<form name="form_wo" action="exam_item_save.do" metiod="post">
