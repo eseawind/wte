@@ -2,10 +2,10 @@
 <body> 
    		<#include "include_add_search.ftl">
 		<br><br>
-		<a style="margin-left:10px;" class="btn btn-xs btn-info "  href="exam_item_save.do?method=show"><@i18n "menu_item_new" /></a>
-		 <a  class="btn btn-xs btn-info "  href="exam_item_import_itembyxls.do?method=item">Import By Excel<#---<@i18n "menu_item_new_excel" />--></a>
+		<a style="margin-left:10px;" class="btn btn-xs btn-primary "  href="exam_item_save.do?method=show"><@i18n "menu_item_new" /></a>
+		 <a  class="btn btn-xs btn-primary "  href="exam_item_import_itembyxls.do?method=item">Import by Excel<#---<@i18n "menu_item_new_excel" />--></a>
 		
-		<a  class="btn btn-xs btn-info "  href="exam_knowledge_menu_knowledge.do"><@i18n "menu_knowledge" /></a>
+		<a  class="btn btn-xs btn-primary "  href="exam_knowledge_menu_knowledge.do"><@i18n "menu_knowledge" /></a>
 		
 		
 	<div class="panel panel-primary" style="margin-top: 25px;">
@@ -18,9 +18,9 @@
 	    <thead>
 			<tr>
 			    <td width=25px><strong>#</strong></td>
-				<td width=500px><strong><@i18n "title_title" /></strong></td>
+				<td width=500px><strong> Question  <#--<@i18n "title_title" />--></strong></td>
 				<td width=120px><strong><@i18n "title_type" /></strong></td>
-				<td><strong><@i18n "title_operation" /></strong></td>
+				<td></td>
 				<td></td>
 			</tr>
 		</thead>
