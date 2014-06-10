@@ -57,9 +57,14 @@
 		  <li ><a href="exam_paper_list.do" target="mainFrame">Examination Management<#--<@i18n "menu_paper" />--></a></li>
 		  <#--
 		  <li ><a href="exam_exam_exam_list.do" target="mainFrame"><@i18n "menu_judge" /></a></li>
+
 		  -->
 		  		  <li ><a href="exam_exam_exam_arrange_list.do" target="mainFrame"><@i18n "menu_exam_arrange" /></a></li>
 		  <li ><a href="exam_exam_exam_record_list.do" target="mainFrame"> Result Management<#--<@i18n "menu_query_exam" />--></a></li>
+
+		  <li ><a href="exam_exam_exam_arrange_list.do" target="mainFrame"><@i18n "menu_exam_arrange" /></a></li>
+		
+
     </ul>
   </div>
 </body> 
