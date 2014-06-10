@@ -1,4 +1,11 @@
 <#include "../../../common/freemarker/include_header.ftl">
+<script type="text/javascript" src="common/ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+	window.onload = function()
+	{
+		CKEDITOR.replace( 'text'); 
+	}
+</script>
 			<form name="form_item" action="exam_item_save.do" metiod="post">
 				<div class="panel panel-primary">
 				    <div class="panel-heading">
@@ -19,7 +26,13 @@
 					</tr>
 					<tr>
 						<td><@i18n "title_content" /></td>
-						<td id="itemcontent">
+						<td>
+							<div>
+								<textarea class='input' style='width:400px;' type='text' id='text' name='item.content' >  </textarea><br/>
+							</div>
+							<div id="itemcontent">
+								
+							</div>
 						</td>
 					</tr>
 					
@@ -63,16 +76,16 @@
 	function generateitem(type){
 		switch(type){
 			case 1:
-				$("#itemcontent").html("<input class='input' style='width:400px;' type='text' value='' name='item.content' /><br/><button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='radio' name='item.refkey' value='1'/><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/><input type='radio' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;' name='choiceitemvalue' /><br/><input type='radio' value='3' name='item.refkey' /><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/><input type='radio'  value='4' name='item.refkey' /><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/></div>");
+				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='radio' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='radio' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio'  value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
 				break;
 			case 2:
-				$("#itemcontent").html("<input class='input' style='width:400px;' type='text' value='' name='item.content' /><br/><button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(2);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='checkbox' name='item.refkey' value='1'/><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;' name='choiceitemvalue' /><br/><input type='checkbox' value='3' name='item.refkey' /><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='4' name='item.refkey' /><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/></div>");
+				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(2);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='checkbox' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='checkbox' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
 				break;
 			case 3:
-				$("#itemcontent").html("<input class='input' style='width:400px;' type='text' value='' name='item.content' /><br/><div class='btn btn-xs btn-info'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='' name='item.refkey' /></div>");
+				$("#itemcontent").html("<div class='btn btn-xs btn-info'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='' name='item.refkey' /></div>");
 				break;
 			case 4:
-				$("#itemcontent").html("<textarea class='input' style='width:400px;height:100px' type='text' value='' name='item.content' /><br/><div class='btn btn-xs btn-info'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='' name='item.refkey' /></div>");
+				$("#itemcontent").html("<div class='btn btn-xs btn-info'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='' name='item.refkey' /></div>");
 				break;	
 		}
 	}
@@ -83,11 +96,11 @@
 		var content = $("#choice").html();
 		switch(type){
 			case 1:
-				$("#choice").html(content + "<input type='radio' name='item.refkey' value='"+ option_input_num +"'/><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/>");
+				$("#choice").html(content + "<input type='radio' name='item.refkey' value='"+ option_input_num +"'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/>");
 				break;
 				
 			case 2:
-				$("#choice").html(content + "<input type='checkbox' name='item.refkey' value='"+ option_input_num +"'/><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/>");
+				$("#choice").html(content + "<input type='checkbox' name='item.refkey' value='"+ option_input_num +"'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/>");
 				break;
 		
 		}
