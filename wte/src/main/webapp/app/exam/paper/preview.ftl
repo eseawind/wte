@@ -4,7 +4,6 @@
       <div class="panel-body">
 		<br />
 		<p align="center">
-      	<a  class="btn btn-xs btn-info" href="exam_paper_list.do">Return</a>
       	</p>
       	<table class="table table-condensed table-bordered table-striped">
       		<tr><td colspan="8"><font color="red"><strong>
@@ -80,8 +79,5 @@
 		  	</#list>
       	</table>
       	</#if>
-      	<p align="center">
-      	<a  class="btn btn-xs btn-info" href="exam_paper_list.do">Return</a>
-      	</p>
       </div>
 </div>
