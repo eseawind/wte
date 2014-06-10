@@ -30,11 +30,12 @@
 						<#--paper information-->
 						<#list rhs["paperlist"]?keys as examarrangeid>
 							<#if examarrangeid?number == examarrange.id>
+								<#assign paperid = rhs["paperlist"][examarrangeid].id />
 								<td >${rhs["paperlist"][examarrangeid].name} 
 									
 									<#list rhs["recordlist"]?keys as examrecordid>
 										<#if examrecordid?number == examarrange.id && (rhs["recordlist"][examrecordid]?size > 0)>
-											${examrecordid}<button onclick="javascript:showresult(${examarrange.id});" class="btn btn-xs btn-primary pull-right" name="detail">Detail</button>
+											<button onclick="javascript:showresult(${examarrange.id});" class="btn btn-xs btn-primary pull-right" name="detail">Detail</button>
 										</#if>
 									</#list>
 									
@@ -44,7 +45,15 @@
 						</#list>
 						<td>${examarrange.starttime}</td>
 						<td>${examarrange.userid}</td>
-						<td><#if rhs["export"]><div class="pull-right"><a href="exam_exam_export_arrange_record.do?arrangeid=${examarrange.id}" class="btn btn-xs btn-primary" >Export to Excel</a></div></#if></td>
+						<td><#if rhs["export"]>
+							<#list rhs["recordlist"]?keys as examrecordid>
+								<#if examrecordid?number == examarrange.id && (rhs["recordlist"][examrecordid]?size > 0)>
+									<div class="pull-right"><a href="exam_exam_export_arrange_record.do?arrangeid=${examarrange.id}&paperid=${paperid}" class="btn btn-xs btn-primary" >Export to Excel</a></div>
+								</#if>
+							</#list>
+							</#if>
+							
+						</td>
 					</tr>
 					<#assign index=index+1 />
 					<tr id="${examarrange.id}" style="display:none;">
