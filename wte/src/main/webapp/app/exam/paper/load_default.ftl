@@ -200,7 +200,7 @@
 						<tr>
 							<td colspan="4" align=center>
 							    <input type="button" class="btn btn-xs btn-info" value="Submit" id="submitButton"/>
-							    <#--<a  class="btn btn-xs btn-info" href="exam_paper_list.do">Return</a>-->
+							    <a  class="btn btn-xs btn-info" href="exam_paper_list.do">Return</a>
 							</td>
 						</tr>
 					</table>

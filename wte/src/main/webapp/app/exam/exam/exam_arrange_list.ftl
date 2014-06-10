@@ -14,11 +14,12 @@
 		<table class="table table-condensed table-bordered">
 				<tr>
 					<td width=25px><strong>#</strong></td>
-					<td ><strong><@i18n "title_name" /></strong></td>
-					<#--<td ><strong>User ID</strong></td>-->
-					<td ><strong><@i18n "title_passmark" /></strong></td>
+					<td><strong><@i18n "title_name" /></strong></td>
 					<td ><strong><@i18n "title_starttime" /></strong></td>
 					<td><strong><@i18n "title_join_user" /></strong></td>
+					<#--<td ><strong>User ID</strong></td>
+					<td ><strong><@i18n "title_passmark" /></strong></td>
+					-->
 					<td></td>
 					<#--<td ><strong><@i18n "title_result" /></strong></td>-->
 					<#--<td ><strong><@i18n "title_remark" /></strong></td>-->
@@ -32,27 +33,25 @@
 							<#if examarrangeid?number == examarrange.id>
 								<#assign paperid = rhs["paperlist"][examarrangeid].id />
 								<td >${rhs["paperlist"][examarrangeid].name} 
-									
-									<#list rhs["recordlist"]?keys as examrecordid>
-										<#if examrecordid?number == examarrange.id && (rhs["recordlist"][examrecordid]?size > 0)>
-											<button onclick="javascript:showresult(${examarrange.id});" class="btn btn-xs btn-primary pull-right" name="detail">Detail</button>
-										</#if>
-									</#list>
-									
-								</td>
-								<td >${rhs["paperlist"][examarrangeid].passmark}</td>
+								<small>(<@i18n "title_totalmark" />:${rhs["paperlist"][examarrangeid].totalmark}
+								,<@i18n "title_passmark" />:${rhs["paperlist"][examarrangeid].passmark})</small></td>
 							</#if>
 						</#list>
 						<td>${examarrange.starttime}</td>
 						<td>${examarrange.userid}</td>
-						<td><#if rhs["export"]>
+						<td>
+							<#list rhs["recordlist"]?keys as examrecordid>
+										<#if examrecordid?number == examarrange.id && (rhs["recordlist"][examrecordid]?size > 0)>
+											<button onclick="javascript:showresult(${examarrange.id});" class="btn btn-xs btn-primary" name="detail">Detail</button>
+										</#if>
+							</#list>
+							<#if rhs["export"]>
 							<#list rhs["recordlist"]?keys as examrecordid>
 								<#if examrecordid?number == examarrange.id && (rhs["recordlist"][examrecordid]?size > 0)>
-									<div class="pull-right"><a href="exam_exam_export_arrange_record.do?arrangeid=${examarrange.id}&paperid=${paperid}" class="btn btn-xs btn-primary" >Export to Excel</a></div>
+									<a href="exam_exam_export_arrange_record.do?arrangeid=${examarrange.id}&paperid=${paperid}" class="btn btn-xs btn-primary" >Export to Excel</a>
 								</#if>
 							</#list>
 							</#if>
-							
 						</td>
 					</tr>
 					<#assign index=index+1 />

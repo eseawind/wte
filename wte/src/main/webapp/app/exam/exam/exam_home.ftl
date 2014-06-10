@@ -204,8 +204,8 @@ $(function() {$( "#div_scoll" ).draggable();});
 </script>
 
 
-<#--
-<div class="panel panel-primary" style="float:left;position:relative;width:46%;left:5px;">
+
+<div class="panel panel-primary" style="float:right;position:relative;width:46%;right:6px;">
        
   <div class="panel-heading">
   	<strong>Out of Date List</strong>
@@ -241,4 +241,4 @@ $(function() {$( "#div_scoll" ).draggable();});
 			</table>
   </div>
 </div>
--->
+

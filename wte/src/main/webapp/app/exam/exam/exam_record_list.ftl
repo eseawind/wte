@@ -27,7 +27,7 @@
 				<#list rhs["datalist"]?keys as papername>
 					<tr>
 						<td>${index}</td>
-						<td >${papername} (total score:${rhs["datalist"][papername][0].paper.totalmark} pass score:${rhs["datalist"][papername][0].paper.passmark})</td>
+						<td >${papername} <small>(<@i18n "title_totalmark" />:${rhs["datalist"][papername][0].paper.totalmark} <@i18n "title_passmark" />:${rhs["datalist"][papername][0].paper.passmark})</small></td>
 						
 						
 						<td>
