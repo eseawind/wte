@@ -33,7 +33,7 @@
 								<td >${rhs["paperlist"][examarrangeid].name} 
 									
 									<#list rhs["recordlist"]?keys as examrecordid>
-										<#if examrecordid?number == examarrange.id>
+										<#if examrecordid?number == examarrange.id && (rhs["recordlist"][examrecordid]?size > 0)>
 											${examrecordid}<button onclick="javascript:showresult(${examarrange.id});" class="btn btn-xs btn-primary pull-right" name="detail">Detail</button>
 										</#if>
 									</#list>
