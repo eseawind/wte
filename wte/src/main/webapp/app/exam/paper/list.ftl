@@ -19,7 +19,7 @@
 <body> 
    		<#include "include_add_search.ftl">
 		<br><br>
-		<a style="margin-left:7px;margin-top:15px;" class="btn btn-xs btn-info "  href="exam_paper_create.do?method=newpaper"><@i18n "menu_paper_new" /></a>
+		<a style="margin-left:7px;margin-top:15px;" class="btn btn-xs btn-primary "  href="exam_paper_create.do?method=newpaper"><@i18n "menu_paper_new" /></a>
 		<#--
 		<a style="margin-left:7px;margin-top:15px;" class="btn btn-xs btn-info "  href="exam_item_import_itembyxls.do?method=paper"><@i18n "menu_paper_new_excel" /></a> <br />
 		-->

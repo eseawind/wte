@@ -2,10 +2,10 @@
 <body> 
    		<#include "include_add_search.ftl">
 		<br><br>
-		<a style="margin-left:10px;" class="btn btn-xs btn-info "  href="exam_item_save.do?method=show"><@i18n "menu_item_new" /></a>
-		 <a  class="btn btn-xs btn-info "  href="exam_item_import_itembyxls.do?method=item">Import by Excel<#---<@i18n "menu_item_new_excel" />--></a>
+		<a style="margin-left:10px;" class="btn btn-xs btn-primary "  href="exam_item_save.do?method=show"><@i18n "menu_item_new" /></a>
+		 <a  class="btn btn-xs btn-primary "  href="exam_item_import_itembyxls.do?method=item">Import by Excel<#---<@i18n "menu_item_new_excel" />--></a>
 		
-		<a  class="btn btn-xs btn-info "  href="exam_knowledge_menu_knowledge.do"><@i18n "menu_knowledge" /></a>
+		<a  class="btn btn-xs btn-primary "  href="exam_knowledge_menu_knowledge.do"><@i18n "menu_knowledge" /></a>
 		
 		
 	<div class="panel panel-primary" style="margin-top: 25px;">

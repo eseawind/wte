@@ -1,7 +1,7 @@
  <table   class="table table-bordered table-condensed table-striped">
     <thead>
 		<tr>
-			<th >Name</th>
+			<th  >Name</th>
 			<th  >Account</th>
 			<th  >Password</th>
 			<#--<#if rhs["system_para_map"]?exists&& rhs["system_para_map"]["user-status"]?exists>
@@ -22,7 +22,7 @@
     <#assign sortName=Session["sortName"]?default("id")> 
 	<#list rhs["dataList"]?sort_by(sortName) as x>                                                                                    
 		<tr>
-			<td onmouseover="rowOver(this)" onmouseout="rowOut(this)"><input style="width:50px" type="text"  value='${x.name?if_exists}' onchange="javascript:action_user('update.do','column=name&id=${x.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))"/></td>
+			<td onmouseover="rowOver(this)" onmouseout="rowOut(this)"><input style="width:150px" type="text"  value='${x.name?if_exists}' onchange="javascript:action_user('update.do','column=name&id=${x.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))"/></td>
 			<td onmouseover="rowOver(this)" onmouseout="rowOut(this)"><input style="width:100px"  type="text"  value='${x.account?if_exists}'   onchange="javascript:action_user('update.do','column=account&id=${x.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))" /></td>
 			<td onmouseover="rowOver(this)" onmouseout="rowOut(this)"><input style="width:100px"  type="text"  value='${x.passwd?if_exists}' onchange="javascript:action_user('update.do','column=passwd&id=${x.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))"/></td>
 			

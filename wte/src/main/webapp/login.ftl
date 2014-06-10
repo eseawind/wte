@@ -42,7 +42,7 @@
 </script>
 
 <body>
-<p class="pull-right"><small>${rhs["url"]?if_exists}</small></p>
+<p class="pull-right"><small>${rhs["url"]?if_exists}</small>&nbsp;&nbsp;&nbsp;</p>
 			    
 
     <div class="container">
