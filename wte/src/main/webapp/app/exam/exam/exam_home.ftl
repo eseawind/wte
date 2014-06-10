@@ -46,7 +46,17 @@
   </div>
 </div>
 <script>
+	function isIE() { //ie?  
+    	if (!!window.ActiveXObject || "ActiveXObject" in window)  
+        	return true;  
+    	else  
+        	return false;  
+	}
 	function   toFull(url){
+		if(!isIE()){
+			alert("Please starting exam in IE!");
+			return false;
+		}
 	  if(window.name=="fullscreen")
 	  	return; 
 	  var a =window.open(url,"fullscreen","fullscreen=1,scrollbars=yes");
