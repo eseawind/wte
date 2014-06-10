@@ -1,3 +1,5 @@
 <script type="text/javascript">
-document.location.href = 'exam_paper_list.do?resultMessage=${rhs["resultMessage"]}';
+	document.location.href = '${rhs["page"]}?resultMessage=${rhs["resultMessage"]}';
+	window.opener.location.href = 'exam_exam_exam_complete.do';
+	window.close();
 </script>
