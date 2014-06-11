@@ -42,7 +42,7 @@
 								<#list rhs["knowledgeRootList"] as knowledge>
 									<#if knowledge.getChildKnowledges()?exists >
 										<#list knowledge.getChildKnowledges() as knowledgenode>
-											<input type="checkbox" name="knowledgevalue" value="${knowledgenode.id}" 
+											<input type="checkbox" name="knowledgevalue" value="${knowledgenode.id}" onclick="getmaxitemcount(${knowledgenode.id});"
 											<#if rhs["paper"]?exists && rhs["paper"].knowledge?exists >
 												<#list rhs["paper"].knowledge as paperknowledge>
 													<#if paperknowledge.id == knowledgenode.id> checked</#if>
@@ -89,9 +89,13 @@
 						</tr>
 						<tr>
 							<td><@i18n "title_single_rmd" /></td>
-							<td><input type="text" style="width:30px;" name="paper.rmdsinglechoice" onblur="javascript:counttotalmark();" id="rmdsinglechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdsinglechoice?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td><input type="text" style="width:30px;" name="paper.rmdsinglechoice" onblur="javascript:counttotalmark();" id="rmdsinglechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdsinglechoice?if_exists}</#if>" onKeyUp="checkvalue(this,1);"/>
+								(Max:<span id="maxsinglechoicecount"></span>)
+							</td>
 							<td><@i18n "title_multi_rmd" /></td>
-							<td><input type="text" style="width:30px;" name="paper.rmdmultichoice" onblur="javascript:counttotalmark();" id="rmdmultichoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdmultichoice?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td><input type="text" style="width:30px;" name="paper.rmdmultichoice" onblur="javascript:counttotalmark();" id="rmdmultichoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdmultichoice?if_exists}</#if>" onKeyUp="checkvalue(this,2);"/>
+								(Max:<span id="maxmultichoicecount"></span>)
+							</td>
 						</tr>
 						
 

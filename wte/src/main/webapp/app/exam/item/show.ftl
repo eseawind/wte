@@ -57,9 +57,9 @@
 					<#--<tr>
 						<td><@i18n "title_mark" /></td>
 						<td>
-							<input class='input' type='text' value='' name='item.mark' onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/>
 						</td>
 					</tr>-->
+					<input class='input' type='hidden' value='0' name='item.mark' />
 					<tr>
 						<td colspan="2" >
 						    <input type="button" class="btn btn-xs btn-info" value="Save" id="submitButton"/>
