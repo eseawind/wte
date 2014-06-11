@@ -40,7 +40,7 @@
 										<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button>
 									</#if>
 									<div id='choice' >
-										<#list rhs["item"].choiceitem?sort_by("id") as choiceitems>
+										<#list rhs["item"].choiceitem as choiceitems>
 											<input type='radio' name='item.refkey' value='${choiceitems_index+1}' <#if rhs.readonly>disabled</#if><#if rhs["item"].refkey?exists&&rhs["item"].refkey?number==choiceitems.refid> checked</#if> /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' value='${choiceitems.value?if_exists}' <#if rhs.readonly>disabled</#if>/><br/>
 											<input type="hidden" name="choiceitemid" value='${choiceitems.id}' />
 										</#list>
@@ -52,7 +52,7 @@
 										<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button>
 									</#if>
 									<div id='choice' >
-										<#list rhs["item"].choiceitem?sort_by("id") as choiceitems>
+										<#list rhs["item"].choiceitem as choiceitems>
 											<input type='checkbox' name='item.refkey' value='${choiceitems_index+1}' <#if rhs.readonly>disabled</#if><#if rhs["item"].refkey?exists><#list rhs["item"].refkey?split(",") as key><#if (key?trim)?number==choiceitems.refid> checked</#if> </#list></#if> /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' value='${choiceitems.value?if_exists}' <#if rhs.readonly>disabled</#if>/><br/>
 											<input type="hidden" name="choiceitemid" value='${choiceitems.id}' />
 										</#list>

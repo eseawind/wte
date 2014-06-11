@@ -20,11 +20,11 @@
       	<#assign i = 0 >
   		<table class="table table-condensed table-bordered table-striped">
 		  	<strong><@i18n "title_single" /></strong>(total:${rhs["paper"].singlechoice + rhs["paper"].rmdsinglechoice}, each: ${rhs["paper"].singlechoicemark})
-		  	<#list rhs["singleitems"]?sort_by("id") as singleitem>
+		  	<#list rhs["singleitems"] as singleitem>
 				<tr>
 					<td><strong>${singleitem_index+1}.&nbsp;${singleitem.item.content}</strong> <div class="pull-right"><@i18n "title_score" />：<input type="text" name="result[${i}].mark" value="<#if singleitem.answer?exists&&singleitem.answer == singleitem.item.refkey ><#if singleitem.item.mark?exists>${singleitem.item.mark}<#else>${singleitem.mark}</#if><#else>0</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></div></td>
 				<tr>
-				<#list singleitem.item.choiceitem?sort_by("id") as choiceitem>
+				<#list singleitem.item.choiceitem as choiceitem>
 					<tr>
 						<td <#if singleitem.item.refkey?number==choiceitem.refid> style='color:red;'</#if> ><input disabled  type="radio" value="${choiceitem.refid}" name="" <#if singleitem.answer?exists&&singleitem.answer?number==choiceitem.refid> checked</#if> /> ${choiceitem.value}</td>
 					</tr>
@@ -36,11 +36,11 @@
       	
       	<table class="table table-condensed table-bordered table-striped">
 	      	<strong><@i18n "title_multi" /></strong>(total:${rhs["paper"].multichoice + rhs["paper"].rmdmultichoice}, each: ${rhs["paper"].multichoicemark})
-	      	<#list rhs["multiitems"]?sort_by("id") as multiitem>
+	      	<#list rhs["multiitems"] as multiitem>
 	      		<tr>
 					<td><strong>${multiitem_index+1}.&nbsp;${multiitem.item.content}</strong> <div class="pull-right"><@i18n "title_score" />：<input type="text" name="result[${i}].mark" value="<#if multiitem.answer?exists&&multiitem.answer == multiitem.item.refkey ><#if multiitem.item.mark?exists>${multiitem.item.mark}<#else>${multiitem.mark}</#if><#else>0</#if>" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/></div></td>
 				<tr>
-				<#list multiitem.item.choiceitem?sort_by("id") as choiceitem>
+				<#list multiitem.item.choiceitem as choiceitem>
 					<tr>
 						<td <#list multiitem.item.refkey?split(",") as key><#if (key?trim)?number==choiceitem.refid> style='color:red;'</#if> </#list>><input disabled  type="checkbox" value="${choiceitem.refid}" name="" <#if multiitem.answer?exists><#list multiitem.answer?split(",") as key><#if (key?trim)?number==choiceitem.refid> checked</#if> </#list></#if> /> ${choiceitem.value}</td>
 					</tr>
