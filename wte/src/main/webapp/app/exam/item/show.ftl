@@ -1,5 +1,5 @@
 <#include "../../../common/freemarker/include_header.ftl">
-<script type="text/javascript" src="common/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="common/ckeditor441/ckeditor.js"></script>
 <script type="text/javascript">
 	window.onload = function()
 	{
