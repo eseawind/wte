@@ -4,7 +4,20 @@
 	<div class="panel panel-primary" style="margin-top: 18px;">
 		<div class="panel-heading"><strong><@i18n "menu_item_import" /></strong></div>
 		<div class="panel-body">
-			<table class="table table-condensed table-bordered table-striped">
+		 
+             <table >
+                 <tr><td >
+					<b>Please select  Excel file that many questions </b><input type="File" style="width:300px" name="file" /> 
+					<br>
+					<p align=left>&nbsp;<input type="button" class="btn btn-xs btn-primary" value="Submit" id="submitButton"/>	</p>				
+                 </td></tr>
+				 <tr><td><br><hr>
+					<b></b>Sapmle datas of excle file as below:<br><br>
+					<img width=80% src="<@context/>common/images/uploadtemplate.jpg" alt="Upload file template" /></td>
+                 </td></tr>
+              </table>
+             
+                <#---
 				<tr>
 					<td colspan="2">
 						1. 上传的excel需根据下面的模板一致。表格头的第一列为"知识领域"、第二列为"题型"、第三列为"题目内容"、第四列为"题目分值"、第五列为"正确答案"、后面的列分别是选项。
@@ -14,14 +27,7 @@
 						<br/>4. 对于填空和问答题，不应该有选项列。
 					</td>
 				</tr>
-				<tr>
-					<td colspan="2"><img src="<@context/>common/images/uploadtemplate.jpg" alt="Upload file template" /></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="File"  name="file" /> <input type="button" class="btn btn-xs btn-info" value="Save" id="submitButton"/>					
-					</td>
-				</tr>
-			</table>
+				-->
 		</div>
 	</div>
 </form>

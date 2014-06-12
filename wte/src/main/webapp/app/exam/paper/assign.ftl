@@ -5,21 +5,23 @@
 <form name="form_item" action="exam_exam_complete_task.do" method="post">
 <input type="hidden" value="<#if rhs.method?exists >${rhs["method"]}</#if>" name="method"/>
 <div class="panel panel-primary" style="margin-top: 18px;">
-      <div class="panel-heading"><strong>Assigning User Join Exam</strong></div>
+      <div class="panel-heading"><strong>Arrange Examination</strong></div>
       <div class="panel-body">
       	 <table class="table table-condensed table-bordered table-striped">
       		<tr>
-      			<td><@i18n "title_name" />: <#if rhs["paper"]?exists > ${rhs["paper"].name?if_exists} </#if></td>
+      			<td><strong>Paper Name: </strong><#if rhs["paper"]?exists > ${rhs["paper"].name?if_exists} </#if></td>
       			<input type="hidden" value="<#if rhs["paper"]?exists >${rhs["paper"].id?if_exists}</#if>" name="paperid" />
       		</tr>
       		<tr>
       			<td>
-      			Start Time from <input type="text"  style="width:135px" class="input-small" id="starttime" name="starttime" onclick="javascript:WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'});" value='' />
+      			<strong>Start Time from: <input type="text"  style="width:135px" class="input-small" id="starttime" name="starttime" onclick="javascript:WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'});" value='' />
 				 to <input type="text"  style="width:135px" class="input-small" id="endtime" name="endtime" onclick="javascript:WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'});" value='' />
+      			</strong>
       			</td>
       		</tr>
       		<tr>
-      			<td><@i18n "title_candidate" />:
+      			<td><strong>Nomination:</strong>
+      			<#--<br><@i18n "title_candidate" />-->
       			<input type="hidden" id="assignee" name="assignee"/>
 				<textarea class="input-small" id="assigneeText" style="height:40px;width:300px;"
 					onclick="javascript:open_select_users_dialog(document.getElementById('assigneeText'),document.getElementById('assignee'),2);" ></textarea>

@@ -30,11 +30,11 @@
       	<#assign i = 0 >
   		<table class="table table-condensed table-bordered table-striped">
 		  	<strong><@i18n "title_single" /></strong>(total:${rhs["paper"].singlechoice + rhs["paper"].rmdsinglechoice}, each: ${rhs["paper"].singlechoicemark})
-		  	<#list rhs["singleitems"]?sort_by("id") as singleitem>
+		  	<#list rhs["singleitems"] as singleitem>
 				<tr>
 					<td><strong>${singleitem_index+1}.&nbsp;${singleitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if singleitem.mark?exists&&singleitem.mark!="0">${singleitem.mark}<#else>${rhs["paper"].singlechoicemark}</#if></div></td>
 				<tr>
-				<#list singleitem.choiceitem?sort_by("id") as choiceitem>
+				<#list singleitem.choiceitem as choiceitem>
 					<tr>
 						<td><input type="radio" value="${choiceitem.refid}" name="result[${i}].answer"/> ${choiceitem.value}</td>
 					</tr>
@@ -47,11 +47,11 @@
       	<#if (rhs["multiitems"]?size > 0) >
       	<table class="table table-condensed table-bordered table-striped">
 	      	<strong><@i18n "title_multi" /></strong>(total:${rhs["paper"].multichoice + rhs["paper"].rmdmultichoice}, each: ${rhs["paper"].multichoicemark})
-	      	<#list rhs["multiitems"]?sort_by("id") as multiitem>
+	      	<#list rhs["multiitems"] as multiitem>
 	      		<tr>
 					<td><strong>${multiitem_index+1}.&nbsp;${multiitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if multiitem.mark?exists&&multiitem.mark!="0">${multiitem.mark}<#else>${rhs["paper"].multichoicemark}</#if></div></td>
 				<tr>
-				<#list multiitem.choiceitem?sort_by("id") as choiceitem>
+				<#list multiitem.choiceitem as choiceitem>
 					<tr>
 						<td><input type="checkbox" value="${choiceitem.refid}" name="result[${i}].answer"/> ${choiceitem.value}</td>
 					</tr>
@@ -95,7 +95,7 @@
 	    </table>
 	    </#if>
 	    <table class="table table-condensed table-bordered table-striped">
-	    	<tr>
+	    	<tr align=center>
       			<td><input type="button" class="btn btn-xs btn-info" value="Save" id="submitButton"/></td>
       		</tr>
 	    </table>
@@ -131,6 +131,14 @@
 		window.close();
 		//alert("refresh");
 	}
+	
+	function isIE() { //ie?  
+    	if (!!window.ActiveXObject || "ActiveXObject" in window)  
+        	return true;  
+    	else  
+        	return false;  
+	}
+	
 	$(document).ready(function(){
      	ChangeTime();
 	});
@@ -160,7 +168,7 @@
 			record_keycode("ALT");
 			alert('Warning: Can not use ALT！Or the exam will be commited!');
 			e.keyCode = 0;
-			if(warn > 1){
+			if(warn == 1){
 				document.getElementsByName("form_item")[0].submit();
 				setTimeout("refresh()",100);
 				//window.close();
@@ -196,7 +204,7 @@
 			record_keycode("Win");
 			alert('Can not use Win button！');
 			e.keyCode = 0;
-			if(warn > 1){
+			if(warn == 1){
 				document.getElementsByName("form_item")[0].submit();
 				setTimeout("refresh()",100);
 				 //window.close();

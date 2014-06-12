@@ -15,9 +15,10 @@
 				<tr>
 					<td width=25px><strong>#</strong></td>
 					<td ><strong><@i18n "title_name" /></strong></td>
-					<#--<td ><strong>User ID</strong></td>-->
+					<#--<td ><strong>User ID</strong></td>
 					<td ><strong><@i18n "title_totalmark" /></strong></td>
 					<td ><strong><@i18n "title_passmark" /></strong></td>
+					-->
 					<td></td>
 					<#--<td ><strong><@i18n "title_result" /></strong></td>-->
 					<#--<td ><strong><@i18n "title_remark" /></strong></td>-->
@@ -26,10 +27,14 @@
 				<#list rhs["datalist"]?keys as papername>
 					<tr>
 						<td>${index}</td>
-						<td >${papername} <button onclick="javascript:showresult(${rhs["datalist"][papername][0].paper.id});" class="btn btn-xs btn-primary pull-right" name="detail">Detail</button></td>
-						<td>${rhs["datalist"][papername][0].paper.totalmark}</td>
-						<td>${rhs["datalist"][papername][0].paper.passmark}</td>
-						<td><#if rhs["export"]><div class="pull-right"><a href="exam_exam_export_record.do?paperId=${rhs["datalist"][papername][0].paper.id}" class="btn btn-xs btn-primary" >Export to Excel</a></div></#if></td>
+						<td >${papername} <small>(<@i18n "title_totalmark" />:${rhs["datalist"][papername][0].paper.totalmark} <@i18n "title_passmark" />:${rhs["datalist"][papername][0].paper.passmark})</small></td>
+						
+						
+						<td>
+						<button onclick="javascript:showresult(${rhs["datalist"][papername][0].paper.id});" class="btn btn-xs btn-primary " name="detail">Detail</button>
+						
+						<#if rhs["export"]>
+						<a href="exam_exam_export_record.do?paperId=${rhs["datalist"][papername][0].paper.id}" class="btn btn-xs btn-primary" >Export to Excel</a></#if></td>
 					</tr>
 					<#assign index=index+1 />
 					<tr id="${rhs["datalist"][papername][0].paper.id}" style="display:none;">

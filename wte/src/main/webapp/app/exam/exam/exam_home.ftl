@@ -46,7 +46,17 @@
   </div>
 </div>
 <script>
+	function isIE() { //ie?  
+    	if (!!window.ActiveXObject || "ActiveXObject" in window)  
+        	return true;  
+    	else  
+        	return false;  
+	}
 	function   toFull(url){
+		if(!isIE()){
+			alert("Please starting exam in IE!");
+			return false;
+		}
 	  if(window.name=="fullscreen")
 	  	return; 
 	  var a =window.open(url,"fullscreen","fullscreen=1,scrollbars=yes");
@@ -115,6 +125,34 @@
 					</#list>
 				</#list>
 			</table>
+		
+		<#if rhs["oatasklist_outdate"]?size gt 0 >	
+		You missed exam:<br>
+		<table class="table table-condensed table-hover table-bordered">
+				<tr>
+					<td width=25px><strong>#</strong></td>
+					<td ><strong><@i18n "title_name" /></strong></td>
+					
+					<td ><strong><@i18n "title_examtime" /></strong></td>
+					<td ><strong><@i18n "title_starttime" /></strong></td>
+					<td ><strong></strong></td>
+				</tr>
+				<#list rhs["oatasklist_outdate"] as item>
+					<#if item.obj?exists>
+					<tr>
+						<td>${item_index+1}</td>
+						<td>${item.obj.name}</td>
+						
+						<td >${item.obj.time}(minutes)</td>
+						<td id="starttime_${item.task.id}">${item.starttime}</td>
+						<td >
+						
+						</td>
+					</tr>
+					</#if>
+				</#list>
+			</table>			
+			</#if>
 			<form action="exam_exam_exam_record_list.do" id="search_form" method="post" style="display:none;">
 				<input type="hidden" name="search" value="search">
 				<input type="hidden" name="pageId" id="pageId">
@@ -164,6 +202,8 @@ $(function() {$( "#div_scoll" ).draggable();});
 	}
 	
 </script>
+
+
 <#--
 <div class="panel panel-primary" style="float:left;position:relative;width:46%;left:5px;">
        

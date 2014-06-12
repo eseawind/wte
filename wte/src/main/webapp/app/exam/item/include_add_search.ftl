@@ -7,20 +7,24 @@
 				<input type="hidden" name="pageId" id="pageId">      					<#-- 这里必须加上，不然分页模块会不正常，且id和name不能修改为其他值	-->
 				<input type="hidden" name="maxSize" id="pageMaxSize">      		        <#-- 这里必须加上，不然修改显示条数会不正常，且id和name不能修改为其他值	-->
 				<input type="hidden" name="orderBy" id="orderBy" value=${rhs["orderBy"]?if_exists}>
+				<b>TYPE</b>&nbsp;&nbsp;&nbsp;<input onclick="document.getElementById('search_form').submit();" <#list rhs["itemtype"] as val> <#if (val?number == 1) >checked</#if> </#list> type="checkbox" name="itemtype" value="1"/>&nbsp;&nbsp;Single Choice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input onclick="document.getElementById('search_form').submit();" <#list rhs["itemtype"] as val> <#if (val?number == 2) >checked</#if> </#list> type="checkbox" name="itemtype" value="2"/>&nbsp;&nbsp;Multi Choice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <br><b>TAG</b>&nbsp;&nbsp;&nbsp;&nbsp;
 				<#list rhs["knowledgeRootList"] as knowledge>
+					<input type="checkbox" <#list rhs["knowledgevalue"] as val> <#if val?number == knowledge.id >checked</#if> </#list> onclick="document.getElementById('search_form').submit();" name="knowledgevalue" value="${knowledge.id}"/>&nbsp;&nbsp;<font color='red'>${knowledge.name}</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<#if knowledge.getChildKnowledges()?exists >
 						<#list knowledge.getChildKnowledges() as knowledgenode>
-							
 							<input type="checkbox" <#list rhs["knowledgevalue"] as val> <#if val?number == knowledgenode.id >checked</#if> </#list> onclick="document.getElementById('search_form').submit();" name="knowledgevalue" value="${knowledgenode.id}"/>&nbsp;&nbsp;${knowledgenode.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						
 						</#list>
 					</#if>
 				</#list>
-				<input onclick="document.getElementById('search_form').submit();" <#list rhs["itemtype"] as val> <#if (val?number == 1) >checked</#if> </#list> type="checkbox" name="itemtype" value="1"/>&nbsp;&nbsp;Single Choice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input onclick="document.getElementById('search_form').submit();" <#list rhs["itemtype"] as val> <#if (val?number == 2) >checked</#if> </#list> type="checkbox" name="itemtype" value="2"/>&nbsp;&nbsp;Multi Choice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<#--
 				<input onclick="document.getElementById('search_form').submit();" <#list rhs["itemtype"] as val> <#if (val?number == 3) >checked</#if> </#list> type="checkbox" name="itemtype" value="3"/>&nbsp;&nbsp;Blank&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<input onclick="document.getElementById('search_form').submit();" <#list rhs["itemtype"] as val> <#if (val?number == 4) >checked</#if> </#list> type="checkbox" name="itemtype" value="4"/>&nbsp;&nbsp;Essay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				-->
+				<#--
 				<input type="button" class="btn btn-default btn-xs" value="Search" onclick="javascript: submit_form('','search')" />
+				-->
 				<#--Order By: 
 				<a href="#" onclick="javascript: submit_form('priority')">优先级</a>
 				<a href="#" onclick="javascript: submit_form('endTime')">计划结束时间</a>-->

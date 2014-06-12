@@ -4,7 +4,6 @@
       <div class="panel-body">
 		<br />
 		<p align="center">
-      	<a  class="btn btn-xs btn-info" href="exam_paper_list.do">Return</a>
       	</p>
       	<table class="table table-condensed table-bordered table-striped">
       		<tr><td colspan="8"><font color="red"><strong>
@@ -26,11 +25,11 @@
       	<#if (rhs["singleitems"]?size>0)>
   		<table class="table table-condensed table-bordered table-striped">
 		  	<strong><@i18n "title_single" /></strong>(total:${rhs["paper"].singlechoice + rhs["paper"].rmdsinglechoice})
-		  	<#list rhs["singleitems"]?sort_by("id") as singleitem>
+		  	<#list rhs["singleitems"] as singleitem>
 				<tr>
 					<td><strong>${singleitem_index+1}.&nbsp;${singleitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if singleitem.mark?exists&&singleitem.mark!="0">${singleitem.mark}<#else>${rhs["paper"].singlechoicemark}</#if></div></td>
 				<tr>
-				<#list singleitem.choiceitem?sort_by("id") as choiceitem>
+				<#list singleitem.choiceitem as choiceitem>
 					<tr>
 						<td><input disabled type="radio" value="${choiceitem.refid}" name="result[${i}].answer"/> ${choiceitem.value}</td>
 					</tr>
@@ -43,11 +42,11 @@
   		<#if (rhs["multiitems"]?size>0)>
   		<table class="table table-condensed table-bordered table-striped">
 		  	<strong><@i18n "title_multi" /></strong>(total:${rhs["paper"].multichoice + rhs["paper"].rmdmultichoice})
-		  	<#list rhs["multiitems"]?sort_by("id") as multiitem>
+		  	<#list rhs["multiitems"] as multiitem>
 				<tr>
 					<td><strong>${multiitem_index+1}.&nbsp;${multiitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if multiitem.mark?exists&&multiitem.mark!="0">${multiitem.mark}<#else>${rhs["paper"].multichoicemark}</#if></div></td>
 				<tr>
-				<#list multiitem.choiceitem?sort_by("id") as choiceitem>
+				<#list multiitem.choiceitem as choiceitem>
 					<tr>
 						<td><input disabled type="checkbox" value="${choiceitem.refid}" name="result[${i}].answer"/> ${choiceitem.value}</td>
 					</tr>
@@ -80,8 +79,5 @@
 		  	</#list>
       	</table>
       	</#if>
-      	<p align="center">
-      	<a  class="btn btn-xs btn-info" href="exam_paper_list.do">Return</a>
-      	</p>
       </div>
 </div>
