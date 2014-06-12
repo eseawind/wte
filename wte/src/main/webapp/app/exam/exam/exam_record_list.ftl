@@ -39,7 +39,7 @@
 					<#assign index=index+1 />
 					<tr id="${rhs["datalist"][papername][0].paper.id}" style="display:none;">
 						<td colspan="5" >
-							<table class="table table-condensed table-bordered table-hover">
+							<table class="table table-condensed table-bordered table-hover" style="background:#FAFAD2;">
 								<#assign i=1>
 								<tr>
 									<td><strong>></strong></td>
@@ -60,7 +60,7 @@
 										<td>
 											<#list rhs["monitorlist"]?keys as recordid>
 												<#if recordid == record.id?string && (rhs["monitorlist"][recordid]?size > 0) >
-													<a onclick="javascript:showlog('${record.taskid}','${record.paper.id}','${record.userid}');" class="btn btn-xs btn-info">Show Log</a>
+													<a onclick="javascript:showlog('${record.taskid}','${record.paper.id}','${record.userid}');">Security Log</a>
 												</#if>
 											</#list>
 										</td>

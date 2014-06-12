@@ -57,7 +57,7 @@
 					<#assign index=index+1 />
 					<tr id="${examarrange.id}" style="display:none;">
 						<td colspan="6" >
-							<table class="table table-condensed table-bordered table-hover">
+							<table class="table table-condensed table-bordered table-hover" style="background:#FAFAD2;">
 								<#assign i=1>
 								<tr>
 									<td><strong>></strong></td>

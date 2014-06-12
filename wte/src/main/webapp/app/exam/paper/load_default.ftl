@@ -14,6 +14,7 @@
 		var totalmark = singlechoice * singlechoicemark + multichoice * multichoicemark;
 		//+ blank * blankmark + essay * essaymark;
 		$("#totalmark").val(totalmark);
+		$("#showtotalmark").html(totalmark);
 	}
 </script>
 			<form name="form_item" action="exam_paper_create.do" metiod="post">
@@ -29,12 +30,13 @@
 					 <table class="table table-condensed table-bordered table-striped">
 						<tr>
 						<td colspan=4> 
-						<@i18n "title_name" />
+						<@i18n "title_name" />:
 						<input type="text" name="paper.name" value="<#if rhs["paper"]?exists >${rhs["paper"].name?if_exists}</#if>" style="width:200px;"/>
-						&nbsp;&nbsp;&nbsp;<@i18n "title_examtime" /><input type="text"  style="width:50px;" name="paper.time" value="<#if rhs["paper"]?exists >${rhs["paper"].time}<#else>30</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/>(minutes)
-						&nbsp;&nbsp;&nbsp;<@i18n "title_passmark" /><input type="text"  name="paper.passmark"   style="width:50px;"  value="<#if rhs["paper"]?exists >${rhs["paper"].passmark}<#else>60</#if>" />
-						&nbsp;&nbsp;&nbsp;<@i18n "title_totalmark" /><input readonly type="text" style="width:30px;"  id="totalmark" name="paper.totalmark" value="<#if rhs["paper"]?exists >${rhs["paper"].totalmark}</#if>" />
-				
+						&nbsp;&nbsp;&nbsp;<@i18n "title_examtime" />: <input type="text"  style="width:50px;" name="paper.time" value="<#if rhs["paper"]?exists >${rhs["paper"].time}<#else>30</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/>(minutes)
+						&nbsp;&nbsp;&nbsp;<@i18n "title_passmark" />: <input type="text"  name="paper.passmark"   style="width:50px;"  value="<#if rhs["paper"]?exists >${rhs["paper"].passmark}<#else>60</#if>" />
+						&nbsp;&nbsp;&nbsp;<@i18n "title_totalmark" />:
+						<input readonly style="display:none;" type="text" style="width:30px;"  id="totalmark" name="paper.totalmark" value="<#if rhs["paper"]?exists >${rhs["paper"].totalmark}</#if>" />
+						<span id="showtotalmark"><#if rhs["paper"]?exists >${rhs["paper"].totalmark}<#else>0</#if></span>				
 						</td>
 						</tr>
 						<tr>
