@@ -58,7 +58,7 @@
 			<result name="success">frame.ftl</result>
 			<result name="fail">login.ftl</result>
 			<result name="ajaxResetPassword">ajax_result_info.ftl</result>
-			
+			<result name="forget">forget.ftl</result>
 			
 			
 		</action>	
