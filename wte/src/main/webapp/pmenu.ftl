@@ -75,7 +75,7 @@ function backArrow(currentId){
 		  <li ><a href="exam_item_list.do" target="mainFrame" onMouseOver="changeArrow(2)" onMouseOut="backArrow(2)"><img src="common/images/arrow_grey.png" id="2" />&nbsp;&nbsp;Question Library</a></li>
 		  <li ><a href="exam_paper_list.do" target="mainFrame" onMouseOver="changeArrow(3)" onMouseOut="backArrow(3)"><img src="common/images/arrow_grey.png" id="3" />&nbsp;&nbsp;Examination Management</a></li>
 		  <li ><a href="exam_exam_exam_arrange_list.do" target="mainFrame" onMouseOver="changeArrow(4)" onMouseOut="backArrow(4)"><img src="common/images/arrow_grey.png" id="4" />&nbsp;&nbsp;<@i18n "menu_exam_arrange" /></a></li>
-		  <li ><a href="exam_exam_exam_record_list.do" target="mainFrame" onMouseOver="changeArrow(5)" onMouseOut="backArrow(5)"><img src="common/images/arrow_grey.png" id="5" />&nbsp;&nbsp;Result Management</a></li>
+		  <li ><a href="exam_exam_exam_record_list.do?groupby=paper" target="mainFrame" onMouseOver="changeArrow(5)" onMouseOut="backArrow(5)"><img src="common/images/arrow_grey.png" id="5" />&nbsp;&nbsp;Result Management</a></li>
     </ul>
   </div>
 </body> 
