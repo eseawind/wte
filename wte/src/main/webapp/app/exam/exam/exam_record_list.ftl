@@ -34,7 +34,7 @@
 				<#list rhs["datalist"]?keys as papername>
 					<tr>
 						<td>${index}</td>
-						<td >${papername} <small>(<@i18n "title_totalmark" />:${rhs["datalist"][papername][0].paper.totalmark} <@i18n "title_passmark" />:${rhs["datalist"][papername][0].paper.passmark})</small></td>
+						<td >${papername} <small><#if rhs["groupby"] == "user" >(<@i18n "title_totalmark" />:${rhs["datalist"][papername][0].paper.totalmark} <@i18n "title_passmark" />:${rhs["datalist"][papername][0].paper.passmark})</#if></small></td>
 						
 						
 						<td>

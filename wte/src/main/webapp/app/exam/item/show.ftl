@@ -15,7 +15,7 @@
 			<form name="form_item" action="exam_item_save.do" metiod="post">
 				<div class="panel panel-primary">
 				    <div class="panel-heading">
-				    	<@i18n "menu_item_new" /> <a style="margin-left:10px;color:#FFFFFF" href="exam_item_import_itembyxls.do?method=item"><@i18n "menu_item_new_excel" /></a>
+				    	<@i18n "menu_item_new" />
 				    </div>
 					<div class="panel-body">
 				 <table class="table table-condensed table-bordered table-striped">
