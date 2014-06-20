@@ -107,7 +107,7 @@
 	$(function() {$( "#div_scoll" ).draggable();});  
 	function showresult(paperid){
 		var resultstyle = $("#"+paperid).attr("style");
-		if(resultstyle.indexOf("none") < 0){
+		if(resultstyle == null || resultstyle.indexOf("none") < 0){
 			$("#"+paperid).attr("style","display:none;");
 		}else{
 			$("#"+paperid).attr("style","display:");
