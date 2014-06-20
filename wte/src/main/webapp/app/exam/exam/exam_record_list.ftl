@@ -38,7 +38,9 @@
 						
 						
 						<td>
-							<button onclick="javascript:showresult(<#if rhs["groupby"] == "user" >${rhs["datalist"][papername][0].paper.id}<#else>${rhs["datalist"][papername][0].id}</#if>);" class="btn btn-xs btn-primary " name="detail">Detail</button>
+						
+							<#if rhs["groupby"] == "user" ><button onclick="javascript:showresult(<#if rhs["groupby"] == "user" >${rhs["datalist"][papername][0].paper.id}<#else>${rhs["datalist"][papername][0].id}</#if>);" class="btn btn-xs btn-primary " name="detail">Detail</button></#if>
+						
 						<#if rhs["export"]>
 							<#if rhs["groupby"] == "user" ><a href="exam_exam_export_record.do?paperId=${rhs["datalist"][papername][0].paper.id}" class="btn btn-xs btn-primary" >Export to Excel</a>
 							</#if>
@@ -46,7 +48,8 @@
 						</td>
 					</tr>
 					<#assign index=index+1 />
-					<tr id="<#if rhs["groupby"] == "user" >${rhs["datalist"][papername][0].paper.id}<#else>${rhs["datalist"][papername][0].id}</#if>" style="display:none;">
+					<#if (rhs["datalist"][papername]?size > 0) >
+					<tr id="<#if rhs["groupby"] == "user" >${rhs["datalist"][papername][0].paper.id}<#else>${rhs["datalist"][papername][0].id}</#if>" <#if rhs["groupby"] == "user" >style="display:none;"</#if>>
 						<td colspan="5" >
 							<table class="table table-condensed table-bordered table-hover" style="background:#FAFAD2;">
 								<#assign i=1>
@@ -90,6 +93,7 @@
 							</table>
 						</td>
 					</tr>
+					</#if>
 				</#list>
 			</table>
 			<form action="exam_exam_exam_record_list.do" id="search_form" method="post" style="display:none;">
