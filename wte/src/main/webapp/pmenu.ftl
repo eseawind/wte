@@ -71,6 +71,7 @@ function backArrow(currentId){
  		  <#--<li ><a href="exam_knowledge_menu_knowledge.do" target="mainFrame">知识领域</a></li>-->
 		  <#--<li ><a href="exam_template_list.do" target="mainFrame">模板管理</a></li>-->
 		  <#--<li ><a href="common_edit_list_file.do" target="mainFrame"><@i18n "menu_edit_para" /></a></li>-->
+		  <li ><a href="ea_smtp_menu_smtp.do" target="mainFrame" onMouseOver="changeArrow(1)" onMouseOut="backArrow(1)"><img src="common/images/arrow_grey.png" id="1"/>&nbsp;&nbsp;Mail Management</a></li>
 		  <li ><a href="ea_user_menu_user.do" target="mainFrame" onMouseOver="changeArrow(1)" onMouseOut="backArrow(1)"><img src="common/images/arrow_grey.png" id="1"/>&nbsp;&nbsp;<@i18n "menu_user" /></a></li>
 		  <li ><a href="exam_item_list.do" target="mainFrame" onMouseOver="changeArrow(2)" onMouseOut="backArrow(2)"><img src="common/images/arrow_grey.png" id="2" />&nbsp;&nbsp;Question Library</a></li>
 		  <li ><a href="exam_paper_list.do" target="mainFrame" onMouseOver="changeArrow(3)" onMouseOut="backArrow(3)"><img src="common/images/arrow_grey.png" id="3" />&nbsp;&nbsp;Examination Management</a></li>
