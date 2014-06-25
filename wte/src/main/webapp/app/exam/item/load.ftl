@@ -33,39 +33,42 @@
 						</tr>
 						<tr>
 							<td><@i18n "title_content" /></td>
-							<td id="itemcontent">
-								<textarea class='input' style='width:400px;' id='text' name='item.content' <#if rhs.readonly>disabled</#if> >${ rhs["item"].content?if_exists}</textarea><br/>
-								<#if rhs["item"].type == 1>
-									<#if !rhs.readonly>
-										<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button>
+							<td>
+								<div>
+									<textarea class='input' style='width:400px;' id='text' name='item.content' <#if rhs.readonly>disabled</#if> >${ rhs["item"].content?if_exists}</textarea><br/>
+								</div>
+								<div id="itemcontent">
+									<#if rhs["item"].type == 1>
+										<#if !rhs.readonly>
+											<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button>
+										</#if>
+										<div id='choice' >
+											<#list rhs["item"].choiceitem as choiceitems>
+												<input type='radio' name='item.refkey' value='${choiceitems.refid}' <#if rhs.readonly>disabled</#if><#if rhs["item"].refkey?exists&&rhs["item"].refkey?number==choiceitems.refid> checked</#if> /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' value='${choiceitems.value?if_exists}' <#if rhs.readonly>disabled</#if>/><br/>
+												<input type="hidden" name="choiceitemid" value='${choiceitems.id}' />
+											</#list>
+										</div>
 									</#if>
-									<div id='choice' >
-										<#list rhs["item"].choiceitem as choiceitems>
-											<input type='radio' name='item.refkey' value='${choiceitems_index+1}' <#if rhs.readonly>disabled</#if><#if rhs["item"].refkey?exists&&rhs["item"].refkey?number==choiceitems.refid> checked</#if> /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' value='${choiceitems.value?if_exists}' <#if rhs.readonly>disabled</#if>/><br/>
-											<input type="hidden" name="choiceitemid" value='${choiceitems.id}' />
-										</#list>
-									</div>
-								</#if>
-								<#if rhs["item"].type == 2>
-									<!--<input class='input' style='width:400px;' type='text' name='item.content' value='${ rhs["item"].content?if_exists}' <#if rhs.readonly>disabled</#if>/><br/>-->
-									<#if !rhs.readonly>
-										<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button>
+									<#if rhs["item"].type == 2>
+										<#if !rhs.readonly>
+											<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button>
+										</#if>
+										<div id='choice' >
+											<#list rhs["item"].choiceitem as choiceitems>
+												<input type='checkbox' name='item.refkey' value='${choiceitems.refid}' <#if rhs.readonly>disabled</#if><#if rhs["item"].refkey?exists><#list rhs["item"].refkey?split(",") as key><#if (key?trim)?number==choiceitems.refid> checked</#if> </#list></#if> /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' value='${choiceitems.value?if_exists}' <#if rhs.readonly>disabled</#if>/><br/>
+												<input type="hidden" name="choiceitemid" value='${choiceitems.id}' />
+											</#list>
+										</div>
 									</#if>
-									<div id='choice' >
-										<#list rhs["item"].choiceitem as choiceitems>
-											<input type='checkbox' name='item.refkey' value='${choiceitems_index+1}' <#if rhs.readonly>disabled</#if><#if rhs["item"].refkey?exists><#list rhs["item"].refkey?split(",") as key><#if (key?trim)?number==choiceitems.refid> checked</#if> </#list></#if> /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' value='${choiceitems.value?if_exists}' <#if rhs.readonly>disabled</#if>/><br/>
-											<input type="hidden" name="choiceitemid" value='${choiceitems.id}' />
-										</#list>
-									</div>
-								</#if>
-								<#if rhs["item"].type == 3>
-									<input class='input' style='width:400px;' type='text' name='item.content' value='${rhs["item"].content?if_exists}' <#if rhs.readonly>disabled</#if>/><br/>
-									<div class='btn btn-xs btn-info'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='${rhs["item"].refkey?if_exists}' name='item.refkey' <#if rhs.readonly>disabled</#if>/></div>
-								</#if>
-								<#if rhs["item"].type == 4>
-									<textarea class='input' style='width:400px;height:100px' type='text' name='item.content' <#if rhs.readonly>disabled</#if> > ${rhs["item"].content?if_exists} </textarea><br/>
-									<div class='btn btn-xs btn-info'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='${rhs["item"].refkey?if_exists}' name='item.refkey' <#if rhs.readonly>disabled</#if>/></div>
-								</#if>
+									<#if rhs["item"].type == 3>
+										<input class='input' style='width:400px;' type='text' name='item.content' value='${rhs["item"].content?if_exists}' <#if rhs.readonly>disabled</#if>/><br/>
+										<div class='btn btn-xs btn-info'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='${rhs["item"].refkey?if_exists}' name='item.refkey' <#if rhs.readonly>disabled</#if>/></div>
+									</#if>
+									<#if rhs["item"].type == 4>
+										<textarea class='input' style='width:400px;height:100px' type='text' name='item.content' <#if rhs.readonly>disabled</#if> > ${rhs["item"].content?if_exists} </textarea><br/>
+										<div class='btn btn-xs btn-info'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='${rhs["item"].refkey?if_exists}' name='item.refkey' <#if rhs.readonly>disabled</#if>/></div>
+									</#if>
+								</div>
 							</td>
 						</tr>
 						
@@ -117,19 +120,18 @@
 	
 	
 	function generateitem(type){
-		option_input_num = 4;
 		switch(type){
 			case 1:
-				$("#itemcontent").html("<input class='input' style='width:400px;' type='text' value='' name='item.content' /><br/><button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(1);return false;'>添加选项</button><div id='choice' ><input type='radio' name='item.refkey' value='1'/><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/><input type='radio' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;' name='choiceitemvalue' /><br/><input type='radio' value='3' name='item.refkey' /><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/><input type='radio'  value='4' name='item.refkey' /><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/></div>");
+				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='radio' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='radio' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio'  value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
 				break;
 			case 2:
-				$("#itemcontent").html("<input class='input' style='width:400px;' type='text' value='' name='item.content' /><br/><button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(2);return false;'>添加选项</button><div id='choice' ><input type='checkbox' name='item.refkey' value='1'/><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;' name='choiceitemvalue' /><br/><input type='checkbox' value='3' name='item.refkey' /><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='4' name='item.refkey' /><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/></div>");
+				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(2);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='checkbox' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='checkbox' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
 				break;
 			case 3:
-				$("#itemcontent").html("<input class='input' style='width:400px;' type='text' value='' name='item.content' /><br/><div class='btn btn-xs btn-info'>参考答案<input class='input' style='width:340px;' type='text' value='' name='item.refkey' /></div>");
+				$("#itemcontent").html("<div class='btn btn-xs btn-info'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='' name='item.refkey' /></div>");
 				break;
 			case 4:
-				$("#itemcontent").html("<textarea class='input' style='width:400px;height:100px' type='text' value='' name='item.content' /><br/><div class='btn btn-xs btn-info'>参考答案<input class='input' style='width:340px;' type='text' value='' name='item.refkey' /></div>");
+				$("#itemcontent").html("<div class='btn btn-xs btn-info'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='' name='item.refkey' /></div>");
 				break;	
 		}
 	}
@@ -139,11 +141,11 @@
 		var content = $("#choice").html();
 		switch(type){
 			case 1:
-				$("#choice").html(content + "<input type='radio' name='item.refkey' value='"+ option_input_num +"'/><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/>");
+				$("#choice").html(content + "<input type='radio' name='item.refkey' value='"+ option_input_num +"'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/>");
 				break;
 				
 			case 2:
-				$("#choice").html(content + "<input type='checkbox' name='item.refkey' value='"+ option_input_num +"'/><input style='margin-left:3px;' type='text' name='choiceitemvalue' /><br/>");
+				$("#choice").html(content + "<input type='checkbox' name='item.refkey' value='"+ option_input_num +"'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/>");
 				break;
 		
 		}

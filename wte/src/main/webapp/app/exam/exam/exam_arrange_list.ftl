@@ -58,7 +58,7 @@
 					<#assign index=index+1 />
 					<tr id="${examarrange.id}" style="display:none;">
 						<td colspan="6" >
-							<table class="table table-condensed table-bordered table-hover">
+							<table class="table table-condensed table-bordered table-hover" style="background:#FAFAD2;">
 								<#assign i=1>
 								<tr>
 									<td><strong>></strong></td>
@@ -107,7 +107,7 @@
 	$(function() {$( "#div_scoll" ).draggable();});  
 	function showresult(paperid){
 		var resultstyle = $("#"+paperid).attr("style");
-		if(resultstyle.indexOf("none") < 0){
+		if(resultstyle == null || resultstyle.indexOf("none") < 0){
 			$("#"+paperid).attr("style","display:none;");
 		}else{
 			$("#"+paperid).attr("style","display:");

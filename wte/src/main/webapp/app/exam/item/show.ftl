@@ -16,7 +16,7 @@
 			<form name="form_item" action="exam_item_save.do" metiod="post">
 				<div class="panel panel-primary">
 				    <div class="panel-heading">
-				    	<@i18n "menu_item_new" /> <a style="margin-left:10px;color:#FFFFFF" href="exam_item_import_itembyxls.do?method=item"><@i18n "menu_item_new_excel" /></a>
+				    	<@i18n "menu_item_new" />
 				    </div>
 					<div class="panel-body">
 				 <table class="table table-condensed table-bordered table-striped">
@@ -59,9 +59,9 @@
 					<#--<tr>
 						<td><@i18n "title_mark" /></td>
 						<td>
-							<input class='input' type='text' value='' name='item.mark' onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/>
 						</td>
 					</tr>-->
+					<input class='input' type='hidden' value='0' name='item.mark' />
 					<tr>
 						<td colspan="2" >
 						    <input type="button" class="btn btn-xs btn-primary" value="Save" id="submitButton"/>

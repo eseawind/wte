@@ -31,7 +31,7 @@
     </div>
     
     <div class="pull-right">
-        <form name="formlang" id="formlang" action="common_edit_lang.do" method="post">
+        <#--<form name="formlang" id="formlang" action="common_edit_lang.do" method="post">
     	Language
 	    <select class=input name="lang" size="1" onchange="document.getElementById('formlang').submit();" value="${Session["lang"]}">
 			    <option value="${Session["lang"]}">${language_name[Session["lang"]]}</option>
@@ -39,7 +39,7 @@
 				   <option value="${key}">${language_name[key]}</option>
 				</#list> 
 		</select> 			                            
-    	</form>
+    	</form>-->
 		<div>
 			<#if Session?exists&&Session["userlogined"]?exists>User：${Session["userlogined"].name?if_exists}  </#if><#--<a href="ea_user_profile.do" target=mainFrame></a>-->
 				&nbsp;&nbsp;

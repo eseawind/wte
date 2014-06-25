@@ -14,6 +14,7 @@
 		var totalmark = singlechoice * singlechoicemark + multichoice * multichoicemark;
 		//+ blank * blankmark + essay * essaymark;
 		$("#totalmark").val(totalmark);
+		$("#showtotalmark").html(totalmark);
 	}
 </script>
 			<form name="form_item" action="exam_paper_create.do" metiod="post">
@@ -29,12 +30,13 @@
 					 <table class="table table-condensed table-bordered table-striped">
 						<tr>
 						<td colspan=4> 
-						<@i18n "title_name" />
+						<@i18n "title_name" />:
 						<input type="text" name="paper.name" value="<#if rhs["paper"]?exists >${rhs["paper"].name?if_exists}</#if>" style="width:200px;"/>
-						&nbsp;&nbsp;&nbsp;<@i18n "title_examtime" /><input type="text"  style="width:50px;" name="paper.time" value="<#if rhs["paper"]?exists >${rhs["paper"].time}<#else>30</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/>(minutes)
-						&nbsp;&nbsp;&nbsp;<@i18n "title_passmark" /><input type="text"  name="paper.passmark"   style="width:50px;"  value="<#if rhs["paper"]?exists >${rhs["paper"].passmark}<#else>60</#if>" />
-						&nbsp;&nbsp;&nbsp;<@i18n "title_totalmark" /><input readonly type="text" style="width:30px;"  id="totalmark" name="paper.totalmark" value="<#if rhs["paper"]?exists >${rhs["paper"].totalmark}</#if>" />
-				
+						&nbsp;&nbsp;&nbsp;<@i18n "title_examtime" />: <input type="text"  style="width:50px;" name="paper.time" value="<#if rhs["paper"]?exists >${rhs["paper"].time}<#else>30</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/>(minutes)
+						&nbsp;&nbsp;&nbsp;<@i18n "title_passmark" />: <input type="text"  name="paper.passmark"   style="width:50px;"  value="<#if rhs["paper"]?exists >${rhs["paper"].passmark}<#else>60</#if>" />
+						&nbsp;&nbsp;&nbsp;<@i18n "title_totalmark" />:
+						<input readonly style="display:none;" type="text" style="width:30px;"  id="totalmark" name="paper.totalmark" value="<#if rhs["paper"]?exists >${rhs["paper"].totalmark}</#if>" />
+						<span id="showtotalmark"><#if rhs["paper"]?exists >${rhs["paper"].totalmark}<#else>0</#if></span>				
 						</td>
 						</tr>
 						<tr>
@@ -42,7 +44,7 @@
 								<#list rhs["knowledgeRootList"] as knowledge>
 									<#if knowledge.getChildKnowledges()?exists >
 										<#list knowledge.getChildKnowledges() as knowledgenode>
-											<input type="checkbox" name="knowledgevalue" value="${knowledgenode.id}" 
+											<input type="checkbox" name="knowledgevalue" value="${knowledgenode.id}" onclick="getmaxitemcount(${knowledgenode.id});"
 											<#if rhs["paper"]?exists && rhs["paper"].knowledge?exists >
 												<#list rhs["paper"].knowledge as paperknowledge>
 													<#if paperknowledge.id == knowledgenode.id> checked</#if>
@@ -89,9 +91,13 @@
 						</tr>
 						<tr>
 							<td><@i18n "title_single_rmd" /></td>
-							<td><input type="text" style="width:30px;" name="paper.rmdsinglechoice" onblur="javascript:counttotalmark();" id="rmdsinglechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdsinglechoice?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td><input type="text" style="width:30px;" name="paper.rmdsinglechoice" onblur="javascript:counttotalmark();" id="rmdsinglechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdsinglechoice?if_exists}</#if>" onKeyUp="checkvalue(this,1);"/>
+								(Max:<span id="maxsinglechoicecount"><#if rhs["maxsinglechoicecount"]?exists>${rhs["maxsinglechoicecount"]}<#else>0</#if></span>)
+							</td>
 							<td><@i18n "title_multi_rmd" /></td>
-							<td><input type="text" style="width:30px;" name="paper.rmdmultichoice" onblur="javascript:counttotalmark();" id="rmdmultichoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdmultichoice?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td><input type="text" style="width:30px;" name="paper.rmdmultichoice" onblur="javascript:counttotalmark();" id="rmdmultichoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdmultichoice?if_exists}</#if>" onKeyUp="checkvalue(this,2);"/>
+								(Max:<span id="maxmultichoicecount"><#if rhs["maxmultichoicecount"]?exists>${rhs["maxmultichoicecount"]}<#else>0</#if></span>)
+							</td>
 						</tr>
 						
 

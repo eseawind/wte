@@ -1,10 +1,16 @@
-<div  id=div_smtp_table>
-    <table   class="table table-bordered table-condensed  table-indie" width=800>
+<#include "../../../common/freemarker/macro_common.ftl">
+<table   class="table table-bordered table-condensed  table-indie" width=800>
 
 	    <thead>
 			<tr>
 			    <th width=25px >ID</th>
-			    <th width=100>邮箱</th><th  width=50>标题</th><th width=50>服务器</th><th  width=50>端口号</th><th  width=80>账号</th><th  width=50>密码</th><th  width=150>操作</th></tr>
+			    <th width=100><@i18n "title_mail" /></th>
+			    <th  width=50><@i18n "title_title" /></th>
+			    <th width=50><@i18n "title_mail_server" /></th>
+			    <th  width=50><@i18n "title_mail_port" /></th>
+			    <th  width=80><@i18n "title_mail_account" /></th>
+			    <th  width=50><@i18n "title_mail_password" /></th>
+			    <th  width=150><@i18n "title_operation" /></th></tr>
 
 			</tr>
 		</thead>
@@ -39,7 +45,7 @@
 		</tbody>
 	</table>            
 	<blockquote class="pull-right">
-		显示条数<select style="WIDTH: 60px"   onchange="javascript:action_smtp('change_page_number.do','maxSize='+this.value)" >
+		<select style="WIDTH: 60px"   onchange="javascript:action_smtp('change_page_number.do','maxSize='+this.value)" >
 				    <option value="${rhs.maxSize}">${rhs.maxSize}</option>
 	  				<option value="5">5</option>
 	  				<option value="10">10</option>
@@ -47,13 +53,12 @@
 	  				<option value="50">50</option>
 	  				<option value="50">200</option>
 	 			<select>		
-			<#if (rhs.currentPage > 1) ><a class="btn btn-link btn-mini" onclick="javascript:action_smtp('ajax_page_data.do','pageId=1')">第一页</a></#if>
-			<#if (rhs.currentPage > 1) ><a class="btn btn-link btn-mini"  onclick="javascript:action_smtp('ajax_page_data.do','pageId=${rhs.currentPage-1}')">上一页</a></#if>
-			<#if (rhs.currentPage < rhs.maxPage) ><a class="btn btn-link btn-mini" onclick="javascript:action_smtp('ajax_page_data.do','pageId=${rhs.currentPage+1}')">下一页</a></#if>
-			<#if (rhs.currentPage < rhs.maxPage) ><a class="btn btn-link btn-mini"  onclick="javascript:action_smtp('ajax_page_data.do','pageId=${rhs.maxPage}')">最后页</a></#if>
-		第${rhs.currentPage}页&nbsp;
-		共${rhs.maxPage}页&nbsp;
-		总${rhs.count}条记录
+			<#if (rhs.currentPage > 1) ><a class="btn btn-link btn-mini" onclick="javascript:action_smtp('ajax_page_data.do','pageId=1')">first</a></#if>
+			<#if (rhs.currentPage > 1) ><a class="btn btn-link btn-mini"  onclick="javascript:action_smtp('ajax_page_data.do','pageId=${rhs.currentPage-1}')">pre</a></#if>
+			<#if (rhs.currentPage < rhs.maxPage) ><a class="btn btn-link btn-mini" onclick="javascript:action_smtp('ajax_page_data.do','pageId=${rhs.currentPage+1}')">next</a></#if>
+			<#if (rhs.currentPage < rhs.maxPage) ><a class="btn btn-link btn-mini"  onclick="javascript:action_smtp('ajax_page_data.do','pageId=${rhs.maxPage}')">last</a></#if>
+		
+				${rhs.currentPage}page&nbsp;
+			(${rhs.count}/${rhs.maxPage})&nbsp;
 	</blockquote>
-</div>
 <span id="div_action_result" style="display:none">${rhs["info"]?if_exists}</span>
