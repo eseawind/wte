@@ -6,8 +6,8 @@ function action_knowledge(url,para){
          cache: false,
          success: function(html){
         	 document.getElementById('div_knowledge_tree').innerHTML=html;
-       		 location.reload();
-        	 //tip_info();
+       		 //location.reload();
+        	 tip_info();
            }
   });  
 }

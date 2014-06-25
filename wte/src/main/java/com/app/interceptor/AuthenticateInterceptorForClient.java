@@ -90,6 +90,11 @@ public class AuthenticateInterceptorForClient implements Interceptor {
 						log.debug("用户资源=" + resource + ":"
 								+ url.indexOf(resource));
 						if (url.indexOf(resource) >= 0) { //
+						if (url.indexOf("exam_exam_exam_home.do") >= 0
+								|| url.indexOf("exam_exam_open_exam.do") >= 0 || url.indexOf("exam_exam_complete_task.do") >= 0
+								|| url.indexOf("exam_exam_exam_complete.do") >= 0) {
+								return true;
+							}
 							return false;
 						}else{
 							continue;

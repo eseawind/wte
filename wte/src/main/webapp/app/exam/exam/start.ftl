@@ -29,7 +29,7 @@
       	</table>
       	<#assign i = 0 >
   		<table class="table table-condensed table-bordered table-striped">
-		  	<strong><@i18n "title_single" /></strong>(total:${rhs["paper"].singlechoice + rhs["paper"].rmdsinglechoice}, each: ${rhs["paper"].singlechoicemark})
+		  	<strong><@i18n "title_single" /></strong>
 		  	<#list rhs["singleitems"] as singleitem>
 				<tr>
 					<td><strong>${singleitem_index+1}.&nbsp;${singleitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if singleitem.mark?exists&&singleitem.mark!="0">${singleitem.mark}<#else>${rhs["paper"].singlechoicemark}</#if></div></td>
@@ -46,7 +46,7 @@
       	</table>
       	<#if (rhs["multiitems"]?size > 0) >
       	<table class="table table-condensed table-bordered table-striped">
-	      	<strong><@i18n "title_multi" /></strong>(total:${rhs["paper"].multichoice + rhs["paper"].rmdmultichoice}, each: ${rhs["paper"].multichoicemark})
+	      	<strong><@i18n "title_multi" /></strong>
 	      	<#list rhs["multiitems"] as multiitem>
 	      		<tr>
 					<td><strong>${multiitem_index+1}.&nbsp;${multiitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if multiitem.mark?exists&&multiitem.mark!="0">${multiitem.mark}<#else>${rhs["paper"].multichoicemark}</#if></div></td>
@@ -64,7 +64,7 @@
       	</#if>
       	<#if (rhs["blankitems"]?size > 0 )>
       	<table class="table table-condensed table-bordered table-striped">
-	      	<strong><@i18n "title_blank" /></strong>(total:${rhs["paper"].blank + rhs["paper"].rmdblank}, each: ${rhs["paper"].blankmark})
+	      	<strong><@i18n "title_blank" /></strong>
 	      	<#list rhs["blankitems"]?sort_by("id") as blankitem>
 	      		<tr>
 					<td><strong>${blankitem_index+1}.&nbsp;${blankitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if blankitem.mark?exists&&blankitem.mark!="0">${blankitem.mark}<#else>${rhs["paper"].blankmark}</#if></div></td>
@@ -80,7 +80,7 @@
       	</#if>
       	<#if (rhs["essayitems"]?size > 0) >
       	<table class="table table-condensed table-bordered table-striped">
-	      	<strong><@i18n "title_essay" /></strong>(total:${rhs["paper"].essay + rhs["paper"].rmdessay}, each: ${rhs["paper"].essaymark})
+	      	<strong><@i18n "title_essay" /></strong>
 	      	<#list rhs["essayitems"]?sort_by("id") as essayitem>
 	      		<tr>
 					<td><strong>${essayitem_index+1}.&nbsp;${essayitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if essayitem.mark?exists&&essayitem.mark!="0">${essayitem.mark}<#else>${rhs["paper"].essaymark}</#if></div></td>

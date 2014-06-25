@@ -24,7 +24,9 @@
 				<tr>
 					<td><strong>${i+1}.&nbsp;${singleitem.item.content}</strong> </td>
 				<tr>
+				<#assign total = rhs["singleitems"][itemid]?size >
 				<#list singleitem.item.choiceitem?sort_by("id") as choiceitem>
+					<#assign select = 0 >
 					<tr>
 						<td <#if singleitem.item.refkey?number==choiceitem.refid> style='color:red;'</#if> ><input disabled  type="radio" value="${choiceitem.refid}" name="" /> ${choiceitem.value}
 						(
@@ -32,10 +34,13 @@
 							<#if result.answer?exists>
 								<#if result.answer?string == choiceitem.refid?string>
 									${result.user} &nbsp;&nbsp;
+									<#assign select = select + 1>
 								</#if>
 							</#if>
 						</#list>
-						)</td>
+						<#assign result = select / total >
+						, ${result?string("percent")})
+						</td>
 					</tr>
 				</#list>
 				<#assign i = i + 1 > 
@@ -50,7 +55,9 @@
 	      		<tr>
 					<td><strong>${multiitem_index+1}.&nbsp;${multiitem.item.content}</strong></td>
 				<tr>
+				<#assign total = rhs["multiitems"][itemid]?size >
 				<#list multiitem.item.choiceitem?sort_by("id") as choiceitem>
+					<#assign select = 0 >
 					<tr>
 						<td <#list multiitem.item.refkey?split(",") as key><#if (key?trim)?number==choiceitem.refid> style='color:red;'</#if> </#list>><input disabled  type="checkbox" value="${choiceitem.refid}" name="" /> ${choiceitem.value}
 						(
@@ -59,11 +66,14 @@
 								<#list result.answer?split(",") as key>
 									<#if (key?trim)?number==choiceitem.refid>
 										${result.user} &nbsp;&nbsp;
+										<#assign select = select + 1>
 									</#if> 
 								</#list>
 							</#if>
 						</#list>
-						)</td>
+						<#assign result = select / total >
+						, ${result?string("percent")})
+						</td>
 					</tr>
 				</#list>
 				<#assign i = i + 1 > 
