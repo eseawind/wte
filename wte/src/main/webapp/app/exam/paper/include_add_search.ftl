@@ -1,6 +1,12 @@
-<p class="pull-right" >
+<style type="text/css">
+.panel {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+</style>
+<span class="pull-right" >
       <div class="panel panel-info pull-right" style="width:auto">
-        <div class="panel-heading" onclick="javascript:show_dir();"><strong><@i18n "title_search" />:</strong></div>
+        <div class="panel-heading" onclick="javascript:show_dir();" style="cursor: pointer;"><strong><@i18n "title_search" />:</strong></div>
         <div class="panel-body" style="display:none;" id="content">
  			 <form action="exam_paper_list.do" id="search_form" method="post" > <#-- 该ID需当参数传入分页的宏	-->
 				<input type="hidden" name="search" value="search">  					<#-- 这里必须加上，不然不会进行条件查询，且name和value不能修改其他值-->
@@ -22,9 +28,7 @@
 			</form>         
         </div>
       </div>
-
-
-</p>
+</span>
 <script type="text/javascript">
 
 Date.prototype.format =function(format)

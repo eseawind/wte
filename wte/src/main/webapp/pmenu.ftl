@@ -10,7 +10,7 @@ body {
 	background-color: #fff;
 }
 .bs-sidebar .nav > li {
-	width: 180px;
+	width: 198px;
  	background:url(common/images/dotted_level.gif) repeat-x bottom left;
 }
 .bs-sidebar .nav > li > a {
@@ -25,22 +25,10 @@ body {
   	background-color: #fff;
   	border: none;
   	background:url(common/images/dotted_level.gif) repeat-x bottom left;
-  	font-weight: bold;
-}
-.bs-sidebar .nav > .active > a,
-.bs-sidebar .nav > .active:hover > a,
-.bs-sidebar .nav > .active:focus > a {
-  	font-weight: bold;
-  	color: red;
-  	background-color: transparent;
-  	border-right: 1px solid #563d7c;
+  	color: #8C2A77;
 }
 
-/* Nav: second level (shown on .active) */
-.bs-sidebar .nav .nav {
-  	display: none; /* Hide by default, but at >768px, show it */
-  	margin-bottom: 8px;
-}
+
 </style>
 
 <script type="text/javascript">

@@ -1,4 +1,5 @@
 <#include "../../../common/freemarker/include_header.ftl">
+<#include "../../../common/freemarker/include_custom.ftl">
 <div id="result_body">
 
 <a  class="btn btn-xs btn-primary " style="margin-left:15px;" id="groupby"  href="#" onclick="javascript:groupby('${rhs["groupby"]}');" >Group by User</a>

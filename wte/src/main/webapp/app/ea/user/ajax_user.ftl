@@ -1,23 +1,22 @@
- <table   class="table table-bordered table-condensed table-striped">
+ <table class="table table-bordered table-condensed table-striped">
     <thead>
 		<tr>
-			<th  >Name</th>
-			<th  >Account</th>
-			<th  >Password</th>
+			<th>Name</th>
+			<th>Account</th>
+			<th>Password</th>
 			<#--<#if rhs["system_para_map"]?exists&& rhs["system_para_map"]["user-status"]?exists>
-			<th  >Status</th>
+			<th>Status</th>
 			</#if>
-			<th  >Level</th>-->
-			<th  >Email</th>
-			<#--<th  >score</th>
-			<th  >kso</th>
-			<th  >sog</th>
--->
-	
-			<th ></th>
-			
+			<th>Level</th>-->
+			<th>Email</th>
+			<#--<th>score</th>
+			<th>kso</th>
+			<th>sog</th>
+			-->
+			<th></th>
 		</tr>
 	</thead>
+	
 	<tbody>
     <#assign sortName=Session["sortName"]?default("id")> 
 	<#list rhs["dataList"]?sort_by(sortName) as x>                                                                                    
@@ -66,7 +65,7 @@
 					
 				<a  href="ea_ea_iframe_get_rolelist_of_user.do?id=${x.id?if_exists}" onclick="return hs.htmlExpand(this, { objectType: 'iframe' })">职位</a>&nbsp;&nbsp;
 			-->	
-				<a  title="delete" onclick="javascript:action_user('delete.do','id=${x.id}');"   >Delete</a>
+				<a  title="delete" onclick="javascript:action_user('delete.do','id=${x.id}');" >Delete</a>
 			</span>
 			
 			</td>
