@@ -1,4 +1,5 @@
 <#include "../../../common/freemarker/include_header.ftl">
+<#include "../../../common/freemarker/include_custom.ftl">
 <div class="panel panel-primary" style="margin-left:15px;">
        
   <div class="panel-heading">

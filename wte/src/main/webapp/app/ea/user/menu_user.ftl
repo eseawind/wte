@@ -1,13 +1,21 @@
-
 <#include "../../../common/freemarker/include_header.ftl">
+<#include "../../../common/freemarker/include_custom.ftl">
+<style type="text/css">
+.panel-body {
+	padding: 0;
+}
+.table-bordered {
+	border: none;
+}
+</style>
 <script type="text/javascript" src="<@context_module/>user.js"></script>
-<div  style="margin:5px">
+<div style="margin:5px">
 	&nbsp;&nbsp;
 	<a  class="btn btn-xs btn-primary" onclick="javascript:action_user('create.do','');action_user('ajax_page_data.do','pageId=${rhs.maxPage}');"  ><@i18n "menu_user_new" /></a>
 
-	<div class="panel panel-primary" >
-      <div class="panel-heading"><strong>User List</strong></div>
-      <div class="panel-body">
+	<div class="panel panel-primary">
+		<div class="panel-heading"><strong>User List</strong></div>
+      	<div class="panel-body">
 	<#--
 	<a href="ea_ea_menu_person_deploy.do" target="_blank">&nbsp;&nbsp;人员部署</a>  
 	<a href="ea_ea_report_user_check.do?resultftl=menu_check_deploy_error" target="_blank">&nbsp;&nbsp;人员分配合理性检查</a><br>
@@ -35,8 +43,8 @@
 		 			</#if>	
     <br>		-->
 
-	<div id=div_user_table><#include "ajax_user.ftl"></div>
-	      </div>
+			<div id="div_user_table"><#include "ajax_user.ftl"></div>
+	  	</div>
     </div>
 </div>
 

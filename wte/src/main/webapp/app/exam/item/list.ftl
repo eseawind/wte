@@ -1,24 +1,20 @@
 <#include "../../../common/freemarker/include_header.ftl">
-<body> 
-   		<#include "include_add_search.ftl">
-		<br><br>
-		<a style="margin-left:10px;" class="btn btn-xs btn-primary "  href="exam_item_save.do?method=show"><@i18n "menu_item_new" /></a>
-		 <a  class="btn btn-xs btn-primary "  href="exam_item_import_itembyxls.do?method=item">Import by Excel<#---<@i18n "menu_item_new_excel" />--></a>
+<#include "../../../common/freemarker/include_custom.ftl">
+<div style="margin:5px">
+	<#include "include_add_search.ftl">
+	<a style="margin-left:10px;" class="btn btn-xs btn-primary "  href="exam_item_save.do?method=show"><@i18n "menu_item_new" /></a>
+	<a class="btn btn-xs btn-primary "  href="exam_item_import_itembyxls.do?method=item">Import by Excel<#---<@i18n "menu_item_new_excel" />--></a>
+	<a class="btn btn-xs btn-primary "  href="exam_knowledge_menu_knowledge.do"><@i18n "menu_knowledge" /></a>
 		
-		<a  class="btn btn-xs btn-primary "  href="exam_knowledge_menu_knowledge.do"><@i18n "menu_knowledge" /></a>
 		
-		
-	<div class="panel panel-primary" style="margin-top: 25px;">
+	<div class="panel panel-primary" style="margin-top: 10px;">
       <div class="panel-heading"><strong><@i18n "title_item" /></strong></div>
       <div class="panel-body">
-			
-			
-		
 		<table class="table table-condensed table-hover">
 	    <thead>
 			<tr>
-			    <td width=25px><strong>#</strong></td>
-				<td width=500px><strong> Question  <#--<@i18n "title_title" />--></strong></td>
+			    <td width=40px style="padding-left: 15px;"><strong>#</strong></td>
+				<td width=700px><strong> Question  <#--<@i18n "title_title" />--></strong></td>
 				<td width=120px><strong><@i18n "title_type" /></strong></td>
 				<td></td>
 				<td></td>
@@ -27,7 +23,7 @@
 		<tbody>
 			<#list rhs["dataList"]?sort_by("id") as x>
 			 <tr>
-			    <td class=nob >${x_index+1}</td>
+			    <td class=nob style="padding-left: 15px;">${x_index+1}</td>
 				<td>${x.content?if_exists}</td>
 				<td>
 					<#if x.type == 1>
@@ -59,5 +55,4 @@
       </div>
     </div>
 		
-		
-</body>
+	</div>	
