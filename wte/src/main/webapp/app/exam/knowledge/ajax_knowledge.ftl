@@ -1,4 +1,5 @@
 <#include "../../../common/freemarker/include_header.ftl">
+<#include "../../../common/freemarker/include_custom.ftl">
 <head>
 <style>
 .table-condensed th, .table-condensed td {

@@ -1,54 +1,68 @@
 <#include "../../../common/freemarker/include_header.ftl">
+<#include "../../../common/freemarker/include_exam.ftl">
 <body>
 <form name="form_item" action="exam_exam_complete_task.do" method="post">
 <input type="hidden" value="<#if rhs.method?exists >${rhs["method"]}</#if>" name="method" />
 <input type="hidden" value="<#if rhs["task"]?exists >${rhs["task"].id}</#if>" name="taskId" />
-<div class="panel panel-primary" style="margin-top: 18px;">
-      <div class="panel-heading"><strong>Start Exam</strong></div>
-      <div class="panel-body">
-      <div id="timeshow" style="left:1px;top:1px;width:250px;height:20px;line-height:20px;text-align:center;font-size:12px;color:#000;background-color:#CCC;border:1px solid #333;"></div> 
-	<br />
-      	<table class="table table-condensed table-bordered table-striped">
-      		<tr><td colspan="8"><font color="red"><strong>
-      			1. Do NOT press WIN button and ALT button, or the exam will commit automatic! <br/>
-      			2. Do NOT CLOSE window before done the exam!
-      			3. Every keyboard during exam will be record!
-      			</strong></font>
-      		</td>
-      		</tr>
-      		<tr>
-      			<td><strong><@i18n "title_name" /></strong></td>
-      			<td><#if rhs["paper"]?exists > ${rhs["paper"].name}</#if></td>
-      			<td><strong><@i18n "title_examtime" /></strong></td>
-      			<td><#if rhs["paper"]?exists > ${rhs["paper"].time}</#if></td>
-      			<td><strong><@i18n "title_totalmark" /></strong></td>
-      			<td><#if rhs["paper"]?exists > ${rhs["paper"].totalmark}</#if></td>
-      			<td><strong><@i18n "title_passmark" /></strong></td>
-      			<td><#if rhs["paper"]?exists > ${rhs["paper"].passmark}</#if></td>
-      		</tr>
-      	</table>
-      	<#assign i = 0 >
-  		<table class="table table-condensed table-bordered table-striped">
-		  	<strong><@i18n "title_single" /></strong>(total:${rhs["paper"].singlechoice + rhs["paper"].rmdsinglechoice}, each: ${rhs["paper"].singlechoicemark})
-		  	<#list rhs["singleitems"] as singleitem>
+<div class="exam-frame">
+	<div class="panel-body">
+    <div id="timeshow" class="btn btn-xs btn-warning" style="margin-bottom:15px;"></div> 
+	
+	<div style="float:right;">
+		<p style="padding-right: 30px;"><@i18n "title_name" />: <#if rhs["paper"]?exists > ${rhs["paper"].name}</#if><br/>
+		   <@i18n "title_examtime" />: <#if rhs["paper"]?exists > ${rhs["paper"].time}</#if><br/>
+		   <@i18n "title_totalmark" />: <#if rhs["paper"]?exists > ${rhs["paper"].totalmark}</#if><br/>
+		   <@i18n "title_passmark" />: <#if rhs["paper"]?exists > ${rhs["paper"].passmark}</#if>
+		</p>
+	</div>
+    <#assign i = 0 >
+	
+	<div style="margin-top:10px; margin-bottom:5px;">
+		<img style="vertical-align: text-bottom;" src="common/images/e_note_orange.png" />
+		<span style="padding-left:5px; font-size:18px; color:#C6C6C6;">Notice</span>
+	</div>
+	<div class="alert alert-warning">
+		<p>1. Do NOT press WIN button and ALT button, or the exam will commit automatic! </p>
+		<p>2. Do NOT CLOSE window before done the exam!</p>
+		<p>3. Every keyboard during exam will be record!</p>
+	</div>
+	
+	<div style="margin-bottom:5px;">
+		<img style="vertical-align: text-bottom;" src="common/images/e_answer_green.png" />
+		<span style="padding-left:5px; font-size:18px; color:#c6c6c6;"><@i18n "title_single" /></span>
+	</div>
+	
+	<div class="alert alert-success">
+		<table width="100%">
+		<#list rhs["singleitems"] as singleitem>
+			<tr>
+				<td><strong>${singleitem_index+1}.&nbsp;${singleitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if singleitem.mark?exists&&singleitem.mark!="0">${singleitem.mark}<#else>${rhs["paper"].singlechoicemark}</#if></div></td>
+			<tr>
+			<#list singleitem.choiceitem as choiceitem>
 				<tr>
-					<td><strong>${singleitem_index+1}.&nbsp;${singleitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if singleitem.mark?exists&&singleitem.mark!="0">${singleitem.mark}<#else>${rhs["paper"].singlechoicemark}</#if></div></td>
-				<tr>
-				<#list singleitem.choiceitem as choiceitem>
-					<tr>
-						<td><input type="radio" value="${choiceitem.refid}" name="result[${i}].answer"/> ${choiceitem.value}</td>
-					</tr>
-				</#list>
-				<input type="hidden" value="${singleitem.id}" name="result[${i}].item.id" />
-				<input type="hidden" value="<#if singleitem.mark?exists >${singleitem.mark}<#else>${rhs["paper"].singlechoicemark}</#if>" name="result[${i}].mark" />
-				<#assign i = i + 1 > 
-		  	</#list>
-      	</table>
-      	<#if (rhs["multiitems"]?size > 0) >
-      	<table class="table table-condensed table-bordered table-striped">
-	      	<strong><@i18n "title_multi" /></strong>(total:${rhs["paper"].multichoice + rhs["paper"].rmdmultichoice}, each: ${rhs["paper"].multichoicemark})
-	      	<#list rhs["multiitems"] as multiitem>
-	      		<tr>
+					<td><input type="radio" value="${choiceitem.refid}" name="result[${i}].answer"/> ${choiceitem.value}</td>
+				</tr>
+			</#list>
+			<input type="hidden" value="${singleitem.id}" name="result[${i}].item.id" />
+			<input type="hidden" value="<#if singleitem.mark?exists >${singleitem.mark}<#else>${rhs["paper"].singlechoicemark}</#if>" name="result[${i}].mark" />
+			<#assign i = i + 1 >
+			<tr>
+				<td><hr></td>
+			</tr> 
+		 </#list> 	
+      	 </table>
+     </div>
+
+     <#if (rhs["multiitems"]?size > 0) >
+	     <div style="margin-bottom:5px;">
+			<img style="vertical-align: text-bottom;" src="common/images/e_answer_green.png" />
+			<span style="padding-left:5px; font-size:18px; color:#c6c6c6;"><@i18n "title_multi" /></span>
+		 </div>
+		
+	     <div class="alert alert-success">
+			<table width="100%">
+		    <#list rhs["multiitems"] as multiitem>
+		    	<tr>
 					<td><strong>${multiitem_index+1}.&nbsp;${multiitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if multiitem.mark?exists&&multiitem.mark!="0">${multiitem.mark}<#else>${rhs["paper"].multichoicemark}</#if></div></td>
 				<tr>
 				<#list multiitem.choiceitem as choiceitem>
@@ -59,14 +73,21 @@
 				<input type="hidden" value="${multiitem.id}" name="result[${i}].item.id" />
 				<input type="hidden" value="<#if multiitem.mark?exists>${multiitem.mark}<#else>${rhs["paper"].multichoicemark}</#if>" name="result[${i}].mark" />
 				<#assign i = i + 1 > 
-	      	</#list>
-      	</table>
-      	</#if>
-      	<#if (rhs["blankitems"]?size > 0 )>
-      	<table class="table table-condensed table-bordered table-striped">
-	      	<strong><@i18n "title_blank" /></strong>(total:${rhs["paper"].blank + rhs["paper"].rmdblank}, each: ${rhs["paper"].blankmark})
-	      	<#list rhs["blankitems"]?sort_by("id") as blankitem>
-	      		<tr>
+		      	</#list>
+	      	</table>
+	     </div>
+     </#if>
+      	
+     <#if (rhs["blankitems"]?size > 0 )>
+	     <div style="margin-bottom:5px;">
+			<img style="vertical-align: text-bottom;" src="common/images/e_answer_green.png" />
+			<span style="padding-left:5px; font-size:18px; color:#c6c6c6;"><@i18n "title_blank" /></span>
+		 </div>
+		
+	     <div class="alert alert-success">
+			<table width="100%">
+		    <#list rhs["blankitems"]?sort_by("id") as blankitem>
+		    	<tr>
 					<td><strong>${blankitem_index+1}.&nbsp;${blankitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if blankitem.mark?exists&&blankitem.mark!="0">${blankitem.mark}<#else>${rhs["paper"].blankmark}</#if></div></td>
 				<tr>
 				<tr>
@@ -75,12 +96,20 @@
 					<input type="hidden" value="<#if blankitem.mark?exists >${blankitem.mark}<#else>${rhs["paper"].blankmark}</#if>" name="result[${i}].mark" />
 				</tr>
 				<#assign i = i + 1 > 
-	      	</#list>
-      	</table>
-      	</#if>
-      	<#if (rhs["essayitems"]?size > 0) >
-      	<table class="table table-condensed table-bordered table-striped">
-	      	<strong><@i18n "title_essay" /></strong>(total:${rhs["paper"].essay + rhs["paper"].rmdessay}, each: ${rhs["paper"].essaymark})
+		    </#list>
+	      	</table>
+	     </div>
+     </#if>
+      
+      
+     <#if (rhs["essayitems"]?size > 0) >
+         <div style="margin-bottom:5px;">
+			<img style="vertical-align: text-bottom;" src="common/images/e_answer_green.png" />
+			<span style="padding-left:5px; font-size:18px; color:#c6c6c6;"><@i18n "title_essay" /></span>
+		 </div>
+		
+	     <div class="alert alert-success">
+	     	<table width="100%">  
 	      	<#list rhs["essayitems"]?sort_by("id") as essayitem>
 	      		<tr>
 					<td><strong>${essayitem_index+1}.&nbsp;${essayitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if essayitem.mark?exists&&essayitem.mark!="0">${essayitem.mark}<#else>${rhs["paper"].essaymark}</#if></div></td>
@@ -92,17 +121,19 @@
 				</tr>
 				<#assign i = i + 1 > 
 	      	</#list>
-	    </table>
-	    </#if>
-	    <table class="table table-condensed table-bordered table-striped">
-	    	<tr align=center>
-      			<td><input type="button" class="btn btn-xs btn-info" value="Save" id="submitButton"/></td>
-      		</tr>
-	    </table>
-      </div>
-</div>
+	    	</table>
+	     </div>
+	 </#if>
+	    
+	 <div style="text-align: center; padding-bottom:15px;"><input type="button" class="btn btn-xs btn-success" value="Submit" id="submitButton"/></div>
+	 
+	 
+    </div>
+  </div>
 </form>
 </body>
+
+
 <script>
 	var warn=0;
 	var interval;

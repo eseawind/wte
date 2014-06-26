@@ -28,7 +28,6 @@ body {
   	color: #8C2A77;
 }
 
-
 </style>
 
 <script type="text/javascript">
