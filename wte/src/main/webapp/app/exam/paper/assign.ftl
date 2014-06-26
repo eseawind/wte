@@ -1,4 +1,5 @@
 <#include "../../../common/freemarker/include_header.ftl">
+<#include "../../../common/freemarker/include_custom.ftl">
 <#include "include_select_users.ftl">
 <script type="text/javascript" src="<@context_module/>assign.js"></script>
 
@@ -38,7 +39,7 @@
       		</tr>
       		</#if>
       		<tr>
-      			<td><input type="button" class="btn btn-xs btn-info" value="Save" id="submitButton"/></td>
+      			<td><input type="button" class="btn btn-xs btn-primary" value="Save" id="submitButton"/></td>
       		</tr>
       	</table>
       

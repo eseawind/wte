@@ -1,7 +1,8 @@
 <#include "../../../common/freemarker/include_header.ftl">
+<#include "../../../common/freemarker/include_custom.ftl">
 <form name="form_item" action="exam_item_import_itembyxls_save.do" method="post" enctype="multipart/form-data" >
 <input type="hidden" name="method" value="${rhs["method"]}" />
-	<div class="panel panel-primary" style="margin-top: 18px;">
+	<div class="panel panel-primary"">
 		<div class="panel-heading"><strong><@i18n "menu_item_import" /></strong></div>
 		<div class="panel-body">
 		 
@@ -11,7 +12,8 @@
 					<br>
 					<p align=left>&nbsp;<input type="button" class="btn btn-xs btn-primary" value="Submit" id="submitButton"/>	</p>				
                  </td></tr>
-				 <tr><td><br><hr>
+				 <tr><td>
+				 <hr style="margin: 10px 0;">
 					<b></b>Sapmle datas of excle file as below:<br><br>
 					<img width=80% src="<@context/>common/images/uploadtemplate.jpg" alt="Upload file template" /></td>
                  </td></tr>

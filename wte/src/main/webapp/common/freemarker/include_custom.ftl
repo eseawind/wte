@@ -11,6 +11,10 @@ a:hover, a:focus {
 	color: #2a6496;
 	text-decoration: none;
 }
+input {
+	text-align: center;
+}
+
 .btn-primary {
 	color: #fff;
 	background-color: #992E82;
@@ -55,10 +59,6 @@ a:hover, a:focus {
 .table-bordered>tfoot>tr>td {
 	border: 1px solid #ddd; 
 	/* border: none; */
-}
-
-input {
-	text-align: center;
 }
 </style>
 

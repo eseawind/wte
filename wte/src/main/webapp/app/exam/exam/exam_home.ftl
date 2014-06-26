@@ -1,39 +1,53 @@
 <#include "../../../common/freemarker/include_header.ftl">
-<div class="panel panel-primary" style="float:left;position:relative;width:50%;left:5px;">
-       
-  <div class="panel-heading">
-  	<strong>Exam Information List</strong>
-  </div>
-  <div class="panel-body">
-		<table class="table table-condensed table-hover table-bordered">
-				<tr>
-					<td width=25px><strong>#</strong></td>
-					<td ><strong><@i18n "title_name" /></strong></td>
-					<td ><strong><@i18n "title_passmark" /></strong></td>
-					<td ><strong><@i18n "title_totalmark" /></strong></td>
-					<td ><strong><@i18n "title_examtime" /></strong></td>
-					<td ><strong><@i18n "title_starttime" /></strong></td>
-					<td ><strong><@i18n "title_operation" /></strong></td>
+
+<#include "../../../common/freemarker/include_exam.ftl">
+<div class="exam-frame">
+	<div style="margin-bottom:5px;">
+		<img style="vertical-align: text-bottom;" src="common/images/e_note_orange.png" />
+		<span style="padding-left:5px; font-size:18px; color:#C6C6C6;">Notice</span>
+	</div>
+	<div class="alert alert-warning">
+		<p>1. You can take an examination through <strong>Exam Information List</strong>.</p>
+		<p>2. You can check all examinations which you had taken through <strong>Exam History List</strong>.</p>
+	</div>
+</div>
+
+<div class="exam-frame">
+	<div style="margin-bottom:5px;">
+		<img style="vertical-align: text-bottom;" src="common/images/e_paper_orange.png" />
+		<span style="padding-left:5px; font-size:18px; color:#C6C6C6;">Exam Information List</span>
+	</div>
+	<div class="alert alert-warning">
+		<div class="panel-body">
+  			<table class="table table-condensed table-hover table-bordered">
+		  		<tr>
+		  			<th width=25px>#</th>
+					<th ><@i18n "title_name" /></th>
+					<th ><@i18n "title_passmark" /></th>
+					<th ><@i18n "title_totalmark" /></th>
+					<th ><@i18n "title_examtime" /></th>
+					<th ><@i18n "title_starttime" /></th>
+					<th ><@i18n "title_operation" /></th>
 				</tr>
 				<#list rhs["oatasklist"] as item>
-					<#if item.obj?exists>
-					<tr>
-						<td>${item_index+1}</td>
-						<td>${item.obj.name}</td>
-						<td >${item.obj.passmark}</td>
-						<td >${item.obj.totalmark}</td>
-						<td >${item.obj.time}(minutes)</td>
-						<td id="starttime_${item.task.id}">${item.starttime}</td> <#--${item.task.createTime?datetime}-->
-						<td >
-							<#--<a href="common_activiti_process_diagram.do?processInstanceId=${item.task.processInstanceId}" target=_blank>
-								View
-							</a>-->
-							<a  <#if item.method == "Start"> onclick="javascript:toFull('${item.handleTaskUrl?if_exists}&taskId=${item.task.id}')"<#else>href="${item.handleTaskUrl?if_exists}&taskId=${item.task.id}"</#if> class="btn btn-xs btn-primary">
-								${item.method}
-							</a>
-						</td>
-					</tr>
-					</#if>
+				<#if item.obj?exists>
+				<tr>
+					<td>${item_index+1}</td>
+					<td>${item.obj.name}</td>
+					<td >${item.obj.passmark}</td>
+					<td >${item.obj.totalmark}</td>
+					<td >${item.obj.time}(minutes)</td>
+					<td id="starttime_${item.task.id}">${item.starttime}</td> <#--${item.task.createTime?datetime}-->
+					<td >
+					<#--<a href="common_activiti_process_diagram.do?processInstanceId=${item.task.processInstanceId}" target=_blank>
+							View
+						</a>-->
+					<a  <#if item.method == "Start"> onclick="javascript:toFull('${item.handleTaskUrl?if_exists}&taskId=${item.task.id}')"<#else>href="${item.handleTaskUrl?if_exists}&taskId=${item.task.id}"</#if> class="btn btn-xs btn-primary">
+									${item.method}
+					</a>
+					</td>
+				</tr>
+				</#if>
 				</#list>
 			</table>
 			<form action="exam_exam_exam_list.do" id="search_form" method="post" style="display:none;">
@@ -43,8 +57,10 @@
 			</form>
 			<#include "../../../common/freemarker/macro_pagination.ftl">
 			<@pagination  "search_form" />
-  </div>
+        </div>
+	</div>
 </div>
+
 <script>
 	function isIE() { //ie?  
     	if (!!window.ActiveXObject || "ActiveXObject" in window)  
@@ -84,13 +100,15 @@
 	}
 	
 </script>
-<div class="panel panel-primary" style="float:left;position:relative;width:46%;left:5px;">
-       
-  <div class="panel-heading">
-  	<strong>Exam History List</strong>
-  </div>
-  <div class="panel-body">
-		<table class="table table-condensed table-bordered">
+
+<div class="exam-frame">
+	<div style="margin-bottom:5px;">
+		<img style="vertical-align: text-bottom;" src="common/images/e_history_orange.png" />
+		<span style="padding-left:5px; font-size:18px; color:#C6C6C6;">Exam History List</span>
+	</div>
+	<div class="alert alert-warning">
+		<div class="panel-body">
+			<table class="table table-condensed table-bordered">
 				<tr>
 					<td width=25px><strong>#</strong></td>
 					<td ><strong><@i18n "title_name" /></strong></td>
@@ -99,60 +117,57 @@
 					<td ><strong><@i18n "title_passmark" /></strong></td>
 					<td ><strong><@i18n "title_result" /></strong></td>
 					<td><strong><@i18n "title_time" /></strong></td>
-					<td></td>
 					<#--<td ><strong><@i18n "title_result" /></strong></td>-->
 					<#--<td ><strong><@i18n "title_remark" /></strong></td>-->
+					<td></td>
 				</tr>
 				<#assign index=1 />
 				<#list rhs["datalist"]?keys as papername>
-					<#assign index=1>
-					<#list (rhs["datalist"][papername]?sort_by("id"))?reverse as record>
-					<tr>
-						<td>${index}</td>
-						<td>${papername} </td><#--onclick="javascript:showresult(${rhs["datalist"][papername][0].paper.id});"-->
-						<td>${rhs["datalist"][papername][0].paper.passmark}</td>
-						<td>
-							<#if record.remark?exists && record.remark == "Wait for judge">
-								${record.remark}
-							<#else>
-								${record.singlechoicemark?number + record.multichoicemark?number + record.blankmark?number + record.essaymark?number}
-							</#if>
-						</td>
-						<td>${record.recorddate?if_exists}</td><#--<#if rhs["export"]><div class="pull-right"><a href="exam_exam_export_record.do?paperId=${rhs["datalist"][papername][0].paper.id}" class="btn btn-xs btn-primary" >Export to Excel</a></div></#if>-->
-						<td><#if rhs["export"]><a onclick="javascript:showlog('${record.taskid}','${record.paper.id}','${record.userid}');" class="btn btn-xs btn-primary">Show Log</a></#if></td>
-					</tr>
-					<#assign index = index + 1 />
-					</#list>
+				<#assign index=1>
+				<#list (rhs["datalist"][papername]?sort_by("id"))?reverse as record>
+				<tr>
+					<td>${index}</td>
+					<td>${papername} </td><#--onclick="javascript:showresult(${rhs["datalist"][papername][0].paper.id});"-->
+					<td>${rhs["datalist"][papername][0].paper.passmark}</td>
+					<td>
+					<#if record.remark?exists && record.remark == "Wait for judge">
+						${record.remark}
+					<#else>
+						${record.singlechoicemark?number + record.multichoicemark?number + record.blankmark?number + record.essaymark?number}
+					</#if>
+					</td>
+					<td>${record.recorddate?if_exists}</td><#--<#if rhs["export"]><div class="pull-right"><a href="exam_exam_export_record.do?paperId=${rhs["datalist"][papername][0].paper.id}" class="btn btn-xs btn-primary" >Export to Excel</a></div></#if>-->
+					<td><#if rhs["export"]><a onclick="javascript:showlog('${record.taskid}','${record.paper.id}','${record.userid}');" class="btn btn-xs btn-primary">Show Log</a></#if></td>
+				</tr>
+				<#assign index = index + 1 />
+				</#list>
 				</#list>
 			</table>
 		
-		<#if rhs["oatasklist_outdate"]?size gt 0 >	
-		You missed exam:<br>
-		<table class="table table-condensed table-hover table-bordered">
+			<#if rhs["oatasklist_outdate"]?size gt 0 >	
+			You missed exam:<br>
+			<table class="table table-condensed table-hover table-bordered">
 				<tr>
 					<td width=25px><strong>#</strong></td>
 					<td ><strong><@i18n "title_name" /></strong></td>
-					
 					<td ><strong><@i18n "title_examtime" /></strong></td>
 					<td ><strong><@i18n "title_starttime" /></strong></td>
 					<td ><strong></strong></td>
 				</tr>
 				<#list rhs["oatasklist_outdate"] as item>
-					<#if item.obj?exists>
-					<tr>
-						<td>${item_index+1}</td>
-						<td>${item.obj.name}</td>
-						
-						<td >${item.obj.time}(minutes)</td>
-						<td id="starttime_${item.task.id}">${item.starttime}</td>
-						<td >
-						
-						</td>
-					</tr>
-					</#if>
+				<#if item.obj?exists>
+				<tr>
+					<td>${item_index+1}</td>
+					<td>${item.obj.name}</td>
+					<td >${item.obj.time}(minutes)</td>
+					<td id="starttime_${item.task.id}">${item.starttime}</td>
+					<td ></td>
+				</tr>
+				</#if>
 				</#list>
 			</table>			
 			</#if>
+			
 			<form action="exam_exam_exam_record_list.do" id="search_form" method="post" style="display:none;">
 				<input type="hidden" name="search" value="search">
 				<input type="hidden" name="pageId" id="pageId">
@@ -160,16 +175,16 @@
 			</form>
 			<#include "../../../common/freemarker/macro_pagination.ftl">
 			<@pagination  "search_form" />
-			
-  </div>
+  		</div>
+	</div>
 </div>
+
 <div id="div_scoll" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:400px;z-index:10000;display:none;" class="panel panel-default"><!--style="border:2px solid #eee;"-->
-			 	<div id="operation_title" class="panel-heading"><strong>Log</strong></div>
-			 	<a class="pull-right" onclick="show_dir();" class="btn btn-xs  btn-default" ><span class=ui-icon ui-icon-close></span></a>
-			 	<div class="panel-body" id="div_select_item" style="cursor:hander;"> 
-			 	
-			 	</div>
-			</div>
+	<div id="operation_title" class="panel-heading"><strong>Log</strong></div>
+	<a class="pull-right" onclick="show_dir();" class="btn btn-xs  btn-default" ><span class=ui-icon ui-icon-close></span></a>
+	<div class="panel-body" id="div_select_item" style="cursor:hander;"></div>
+</div>
+
 <script>
 $(function() {$( "#div_scoll" ).draggable();});  
 	function showresult(paperid){
@@ -202,7 +217,6 @@ $(function() {$( "#div_scoll" ).draggable();});
 	}
 	
 </script>
-
 
 <#--
 <div class="panel panel-primary" style="float:left;position:relative;width:46%;left:5px;">
