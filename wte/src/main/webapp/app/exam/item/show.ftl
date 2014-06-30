@@ -21,7 +21,7 @@
 					<div class="panel-body">
 				 <table class="table table-condensed table-bordered table-striped">
 					<tr>
-						<td><@i18n "title_type" /> </td>
+						<td style="text-align: center;"><@i18n "title_type" /> </td>
 						<td>
 							<input type="radio" name="item.type" value="1" onclick="javascript:generateitem(1)"/>&nbsp;<@i18n "title_single" />
 							&nbsp;
@@ -33,10 +33,10 @@
 						</td>
 					</tr>
 					<tr>
-						<td style="vertical-align: middle;"><@i18n "title_content" /></td>
+						<td style="vertical-align: middle; text-align: center;"><@i18n "title_content" /></td>
 						<td>
 							<div>
-								<textarea class='input' style='width:400px;' type='text' id='text' name='item.content' >  </textarea><br/>
+								<textarea class='input' style='width:400px;' type='text' id='text' name='item.content' > </textarea>
 							</div>
 							<div id="itemcontent">
 								
@@ -45,7 +45,7 @@
 					</tr>
 					
 					<tr>
-						<td><@i18n "title_knowledge" /></td>
+						<td style="text-align: center;"><@i18n "title_knowledge" /></td>
 						<td>
 							<#list rhs["knowledgeRootList"] as knowledge>
 								<#if knowledge.getChildKnowledges()?exists >

@@ -7,7 +7,7 @@
 
 <div class="exam-frame">
 	<div class="panel-body">
-    <div id="timeshow" class="btn btn-xs btn-warning" style="margin-bottom:15px;"></div> 
+    <div id="timeshow" class="btn btn-xs btn-warning" style="margin-bottom:15px; padding: 5px 12px;"></div> 
 	
 	<div style="float:right;">
 		<p style="padding-right: 30px;"><@i18n "title_name" />: <#if rhs["paper"]?exists > ${rhs["paper"].name}</#if><br/>
@@ -130,7 +130,9 @@
 	     </div>
 	 </#if>
 	    
-	 <div style="text-align: center; padding-bottom:15px;"><input type="button" class="btn btn-xs btn-success" value="Submit" id="submitButton"/></div>
+	 <div style="text-align: center; padding-bottom:15px;">
+	 	<input type="button" class="btn btn-xs btn-success" style="padding: 5px 10px;" value="Submit" id="submitButton"/>
+	 </div>
 	 
 	 
     </div>

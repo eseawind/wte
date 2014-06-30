@@ -1,14 +1,14 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <#include "../../../common/freemarker/include_custom.ftl">
-<div id="result_body">
-
-<a  class="btn btn-xs btn-primary " style="margin-left:15px;" id="groupby"  href="#" onclick="javascript:groupby('${rhs["groupby"]}');" >Group by User</a>
-<div class="panel panel-primary" style="margin-left:15px;" >
+<div id="result_body" style="margin:5px;">
+&nbsp;&nbsp;
+<a  class="btn btn-xs btn-primary"id="groupby"  href="#" onclick="javascript:groupby('${rhs["groupby"]}');" >Group by User</a>
+<div class="panel panel-primary" style="margin-left:10px;" >
        
   <div class="panel-heading">
   	<strong>Exam History List</strong>
   </div>
-  <div id="div_scoll" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:400px;z-index:10000;display:none;" class="panel panel-default"><!--style="border:2px solid #eee;"-->
+  <div id="div_scoll" style="margin-left:150px; margin-top:-350px; cursor:hander;position:absolute;width:400px;z-index:10000;display:none;" class="panel panel-default"><!--style="border:2px solid #eee;"-->
 			 	<div id="operation_title" class="panel-heading"><strong>Log</strong><a class="pull-right" onclick="show_dir();" class="btn btn-xs  btn-default" ><span class=ui-icon ui-icon-close></span></a></div>
 			 	<div class="panel-body" id="div_select_item" style="cursor:hander;"> 
 			 	
@@ -53,35 +53,35 @@
 					<#assign index=index+1 />
 					<#if (rhs["datalist"][papername]?size > 0) >
 					<tr id="<#if rhs["groupby"] == "user" >${rhs["datalist"][papername][0].paper.id}<#else>${rhs["datalist"][papername][0].id}</#if>" <#if rhs["groupby"] == "user" >style="display:none;"</#if>>
-						<td colspan="5" >
-							<table class="table table-condensed table-bordered table-hover" style="background:#FAFAD2;">
+						<td colspan="5" style="padding:0;">
+							<table class="table table-condensed table-bordered table-hover" style="background:#dfcddd; width:100%; border: none;">
 								<#assign i=1>
-								<tr>
-									<td><strong>></strong></td>
+								<tr style="text-align: center;">
+									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>></strong></td>
 									<#if rhs["groupby"] == "user" >
-										<td><strong>User ID</strong></td>
+										<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>User ID</strong></td>
 									</#if>
 									<#if rhs["groupby"] == "paper" >
-											<td><strong>Paper Name</strong></td>
+											<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>Paper Name</strong></td>
 									</#if>
-									<td ><strong><@i18n "title_result" /></strong></td>
-									<td><strong><@i18n "title_time" /></strong></td>
-									<td></td>
+									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong><@i18n "title_result" /></strong></td>
+									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong><@i18n "title_time" /></strong></td>
+									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"></td>
 								</tr>
 								<#list (rhs["datalist"][papername]?sort_by("id"))?reverse as record>
-									<tr>
-										<td>${i}</td>
+									<tr style="text-align: center;">
+										<td style="border:none;">${i}</td>
 										<#--<td ></td><a href="exam_exam_exam_record_detail.do?paperId=${record.paper.id}&recordsId=${record.id}" ></a>-->
 										<#if rhs["groupby"] == "user" >
-											<td>${record.userid}</td>
+											<td style="border:none;">${record.userid}</td>
 										</#if>
 										<#if rhs["groupby"] == "paper" >
-											<td>${record.paper.name}</td>
+											<td style="border:none;">${record.paper.name}</td>
 										</#if>
 										<#--<td>${record.paper.passmark}</td>-->
-										<td>${record.singlechoicemark?number + record.multichoicemark?number + record.blankmark?number + record.essaymark?number}</td>
-										<td>${record.recorddate?if_exists}</td>
-										<td>
+										<td style="border:none;">${record.singlechoicemark?number + record.multichoicemark?number + record.blankmark?number + record.essaymark?number}</td>
+										<td style="border:none;">${record.recorddate?if_exists}</td>
+										<td style="border:none;">
 											<#list rhs["monitorlist"]?keys as recordid>
 												<#if recordid == record.id?string && (rhs["monitorlist"][recordid]?size > 0) >
 													<a onclick="javascript:showlog('${record.taskid}','${record.paper.id}','${record.userid}');">Security Log</a>

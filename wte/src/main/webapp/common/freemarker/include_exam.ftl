@@ -6,16 +6,16 @@
 <style type="text/css">
 .exam-frame {
 	position: relative;
-	padding: 25px 35px 0 35px;
+	padding: 15px 35px 0 35px;
 	background-color: #fff;
 	border: none;
 	box-shadow: none;
 }
 .panel-body {
-padding: 3px;
+	padding: 3px;
 }
-.table-bordered {
-	border: 1px solid #faebcc;
+.table {
+	margin-bottom: 0;
 }
 .table th {
 	background-color: #fff;
@@ -28,20 +28,11 @@ padding: 3px;
 	background-color: #fff;
 }
 .table-hover>tbody>tr:hover>td {
-	background-color: #FFF4DD;
+	background-color: #CAEAFA;
 }
 .table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
-	border: 1px solid #faebcc;
+	border: 1px solid #bce8f1;
 	vertical-align: middle;
-}
-.btn-primary {
-	color: #fff;
-	background-color: #FF9600;
-	border-color: #FF7E00;
-}
-.btn-primary:hover {
-	background-color: #F56E00;
-	border-color: #E26602;
 }
 </style>
 </head>	

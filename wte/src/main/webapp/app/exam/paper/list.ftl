@@ -17,7 +17,8 @@
 </script>
 <div style="margin:5px">
    		<#include "include_add_search.ftl">
-		<a style="margin-left:10px;" class="btn btn-xs btn-primary "  href="exam_paper_create.do?method=newpaper"><@i18n "menu_paper_new" /></a>
+   		&nbsp;&nbsp;
+		<a class="btn btn-xs btn-primary "  href="exam_paper_create.do?method=newpaper"><@i18n "menu_paper_new" /></a>
 		<#--
 		<a style="margin-left:10px;" class="btn btn-xs btn-info "  href="exam_item_import_itembyxls.do?method=paper"><@i18n "menu_paper_new_excel" /></a> <br />
 		-->

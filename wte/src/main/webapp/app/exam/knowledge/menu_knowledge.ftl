@@ -2,7 +2,6 @@
 <#include "../../../common/freemarker/include_custom.ftl">
 <head>
 <script type="text/javascript" src="<@context_module/>knowledge.js"></script>
-
 </head>
 <body style="padding-left:30px">
 <div class="row">

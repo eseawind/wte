@@ -44,7 +44,9 @@
 		</#list> 
 		</tbody>
 	</table>            
-	<blockquote class="pull-right">
+	<blockquote class="pull-right" style="border-right: none;">
+		Page ${rhs.currentPage}
+		<#-- (${rhs.count}/${rhs.maxPage})&nbsp; -->
 		<select style="WIDTH: 60px"   onchange="javascript:action_smtp('change_page_number.do','maxSize='+this.value)" >
 				    <option value="${rhs.maxSize}">${rhs.maxSize}</option>
 	  				<option value="5">5</option>
@@ -52,13 +54,12 @@
 	  				<option value="20">20</option>
 	  				<option value="50">50</option>
 	  				<option value="50">200</option>
-	 			<select>		
+	 	<select>		
 			<#if (rhs.currentPage > 1) ><a class="btn btn-link btn-mini" onclick="javascript:action_smtp('ajax_page_data.do','pageId=1')">first</a></#if>
 			<#if (rhs.currentPage > 1) ><a class="btn btn-link btn-mini"  onclick="javascript:action_smtp('ajax_page_data.do','pageId=${rhs.currentPage-1}')">pre</a></#if>
 			<#if (rhs.currentPage < rhs.maxPage) ><a class="btn btn-link btn-mini" onclick="javascript:action_smtp('ajax_page_data.do','pageId=${rhs.currentPage+1}')">next</a></#if>
 			<#if (rhs.currentPage < rhs.maxPage) ><a class="btn btn-link btn-mini"  onclick="javascript:action_smtp('ajax_page_data.do','pageId=${rhs.maxPage}')">last</a></#if>
 		
-				${rhs.currentPage}page&nbsp;
-			(${rhs.count}/${rhs.maxPage})&nbsp;
+		
 	</blockquote>
 <span id="div_action_result" style="display:none">${rhs["info"]?if_exists}</span>

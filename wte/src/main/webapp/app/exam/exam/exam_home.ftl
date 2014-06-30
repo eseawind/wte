@@ -1,5 +1,4 @@
 <#include "../../../common/freemarker/include_header.ftl">
-
 <#include "../../../common/freemarker/include_exam.ftl">
 <div class="exam-frame">
 	<div style="margin-bottom:5px;">
@@ -14,10 +13,10 @@
 
 <div class="exam-frame">
 	<div style="margin-bottom:5px;">
-		<img style="vertical-align: text-bottom;" src="common/images/e_paper_orange.png" />
-		<span style="padding-left:5px; font-size:18px; color:#C6C6C6;">Exam Information List</span>
+		<img style="vertical-align: text-bottom;" src="common/images/e_paper_blue.png" />
+		<span style="padding-left:5px; font-size:18px; color:#C6C6C6;">Exam Information</span>
 	</div>
-	<div class="alert alert-warning">
+	<div class="alert alert-info">
 		<div class="panel-body">
   			<table class="table table-condensed table-hover table-bordered">
 		  		<tr>
@@ -42,7 +41,7 @@
 					<#--<a href="common_activiti_process_diagram.do?processInstanceId=${item.task.processInstanceId}" target=_blank>
 							View
 						</a>-->
-					<a  <#if item.method == "Start"> onclick="javascript:toFull('${item.handleTaskUrl?if_exists}&taskId=${item.task.id}')"<#else>href="${item.handleTaskUrl?if_exists}&taskId=${item.task.id}"</#if> class="btn btn-xs btn-primary">
+					<a  <#if item.method == "Start"> onclick="javascript:toFull('${item.handleTaskUrl?if_exists}&taskId=${item.task.id}')"<#else>href="${item.handleTaskUrl?if_exists}&taskId=${item.task.id}"</#if> class="btn btn-xs btn-info">
 									${item.method}
 					</a>
 					</td>
@@ -103,23 +102,23 @@
 
 <div class="exam-frame">
 	<div style="margin-bottom:5px;">
-		<img style="vertical-align: text-bottom;" src="common/images/e_history_orange.png" />
-		<span style="padding-left:5px; font-size:18px; color:#C6C6C6;">Exam History List</span>
+		<img style="vertical-align: text-bottom;" src="common/images/e_history_blue.png" />
+		<span style="padding-left:5px; font-size:18px; color:#C6C6C6;">Exam History</span>
 	</div>
-	<div class="alert alert-warning">
+	<div class="alert alert-info">
 		<div class="panel-body">
-			<table class="table table-condensed table-bordered">
+			<table class="table table-condensed table-hover table-bordered">
 				<tr>
-					<td width=25px><strong>#</strong></td>
-					<td ><strong><@i18n "title_name" /></strong></td>
-					<#--<td ><strong>User ID</strong></td>
-					<td ><strong><@i18n "title_totalmark" /></strong></td>-->
-					<td ><strong><@i18n "title_passmark" /></strong></td>
-					<td ><strong><@i18n "title_result" /></strong></td>
-					<td><strong><@i18n "title_time" /></strong></td>
-					<#--<td ><strong><@i18n "title_result" /></strong></td>-->
-					<#--<td ><strong><@i18n "title_remark" /></strong></td>-->
-					<td></td>
+					<th width=25px>#</th>
+					<th ><@i18n "title_name" /></th>
+					<#--<th >User ID</th>
+					<th ><@i18n "title_totalmark" /></th>-->
+					<th ><@i18n "title_passmark" /></th>
+					<th ><@i18n "title_result" /></th>
+					<th><@i18n "title_time" /></th>
+					<#--<th ><@i18n "title_result" /></th>-->
+					<#--<th ><@i18n "title_remark" /></th>-->
+					<th></th>
 				</tr>
 				<#assign index=1 />
 				<#list rhs["datalist"]?keys as papername>
@@ -127,7 +126,7 @@
 				<#list (rhs["datalist"][papername]?sort_by("id"))?reverse as record>
 				<tr>
 					<td>${index}</td>
-					<td>${papername} </td><#--onclick="javascript:showresult(${rhs["datalist"][papername][0].paper.id});"-->
+					<td>${rhs["datalist"][papername][0].paper.name} </td><#--onclick="javascript:showresult(${rhs["datalist"][papername][0].paper.id});"-->
 					<td>${rhs["datalist"][papername][0].paper.passmark}</td>
 					<td>
 					<#if record.remark?exists && record.remark == "Wait for judge">
@@ -143,16 +142,15 @@
 				</#list>
 				</#list>
 			</table>
-		
+			<br/>
 			<#if rhs["oatasklist_outdate"]?size gt 0 >	
-			You missed exam:<br>
+			<strong style="display:block; padding-bottom: 5px;"> You missed exam: </strong>
 			<table class="table table-condensed table-hover table-bordered">
 				<tr>
-					<td width=25px><strong>#</strong></td>
-					<td ><strong><@i18n "title_name" /></strong></td>
-					<td ><strong><@i18n "title_examtime" /></strong></td>
-					<td ><strong><@i18n "title_starttime" /></strong></td>
-					<td ><strong></strong></td>
+					<th width=25px>#</th>
+					<th ><@i18n "title_name" /></th>
+					<th ><@i18n "title_examtime" /></th>
+					<th ><@i18n "title_starttime" /></th>
 				</tr>
 				<#list rhs["oatasklist_outdate"] as item>
 				<#if item.obj?exists>
@@ -161,7 +159,6 @@
 					<td>${item.obj.name}</td>
 					<td >${item.obj.time}(minutes)</td>
 					<td id="starttime_${item.task.id}">${item.starttime}</td>
-					<td ></td>
 				</tr>
 				</#if>
 				</#list>

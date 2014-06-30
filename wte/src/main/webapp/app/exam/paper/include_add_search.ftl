@@ -3,6 +3,14 @@
 	margin-top: 0;
 	margin-bottom: 0;
 }
+.panel-info {
+	border-color: #c19cbb;
+}
+.panel-info>.panel-heading {
+	color: #8f3f7b;
+	background-color: #dfcddd;
+	border-color: #c19cbb;
+}
 </style>
 <span class="pull-right" >
       <div class="panel panel-info pull-right" style="width:auto">

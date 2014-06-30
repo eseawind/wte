@@ -1,33 +1,9 @@
 <#include "common/freemarker/include_header.ftl">
+<#include "common/freemarker/include_custom.ftl">
 <style>
 body {
 	background-color: #fff;
 }
-/* All levels of nav */
-.bs-sidenav {
-	margin-top: 10px;
-	margin-left: 12px;
-	background-color: #fff;
-}
-.bs-sidebar .nav > li {
-	width: 198px;
- 	background:url(common/images/dotted_level.gif) repeat-x bottom left;
-}
-.bs-sidebar .nav > li > a {
-	display: block;
-  	color: #716b7a;
-  	padding: 10px 20px;
-  	line-height: 26px;
-}
-.bs-sidebar .nav > li > a:hover,
-.bs-sidebar .nav > li > a:focus {
-  	text-decoration: none;
-  	background-color: #fff;
-  	border: none;
-  	background:url(common/images/dotted_level.gif) repeat-x bottom left;
-  	color: #8C2A77;
-}
-
 </style>
 
 <script type="text/javascript">
@@ -58,12 +34,13 @@ function backArrow(currentId){
  		  <#--<li ><a href="exam_knowledge_menu_knowledge.do" target="mainFrame">知识领域</a></li>-->
 		  <#--<li ><a href="exam_template_list.do" target="mainFrame">模板管理</a></li>-->
 		  <#--<li ><a href="common_edit_list_file.do" target="mainFrame"><@i18n "menu_edit_para" /></a></li>-->
-		  <li ><a href="ea_smtp_menu_smtp.do" target="mainFrame" onMouseOver="changeArrow(1)" onMouseOut="backArrow(1)"><img src="common/images/arrow_grey.png" id="1"/>&nbsp;&nbsp;Mail Management</a></li>
+		  
 		  <li ><a href="ea_user_menu_user.do" target="mainFrame" onMouseOver="changeArrow(1)" onMouseOut="backArrow(1)"><img src="common/images/arrow_grey.png" id="1"/>&nbsp;&nbsp;<@i18n "menu_user" /></a></li>
 		  <li ><a href="exam_item_list.do" target="mainFrame" onMouseOver="changeArrow(2)" onMouseOut="backArrow(2)"><img src="common/images/arrow_grey.png" id="2" />&nbsp;&nbsp;Question Library</a></li>
 		  <li ><a href="exam_paper_list.do" target="mainFrame" onMouseOver="changeArrow(3)" onMouseOut="backArrow(3)"><img src="common/images/arrow_grey.png" id="3" />&nbsp;&nbsp;Examination Management</a></li>
 		  <li ><a href="exam_exam_exam_arrange_list.do" target="mainFrame" onMouseOver="changeArrow(4)" onMouseOut="backArrow(4)"><img src="common/images/arrow_grey.png" id="4" />&nbsp;&nbsp;<@i18n "menu_exam_arrange" /></a></li>
 		  <li ><a href="exam_exam_exam_record_list.do?groupby=paper" target="mainFrame" onMouseOver="changeArrow(5)" onMouseOut="backArrow(5)"><img src="common/images/arrow_grey.png" id="5" />&nbsp;&nbsp;Result Management</a></li>
+		  <li ><a href="ea_smtp_menu_smtp.do" target="mainFrame" onMouseOver="changeArrow(6)" onMouseOut="backArrow(6)"><img src="common/images/arrow_grey.png" id="6"/>&nbsp;&nbsp;Mail Management</a></li>
     </ul>
   </div>
 </body> 

@@ -1,5 +1,10 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <#include "../../../common/freemarker/include_custom.ftl">
+<style type="text/css">
+.panel {
+	margin-top: 5px;
+}
+</style>
 <div class="panel panel-primary" style="margin-left:15px;">
        
   <div class="panel-heading">
@@ -57,26 +62,26 @@
 					</tr>
 					<#assign index=index+1 />
 					<tr id="${examarrange.id}" style="display:none;">
-						<td colspan="6" >
-							<table class="table table-condensed table-bordered table-hover" style="background:#FAFAD2;">
+						<td colspan="6" style="padding:0;">
+							<table class="table table-condensed table-bordered table-hover" style="background:#dfcddd; width:100%; border: none;">
 								<#assign i=1>
-								<tr>
-									<td><strong>></strong></td>
-									<td><strong>User ID</strong></td>
-									<td ><strong><@i18n "title_result" /></strong></td>
-									<td><strong><@i18n "title_time" /></strong></td>
-									<td></td>
+								<tr style="text-align: center;">
+									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>*</strong></td>
+									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>User ID</strong></td>
+									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong><@i18n "title_result" /></strong></td>
+									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong><@i18n "title_time" /></strong></td>
+									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"></td>
 								</tr>
 								<#list rhs["recordlist"]?keys as examarrangeid>
 									<#if examarrangeid?number == examarrange.id>
 										<#assign recordlist = rhs["recordlist"][examarrangeid] />
 										<#list recordlist as record>
-										<tr>
-											<td>${i}</td>
-											<td>${record.userid}</td>
-											<td>${record.singlechoicemark?number + record.multichoicemark?number + record.blankmark?number + record.essaymark?number}</td>
-											<td>${record.recorddate?if_exists}</td>
-											<td>
+										<tr style="text-align: center;">
+											<td style="border:none;">${i}</td>
+											<td style="border:none;">${record.userid}</td>
+											<td style="border:none;">${record.singlechoicemark?number + record.multichoicemark?number + record.blankmark?number + record.essaymark?number}</td>
+											<td style="border:none;">${record.recorddate?if_exists}</td>
+											<td style="border:none;">
 												<#--<#list rhs["monitorlist"]?keys as recordid>
 													<#if recordid == record.id?string && (rhs["monitorlist"][recordid]?size > 0) >
 														<a onclick="javascript:showlog('${record.taskid}','${record.paper.id}','${record.userid}');" class="btn btn-xs btn-info">Show Log</a>

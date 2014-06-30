@@ -1,5 +1,5 @@
 <#include "common/freemarker/include_header.ftl">
-
+<#include "common/freemarker/include_custom.ftl">
 <link href="common/ui/css/text.css" rel="stylesheet" type="text/css" media="all" />
 <script language="javascript">
     function check(){
@@ -27,27 +27,30 @@
     
      }
 </SCRIPT>
-<body style="padding:20px">
-    <table width=350px>
+<body style="padding: 15px 18px;">
+	<div class="alert alert-info" style="width:332px;">
+    <table class="change-psw" style="width:300px;">
 	    <tr>
-	       <td>Current Password</td>
-	       <td><input id="oldpassword"  type="password"   name="oldpassword" size="20"></td>
+	       <td class="name">Current Password</td>
+	       <td class="box"><input id="oldpassword"  type="password"   name="oldpassword" size="20"></td>
 	    </tr>
 	    <tr>
-	       <td>New Passwrod</td>
-	       <td> <input id="newpassword"  type="password" name="newpassword" size="20" ></td>
+	       <td class="name">New Passwrod</td>
+	       <td class="box"> <input id="newpassword"  type="password" name="newpassword" size="20" ></td>
 	    </tr>
 	    <tr>
-	      <td>Retry Input New Password</td>
-	       <td> <input id="newrepeatpassword" type="password" name="newrepeatpassword"  onchange="check()"></td>    
+	    	<td class="name">Confirm New Password</td>
+	      	<td class="box"> <input id="newrepeatpassword" type="password" name="newrepeatpassword"  onchange="check()"></td>    
 	    </tr>
+	    <tr><td align="center" colspan="2" ><hr style="margin:5px 0;"></tr>
 	    <tr>
 	       <td  align="center" colspan="2" >
-	       <br><div id=div_result style="color:#f00"></div>
-	        <input type="submit" onclick="javascript:ajax()" class="button"  value="Submit" name="B1" >
+		       <div id=div_result style="color:#f00"></div>
+		       <input type="submit" onclick="javascript:ajax()" class="btn btn-xs btn-info"  value="Submit" name="B1" >
 	       </td>
 	    </tr>
   </table>
+  </div>
 </body>
 <#--
 <br>

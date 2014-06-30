@@ -1,11 +1,18 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <#include "../../../common/freemarker/include_custom.ftl">
 <style type="text/css">
+input {
+	text-align: center;
+}
 .panel-body {
 	padding: 0;
 }
 .table-bordered {
 	border: none;
+}
+.table-bordered>thead>tr>th, 
+.table-bordered>tbody>tr>td {
+	text-align: center;
 }
 </style>
 <script type="text/javascript" src="<@context_module/>user.js"></script>

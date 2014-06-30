@@ -3,8 +3,16 @@
 	margin-top: 0;
 	margin-bottom: 0;
 }
+.panel-info {
+	border-color: #c19cbb;
+}
+.panel-info>.panel-heading {
+	color: #8f3f7b;
+	background-color: #dfcddd;
+	border-color: #c19cbb;
+}
 </style>
-<span class="pull-right" >
+<div class="pull-right">
       <div class="panel panel-info pull-right" style="width:auto" >
         <div class="panel-heading" onclick="javascript:show_dir();" style="cursor: pointer;"><strong><@i18n "title_search" />:</strong></div>
         <div class="panel-body" style="display:${rhs["formstyle"]}; padding: 10px;" id="content">
@@ -38,7 +46,7 @@
 			</form>         
         </div>
       </div>
-</span>
+</div>
 
 <script type="text/javascript">
 Date.prototype.format =function(format)

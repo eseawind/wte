@@ -1,6 +1,7 @@
 <#include "../../../common/freemarker/include_header.ftl">
+<#include "../../../common/freemarker/include_custom.ftl">
 <form name="form_item" action="exam_exam_complete_task.do" method="post">
-<div class="panel panel-primary" style="margin-top: 18px;">
+<div class="panel panel-primary" style="margin-top: 5px; margin-left:15px;">
       <div class="panel-heading"><strong>Result Detail</strong></div>
       <div class="panel-body">
       <table class="table table-condensed table-bordered table-striped">
@@ -107,7 +108,7 @@
 	    <table class="table table-condensed table-bordered table-striped">
 	    	<tr>
       			<td>
-      				<a  class="btn btn-xs btn-info" href="exam_exam_exam_record_list.do?groupby=paper">Return</a>
+      				<a  class="btn btn-xs btn-primary" href="exam_exam_exam_record_list.do?groupby=paper">Return</a>
       			</td>
       		</tr>
 	    </table>

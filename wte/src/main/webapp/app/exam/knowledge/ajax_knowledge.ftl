@@ -2,6 +2,10 @@
 <#include "../../../common/freemarker/include_custom.ftl">
 <head>
 <style>
+.table th {
+	background-color: #dfcddd;
+	color: #fff;
+}
 .table-condensed th, .table-condensed td {
 	padding-top: 0px;
 	padding-bottom: 0px;
@@ -55,7 +59,8 @@
 <table class="table  table-condensed" style="width:1000px">
 	<thead>
 		<tr>
-			<th><@i18n "title_content" /></th><th><@i18n "title_operation" /></th>
+			<th><@i18n "title_content" /></th>
+			<th><@i18n "title_operation" /></th>
 		</tr>
 	</thead>   
     <@digui_knowledge rhs["knowledgeRootList"]?sort_by('sortNob'),""/>
