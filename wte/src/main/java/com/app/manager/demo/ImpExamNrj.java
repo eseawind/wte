@@ -38,7 +38,29 @@ public class ImpExamNrj extends ParentDemo implements InfDemo{
 		User admin = create_user("admin", "Admin", "1324567890","admin@qq.com", "");
 		User user_1 = create_user("test", "Test", "18688385892","", "");
 
+		Resource r0 = create_resource("系统管理", "system-admin", null);
+		Resource r01 = create_sub_resource(r0, "邮件服务器设置","smtp-admin","ea_smtp_menu_smtp.do");
+		Resource r02 = create_sub_resource(r0, "试题管理","item-admin","exam_item_");
+		Resource r03 = create_sub_resource(r0, "试卷管理","paper-admin","exam_paper_");
+		Resource r04 = create_sub_resource(r0, "人员管理","user-admin","ea_user_menu_user.do");
+		Resource r05 = create_sub_resource(r0, "权限管理","arrange-admin","exam_exam_exam_arrange_list.do");
+		Resource r06 = create_sub_resource(r0, "考试结果查询 ","query-admin", "exam_exam_exam_record_list.do?groupby=paper");
+		Resource r07 = create_sub_resource(r0, "考试结果查询 ","query-admin", "exam_exam_exam_record_list.do?groupby=user");
+		Resource r08 = create_sub_resource(r0, "试题导入 ","import-admin", "exam_item_import_itembyxls.do");
+		Resource r09 = create_sub_resource(r0, "选项作答情况","result-admin", "exam_exam_show_answer.do");
+		Resource r10 = create_sub_resource(r0, "考试管理","exam-admin","exam_exam_");
 		
+		admin.getResources().add(r0);
+		admin.getResources().add(r01);
+		admin.getResources().add(r02);
+		admin.getResources().add(r03);
+		admin.getResources().add(r04);
+		admin.getResources().add(r05);
+		admin.getResources().add(r06);
+		admin.getResources().add(r07);
+		admin.getResources().add(r08);
+		admin.getResources().add(r09);
+		admin.getResources().add(r10);
 		//add exam information
 		Set<Knowledge> knowledges1 = new HashSet<Knowledge>();
 		//知识领域
@@ -65,7 +87,6 @@ public class ImpExamNrj extends ParentDemo implements InfDemo{
 		item1.setContent("What is definition of \"Power activity\"? (電源作業とは何ですか？)");
 		item1.setType(1);
 		item1.setRefkey("3");
-		item1.setMark("25");
 		item1.getKnowledge().add(kl11);
 		baseDao.create(item1);
 
@@ -94,6 +115,7 @@ public class ImpExamNrj extends ParentDemo implements InfDemo{
 
 		baseDao.update(item1);
 		
+		baseDao.update(admin);
 		
 		}
 	}

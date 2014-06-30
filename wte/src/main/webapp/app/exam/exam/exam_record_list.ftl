@@ -46,6 +46,8 @@
 							<#if rhs["groupby"] == "user" ><a href="exam_exam_export_record.do?paperId=${rhs["datalist"][papername][0].paper.id}" class="btn btn-xs btn-primary" >Export to Excel</a>
 							</#if>
 						</#if>
+						<#if rhs["groupby"] == "user" ><a href="exam_exam_show_answer.do?paperId=${rhs["datalist"][papername][0].paper.id}" class="btn btn-xs btn-primary" >View Each Question</a>
+						</#if>
 						</td>
 					</tr>
 					<#assign index=index+1 />

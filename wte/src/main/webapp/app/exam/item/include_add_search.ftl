@@ -7,11 +7,12 @@
 <span class="pull-right" >
       <div class="panel panel-info pull-right" style="width:auto" >
         <div class="panel-heading" onclick="javascript:show_dir();" style="cursor: pointer;"><strong><@i18n "title_search" />:</strong></div>
-        <div class="panel-body" style="display:none; padding: 10px;" id="content">
+        <div class="panel-body" style="display:${rhs["formstyle"]}; padding: 10px;" id="content">
  			 <form action="exam_item_list.do" id="search_form" method="post" > <#-- 该ID需当参数传入分页的宏	-->
 				<input type="hidden" name="search" value="search">  					<#-- 这里必须加上，不然不会进行条件查询，且name和value不能修改其他值-->
 				<input type="hidden" name="pageId" id="pageId">      					<#-- 这里必须加上，不然分页模块会不正常，且id和name不能修改为其他值	-->
 				<input type="hidden" name="maxSize" id="pageMaxSize">      		        <#-- 这里必须加上，不然修改显示条数会不正常，且id和name不能修改为其他值	-->
+				<input type="hidden" name="formstyle" id="form_style" value="${rhs["formstyle"]}">
 				<input type="hidden" name="orderBy" id="orderBy" value=${rhs["orderBy"]?if_exists}>
 				<b>TYPE</b>&nbsp;&nbsp;&nbsp;<input onclick="document.getElementById('search_form').submit();" <#list rhs["itemtype"] as val> <#if (val?number == 1) >checked</#if> </#list> type="checkbox" name="itemtype" value="1"/>&nbsp;&nbsp;Single Choice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<input onclick="document.getElementById('search_form').submit();" <#list rhs["itemtype"] as val> <#if (val?number == 2) >checked</#if> </#list> type="checkbox" name="itemtype" value="2"/>&nbsp;&nbsp;Multi Choice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -69,8 +70,10 @@ Date.prototype.format =function(format)
 function  show_dir(){  //定位层
 	  if( document.getElementById('content').style.display=='none'){
 	  	document.getElementById('content').style.display='block';
+	  	document.getElementById('form_style').value = 'block';
 	  }else{
 	    document.getElementById('content').style.display='none';
+	    document.getElementById('form_style').value = 'none';
 	  }
 }
 

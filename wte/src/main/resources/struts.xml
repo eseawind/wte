@@ -24,11 +24,17 @@
 	<package name="app" 
 		extends="struts-default">
 		<interceptors>
-			<interceptor name="authenticatesite" class="com.app.ea.interceptor.AuthenticateInterceptorClient"/>
+			<!-- <interceptor name="authenticatesite" class="com.app.ea.interceptor.AuthenticateInterceptorClient"/>
 			<interceptor-stack name="authenticate-interceptor">
 				<interceptor-ref name="authenticatesite"/>                
 				<interceptor-ref name="defaultStack"/>
-			</interceptor-stack>		
+			</interceptor-stack>	-->
+			<!-- for SAC -->
+			<interceptor name="authenticatesite" class="com.app.interceptor.AuthenticateInterceptorForClient"/>
+			<interceptor-stack name="auth-interceptor">
+				<interceptor-ref name="authenticatesite"/>                
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
 	   </interceptors>  
 		<global-results>
 			<result name="unauthenticated.user" type="redirect">/can_not_access.ftl</result>
@@ -37,7 +43,7 @@
 		</global-results> 		
 		
         <action name="*_*_*"   class="{2}Action"  method="{3}" >
-            <!--  <interceptor-ref name="authenticate-interceptor"/>-->
+            <interceptor-ref name="auth-interceptor"/>
             <result name="success">app/{1}/{2}/{3}.ftl</result>
             <result name="list">app/{1}/{2}/list.ftl</result>
             <result name="complete_task">app/common/activiti/complete_task.ftl</result>

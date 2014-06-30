@@ -4,6 +4,7 @@
 <form name="form_item" action="exam_exam_complete_task.do" method="post">
 <input type="hidden" value="<#if rhs.method?exists >${rhs["method"]}</#if>" name="method" />
 <input type="hidden" value="<#if rhs["task"]?exists >${rhs["task"].id}</#if>" name="taskId" />
+
 <div class="exam-frame">
 	<div class="panel-body">
     <div id="timeshow" class="btn btn-xs btn-warning" style="margin-bottom:15px;"></div> 
@@ -40,6 +41,7 @@
 			<tr>
 			<#list singleitem.choiceitem as choiceitem>
 				<tr>
+
 					<td><input type="radio" value="${choiceitem.refid}" name="result[${i}].answer"/> ${choiceitem.value}</td>
 				</tr>
 			</#list>
@@ -63,6 +65,7 @@
 			<table width="100%">
 		    <#list rhs["multiitems"] as multiitem>
 		    	<tr>
+
 					<td><strong>${multiitem_index+1}.&nbsp;${multiitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if multiitem.mark?exists&&multiitem.mark!="0">${multiitem.mark}<#else>${rhs["paper"].multichoicemark}</#if></div></td>
 				<tr>
 				<#list multiitem.choiceitem as choiceitem>
@@ -73,6 +76,7 @@
 				<input type="hidden" value="${multiitem.id}" name="result[${i}].item.id" />
 				<input type="hidden" value="<#if multiitem.mark?exists>${multiitem.mark}<#else>${rhs["paper"].multichoicemark}</#if>" name="result[${i}].mark" />
 				<#assign i = i + 1 > 
+
 		      	</#list>
 	      	</table>
 	     </div>
@@ -96,6 +100,7 @@
 					<input type="hidden" value="<#if blankitem.mark?exists >${blankitem.mark}<#else>${rhs["paper"].blankmark}</#if>" name="result[${i}].mark" />
 				</tr>
 				<#assign i = i + 1 > 
+
 		    </#list>
 	      	</table>
 	     </div>
