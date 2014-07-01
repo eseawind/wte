@@ -1,5 +1,10 @@
 function action_user(url,para){ 
- // alert(para);
+  //alert(para);
+	if(url == "delete.do"){
+		if (!confirm("Are you sure delete the user?")){
+			return false;
+		}
+	}
   $.ajax({
          type:"POST",
          url: "ea_user_"+url,

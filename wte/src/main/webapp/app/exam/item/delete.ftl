@@ -1,8 +1,9 @@
 <#include "../../../common/freemarker/include_header.ftl">
-<script type="text/javascript">
-	<#if !rhs["flag"]>
-	<#else>
+<#if !rhs["flag"]>
+
+<#else>
+	<script type="text/javascript">
 		alert('${rhs["info"]}');
-	</#if>
-	document.location.href =  "exam_item_list.do";
-</script>
+	</script>
+</#if>
+<#include "list.ftl">

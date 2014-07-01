@@ -1,5 +1,5 @@
 <#include "../../../common/freemarker/macro_common.ftl">
-<table   class="table table-bordered table-condensed  table-indie" width=800>
+<table   class="table table-bordered table-condensed  table-indie" width="800">
 
 	    <thead>
 			<tr>
