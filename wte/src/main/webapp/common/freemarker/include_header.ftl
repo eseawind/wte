@@ -26,6 +26,7 @@
 
 <link rel="stylesheet" type="text/css" href="<@context/>common/highslide-4-1-13/highslide/highslide.css" />
 <script type="text/javascript"          src="<@context/>common/highslide-4-1-13/highslide/highslide-with-html.js"></script>
+<!--<script type="text/javascript" src="<@context/>common/javascript/javascript.js"></script>-->
 <style type="text/css">
 * {font-family:Arial;margin:0px;padding:0px;font-size:12px;}
 <#--juqery-ui图标-->
@@ -87,6 +88,6 @@ function rowOut(target)
 	        }
 	    });  
 	}
-</script>	
+</script>
 </head>	
 <body>

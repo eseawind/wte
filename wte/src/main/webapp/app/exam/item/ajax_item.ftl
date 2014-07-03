@@ -27,7 +27,7 @@
 						<@i18n "title_essay" />
 					</#if>
 				</td>
-				<td><a href="exam_item_load.do?method=edit&id=${x.id}"><@i18n "title_edit" /></a> <!--| <a href="exam_item_load.do?method=show&id=${x.id}"> <@i18n "title_view" /></a> -->| <a href="exam_item_delete.do?id=${x.id}"><@i18n "title_delete" /></a></td><#--onclick="action_item('delete.do','${x.id}');"-->
+				<td><a href="exam_item_load.do?method=edit&id=${x.id}"><@i18n "title_edit" /></a> <!--| <a href="exam_item_load.do?method=show&id=${x.id}"> <@i18n "title_view" /></a> -->| <a onclick="action_item('delete.do','${x.id}');" href="#"><@i18n "title_delete" /></a></td><#--onclick="action_item('delete.do','${x.id}');"  exam_item_delete.do?id=${x.id}-->
 				<td></td>
 			</tr>
 			</#list>

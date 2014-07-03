@@ -1,9 +1,7 @@
 <#include "../../../common/freemarker/include_header.ftl">
-<#if !rhs["flag"]>
-
-<#else>
-	<script type="text/javascript">
-		alert('${rhs["info"]}');
-	</script>
+<script type="text/javascript" defer="defer">
+<#if rhs["flag"]>
+		alert("${rhs["info"]}");
 </#if>
-<#include "list.ftl">
+</script>
+<#include "ajax_item.ftl">
