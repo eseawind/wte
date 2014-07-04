@@ -5,18 +5,18 @@
 	margin-top: 5px;
 }
 </style>
-<div class="panel panel-primary" style="margin-left:15px;">
+<#--<div class="panel panel-primary" style="margin-left:15px;">
        
   <div class="panel-heading">
   	<strong>Exam Schedule List</strong>
-  </div>
+  </div>-->
   <div id="div_scoll" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:400px;z-index:10000;display:none;" class="panel panel-default"><!--style="border:2px solid #eee;"-->
 			 	<div id="operation_title" class="panel-heading"><strong>Log</strong><a class="pull-right" onclick="show_dir();" class="btn btn-xs  btn-default" ><span class=ui-icon ui-icon-close></span></a></div>
 			 	<div class="panel-body" id="div_select_item" style="cursor:hander;"> 
 			 	
 			 	</div>
 			</div>
-  <div class="panel-body">
+  <#--<div class="panel-body">-->
 		<table class="table table-condensed table-bordered">
 				<tr>
 					<td width=25px><strong>#</strong></td>
@@ -106,8 +106,8 @@
 			<#include "../../../common/freemarker/macro_pagination.ftl">
 			<@pagination  "search_form" />
 			
-  </div>
-</div>
+<#--  </div>
+</div>-->
 <script>
 	$(function() {$( "#div_scoll" ).draggable();});  
 	function showresult(paperid){

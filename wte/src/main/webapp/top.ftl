@@ -50,6 +50,8 @@
 			-->
 			<br/>
         	<a href="reset_password.ftl" target="mainFrame">Change Password</a>
+        	<br/>
+        	<a onclick="javascript:action_login('login.do','logout');" href="#">Log Out</a>
         </div>
         	<#--
         	<li><a href="access.ftl" target="mainFrame">access</a></li>
@@ -81,7 +83,21 @@
    
 </html>
 
-
+<script type="text/javascript">
+	function action_login(url,para){
+	  $.ajax({
+	         type:"POST",
+	         url: url,
+	         data:"method="+para,
+	         cache: false,
+	         success: function(html){
+	         	if("logout" == para){
+	        	 window.parent.location = "lang.do"; 
+	         	}
+	         }
+	  });  
+	}
+</script>
 
 
 

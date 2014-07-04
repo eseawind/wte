@@ -29,7 +29,7 @@ p {
 	</div>
 	<div class="alert alert-warning">
 		<p>1. Do NOT press WIN button and ALT button, or the exam will commit automatic! </p><br/>
-		<p>2. Do NOT CLOSE window before done the exam!</p>
+		<p>2. Do NOT close window before done the exam!</p>
 		<p>3. Every keyboard during exam will be record!</p>
 	</div>
 	

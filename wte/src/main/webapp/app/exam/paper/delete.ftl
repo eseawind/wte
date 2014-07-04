@@ -4,5 +4,5 @@
 	<#else>
 		alert('${rhs["info"]}');
 	</#if>
-	document.location.href =  "exam_paper_list.do";
 </script>
+<#include "ajax_paper.ftl">
