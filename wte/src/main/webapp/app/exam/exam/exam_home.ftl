@@ -1,5 +1,24 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <#include "../../../common/freemarker/include_exam.ftl">
+<style type="text/css">
+.table th {
+	background-color: #fff;
+	text-align: center;
+}
+.table-bordered>tbody>tr>td {
+	text-align: center;
+}
+.table-hover>tbody>tr:hover>th {
+	background-color: #fff;
+}
+.table-hover>tbody>tr:hover>td {
+	background-color: #CAEAFA;
+}
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+	border: 1px solid #bce8f1;
+	vertical-align: middle;
+}
+</style>
 <div class="exam-frame">
 	<div style="margin-bottom:5px;">
 		<img style="vertical-align: text-bottom;" src="common/images/e_note_orange.png" />

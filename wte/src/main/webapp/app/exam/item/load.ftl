@@ -1,4 +1,5 @@
 <#include "../../../common/freemarker/include_header.ftl">
+<#include "../../../common/freemarker/include_custom.ftl">
 <script type="text/javascript" src="common/ckeditor441/ckeditor.js"></script>
 <script type="text/javascript">
 	window.onload = function()
@@ -40,7 +41,7 @@
 								<div id="itemcontent">
 									<#if rhs["item"].type == 1>
 										<#if !rhs.readonly>
-											<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button>
+											<button style="margin-bottom: 5px;" class='btn btn-xs btn-primary' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button>
 										</#if>
 										<div id='choice' >
 											<#list rhs["item"].choiceitem as choiceitems>
@@ -51,7 +52,7 @@
 									</#if>
 									<#if rhs["item"].type == 2>
 										<#if !rhs.readonly>
-											<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button>
+											<button style="margin-bottom: 5px;" class='btn btn-xs btn-primary' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button>
 										</#if>
 										<div id='choice' >
 											<#list rhs["item"].choiceitem as choiceitems>
@@ -62,11 +63,11 @@
 									</#if>
 									<#if rhs["item"].type == 3>
 										<input class='input' style='width:400px;' type='text' name='item.content' value='${rhs["item"].content?if_exists}' <#if rhs.readonly>disabled</#if>/><br/>
-										<div class='btn btn-xs btn-info'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='${rhs["item"].refkey?if_exists}' name='item.refkey' <#if rhs.readonly>disabled</#if>/></div>
+										<div class='btn btn-xs btn-primary'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='${rhs["item"].refkey?if_exists}' name='item.refkey' <#if rhs.readonly>disabled</#if>/></div>
 									</#if>
 									<#if rhs["item"].type == 4>
 										<textarea class='input' style='width:400px;height:100px' type='text' name='item.content' <#if rhs.readonly>disabled</#if> > ${rhs["item"].content?if_exists} </textarea><br/>
-										<div class='btn btn-xs btn-info'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='${rhs["item"].refkey?if_exists}' name='item.refkey' <#if rhs.readonly>disabled</#if>/></div>
+										<div class='btn btn-xs btn-primary'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='${rhs["item"].refkey?if_exists}' name='item.refkey' <#if rhs.readonly>disabled</#if>/></div>
 									</#if>
 								</div>
 							</td>
@@ -100,9 +101,9 @@
 						<tr>
 							<td colspan="2" >
 								<#if !rhs.readonly>
-								    <input type="button" class="btn btn-xs btn-info" value="Save" id="submitButton"/>
+								    <input type="button" class="btn btn-xs btn-primary" value="Save" id="submitButton"/>
 								</#if>
-							    <a  class="btn btn-xs btn-info" href="exam_item_list.do">Return</a>
+							    <a  class="btn btn-xs btn-primary" href="exam_item_list.do">Return</a>
 							</td>
 						</tr>
 					</table>
@@ -122,10 +123,10 @@
 	function generateitem(type){
 		switch(type){
 			case 1:
-				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='radio' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='radio' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio'  value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
+				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-primary' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='radio' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='radio' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio'  value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
 				break;
 			case 2:
-				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(2);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='checkbox' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='checkbox' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
+				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-primary' onclick='javascript:addoption(2);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='checkbox' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='checkbox' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
 				break;
 			case 3:
 				$("#itemcontent").html("<div class='btn btn-xs btn-info'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='' name='item.refkey' /></div>");

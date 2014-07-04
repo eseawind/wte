@@ -6,7 +6,7 @@
 <body style="padding-left:30px">
 <div class="row">
 	<div class="span5">
-	<a class="btn btn-xs btn-primary"  onclick="javascript:action_knowledge('create.do','id=root');"><@i18n "menu_knowledge_new" /></a>
+	<a class="btn btn-xs btn-primary"  onclick="javascript:action_knowledge('create.do','id=root');">Add Knowledge Area<#---<@i18n "menu_knowledge_new" />--></a>
 	<a class="btn btn-xs btn-primary"  onclick="javascript:window.location.href='exam_item_list.do';"><@i18n "return" /></a>
 	</div>
 	<br/>

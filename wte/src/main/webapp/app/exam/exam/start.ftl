@@ -1,5 +1,10 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <#include "../../../common/freemarker/include_exam.ftl">
+<style type="text/css">
+p {
+	display: inline;
+}
+</style>
 <body>
 <form name="form_item" action="exam_exam_complete_task.do" method="post">
 <input type="hidden" value="<#if rhs.method?exists >${rhs["method"]}</#if>" name="method" />
@@ -23,7 +28,7 @@
 		<span style="padding-left:5px; font-size:18px; color:#C6C6C6;">Notice</span>
 	</div>
 	<div class="alert alert-warning">
-		<p>1. Do NOT press WIN button and ALT button, or the exam will commit automatic! </p>
+		<p>1. Do NOT press WIN button and ALT button, or the exam will commit automatic! </p><br/>
 		<p>2. Do NOT CLOSE window before done the exam!</p>
 		<p>3. Every keyboard during exam will be record!</p>
 	</div>

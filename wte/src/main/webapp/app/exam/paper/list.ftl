@@ -15,21 +15,23 @@
 		});  
 	}
 </script>
-<div style="margin:5px">
-   		<#include "include_add_search.ftl">
-   		&nbsp;&nbsp;
+
+<div style="margin:5px; height: 30px;">
+	<#include "include_add_search.ftl">
+	<div style="position:absolute; z-index:-1;">
+		&nbsp;&nbsp;
 		<a class="btn btn-xs btn-primary "  href="exam_paper_create.do?method=newpaper"><@i18n "menu_paper_new" /></a>
-		<#--
-		<a style="margin-left:10px;" class="btn btn-xs btn-info "  href="exam_item_import_itembyxls.do?method=paper"><@i18n "menu_paper_new_excel" /></a> <br />
-		-->
-		<#--<a style="margin-left:10px;" class="btn btn-xs btn-info "  href="exam_template_list.do"><@i18n "menu_template" /></a>-->
-		
-	<div class="panel panel-primary" style="margin-top: 10px;">
+			<#--
+			<a style="margin-left:10px;" class="btn btn-xs btn-info "  href="exam_item_import_itembyxls.do?method=paper"><@i18n "menu_paper_new_excel" /></a> <br />
+			-->
+			<#--<a style="margin-left:10px;" class="btn btn-xs btn-info "  href="exam_template_list.do"><@i18n "menu_template" /></a>-->
+	</div>
+</div>
+
+<div style="margin:5px">
+	<div class="panel panel-primary" style="clear:both;">
       <div class="panel-heading"><strong><@i18n "title_paper" /></strong></div>
       <div class="panel-body">
-			
-			
-		
 		<table class="table table-condensed table-hover">
 	    <thead>
 			<tr>

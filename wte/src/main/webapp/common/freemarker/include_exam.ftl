@@ -17,23 +17,6 @@
 .table {
 	margin-bottom: 0;
 }
-.table th {
-	background-color: #fff;
-	text-align: center;
-}
-.table-bordered>tbody>tr>td {
-	text-align: center;
-}
-.table-hover>tbody>tr:hover>th {
-	background-color: #fff;
-}
-.table-hover>tbody>tr:hover>td {
-	background-color: #CAEAFA;
-}
-.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
-	border: 1px solid #bce8f1;
-	vertical-align: middle;
-}
 </style>
 </head>	
 <body>

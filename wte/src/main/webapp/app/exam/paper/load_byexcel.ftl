@@ -1,4 +1,5 @@
 <#include "../../../common/freemarker/include_header.ftl">
+<#include "../../../common/freemarker/include_custom.ftl">
 <script type="text/javascript" src="<@context_module/>paper.js"></script>
 			<form name="form_item" action="exam_paper_save.do" metiod="post">
 				<input type="hidden" name="method" value='edit' />
@@ -64,9 +65,9 @@
 						<tr>
 							<td colspan="5" >
 								<#if !rhs.readonly>
-							    	<input type="button" class="btn btn-xs btn-info" value="Save" id="submitButton"/>
+							    	<input type="button" class="btn btn-xs btn-primary" value="Save" id="submitButton"/>
 								</#if>
-							    <a  class="btn btn-xs btn-info" href="exam_paper_list.do">Return</a>
+							    <a  class="btn btn-xs btn-primary" href="exam_paper_list.do">Return</a>
 							</td>
 						</tr>
 					</table>

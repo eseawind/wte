@@ -89,7 +89,8 @@ a:hover, a:focus {
   	line-height: 26px;
 }
 .bs-sidebar .nav > li > a:hover,
-.bs-sidebar .nav > li > a:focus {
+.bs-sidebar .nav > li > a:focus,
+.bs-sidebar .nav > li > a:active {
   	text-decoration: none;
   	background-color: #fff;
   	border: none;

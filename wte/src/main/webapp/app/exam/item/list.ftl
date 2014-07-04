@@ -1,15 +1,19 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <#include "../../../common/freemarker/include_custom.ftl">
 
-<div style="margin:5px">
+<div style="margin:5px; height: 30px;">
 	<#include "include_add_search.ftl">
-	&nbsp;&nbsp;
-	<a class="btn btn-xs btn-primary "  href="exam_item_save.do?method=show"><@i18n "menu_item_new" /></a>
-	<a class="btn btn-xs btn-primary "  href="exam_item_import_itembyxls.do?method=item">Import by Excel<#---<@i18n "menu_item_new_excel" />--></a>
-	<a class="btn btn-xs btn-primary "  href="exam_knowledge_menu_knowledge.do"><@i18n "menu_knowledge" /></a>
-		
-	<div class="panel panel-primary" style="margin-top: 10px;">
-      <div class="panel-heading"><strong><@i18n "title_item" /></strong></div>
+	<div style="position:absolute; z-index:-1;">
+		&nbsp;&nbsp;
+		<a class="btn btn-xs btn-primary "  href="exam_item_save.do?method=show"><@i18n "menu_item_new" /></a>
+		<a class="btn btn-xs btn-primary "  href="exam_item_import_itembyxls.do?method=item">Import by Excel<#---<@i18n "menu_item_new_excel" />--></a>
+		<a class="btn btn-xs btn-primary "  href="exam_knowledge_menu_knowledge.do">Knowledge Area Management<#---<@i18n "menu_knowledge" />--></a>
+	</div>
+</div>
+
+<div style="margin:5px;"> 
+	<div class="panel panel-primary" style="clear:both;">
+      <div class="panel-heading" style="clear: both;"><strong><@i18n "title_item" /></strong></div>
       <div class="panel-body">
 		<table class="table table-condensed table-hover">
 	    <thead>
@@ -55,5 +59,4 @@
 		<@pagination  "search_form" />
       </div>
     </div>
-		
-	</div>	
+</div>

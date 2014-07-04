@@ -1,4 +1,5 @@
 <#include "../../../common/freemarker/include_header.ftl">
+<#include "../../../common/freemarker/include_custom.ftl">
 <script type="text/javascript" src="<@context_module/>paper.js"></script>
 <script type="text/javascript" src="<@context_module/>template.js"></script>
 <script>
@@ -104,7 +105,7 @@
 						
 						<#if rhs["paper"]?exists >
 						<tr>
-							<td><@i18n "title_single_req" /> <br/> <button onclick="javascript:additem(1,${rhs["paper"].id?if_exists });return false;" class="btn btn-xs btn-info"><@i18n "menu_item_new" /></button></td>
+							<td><@i18n "title_single_req" /> <br/> <button onclick="javascript:additem(1,${rhs["paper"].id?if_exists });return false;" class="btn btn-xs btn-primary"><@i18n "menu_item_new" /></button></td>
 							<td >
 								<div style="height:150px;overflow:auto;" id="reqsinglechoice">
 									<#assign i = 0 />
@@ -120,7 +121,7 @@
 									</#if>
 								</div>
 							</td>
-							<td><@i18n "title_multi_req" /><br/> <button onclick="javascript:additem(2,${rhs["paper"].id?if_exists });return false;" class="btn btn-xs btn-info"><@i18n "menu_item_new" /></button></td>
+							<td><@i18n "title_multi_req" /><br/> <button onclick="javascript:additem(2,${rhs["paper"].id?if_exists });return false;" class="btn btn-xs btn-primary"><@i18n "menu_item_new" /></button></td>
 							<td >
 								<div style="height:150px;overflow:auto;" id="reqmultichoice">
 									<#assign i = 0 />
@@ -205,8 +206,8 @@
 						-->
 						<tr>
 							<td colspan="4" align=center>
-							    <input type="button" class="btn btn-xs btn-info" value="Submit" id="submitButton"/>
-							    <a  class="btn btn-xs btn-info" href="exam_paper_list.do">Return</a>
+							    <input type="button" class="btn btn-xs btn-primary" value="Submit" id="submitButton"/>
+							    <a  class="btn btn-xs btn-primary" href="exam_paper_list.do">Return</a>
 							</td>
 						</tr>
 					</table>

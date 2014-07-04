@@ -23,17 +23,56 @@
 		height: 33px;
 	}
 	ul.ztree{
-		width: 290px; 
 		height: 250px;
 		overflow-y: scroll;
 		overflow-x: auto;
 	}
 
+/* ########################## */	
+.label {
+	display: inline;
+	padding: .2em .6em .3em;
+	font-size: 75%;
+	font-weight: bold;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+}
+.label-default {
+	background-color: #8f3f7b;
+}
+.ui-dialog .ui-dialog-titlebar {
+	padding: 2px 5px;
+	position: relative;
+}
+.ui-widget-header {
+	border: 1px solid #7B0663;
+	background: #8f3f7b;
+	color: #fff;
+	font-weight: bold;
+}
+.radio_div {
+	height: auto;
+}
+.select_users_content {
+	width: 300px;
+	height: auto;
+}
+select[multiple], select[size] {
+	height: 250px;
+}
+.ui-dialog .ui-dialog-titlebar-close {
+	background:url(common/images/cross_white.png) no-repeat;
+	border: none;
+}
+
 </style>
 
 <!--  script  -->
 <script type="text/javascript"> 
-
 function open_select_users_dialog(textObj, valueObj, flag){
 	window.returnTextObj = textObj;
 	window.returnValueObj = valueObj;
@@ -53,7 +92,7 @@ function init_select_users(){
 		autoOpen: false,
 		modal: true,
 		width: 750,
-		height: 462,
+		height: 380,
 		buttons: {
 	        "Submit": function(){
 	        	var options = document.getElementById("users_selected").options;
@@ -99,7 +138,7 @@ function init_select_users(){
     
       	open: function(){
       		document.getElementById("include_select_users_div").style.display = "block";
-      		
+      		$(":button").addClass("btn btn-primary btn-xs");
       		$.ajax({
 				type: 'post',
 				url: 'common_selectuser_oftenselectlist.do',
@@ -127,6 +166,7 @@ function init_select_users(){
 			$.fn.zTree.init($("#departmentTree"), window.setting, window.departmentNodes);
 			
       	},
+      	
 	    close: function() {
 	    	//allFields.val("").removeClass( "ui-state-error" );
 	    }
@@ -301,14 +341,15 @@ function menu_active(obj){
 }
 </script> 
 <!--  html  -->
+
 <div id="include_select_users_div" style="display:none;">
 	<div class="select_users_div">
 		<div class="select_users_top">Quick Search
 			<input style="width:150px;" id="auto_text" type="text" class="search-query"/>
 		
-		     <#--
+		    
 			 <a  href="#" onclick="javascript:_clear();" ><span class="label label-default">X</span>  </a>
-			-->
+			
 		</div>
 		
 		<div id="all_users" class="select_users_content select_users_content_border">
@@ -340,15 +381,12 @@ function menu_active(obj){
 		<br>
 		<br>
 		<br>
-		<br>
-		<button class="btn btn-info btn-xs " onclick="javascript:add_to_selected();">Add ></button>
-		<br>
+		<button class="btn btn-primary btn-xs" onclick="javascript:add_to_selected();">Add ></button>
 		<br>
 		<br>
 		<br>
 		<br>
-		<br>
-		<button class="btn btn-info btn-xs " onclick="javascript:remove_from_selected();">< Delete</button>
+		<button class="btn btn-primary btn-xs" onclick="javascript:remove_from_selected();">< Delete</button>
 	</div>
 	<div class="select_users_div">
 		<div class="select_users_top">
