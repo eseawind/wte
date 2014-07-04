@@ -1,8 +1,10 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <#include "../../../common/freemarker/include_custom.ftl">
+<script type="text/javascript" src="<@context_module/>exam.js"></script>
 <div id="result_body" style="margin:5px;">
 &nbsp;&nbsp;
-<a  class="btn btn-xs btn-primary"id="groupby"  href="#" onclick="javascript:groupby('${rhs["groupby"]}');" >Group by User</a>
+<#--<a  class="btn btn-xs btn-primary" id="groupby"  href="#" onclick="javascript:groupby('${rhs["groupby"]}');" >Group by ${rhs["groupby"]}</a>-->
+<a href="#" onclick="javascript:groupby('${rhs["groupby"]}');" class="btn btn-xs btn-primary">Group by ${rhs["groupby"]}</a>
 <div class="panel panel-primary" style="margin-left:10px;" >
        
   <div class="panel-heading">
@@ -14,7 +16,8 @@
 			 	
 			 	</div>
 	</div>
-  <div class="panel-body" >
+  <div class="panel-body" id="div_exam_table">
+<#if rhs["groupby"] == "schedule" || rhs["groupby"] == "paper">
 		<table class="table table-condensed table-bordered">
 				<tr>
 					<td width=25px><strong>#</strong></td>
@@ -23,7 +26,7 @@
 					<td ><strong><@i18n "title_totalmark" /></strong></td>
 					<td ><strong><@i18n "title_passmark" /></strong></td>
 					-->
-					<td><#if rhs["groupby"] == "paper" >
+					<td><#if rhs["groupby"] == "paper" || rhs["groupby"] == "schedule">
 						<#if rhs["export"]>
 							<a href="exam_exam_export_user_record.do" class="btn btn-xs btn-primary" >Export to Excel</a>
 						</#if>
@@ -61,7 +64,7 @@
 									<#if rhs["groupby"] == "user" >
 										<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>User ID</strong></td>
 									</#if>
-									<#if rhs["groupby"] == "paper" >
+									<#if rhs["groupby"] == "paper" || rhs["groupby"] == "schedule">
 											<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>Paper Name</strong></td>
 									</#if>
 									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong><@i18n "title_result" /></strong></td>
@@ -75,7 +78,7 @@
 										<#if rhs["groupby"] == "user" >
 											<td style="border:none;">${record.userid}</td>
 										</#if>
-										<#if rhs["groupby"] == "paper" >
+										<#if rhs["groupby"] == "paper" || rhs["groupby"] == "schedule">
 											<td style="border:none;">${record.paper.name}</td>
 										</#if>
 										<#--<td>${record.paper.passmark}</td>-->
@@ -107,6 +110,9 @@
 			<#include "../../../common/freemarker/macro_pagination.ftl">
 			<@pagination  "search_form" />
 			
+<#else>
+	<#include "exam_arrange_list.ftl">
+</#if>
   </div>
 </div>
 </div>
