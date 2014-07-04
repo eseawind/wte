@@ -9,10 +9,10 @@ function additem(type,templateid) {
 		}
 	});
 	if (tagid == "") {
-		alert("请选择一个知识领域");
+		alert("Please select one category!");
 		return false;
 	}
-	$("#operation_title").text("添加题目");
+	$("#operation_title").text("Add question");
 	$('#div_scoll').attr("style","margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:400px;z-index:10000;display:block;");
 	$.ajax({
 		type : "POST",
@@ -54,7 +54,7 @@ function action_item_admin(paperid, itemid, itemtype){
 }
 
 function ajax_show_item(url, data){
-	$("#operation_title").text("查看题目");
+	$("#operation_title").text("View question");
 	$('#div_scoll').attr("style","margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:700px;z-index:10000;display:block;");
 	$("#div_select_item").html("Loading...");
 	$.ajax({

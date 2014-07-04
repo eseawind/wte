@@ -1,14 +1,12 @@
-function action_knowledge(url,para){
+function action_item(url,para){
   $.ajax({
          type:"POST",
-         url: "exam_knowledge_"+url,
-         data:"beanname=Knowledge&"+para,
+         url: "exam_item_"+url,
+         data:"id="+para,
          cache: false,
          success: function(html){
-        		 document.getElementById('div_knowledge_tree').innerHTML=html;
-       		 //location.reload();
-            	executeScript(html);
-        	 tip_info();
+        	 document.getElementById('div_item_table').innerHTML=html;
+        	 executeScript(html);
            }
   });  
 }
@@ -35,4 +33,3 @@ function executeScript(html)
         }
     }
 }
-

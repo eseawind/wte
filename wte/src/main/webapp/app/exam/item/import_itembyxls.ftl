@@ -14,8 +14,20 @@
                  </td></tr>
 				 <tr><td>
 				 <hr style="margin: 10px 0;">
+				 <#if rhs["exception"]?exists>
+					 <div>
+						 <#list rhs["exception"]?keys as exception>
+						 	${exception} <br/>
+						 	<#list rhs["exception"][exception] as status>
+						 		${status}<br/>
+						 	</#list>
+						 	<br/>
+						 </#list>
+					 </div>
+					 <hr style="margin: 10px 0;">
+				 </#if>
 					<b></b>Sapmle datas of excle file as below:<br><br>
-					<img width=80% src="<@context/>common/images/uploadtemplate.jpg" alt="Upload file template" /></td>
+					<a href="exam_item_getItemTemplate.do"><img width=80% src="<@context/>common/images/uploadtemplate.jpg" alt="Upload file template" "/></a></td>
                  </td></tr>
               </table>
              
@@ -40,4 +52,16 @@
 		$('#dialog').dialog('open');
 		document.getElementsByName("form_item")[0].submit();
 	});
+	
+	function gettemplate(){
+	  $.ajax({
+	         type:"POST",
+	         url: "exam_item_getItemTemplate.do",
+	         data: "",
+	         cache: false,
+	         success: function(html){
+	        	 //document.getElementById('div_item_table').innerHTML=html;
+	          }
+	  });  
+	}
 </script>

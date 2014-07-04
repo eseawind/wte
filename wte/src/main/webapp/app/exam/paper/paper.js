@@ -100,7 +100,7 @@ function checkvalue(obj,type){
 	if(obj.value.split('.').length>2){
 		obj.value=obj.value.split('.')[0]+'.'+obj.value.split('.')[1]
 	}
-	if(obj.value > maxvalue){
+	if(parseInt(obj.value) > parseInt(maxvalue)){
 		obj.value = maxvalue;
 	}
 }
