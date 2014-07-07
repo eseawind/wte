@@ -136,6 +136,7 @@
 	  }
 	}
 	function showlog(taskid,paperid,userid){
+		$("#operation_title").html("Security Log" + "<a onclick='show_dir();' class='pull-right' ><span class='ui-icon-white ui-icon-close'></span></a>");
 		$('#div_scoll').attr("style","margin-left:450px;margin-top:50px; cursor:hander;position:absolute;width:400px;z-index:10000;display:block;");
 		$.ajax({
 			type : "POST",

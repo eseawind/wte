@@ -107,6 +107,25 @@ a:hover, a:focus {
 	text-align: right;
 	padding-right: 5px;
 }
+
+/* icon ui */
+.ui-icon-close {
+	background-position: -80px -128px;
+}
+.ui-icon-white {
+	cursor: pointer;
+	float: left;
+
+	width: 16px;
+	height: 16px;
+	background-image: url(common/jqueryui183/css/jqui1813/smoothness/images/ui-icons_white_256x240.png);
+	
+	display: block;
+	text-indent: -99999px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	}
+
 </style>
 
 </head>	

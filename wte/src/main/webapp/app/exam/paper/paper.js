@@ -77,7 +77,7 @@ function action_item_admin(templateid, itemid, itemtype){
 
 function ajax_show_item(url, data){
 	$("#operation_title").text("View Question");
-	$('#div_scoll').attr("style","margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:700px;z-index:10000;display:block;");
+	$('#div_scoll').attr("style","margin-left:150px;margin-top:-350px; cursor:hander ;position:absolute; z-index:10000; display:block;");
 	$("#div_select_item").html("Loading...");
 	$.ajax({
 		type : "POST",

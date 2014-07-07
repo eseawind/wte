@@ -11,19 +11,7 @@ p {
 	
     <div class="exam-frame">
     	<div class="panel-body">
-    		<div style="height: 70px;">
-    		<div style="float:right;">
-				<span style="padding-right: 30px;"><@i18n "title_name" />: <#if rhs["paper"]?exists > ${rhs["paper"].name}</#if><br/>
-				   <@i18n "title_examtime" />: <#if rhs["paper"]?exists > ${rhs["paper"].time}</#if><br/>
-				   <@i18n "title_totalmark" />: <#if rhs["paper"]?exists > ${rhs["paper"].totalmark}</#if><br/>
-				   <@i18n "title_passmark" />: <#if rhs["paper"]?exists > ${rhs["paper"].passmark}</#if>
-				</span>
-			</div>
-    		
-    		</div>
-    		
     		<#assign i = 0 >
-	
 			<div style="margin:5px 0 5px 0;">
 				<img style="vertical-align: text-bottom;" src="common/images/e_note_orange.png" />
 				<span style="padding-left:5px; font-size:18px; color:#C6C6C6;">Notice</span>
