@@ -212,9 +212,11 @@
 					</div>
 				</div>
 			</form>
-			<div id="div_scoll" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:400px;z-index:10000;display:none;" class="panel panel-default"><!--style="border:2px solid #eee;"-->
-			 	<div id="operation_title" class="panel-heading"><strong>选择题目</strong></div>
-			 	<a class="pull-right" onclick="show_dir();" class="btn btn-xs  btn-default" ><span class=ui-icon ui-icon-close></span></a>
+			<div id="div_scoll" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:800px;z-index:10000;display:none;" class="panel panel-primary"><!--style="border:2px solid #eee;"-->
+			 	<div id="operation_title" class="panel-heading">
+			 		<strong>选择题目</strong>
+			 	</div>
+			 	
 			 	<div class="panel-body" id="div_select_item" style="cursor:hander;"> 
 			 	
 			 	</div>
