@@ -36,7 +36,11 @@
 							<td><@i18n "title_content" /></td>
 							<td>
 								<div>
-									<textarea class='input' style='width:400px;' id='text' name='item.content' <#if rhs.readonly>disabled</#if> >${ rhs["item"].content?if_exists}</textarea><br/>
+									<#if rhs.readonly>
+										<p>${ rhs["item"].content?if_exists}</p>
+									<#else>
+										<textarea class='input' style='width:400px;' id='text' name='item.content' <#if rhs.readonly>disabled</#if> >${ rhs["item"].content?if_exists}</textarea><br/>
+									</#if>
 								</div>
 								<div id="itemcontent">
 									<#if rhs["item"].type == 1>
@@ -103,7 +107,11 @@
 								<#if !rhs.readonly>
 								    <input type="button" class="btn btn-xs btn-primary" value="Save" id="submitButton"/>
 								</#if>
-							    <a  class="btn btn-xs btn-primary" href="exam_item_list.do">Return</a>
+							    <#if rhs.readonly && rhs["method"] == "show">
+							    	<a  class="btn btn-xs btn-primary" href="#" onclick="show_dir();">Close</a>
+							    <#else>
+							    	<a  class="btn btn-xs btn-primary" href="exam_item_list.do">Return</a>
+							    </#if>
 							</td>
 						</tr>
 					</table>
@@ -119,6 +127,13 @@
 		document.getElementsByName("form_wo")[0].submit();
 	});
 	
+	function  show_dir(){  //定位层
+	  if( document.getElementById('div_scoll').style.display=='none'){
+	  	document.getElementById('div_scoll').style.display='block';
+	  }else{
+	    document.getElementById('div_scoll').style.display='none';
+	  }
+	}
 	
 	function generateitem(type){
 		switch(type){

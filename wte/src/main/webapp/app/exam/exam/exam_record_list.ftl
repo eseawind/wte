@@ -3,8 +3,9 @@
 <script type="text/javascript" src="<@context_module/>exam.js"></script>
 <div id="result_body" style="margin:5px;">
 &nbsp;&nbsp;
-<#--<a  class="btn btn-xs btn-primary" id="groupby"  href="#" onclick="javascript:groupby('${rhs["groupby"]}');" >Group by ${rhs["groupby"]}</a>-->
-<a href="#" onclick="javascript:groupby('${rhs["groupby"]}');" class="btn btn-xs btn-primary">Group by ${rhs["groupby"]}</a>
+<a class="btn btn-xs btn-primary" id="groupby"  href="#" onclick="javascript:groupby('user');" >Group by User</a>
+<#--<a href="#" onclick="javascript:groupby('paper');" class="btn btn-xs btn-primary">Group by Paper</a>-->
+<a href="#" onclick="javascript:groupby('schedule');" class="btn btn-xs btn-primary">Group by Schedule</a>
 <div class="panel panel-primary" style="margin-left:10px;" >
        
   <div class="panel-heading">
@@ -17,7 +18,7 @@
 			 	</div>
 	</div>
   <div class="panel-body" id="div_exam_table">
-<#if rhs["groupby"] == "schedule" || rhs["groupby"] == "paper">
+<#if rhs["groupby"] == "paper" ||rhs["groupby"] == "user">
 		<table class="table table-condensed table-bordered">
 				<tr>
 					<td width=25px><strong>#</strong></td>
@@ -157,11 +158,11 @@
 			cache : false,
 			success : function(html) {
 				document.getElementById("result_body").innerHTML = html;
-				if(type == "user"){
+				/*if(type == "user"){
 					$("#groupby").html("Group by Paper");
 				}else{
 					$("#groupby").html("Group by User");
-				}
+				}*/
 				$(function() {$( "#div_scoll" ).draggable();});  
 			}
 		});
