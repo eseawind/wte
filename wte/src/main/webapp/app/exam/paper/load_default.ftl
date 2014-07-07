@@ -113,7 +113,7 @@
 									<#if rhs["paper"]?exists && rhs["paper"].items?exists>
 										<#list rhs["paper"].items as item>
 											<#if item.type == 1>
-												<a href="#" onclick="javascript:ajax_show_item('exam_item_load.do','method=show&id=${item.id}');" >${item.content}</a><br/>
+												${i+1}. <a href="#" onclick="javascript:ajax_show_item('exam_item_load.do','method=show&id=${item.id}');" >${item.content}</a><br/>
 												<input type="hidden" name="reqsinglechoice" value="${item.id}">
 												<#assign i = i + 1/>
 											</#if>
@@ -129,7 +129,7 @@
 									<#if rhs["paper"]?exists && rhs["paper"].items?exists>
 										<#list rhs["paper"].items as item>
 											<#if item.type == 2>
-												<a href="#" onclick="javascript:ajax_show_item('exam_item_load.do','method=show&id=${item.id}');" >${item.content}</a><br/>
+												${i+1}. <a href="#" onclick="javascript:ajax_show_item('exam_item_load.do','method=show&id=${item.id}');" >${item.content}</a><br/>
 												<input type="hidden" name="reqmultichoice" value="${item.id}">
 												<#assign i = i + 1/>
 											</#if>

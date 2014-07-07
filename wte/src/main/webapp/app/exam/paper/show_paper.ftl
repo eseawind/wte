@@ -43,7 +43,7 @@
 								<#list rhs["knowledgeRootList"] as knowledge>
 									<#if knowledge.getChildKnowledges()?exists >
 										<#list knowledge.getChildKnowledges() as knowledgenode>
-											<input type="checkbox" name="knowledgevalue" value="${knowledgenode.id}" onclick="getmaxitemcount(${knowledgenode.id});"
+											<input type="checkbox" checked name="knowledgevalue" value="${knowledgenode.id}" onclick="getmaxitemcount(${knowledgenode.id});"
 											<#if rhs["paper"]?exists && rhs["paper"].knowledge?exists >
 												<#list rhs["paper"].knowledge as paperknowledge>
 													<#if paperknowledge.id == knowledgenode.id> checked</#if>
@@ -110,7 +110,7 @@
 									<#if rhs["paper"]?exists && rhs["paper"].items?exists>
 										<#list rhs["paper"].items as item>
 											<#if item.type == 1>
-												<a href="#" onclick="javascript:ajax_show_item('exam_item_load.do','method=show&id=${item.id}');" >${item.content}</a><br/>
+												${i+1}. <a href="#" onclick="javascript:ajax_show_item('exam_item_load.do','method=show&id=${item.id}');" >${item.content}</a><br/>
 												<input type="hidden" name="reqsinglechoice" value="${item.id}">
 												<#assign i = i + 1/>
 											</#if>
@@ -126,7 +126,7 @@
 									<#if rhs["paper"]?exists && rhs["paper"].items?exists>
 										<#list rhs["paper"].items as item>
 											<#if item.type == 2>
-												<a href="#" onclick="javascript:ajax_show_item('exam_item_load.do','method=show&id=${item.id}');" >${item.content}</a><br/>
+												${i+1}. <a href="#" onclick="javascript:ajax_show_item('exam_item_load.do','method=show&id=${item.id}');" >${item.content}</a><br/>
 												<input type="hidden" name="reqmultichoice" value="${item.id}">
 												<#assign i = i + 1/>
 											</#if>

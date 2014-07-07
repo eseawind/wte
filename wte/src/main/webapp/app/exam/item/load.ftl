@@ -14,11 +14,13 @@
 	}
 </script>
 			<form name="form_wo" action="exam_item_save.do" metiod="post">
+				<#if !rhs.readonly>
 				<div class="panel panel-primary">
 				    <div class="panel-heading">
 				    	<#if rhs.readonly> <@i18n "menu_item_view" /><#else><@i18n "menu_item_edit" /></#if>
 				    </div>
 					<div class="panel-body">
+				</#if>
 				 	<table class="table table-condensed table-bordered table-striped">
 				 		<input type="hidden" id="objectid" name="item.id" value='<#if rhs["item"]?exists>${rhs["item"].id?if_exists}</#if>' />
 						<tr>
@@ -103,7 +105,7 @@
 							</td>
 						</tr>-->
 						<tr>
-							<td colspan="2" >
+							<td colspan="2" align=center>
 								<#if !rhs.readonly>
 								    <input type="button" class="btn btn-xs btn-primary" value="Save" id="submitButton"/>
 								</#if>
@@ -115,8 +117,10 @@
 							</td>
 						</tr>
 					</table>
+					<#if !rhs.readonly>
 					</div>
 				</div>
+				</#if>
 			</form>
 <script>
 	var option_input_num = <#if rhs["item"].choiceitem?exists>${rhs["item"].choiceitem?size}<#else>4</#if>;

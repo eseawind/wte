@@ -30,8 +30,8 @@
 						</#list>
 					</#if>
 				</#list>
-				<input type="button" class="btn btn-default btn-xs" value="Search" onclick="javascript: submit_form('','search')" />
-				<#--Order By: 
+				<#--<input type="button" class="btn btn-default btn-xs" value="Search" onclick="javascript: submit_form('','search')" />
+				Order By: 
 				<a href="#" onclick="javascript: submit_form('priority')">优先级</a>
 				<a href="#" onclick="javascript: submit_form('endTime')">计划结束时间</a>-->
 			</form>         
