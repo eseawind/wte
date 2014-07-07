@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <style type="text/css">
 body {
-	padding-top: 40px;
+	padding-top: 80px;
     padding-bottom: 40px;
     background-color: #f5f5f5;
 }
 .form-signin {
-    max-width: 400px;
-    padding: 19px 29px 29px;
+    max-width: 450px;
+    padding: 20px 30px 30px;
     margin: 0 auto 20px;
     background-color: #fff;
     border: 1px solid #e5e5e5;
@@ -36,8 +36,6 @@ function changlang(value){
 </script>
 
 <body>
-<p class="pull-right"><small>${rhs["url"]?if_exists}</small>&nbsp;&nbsp;&nbsp;</p>
-
 <div class="container">
 	<form name="formlang" id="formlang" action="lang.do" method="post" >
 	   <#---
@@ -54,15 +52,15 @@ function changlang(value){
    	<form class="form-signin" name="loginForm" action="login.do" method="post">
         <table>
 	        <tr >
-	        	<td rowspan="2" style="width:130px;height:130px;">
+	        	<td rowspan="2" style="width:130px; height:130px; border-right: 1px solid #e3e3e3;">
 	        		<img src="common/images/login_1.jpg" style="width:100px;height:100px;" />
 	        	</td>
-	        	<td>
+	        	<td style="padding: 15px 0 0 30px;">
 	        		<input type="text" class="input-block-level" placeholder="Account" name="account" value= >
 	        	</td>
 	        </tr>
 	        <tr>
-	        	<td>
+	        	<td style="padding-left: 30px;">
 	        		<input type="password" class="input-block-level" placeholder="Password" name="password" value= >
 			        <input type="hidden" class="text" name=sysName value="oa">
 	        	</td>
@@ -75,15 +73,20 @@ function changlang(value){
 	        -->
         
 	      	<tr>
-	      		<td style="width:100px;"></td>
-	      		<td>
-	        		<#if rhs?exists>${rhs["tipInfo"]?if_exists}</#if>
-	        		<button class="btn btn-lg  btn-primary pull-right" type="submit"> <@i18n "submit" /></button><br/>
-	        		<a href="login.do?method=forget" ><small>Forgot Password</small></a>
+	      		<td style="border-right: 1px solid #e3e3e3;"></td>
+	      		<td style="padding-left: 30px;"> 
+	        		<#-- rhs?exists>${rhs["tipInfo"]?if_exists}</#if> -->
+	        		<button class="btn btn-xs btn-primary" style="padding: 3px 10px;" type="submit"> <@i18n "submit" /></button>
+	        		<a href="login.do?method=forget" style="vertical-align: bottom; padding-left: 35px;">Forgot Password</a>
 	        	</td>
 	        </tr>
         </table>
      </form>
   </div> <!-- /container -->
+  
+  <div style="width: 450px; margin: 0 auto;background-color: #eee;">
+  	<p style="text-align: center; padding: 5px; color: #428bca;"><small>${rhs["url"]?if_exists}</small></p>
+  </div>
+  
 </body>
 </html>
