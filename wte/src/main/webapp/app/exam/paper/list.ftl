@@ -19,7 +19,7 @@
 
 <div style="margin:5px; height: 30px;">
 	<#include "include_add_search.ftl">
-	<div style="position:absolute; z-index:-1;">
+	<div style="position:absolute;">
 		&nbsp;&nbsp;
 		<a class="btn btn-xs btn-primary "  href="exam_paper_create.do?method=newpaper"><@i18n "menu_paper_new" /></a>
 			<#--
