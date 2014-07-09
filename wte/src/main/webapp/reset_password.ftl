@@ -42,11 +42,11 @@
 	    	<td class="name">Confirm New Password</td>
 	      	<td class="box"> <input id="newrepeatpassword" type="password" name="newrepeatpassword"  onchange="check()"></td>    
 	    </tr>
-	    <tr><td align="center" colspan="2" ><hr style="margin:5px 0;"></tr>
+	    <tr><td align="center" colspan="2" ><hr style="margin:5px 0; border-top-color: #c19cbb;"></tr>
 	    <tr>
 	       <td  align="center" colspan="2" >
 		       <div id=div_result style="color:#f00"></div>
-		       <input type="submit" onclick="javascript:ajax()" class="btn btn-xs btn-info"  value="Submit" name="B1" >
+		       <input type="submit" onclick="javascript:ajax()" class="btn btn-xs btn-primary"  value="Submit" name="B1" >
 	       </td>
 	    </tr>
   </table>

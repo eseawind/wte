@@ -18,6 +18,9 @@ a:hover, a:focus {
 	color: #00625F;
 	text-decoration: none;
 }
+body {
+	color: #00285F;
+}
 /* ################## */
 /* ##### Button ##### */
 /* ################## */
@@ -106,6 +109,11 @@ a:hover, a:focus {
 .change-psw .name {
 	text-align: right;
 	padding-right: 5px;
+}
+.alert-info {
+	color: #8f3f7b;
+	background-color: #dfcddd;
+	border-color: #c19cbb;
 }
 
 /* icon ui */

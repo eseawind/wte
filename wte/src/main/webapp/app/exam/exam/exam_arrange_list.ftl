@@ -4,6 +4,14 @@
 .panel {
 	margin-top: 5px;
 }
+.table-hover>tbody>tr:hover>th {
+	background-color: #00625F;
+}
+.table th {
+	background-color: #00625F; 
+	text-align: center;
+	color: #fff;
+}
 </style>
 <#--<div class="panel panel-primary" style="margin-left:15px;">
        
@@ -63,14 +71,14 @@
 					<#assign index=index+1 />
 					<tr id="${examarrange.id}" style="display:none;">
 						<td colspan="6" style="padding:0;">
-							<table class="table table-condensed table-bordered table-hover" style="background:#dfcddd; width:100%; border: none;">
+							<table class="table table-condensed table-bordered table-hover" style="background:#ebf2d9; width:100%; border: none;">
 								<#assign i=1>
 								<tr style="text-align: center;">
-									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>*</strong></td>
-									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>User ID</strong></td>
-									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong><@i18n "title_result" /></strong></td>
-									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong><@i18n "title_time" /></strong></td>
-									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"></td>
+									<th style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>*</strong></th>
+									<th style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>User ID</strong></th>
+									<th style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong><@i18n "title_result" /></strong></th>
+									<th style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong><@i18n "title_time" /></strong></th>
+									<th style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"></th>
 								</tr>
 								<#list rhs["recordlist"]?keys as examarrangeid>
 									<#if examarrangeid?number == examarrange.id>

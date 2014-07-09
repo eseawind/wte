@@ -2,7 +2,7 @@
 <#include "../../../common/freemarker/include_custom.ftl">
 <#include "../../../common/freemarker/include_exam.ftl">
 <style type="text/css">
-p {
+p:first-child {
 	display: inline;
 }
 </style>
@@ -18,9 +18,9 @@ p {
 			</div>
 			
 			<div class="alert alert-warning">
-				<p>1. Do NOT press WIN button and ALT button, or the exam will commit automatic! </p><br/>
-				<p>2. Do NOT CLOSE window before done the exam!</p><br/>
-				<p>3. Every keyboard during exam will be record!</p>
+				<span>1. Do NOT press WIN button and ALT button, or the exam will commit automatic! </span><br/>
+				<span>2. Do NOT CLOSE window before done the exam!</span><br/>
+				<span>3. Every keyboard during exam will be record!</span>
 			</div>
 	
 			<div style="margin-bottom:5px;">
@@ -31,7 +31,7 @@ p {
 			<div class="alert alert-success">
 				<table width="100%">
 				<#list rhs["singleitems"] as singleitem>
-					<tr>
+					<tr title="question">
 						<td><strong>${singleitem_index+1}.&nbsp;${singleitem.content}</strong><div class="pull-right">&nbsp;&nbsp;&nbsp;Score:<#if singleitem.mark?exists&&singleitem.mark!="0">${singleitem.mark}<#else>${rhs["paper"].singlechoicemark}</#if></div></td>
 					<tr>
 					<#list singleitem.choiceitem as choiceitem>

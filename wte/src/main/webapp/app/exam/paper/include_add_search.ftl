@@ -12,7 +12,7 @@
 	border-color: #c19cbb;
 }
 </style>
-      <div class="panel panel-info pull-right" style="width:auto;" id="panel">
+      <div class="panel panel-info pull-right" style="width:auto;margin:${rhs["divstyle"]};" id="panel">
         <div class="panel-heading" onclick="javascript:show_dir();" style="cursor: pointer;"><strong><@i18n "title_search" /></strong></div>
         <div class="panel-body" style="display:${rhs["formstyle"]};" id="content">
  			 <form action="exam_paper_list.do" id="search_form" method="post" > <#-- 该ID需当参数传入分页的宏	-->
@@ -20,6 +20,7 @@
 				<input type="hidden" name="pageId" id="pageId">      					<#-- 这里必须加上，不然分页模块会不正常，且id和name不能修改为其他值	-->
 				<input type="hidden" name="maxSize" id="pageMaxSize">      		        <#-- 这里必须加上，不然修改显示条数会不正常，且id和name不能修改为其他值	-->
 				<input type="hidden" name="formstyle" id="form_style" value="${rhs["formstyle"]}">
+				<input type="hidden" name="divstyle" id="div_style" value="${rhs["divstyle"]}">
 				<input type="hidden" name="orderBy" id="orderBy" value=${rhs["orderBy"]?if_exists}>
 				<#list rhs["knowledgeRootList"] as knowledge>
 					<input type="checkbox" <#list rhs["knowledgevalue"] as val> <#if val?number == knowledge.id >checked</#if> </#list> onclick="document.getElementById('search_form').submit();" name="knowledgevalue" value="${knowledge.id}"/>&nbsp;&nbsp;<font color='red'>${knowledge.name}</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -67,10 +68,12 @@ function  show_dir(){  //定位层
 	  if( document.getElementById('content').style.display=='none'){
 	  	document.getElementById('content').style.display='block';
 	  	document.getElementById('form_style').value = 'block';
-	  	document.getElementById('panel').style.margin = '25px 10px 0 0';
+	  	document.getElementById('div_style').value = '25px 10px 0 0';
+	  	document.getElementById('panel').style.margin = '35px 10px 10px 0';
 	  }else{
 	    document.getElementById('content').style.display='none';
 	    document.getElementById('form_style').value = 'none';
+	    document.getElementById('div_style').value = '0 10px 0 0';
 	    document.getElementById('panel').style.margin = '0 10px 0 0';
 	  }
 }

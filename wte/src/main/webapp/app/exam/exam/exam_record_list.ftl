@@ -1,5 +1,15 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <#include "../../../common/freemarker/include_custom.ftl">
+<style type="text/css">
+.table-hover>tbody>tr:hover>th {
+	background-color: #00625F;
+}
+.table th {
+	background-color: #00625F; 
+	text-align: center;
+	color: #fff;
+}
+</style>
 <script type="text/javascript" src="<@context_module/>exam.js"></script>
 <div id="result_body" style="margin:5px;">
 &nbsp;&nbsp;
@@ -7,7 +17,6 @@
 <#--<a href="#" onclick="javascript:groupby('paper');" class="btn btn-xs btn-primary">Group by Paper</a>-->
 <a href="#" onclick="javascript:groupby('schedule');" class="btn btn-xs btn-primary">Group by Schedule</a>
 <div class="panel panel-primary" style="margin-left:10px;" >
-       
   <div class="panel-heading">
   	<strong>Exam History List</strong>
   </div>
@@ -58,34 +67,34 @@
 					<#if (rhs["datalist"][papername]?size > 0) >
 					<tr id="<#if rhs["groupby"] == "user" >${rhs["datalist"][papername][0].paper.id}<#else>${rhs["datalist"][papername][0].id}</#if>" <#if rhs["groupby"] == "user" >style="display:none;"</#if>>
 						<td colspan="5" style="padding:0;">
-							<table class="table table-condensed table-bordered table-hover" style="background:#dfcddd; width:100%; border: none;">
+							<table class="table table-condensed table-bordered table-hover" style="background-color: #ebf2d9; width:100%; border:none;">
 								<#assign i=1>
 								<tr style="text-align: center;">
-									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>></strong></td>
+									<th style="border:none;"><strong>></strong></th>
 									<#if rhs["groupby"] == "user" >
-										<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>User ID</strong></td>
+										<th style="border:none;"><strong>User ID</strong></th>
 									</#if>
 									<#if rhs["groupby"] == "paper" || rhs["groupby"] == "schedule">
-											<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>Paper Name</strong></td>
+											<th style="border:none;"><strong>Paper Name</strong></th>
 									</#if>
-									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong><@i18n "title_result" /></strong></td>
-									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong><@i18n "title_time" /></strong></td>
-									<td style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"></td>
+									<th style="border:none;"><strong><@i18n "title_result" /></strong></th>
+									<th style="border:none;"><strong><@i18n "title_time" /></strong></th>
+									<th style="border:none;"></th>
 								</tr>
 								<#list (rhs["datalist"][papername]?sort_by("id"))?reverse as record>
 									<tr style="text-align: center;">
-										<td style="border:none;">${i}</td>
+										<td style="border-bottom: 1px solid #fff; border-top: none; border-left: none; border-right: none;">${i}</td>
 										<#--<td ></td><a href="exam_exam_exam_record_detail.do?paperId=${record.paper.id}&recordsId=${record.id}" ></a>-->
 										<#if rhs["groupby"] == "user" >
-											<td style="border:none;">${record.userid}</td>
+											<td style="border-bottom: 1px solid #fff; border-top: none; border-left: none; border-right: none;">${record.userid}</td>
 										</#if>
 										<#if rhs["groupby"] == "paper" || rhs["groupby"] == "schedule">
-											<td style="border:none;">${record.paper.name}</td>
+											<td style="border-bottom: 1px solid #fff; border-top: none; border-left: none; border-right: none;">${record.paper.name}</td>
 										</#if>
 										<#--<td>${record.paper.passmark}</td>-->
-										<td style="border:none;">${record.singlechoicemark?number + record.multichoicemark?number + record.blankmark?number + record.essaymark?number}</td>
-										<td style="border:none;">${record.recorddate?if_exists}</td>
-										<td style="border:none;">
+										<td style="border-bottom: 1px solid #fff; border-top: none; border-left: none; border-right: none;">${record.singlechoicemark?number + record.multichoicemark?number + record.blankmark?number + record.essaymark?number}</td>
+										<td style="border-bottom: 1px solid #fff; border-top: none; border-left: none; border-right: none;">${record.recorddate?if_exists}</td>
+										<td style="border-bottom: 1px solid #fff; border-top: none; border-left: none; border-right: none;">
 											<#list rhs["monitorlist"]?keys as recordid>
 												<#if recordid == record.id?string && (rhs["monitorlist"][recordid]?size > 0) >
 													<a onclick="javascript:showlog('${record.taskid}','${record.paper.id}','${record.userid}');">Security Log</a>

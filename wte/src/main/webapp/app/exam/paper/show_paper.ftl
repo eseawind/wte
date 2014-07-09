@@ -212,7 +212,7 @@
 					</div>
 				</div>
 			</form>
-			<div id="div_scoll" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:800px;z-index:10000;display:none;" class="panel panel-primary"><!--style="border:2px solid #eee;"-->
+			<div id="div_scoll" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;z-index:10000;display:none;" class="panel panel-primary"><!--style="border:2px solid #eee;"-->
 			 	<div id="operation_title" class="panel-heading">
 			 		<strong>选择题目</strong>
 			 	</div>

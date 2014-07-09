@@ -12,7 +12,7 @@
 	border-color: #c19cbb;
 }
 </style>
-      <div class="panel panel-info pull-right" style="width:auto;margin:${rhs["divstyle"]};" id="panel">
+      <div class="panel panel-info pull-right" style="width:auto; margin:${rhs["divstyle"]}; " id="panel">
         <div class="panel-heading" onclick="javascript:show_dir();" style="cursor: pointer;"><strong><@i18n "title_search" /></strong></div>
         <div class="panel-body" style="display:${rhs["formstyle"]}; padding: 10px;" id="content">
  			 <form action="exam_item_list.do" id="search_form" method="post" > <#-- 该ID需当参数传入分页的宏	-->
@@ -80,7 +80,7 @@ function  show_dir(){  //定位层
 	  	document.getElementById('content').style.display='block';
 	  	document.getElementById('form_style').value = 'block';
 	  	document.getElementById('div_style').value = '25px 10px 0 0';
-	  	document.getElementById('panel').style.margin = '25px 10px 0 0';
+	  	document.getElementById('panel').style.margin = '35px 10px 10px 0';
 	  }else{
 	    document.getElementById('content').style.display='none';
 	    document.getElementById('form_style').value = 'none';

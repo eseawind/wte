@@ -17,9 +17,9 @@
 				 <#if rhs["exception"]?exists>
 					 <div>
 						 <#list rhs["exception"]?keys as exception>
-						 	${exception} <br/>
+						 	<div style="padding: 2px 7px; color: #fff; background-color: #f9ae90; font-weight:bolder;">${exception}</div>
 						 	<#list rhs["exception"][exception] as status>
-						 		${status}<br/>
+						 	<div style="padding: 3px 0 3px 5px; background-color: #fff6f3; ">${status}</div>
 						 	</#list>
 						 	<br/>
 						 </#list>
