@@ -1,4 +1,9 @@
 function action_item(url,para){
+	if(url == "delete.do"){
+		if (!confirm("Are you sure delete the question?")){
+			return false;
+		}
+	}
   $.ajax({
          type:"POST",
          url: "exam_item_"+url,

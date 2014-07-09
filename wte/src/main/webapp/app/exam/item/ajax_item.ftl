@@ -9,7 +9,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<#list rhs["dataList"]?sort_by("id") as x>
+			<#list (rhs["dataList"]?sort_by("id"))?reverse as x>
 			 <tr>
 			    <td class=nob style="padding-left: 15px;">${x_index+1}</td>
 				<td>${x.content?if_exists}</td>
