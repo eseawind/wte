@@ -8,8 +8,12 @@
 			toolbar : [ 
 							
 							['Bold','Italic','Underline'] ,
-							['Font','FontSize','TextColor','BGColor' ]
-					  ]
+							['Font','FontSize','TextColor','BGColor']
+							//['Source' ]
+					  ],
+			allowedContent: true,
+			entities: false
+			//fullPage: true
 		}); 
 	}
 </script>
@@ -98,7 +102,7 @@
 								</#list>
 							</td>
 						</tr>
-						<input class='input' <#if rhs.readonly>disabled</#if> type='hidden' value='<#if rhs["item"].mark?exists>${rhs["item"].mark}<#else>0</#if>' name='item.mark' />
+						<input class='input' <#if rhs.readonly>disabled</#if> type='hidden' value='' name='item.mark' />
 						<#--<tr>
 							<td><@i18n "title_mark" /></td>
 							<td>
@@ -142,20 +146,28 @@
 	function generateitem(type){
 		switch(type){
 			case 1:
-				//$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='radio' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='radio' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio'  value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
-				//$(":input[name='item.refkey']").attr("checked",false);
-				$("#option").attr("onclick","javascript:addoption(1);return false;");
-				$(":input[name='item.refkey']").attr("type","radio");
-				var tmpcontent = $("#choice").html();
-				$("#choice").html(tmpcontent);
+				var text = $("#itemcontent").text();
+				if(text == ""){
+					$("#itemcontent").html("<button style='margin-bottom: 5px;' class='btn btn-xs btn-primary' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='radio' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='radio' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio'  value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
+				}else{
+					//$(":input[name='item.refkey']").attr("checked",false);
+					$("#option").attr("onclick","javascript:addoption(1);return false;");
+					$(":input[name='item.refkey']").attr("type","radio");
+					var tmpcontent = $("#choice").html();
+					$("#choice").html(tmpcontent);
+				}
 				break;
 			case 2:
-				//$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-info' onclick='javascript:addoption(2);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='checkbox' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='checkbox' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
-				//$(":input[name='item.refkey']").attr("checked",false);
-				$("#option").attr("onclick","javascript:addoption(2);return false;");
-				$(":input[name='item.refkey']").attr("type","checkbox");
-				var tmpcontent = $("#choice").html();
-				$("#choice").html(tmpcontent);
+				var text = $("#itemcontent").text();
+				if(text == ""){
+					$("#itemcontent").html("<button style='margin-bottom: 5px;' class='btn btn-xs btn-primary' onclick='javascript:addoption(2);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='checkbox' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='checkbox' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
+				}else{
+					//$(":input[name='item.refkey']").attr("checked",false);
+					$("#option").attr("onclick","javascript:addoption(2);return false;");
+					$(":input[name='item.refkey']").attr("type","checkbox");
+					var tmpcontent = $("#choice").html();
+					$("#choice").html(tmpcontent);
+				}
 				break;
 			case 3:
 				$("#itemcontent").html("<div class='btn btn-xs btn-info'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='' name='item.refkey' /></div>");

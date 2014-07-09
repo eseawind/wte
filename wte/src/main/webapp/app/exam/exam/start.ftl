@@ -1,7 +1,7 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <#include "../../../common/freemarker/include_exam.ftl">
 <style type="text/css">
-p {
+p:first-child {
 	display: inline;
 }
 </style>

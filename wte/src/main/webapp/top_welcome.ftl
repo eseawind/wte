@@ -31,7 +31,8 @@
 				&nbsp;&nbsp;
   	    	<#if Session?exists&&Session["userlogined"]?exists>
 			
-        	<a href="reset_password.ftl" target="mainFrame">Change Password</a>
+        	<a href="reset_password.ftl" target="mainFrame">Change Password</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        	<a onclick="javascript:action_login('login.do','logout');" href="#">Log Out</a>
         </div>
         </#if>
 

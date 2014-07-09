@@ -45,30 +45,34 @@
 			    
 
     <div class="container">
-                            
       <form class="form-signin" name="loginForm" action="login.do?method=forget" method="post">
-        <hr>
         <table>
-        <tr >
-        	<td style="width:130px;height:130px;">
-        		<img src="common/images/login_1.jpg" style="width:100px;height:100px;" />
-        	</td>
-        	<td>
-        		Input You Account: 
-        		<input type="text" placeholder="" class="input-block-level" placeholder="Account" name=account value= >
-        	</td>
-        </tr>
-      	<tr>
-      		<td style="width:100px;"></td>
-      		<td>
-        		<#if rhs?exists>${rhs["tipInfo"]?if_exists}</#if>
-        		<button class="btn btn-lg  btn-primary pull-right" type="submit"> <@i18n "submit" /></button><br/>
-        	</td>
-        </tr>
-       
+	        <tr >
+	        	<td rowspan="2" style="width:130px; height:130px; border-right: 1px solid #e3e3e3;">
+	        		<img src="common/images/login_1.jpg" style="width:100px;height:100px;" />
+	        	</td>
+	        	<td style="padding: 15px 0 0 30px;">
+	        		Input You Account:
+	        	</td>
+	        </tr>
+        	<tr>
+	        	<td style="padding-left: 30px;">
+	        		<input type="text" class="input-block-level" placeholder="Account" name="account" value= >
+	        	</td>
+	        </tr>
+	      	<tr>
+	      		<td style="border-right: 1px solid #e3e3e3;"></td>
+	      		<td style="padding-left: 30px;"> 
+	        		<button class="btn btn-xs btn-primary" style="padding: 3px 10px;" type="submit"> <@i18n "submit" /></button>
+	        	</td>
+	        </tr>
         </table>
       </form>
     </div> <!-- /container -->
 
+  
+  <div style="width: 450px; margin: 0 auto;background-color: #eee;">
+  	<p style="text-align: center; padding: 5px; color: #428bca;"><small>${rhs["tipInfo"]?if_exists}</small><small>${rhs["url"]?if_exists}</small></p>
+  </div>
   </body>
 </html>

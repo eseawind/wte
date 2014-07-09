@@ -85,7 +85,7 @@ function changlang(value){
   </div> <!-- /container -->
   
   <div style="width: 450px; margin: 0 auto;background-color: #eee;">
-  	<p style="text-align: center; padding: 5px; color: #428bca;"><small>${rhs["url"]?if_exists}</small></p>
+  	<p style="text-align: center; padding: 5px; color: #428bca;"><small>${rhs["tipInfo"]?if_exists}</small><small>${rhs["url"]?if_exists}</small></p>
   </div>
   
 </body>

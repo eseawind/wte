@@ -48,8 +48,10 @@
 			<li><a href="ea_ea_menu_workhomepage.do" target=mainFrame>work-handbook</a> </li>
 			<li style="padding-top: 10px;"><span>|</span></li>
 			-->
+			<#if Session["userlogined"]?exists&&Session["userlogined"].account != "admin">
 			<br/>
         	<a href="reset_password.ftl" target="mainFrame">Change Password</a>
+        	</#if>
         	<br/>
         	<a onclick="javascript:action_login('login.do','logout');" href="#">Log Out</a>
         </div>
