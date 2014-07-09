@@ -54,7 +54,7 @@
 	      	<#list rhs["multiitems"]?keys as itemid>
 	      		<#assign multiitem = rhs["multiitems"][itemid][0]>
 	      		<tr>
-					<td><strong>${multiitem_index+1}.&nbsp;${multiitem.item.content}</strong></td>
+					<td><strong>${i+1}.&nbsp;${multiitem.item.content}</strong></td>
 				<tr>
 				<#assign total = rhs["multiitems"][itemid]?size >
 				<#list multiitem.item.choiceitem?sort_by("id") as choiceitem>

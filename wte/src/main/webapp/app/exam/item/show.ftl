@@ -61,9 +61,20 @@
 						<td>
 						</td>
 					</tr>-->
-					<input class='input' type='hidden' value='0' name='item.mark' />
+					<#--<tr>
+      					<td style="text-align: center;">
+      						Attachment
+      					</td>
+      					<td>
+		      				<#include "../../common/uploadfile/macro_uploadfile.ftl"/>
+							<#if rhs.item?exists>
+								<@uploadfile 'item_${rhs.item.id?if_exists}', 'sac', '${rhs.readonly?if_exists}'/>
+							</#if>
+						</td>
+					</tr>-->
+					<#--<input class='input' type='hidden' value='' name='item.mark' />-->
 					<tr>
-						<td colspan="2" >
+						<td colspan="2" style="text-align: center;">
 						    <input type="button" class="btn btn-xs btn-primary" value="Save" id="submitButton"/>
 						    <a  class="btn btn-xs btn-primary" href="exam_item_list.do">Return</a>
 						</td>

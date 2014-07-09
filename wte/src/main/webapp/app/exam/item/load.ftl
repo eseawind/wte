@@ -8,8 +8,12 @@
 			toolbar : [ 
 							
 							['Bold','Italic','Underline'] ,
-							['Font','FontSize','TextColor','BGColor' ]
-					  ]
+							['Font','FontSize','TextColor','BGColor']
+							//['Source' ]
+					  ],
+			allowedContent: true,
+			entities: false
+			//fullPage: true
 		}); 
 	}
 </script>
@@ -98,7 +102,7 @@
 								</#list>
 							</td>
 						</tr>
-						<input class='input' <#if rhs.readonly>disabled</#if> type='hidden' value='<#if rhs["item"].mark?exists>${rhs["item"].mark}<#else>0</#if>' name='item.mark' />
+						<input class='input' <#if rhs.readonly>disabled</#if> type='hidden' value='' name='item.mark' />
 						<#--<tr>
 							<td><@i18n "title_mark" /></td>
 							<td>
