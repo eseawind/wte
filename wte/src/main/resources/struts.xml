@@ -67,6 +67,9 @@
 			<result name="forget">forget.ftl</result>
 			
 			
+		</action>
+		<action name="resetpassword" class="loginAction" method="ajaxResetPassword">
+			<result name="ajaxResetPassword">ajax_result_info.ftl</result>
 		</action>	
 		<action name="menu" class="menuAction" method="execute">
 			<result name="success">menu.ftl</result>

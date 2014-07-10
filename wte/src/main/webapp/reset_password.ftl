@@ -3,19 +3,18 @@
 <link href="common/ui/css/text.css" rel="stylesheet" type="text/css" media="all" />
 <script language="javascript">
     function check(){
-	    if(document.getElementById("newpassword").value!=document.getElementById("newrepeatpassword").value){
-	        document.getElementById('div_result').innerHTML='新密码两次输入不一致';
+	    
+	 } 
+    function ajax(){
+     if(document.getElementById("newpassword").value!=document.getElementById("newrepeatpassword").value){
+	        document.getElementById('div_result').innerHTML='The new password is inconsistent!';
 	        setTimeout( "document.getElementById('div_result').innerHTML=''", 2000);
 	        return false;
 	    }else{
-	    	return true;
 	    }
-	 } 
-    function ajax(){
-     check();
      $.ajax({
          type:"POST",
-         url: "login!ajaxResetPassword.do",
+         url: "resetpassword.do",
 		 data:"oldpassword="+document.getElementById('oldpassword').value+"&newpassword="+document.getElementById('newpassword').value+"&userid=${Session["userlogined"].id}",
 		 cache: false,
 		 success: function(html){

@@ -34,13 +34,13 @@
 						<#list rhs["singleitems"][itemid] as result>
 							<#if result.answer?exists>
 								<#if result.answer?string == choiceitem.refid?string>
-									${result.user} &nbsp;&nbsp;
+									${result.user} &nbsp;&nbsp; ,
 									<#assign select = select + 1>
 								</#if>
 							</#if>
 						</#list>
 						<#assign result = select / total >
-						, ${result?string("percent")})
+						 ${result?string("percent")})
 						</td>
 					</tr>
 				</#list>

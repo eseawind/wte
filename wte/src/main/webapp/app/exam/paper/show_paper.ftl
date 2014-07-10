@@ -91,11 +91,11 @@
 						<tr>
 							<td><@i18n "title_single_rmd" /></td>
 							<td><input type="text" style="width:30px;" name="paper.rmdsinglechoice" onblur="javascript:counttotalmark();" id="rmdsinglechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdsinglechoice?if_exists}</#if>" onKeyUp="checkvalue(this,1);"/>
-								(Max:<span id="maxsinglechoicecount"></span>)
+								(Max:<span id="maxsinglechoicecount">${rhs["maxsinglechoicecount"]}</span>)
 							</td>
 							<td><@i18n "title_multi_rmd" /></td>
 							<td><input type="text" style="width:30px;" name="paper.rmdmultichoice" onblur="javascript:counttotalmark();" id="rmdmultichoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdmultichoice?if_exists}</#if>" onKeyUp="checkvalue(this,2);"/>
-								(Max:<span id="maxmultichoicecount"></span>)
+								(Max:<span id="maxmultichoicecount">${rhs["maxmultichoicecount"]}</span>)
 							</td>
 						</tr>
 						

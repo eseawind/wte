@@ -14,7 +14,7 @@
 <div id="result_body" style="margin:5px;">
 &nbsp;&nbsp;
 <a class="btn btn-xs btn-primary" id="groupby"  href="#" onclick="javascript:groupby('user');" >Group by User</a>
-<#--<a href="#" onclick="javascript:groupby('paper');" class="btn btn-xs btn-primary">Group by Paper</a>-->
+<a href="#" onclick="javascript:groupby('paper');" class="btn btn-xs btn-primary">Group by Paper</a>
 <a href="#" onclick="javascript:groupby('schedule');" class="btn btn-xs btn-primary">Group by Schedule</a>
 <div class="panel panel-primary" style="margin-left:10px;" >
   <div class="panel-heading">
