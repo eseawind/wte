@@ -13,10 +13,10 @@
 <script type="text/javascript" src="<@context_module/>exam.js"></script>
 <div id="result_body" style="margin:5px;">
 &nbsp;&nbsp;
-<a class="btn btn-xs btn-primary" id="groupby"  href="#" onclick="javascript:groupby('user');" >Group by User</a>
-<#--<a href="#" onclick="javascript:groupby('paper');" class="btn btn-xs btn-primary">Group by Paper</a>-->
-<a href="#" onclick="javascript:groupby('schedule');" class="btn btn-xs btn-primary">Group by Schedule</a>
-<div class="panel panel-primary" style="margin-left:10px;" >
+<a class="btn btn-xs btn-custom" id="groupby"  href="#" onclick="javascript:groupby('user');" >Group by User</a>
+<#--<a href="#" onclick="javascript:groupby('paper');" class="btn btn-xs btn-custom">Group by Paper</a>-->
+<a href="#" onclick="javascript:groupby('schedule');" class="btn btn-xs btn-custom">Group by Schedule</a>
+<div class="panel panel-custom" style="margin-left:10px;" >
   <div class="panel-heading">
   	<strong>Exam History List</strong>
   </div>
@@ -38,7 +38,7 @@
 					-->
 					<td><#if rhs["groupby"] == "paper" || rhs["groupby"] == "schedule">
 						<#if rhs["export"]>
-							<a href="exam_exam_export_user_record.do" class="btn btn-xs btn-primary" >Export to Excel</a>
+							<a href="exam_exam_export_user_record.do" class="btn btn-xs btn-custom" >Export to Excel</a>
 						</#if>
 					</#if></td>
 					<#--<td ><strong><@i18n "title_result" /></strong></td>-->
@@ -53,13 +53,13 @@
 						
 						<td>
 						
-							<#if rhs["groupby"] == "user" ><button onclick="javascript:showresult(<#if rhs["groupby"] == "user" >${rhs["datalist"][papername][0].paper.id}<#else>${rhs["datalist"][papername][0].id}</#if>);" class="btn btn-xs btn-primary " name="detail">Detail</button></#if>
+							<#if rhs["groupby"] == "user" ><button onclick="javascript:showresult(<#if rhs["groupby"] == "user" >${rhs["datalist"][papername][0].paper.id}<#else>${rhs["datalist"][papername][0].id}</#if>);" class="btn btn-xs btn-custom " name="detail">Detail</button></#if>
 						
 						<#if rhs["export"]>
-							<#if rhs["groupby"] == "user" ><a href="exam_exam_export_record.do?paperId=${rhs["datalist"][papername][0].paper.id}" class="btn btn-xs btn-primary" >Export to Excel</a>
+							<#if rhs["groupby"] == "user" ><a href="exam_exam_export_record.do?paperId=${rhs["datalist"][papername][0].paper.id}" class="btn btn-xs btn-custom" >Export to Excel</a>
 							</#if>
 						</#if>
-						<#if rhs["groupby"] == "user" ><a href="exam_exam_show_answer.do?paperId=${rhs["datalist"][papername][0].paper.id}" class="btn btn-xs btn-primary" >View Each Question</a>
+						<#if rhs["groupby"] == "user" ><a href="exam_exam_show_answer.do?paperId=${rhs["datalist"][papername][0].paper.id}" class="btn btn-xs btn-custom" >View Each Question</a>
 						</#if>
 						</td>
 					</tr>

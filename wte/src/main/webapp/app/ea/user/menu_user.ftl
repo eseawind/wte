@@ -18,9 +18,9 @@ input {
 <script type="text/javascript" src="<@context_module/>user.js"></script>
 <div style="margin:5px">
 	&nbsp;&nbsp;
-	<a  class="btn btn-xs btn-primary" onclick="javascript:action_user('create.do','');action_user('ajax_page_data.do','pageId=${rhs.maxPage}');"  ><@i18n "menu_user_new" /></a>
+	<a  class="btn btn-xs btn-custom" onclick="javascript:action_user('create.do','');action_user('ajax_page_data.do','pageId=${rhs.maxPage}');"  ><@i18n "menu_user_new" /></a>
 
-	<div class="panel panel-primary">
+	<div class="panel panel-custom">
 		<div class="panel-heading"><strong>User List</strong></div>
       	<div class="panel-body">
 	<#--

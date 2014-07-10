@@ -1,9 +1,10 @@
 <#include "../../../common/freemarker/include_header.ftl">
+<#include "../../../common/freemarker/include_custom.ftl">
 <script type="text/javascript" src="<@context_module/>paper.js"></script>
 			<form name="form_item" action="exam_paper_save.do" metiod="post">
 				<input type="hidden" name="method" value='save' />
 				<input type="hidden" name="paper.id" value='<#if rhs["paper"]?exists >${rhs["paper"].id?if_exists }</#if>' />
-				<div class="panel panel-primary">
+				<div class="panel panel-custom">
 				    <div class="panel-heading">
 				    	<@i18n "menu_paper_new" />
 				    </div>

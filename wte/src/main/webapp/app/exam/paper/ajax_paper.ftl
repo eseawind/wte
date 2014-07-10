@@ -26,7 +26,7 @@
 				<#--<td>${x.processInstanceStatus}</td>-->
 				<td><a href="exam_paper_load.do?method=edit&id=${x.businessModel.id}"><@i18n "title_edit" /></a> <#--| <a href="exam_paper_load.do?method=show&id=${x.businessModel.id}"> <@i18n "title_view" /></a>--> <#if (!(x.businessModel.processInstanceId?exists&&x.businessModel.processInstanceId != "") && x.processInstanceStatus == 'New' || x.processInstanceStatus == 'Done') >| <a onclick="javascript:action_paper('delete.do','${x.businessModel.id}');"><@i18n "title_delete" /></a> </#if> </td><#--href="exam_paper_delete.do?id=${x.businessModel.id}"-->
 				<td>
-				<a id="startProcess${x.businessModel.id}" title="Start Process" class="btn btn-xs btn-primary"
+				<a id="startProcess${x.businessModel.id}" title="Start Process" class="btn btn-xs btn-custom"
 					    		<#if (x.businessModel.time?number > 0) >href="exam_paper_assign.do?id=${x.businessModel.id}" <#else> onclick="javascript:alert('Exam Time was not set!');"</#if> >
 					    		Schedule</a>
 					    		

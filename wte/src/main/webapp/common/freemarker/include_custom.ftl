@@ -28,13 +28,13 @@ body {
 	padding: 2px 7px;
 	margin-left: 1px;
 }
-.btn-primary {
+.btn-custom {
 	color: #fff;
 	font-weight: bold;
 	background-color: #8f3f7b;
 	border-color: #7B0663;
 }
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle .btn-primary {
+.btn-custom:hover, .btn-custom:focus, .btn-custom:active, .btn-custom.active, .open .dropdown-toggle .btn-custom {
 	color: #fff;
 	background-color: #7B0663;
 	border-color: #7B0663;
@@ -42,10 +42,10 @@ body {
 /* ################## */
 /* ##### Panel ###### */
 /* ################## */
-.panel-primary {
+.panel-custom {
 	border-color: #7B0663;
 }
-.panel-primary>.panel-heading {
+.panel-custom>.panel-heading {
 	color: #fff;
 	background-color: #8f3f7b;
 	border-color: #7B0663;
