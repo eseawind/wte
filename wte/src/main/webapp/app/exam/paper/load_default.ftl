@@ -24,7 +24,7 @@
 				<input type="hidden" name="paper.id" value='<#if rhs["paper"]?exists >${rhs["paper"].id?if_exists }</#if>' />
 				<#--<input type="hidden" value="<#if rhs["paper"]?exists >${rhs["paper"].template.id}</#if>" name="template.id"/>-->
 				<input type="hidden" name="paperid" value='<#if rhs["paper"]?exists>${rhs["paper"].id}</#if>' />
-				<div class="panel panel-primary">
+				<div class="panel panel-custom">
 				    <div class="panel-heading">
 				    	<@i18n "menu_paper_new" />
 				    </div>
@@ -106,7 +106,7 @@
 						
 						<#if rhs["paper"]?exists >
 						<tr>
-							<td><@i18n "title_single_req" /> <br/> <button onclick="javascript:additem(1,${rhs["paper"].id?if_exists });return false;" class="btn btn-xs btn-primary"><@i18n "menu_item_new" /></button></td>
+							<td><@i18n "title_single_req" /> <br/> <button onclick="javascript:additem(1,${rhs["paper"].id?if_exists });return false;" class="btn btn-xs btn-custom"><@i18n "menu_item_new" /></button></td>
 							<td >
 								<div style="height:150px;overflow:auto;" id="reqsinglechoice">
 									<#assign i = 0 />
@@ -122,7 +122,7 @@
 									</#if>
 								</div>
 							</td>
-							<td><@i18n "title_multi_req" /><br/> <button onclick="javascript:additem(2,${rhs["paper"].id?if_exists });return false;" class="btn btn-xs btn-primary"><@i18n "menu_item_new" /></button></td>
+							<td><@i18n "title_multi_req" /><br/> <button onclick="javascript:additem(2,${rhs["paper"].id?if_exists });return false;" class="btn btn-xs btn-custom"><@i18n "menu_item_new" /></button></td>
 							<td >
 								<div style="height:150px;overflow:auto;" id="reqmultichoice">
 									<#assign i = 0 />
@@ -207,15 +207,15 @@
 						-->
 						<tr>
 							<td colspan="4" align=center>
-							    <input type="button" class="btn btn-xs btn-primary" value="Submit" id="submitButton"/>
-							    <a  class="btn btn-xs btn-primary" href="exam_paper_list.do">Return</a>
+							    <input type="button" class="btn btn-xs btn-custom" value="Submit" id="submitButton"/>
+							    <a  class="btn btn-xs btn-custom" href="exam_paper_list.do">Return</a>
 							</td>
 						</tr>
 					</table>
 					</div>
 				</div>
 			</form>
-			<div id="div_scoll" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:800px;z-index:10000;display:none;" class="panel panel-primary"><!--style="border:2px solid #eee;"-->
+			<div id="div_scoll" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:800px;z-index:10000;display:none;" class="panel panel-custom"><!--style="border:2px solid #eee;"-->
 			 	<div id="operation_title" class="panel-heading">
 			 		<strong>选择题目</strong>
 			 	</div>

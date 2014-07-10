@@ -6,7 +6,7 @@ p:first-child {
 	display: inline;
 }
 </style>
-<div class="panel panel-primary" style="margin-top: 18px;">
+<div class="panel panel-custom" style="margin-top: 18px;">
 	<div class="panel-heading"><strong><@i18n "menu_paper_view" /></strong></div>
 	
     <div class="exam-frame">

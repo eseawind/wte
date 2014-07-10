@@ -5,7 +5,7 @@
 				<input type="hidden" name="method" value='edit' />
 				<input type="hidden" name="paper.id" value='<#if rhs["paper"]?exists >${rhs["paper"].id?if_exists }</#if>' />
 				<input type="hidden" name="byexcel" value="true" />
-				<div class="panel panel-primary">
+				<div class="panel panel-custom">
 				    <div class="panel-heading">
 				    	<@i18n "menu_paper_view" />
 				    </div>
@@ -65,9 +65,9 @@
 						<tr>
 							<td colspan="5" >
 								<#if !rhs.readonly>
-							    	<input type="button" class="btn btn-xs btn-primary" value="Save" id="submitButton"/>
+							    	<input type="button" class="btn btn-xs btn-custom" value="Save" id="submitButton"/>
 								</#if>
-							    <a  class="btn btn-xs btn-primary" href="exam_paper_list.do">Return</a>
+							    <a  class="btn btn-xs btn-custom" href="exam_paper_list.do">Return</a>
 							</td>
 						</tr>
 					</table>

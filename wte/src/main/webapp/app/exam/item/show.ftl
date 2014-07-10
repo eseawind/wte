@@ -14,7 +14,7 @@
 	}
 </script>
 			<form name="form_item" action="exam_item_save.do" metiod="post">
-				<div class="panel panel-primary">
+				<div class="panel panel-custom">
 				    <div class="panel-heading">
 				    	<@i18n "menu_item_new" />
 				    </div>
@@ -75,8 +75,8 @@
 					<#--<input class='input' type='hidden' value='' name='item.mark' />-->
 					<tr>
 						<td colspan="2" style="text-align: center;">
-						    <input type="button" class="btn btn-xs btn-primary" value="Save" id="submitButton"/>
-						    <a  class="btn btn-xs btn-primary" href="exam_item_list.do">Return</a>
+						    <input type="button" class="btn btn-xs btn-custom" value="Save" id="submitButton"/>
+						    <a class="btn btn-xs btn-custom" href="exam_item_list.do">Return</a>
 						</td>
 					</tr>
 				</table>
@@ -95,16 +95,16 @@
 	function generateitem(type){
 		switch(type){
 			case 1:
-				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-primary' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='radio' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='radio' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio'  value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
+				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-custom' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='radio' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='radio' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio'  value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
 				break;
 			case 2:
-				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-primary' onclick='javascript:addoption(2);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='checkbox' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='checkbox' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
+				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-custom' onclick='javascript:addoption(2);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='checkbox' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='checkbox' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
 				break;
 			case 3:
-				$("#itemcontent").html("<div class='btn btn-xs btn-primary'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='' name='item.refkey' /></div>");
+				$("#itemcontent").html("<div class='btn btn-xs btn-custom'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='' name='item.refkey' /></div>");
 				break;
 			case 4:
-				$("#itemcontent").html("<div class='btn btn-xs btn-primary'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='' name='item.refkey' /></div>");
+				$("#itemcontent").html("<div class='btn btn-xs btn-custom'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='' name='item.refkey' /></div>");
 				break;	
 		}
 	}

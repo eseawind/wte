@@ -2,34 +2,39 @@
 <#include "../../../common/freemarker/include_custom.ftl">
 <form name="form_item" action="exam_item_import_itembyxls_save.do" method="post" enctype="multipart/form-data" >
 <input type="hidden" name="method" value="${rhs["method"]}" />
-	<div class="panel panel-primary"">
+	<div class="panel panel-custom"">
 		<div class="panel-heading"><strong><@i18n "menu_item_import" /></strong></div>
 		<div class="panel-body">
 		 
              <table >
-                 <tr><td >
-					<b>Please select  Excel file that many questions </b><input type="File" style="width:300px" name="file" /> 
-					<br>
-					<p align=left>&nbsp;<input type="button" class="btn btn-xs btn-primary" value="Submit" id="submitButton"/>	</p>				
-                 </td></tr>
-				 <tr><td>
-				 <hr style="margin: 10px 0;">
-				 <#if rhs["exception"]?exists>
-					 <div>
-						 <#list rhs["exception"]?keys as exception>
-						 	<div style="padding: 2px 7px; color: #fff; background-color: #f9ae90; font-weight:bolder;">${exception}</div>
-						 	<#list rhs["exception"][exception] as status>
-						 	<div style="padding: 3px 0 3px 5px; background-color: #fff6f3; ">${status}</div>
-						 	</#list>
-						 	<br/>
-						 </#list>
-					 </div>
-					 <hr style="margin: 10px 0;">
-				 </#if>
-					<b></b>Sapmle datas of excle file as below:<br><br>
-					<a href="exam_item_getItemTemplate.do"><img width=80% src="<@context/>common/images/uploadtemplate.jpg" alt="Upload file template" "/></a></td>
-                 </td></tr>
-              </table>
+                 <tr>
+                 	<td>
+                 		<b>Please select Excel file which you want to upload.</b><input type="File" style="width:300px" name="file" /> 
+						<br>
+						<p align=left>
+							&nbsp;<input type="button" class="btn btn-xs btn-custom" value="Submit" id="submitButton"/>	
+						</p>				
+                 	</td>
+                 </tr>
+				 <tr>
+				 	<td>
+					 <#if rhs["exception"]?exists>
+						 <div>
+							 <#list rhs["exception"]?keys as exception>
+							 	<div style="padding: 2px 7px; color: #fff; background-color: #f9ae90; font-weight:bolder;">${exception}</div>
+							 	<#list rhs["exception"][exception] as status>
+							 	<div style="padding: 3px 0 3px 5px; background-color: #fff6f3; ">${status}</div>
+							 	</#list>
+							 	<br/>
+							 </#list>
+						 </div>
+					 </#if>
+				 
+					<b style="display: block; margin-top: 10px; margin-bottom: 5px;">Template Preview <span style="color: orange;">(You can click the picture as below directly to download the template.)</span></b>
+					<a href="exam_item_getItemTemplate.do"><img width="75%" src="<@context/>common/images/uploadtemplate.jpg" alt="Upload file template" "/></a></td>
+                 	</td>
+                 </tr>
+             </table>
              
                 <#---
 				<tr>

@@ -2,14 +2,16 @@
 <#include "../../../common/freemarker/include_custom.ftl">
 <head>
 <style>
+/*
 .table th {
-	background-color: #dfcddd;
+	background-color: #8f3f7b;
 	color: #fff;
 }
 .table-condensed th, .table-condensed td {
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
+*/
 </style>
 
 </head>
@@ -56,7 +58,7 @@
 	</#list> 
 </#macro>
  
-<table class="table  table-condensed" style="width:1000px">
+<table class="table table-condensed" style="width:1000px">
 	<thead>
 		<tr>
 			<th><@i18n "title_content" /></th>
