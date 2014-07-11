@@ -4,7 +4,7 @@
 <div style="margin:5px;" >
 	&nbsp;&nbsp;
 	<a class="btn btn-xs btn-custom"  onclick="javascript:action_smtp('create.do','');"><@i18n "title_smtp_add" /></a>
-	<a class="btn btn-xs btn-custom" href="ea_ea_menu_mail_list.do" target="mainFrame"><@i18n "menu_mail_tool" /></a>
+	<#--<a class="btn btn-xs btn-custom" href="ea_ea_menu_mail_list.do" target="mainFrame"><@i18n "menu_mail_tool" /></a>-->
 	
 	<div class="panel panel-custom" >
 		<div class="panel-heading"><strong>Mail List</strong></div>

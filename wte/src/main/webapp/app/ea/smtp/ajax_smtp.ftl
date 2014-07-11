@@ -43,7 +43,8 @@
 			</tr>
 		</#list> 
 		</tbody>
-	</table>            
+	</table>
+	<#if (rhs.maxPage> 1)>
 	<blockquote class="pull-right" style="border-right: none;">
 		Page ${rhs.currentPage}
 		<#-- (${rhs.count}/${rhs.maxPage})&nbsp; -->
@@ -62,4 +63,5 @@
 		
 		
 	</blockquote>
+	</#if>
 <span id="div_action_result" style="display:none">${rhs["info"]?if_exists}</span>

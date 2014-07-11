@@ -71,7 +71,9 @@ p:first-child {
 						<input type="hidden" value="${multiitem.id}" name="result[${i}].item.id" />
 						<input type="hidden" value="<#if multiitem.mark?exists>${multiitem.mark}<#else>${rhs["paper"].multichoicemark}</#if>" name="result[${i}].mark" />
 						<#assign i = i + 1 > 
-		
+						<tr>
+						<td><hr></td>
+						</tr>
 				      	</#list>
 			      	</table>
 			     </div>
@@ -95,7 +97,9 @@ p:first-child {
 							<input type="hidden" value="<#if blankitem.mark?exists >${blankitem.mark}<#else>${rhs["paper"].blankmark}</#if>" name="result[${i}].mark" />
 						</tr>
 						<#assign i = i + 1 > 
-		
+						<tr>
+						<td><hr></td>
+						</tr>
 				    </#list>
 			      	</table>
 			     </div>
@@ -119,6 +123,9 @@ p:first-child {
 							<input type="hidden" value="<#if essayitem.mark?exists>${essayitem.mark}<#else>${rhs["paper"].essaymark}</#if>" name="result[${i}].mark" />
 						</tr>
 						<#assign i = i + 1 > 
+						<tr>
+							<td><hr></td>
+						</tr>
 			      	</#list>
 			    	</table>
 			     </div>
