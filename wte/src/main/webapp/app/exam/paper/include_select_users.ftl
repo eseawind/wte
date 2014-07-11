@@ -138,7 +138,7 @@ function init_select_users(){
     
       	open: function(){
       		document.getElementById("include_select_users_div").style.display = "block";
-      		$(":button").addClass("btn btn-primary btn-xs");
+      		$(":button").addClass("btn btn-custom btn-xs");
       		$.ajax({
 				type: 'post',
 				url: 'common_selectuser_oftenselectlist.do',
@@ -345,10 +345,10 @@ function menu_active(obj){
 <div id="include_select_users_div" style="display:none;">
 	<div class="select_users_div">
 		<div class="select_users_top">Quick Search
-			<input style="width:150px;" id="auto_text" type="text" class="search-query"/>
+			<input style="width:150px; height: 25px;" id="auto_text" type="text" class="search-query"/>
 		
 		    
-			 <a  href="#" onclick="javascript:_clear();" ><span class="label label-default">X</span>  </a>
+			 <a href="#" onclick="javascript:_clear();" ><span class="label label-default" style="padding: 5px 9px ;"><strong>X</strong></span></a>
 			
 		</div>
 		
@@ -381,12 +381,12 @@ function menu_active(obj){
 		<br>
 		<br>
 		<br>
-		<button class="btn btn-primary btn-xs" onclick="javascript:add_to_selected();">Add ></button>
+		<button class="btn btn-custom btn-xs" onclick="javascript:add_to_selected();">Add ></button>
 		<br>
 		<br>
 		<br>
 		<br>
-		<button class="btn btn-primary btn-xs" onclick="javascript:remove_from_selected();">< Delete</button>
+		<button class="btn btn-custom btn-xs" onclick="javascript:remove_from_selected();">< Delete</button>
 	</div>
 	<div class="select_users_div">
 		<div class="select_users_top">

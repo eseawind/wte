@@ -1,7 +1,7 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <#include "../../../common/freemarker/include_custom.ftl">
 <form name="form_item" action="exam_exam_complete_task.do" method="post">
-<div class="panel panel-primary" style="margin-top: 5px; margin-left:15px;">
+<div class="panel panel-custom" style="margin-top: 5px; margin-left:15px;">
       <div class="panel-heading"><strong>Result Detail</strong></div>
       <div class="panel-body">
       <table class="table table-condensed table-bordered table-striped">
@@ -29,7 +29,7 @@
 				<#list singleitem.item.choiceitem?sort_by("id") as choiceitem>
 					<#assign select = 0 >
 					<tr>
-						<td <#if singleitem.item.refkey?number==choiceitem.refid> style='color:red;'</#if> ><input disabled  type="radio" value="${choiceitem.refid}" name="" /> ${choiceitem.value}
+						<td <#if singleitem.item.refkey?number==choiceitem.refid> style='color:#F08A00;'</#if> ><input disabled  type="radio" value="${choiceitem.refid}" name="" /> ${choiceitem.value}
 						(
 						<#list rhs["singleitems"][itemid] as result>
 							<#if result.answer?exists>
@@ -60,7 +60,7 @@
 				<#list multiitem.item.choiceitem?sort_by("id") as choiceitem>
 					<#assign select = 0 >
 					<tr>
-						<td <#list multiitem.item.refkey?split(",") as key><#if (key?trim)?number==choiceitem.refid> style='color:red;'</#if> </#list>><input disabled  type="checkbox" value="${choiceitem.refid}" name="" /> ${choiceitem.value}
+						<td <#list multiitem.item.refkey?split(",") as key><#if (key?trim)?number==choiceitem.refid> style='color:#F08A00;'</#if> </#list>><input disabled  type="checkbox" value="${choiceitem.refid}" name="" /> ${choiceitem.value}
 						(
 						<#list rhs["multiitems"][itemid] as result>
 							<#if result.answer?exists>
@@ -108,7 +108,7 @@
 	    <table class="table table-condensed table-bordered table-striped">
 	    	<tr>
       			<td>
-      				<a  class="btn btn-xs btn-primary" href="exam_exam_exam_record_list.do?groupby=paper">Return</a>
+      				<a  class="btn btn-xs btn-custom" href="exam_exam_exam_record_list.do?groupby=paper">Return</a>
       			</td>
       		</tr>
 	    </table>
