@@ -86,10 +86,10 @@
 							<#--<td><@i18n "title_single" /></td>
 							<td><@i18n "title_req" />:<input type="text" disabled name="paper.template.singlechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].template.singlechoice}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
 							<td><@i18n "title_rmd" />:<input type="text" disabled name="paper.template.rmdsinglechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].template.rmdsinglechoice}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>-->
-							<td width=20%><@i18n "title_single_mark" /></td>
-							<td><input type="text" style="width:30px;" name="paper.singlechoicemark" onblur="javascript:counttotalmark();" id="singlechoicemark" value="<#if rhs["paper"]?exists >${rhs["paper"].singlechoicemark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
-							<td width=20%><@i18n "title_multi_mark" /></td>
-							<td><input type="text" style="width:30px;" name="paper.multichoicemark" onblur="javascript:counttotalmark();" id="multichoicemark" value="<#if rhs["paper"]?exists >${rhs["paper"].multichoicemark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td width=15%><@i18n "title_single_mark" /></td>
+							<td width=35%><input type="text" style="width:30px;" name="paper.singlechoicemark" onblur="javascript:counttotalmark();" id="singlechoicemark" value="<#if rhs["paper"]?exists >${rhs["paper"].singlechoicemark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td width=15%><@i18n "title_multi_mark" /></td>
+							<td width=35%><input type="text" style="width:30px;" name="paper.multichoicemark" onblur="javascript:counttotalmark();" id="multichoicemark" value="<#if rhs["paper"]?exists >${rhs["paper"].multichoicemark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
 						</tr>
 						<tr>
 							<td><@i18n "title_single_rmd" /></td>

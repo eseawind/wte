@@ -13,7 +13,7 @@
 	color: #fff;
 }
 </style>
-<#--<div class="panel panel-primary" style="margin-left:15px;">
+<#--<div class="panel panel-custom" style="margin-left:15px;">
        
   <div class="panel-heading">
   	<strong>Exam Schedule List</strong>
@@ -56,13 +56,13 @@
 						<td>
 							<#list rhs["recordlist"]?keys as examrecordid>
 										<#if examrecordid?number == examarrange.id && (rhs["recordlist"][examrecordid]?size > 0)>
-											<button onclick="javascript:showresult(${examarrange.id});" class="btn btn-xs btn-primary" name="detail">Detail</button>
+											<button onclick="javascript:showresult(${examarrange.id});" class="btn btn-xs btn-custom" name="detail">Detail</button>
 										</#if>
 							</#list>
 							<#if rhs["export"]>
 							<#list rhs["recordlist"]?keys as examrecordid>
 								<#if examrecordid?number == examarrange.id && (rhs["recordlist"][examrecordid]?size > 0)>
-									<a href="exam_exam_export_arrange_record.do?arrangeid=${examarrange.id}&paperid=${paperid}" class="btn btn-xs btn-primary" >Export to Excel</a>
+									<a href="exam_exam_export_arrange_record.do?arrangeid=${examarrange.id}&paperid=${paperid}" class="btn btn-xs btn-custom" >Export to Excel</a>
 								</#if>
 							</#list>
 							</#if>

@@ -1,13 +1,13 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <#include "../../../common/freemarker/include_custom.ftl">
 <style type="text/css">
-.table-hover>tbody>tr:hover>th {
-	background-color: #00625F;
-}
 .table th {
-	background-color: #00625F; 
+	background-color: #B1B3B4; 
 	text-align: center;
 	color: #fff;
+}
+.table-hover>tbody>tr:hover>th {
+	background-color: #B1B3B4;
 }
 </style>
 <script type="text/javascript" src="<@context_module/>exam.js"></script>
@@ -16,15 +16,15 @@
 <a class="btn btn-xs btn-custom" id="groupby"  href="#" onclick="javascript:groupby('user');" >Group by User</a>
 <a href="#" onclick="javascript:groupby('paper');" class="btn btn-xs btn-custom">Group by Paper</a>
 <a href="#" onclick="javascript:groupby('schedule');" class="btn btn-xs btn-custom">Group by Schedule</a>
+
 <div class="panel panel-custom" style="margin-left:10px;" >
   <div class="panel-heading">
   	<strong>Exam History List</strong>
   </div>
   <div id="div_scoll" style="margin-left:150px; margin-top:-350px; cursor:hander;position:absolute;width:400px;z-index:10000;display:none;" class="panel panel-default"><!--style="border:2px solid #eee;"-->
-			 	<div id="operation_title" class="panel-heading"><strong>Log</strong><a class="pull-right" onclick="show_dir();" class="btn btn-xs  btn-default" ><span class=ui-icon ui-icon-close></span></a></div>
-			 	<div class="panel-body" id="div_select_item" style="cursor:hander;"> 
-			 	
-			 	</div>
+  	<div id="operation_title" class="panel-heading"><strong>Log</strong><a class="pull-right" onclick="show_dir();" class="btn btn-xs  btn-default" ><span class=ui-icon ui-icon-close></span></a></div>
+	<div class="panel-body" id="div_select_item" style="cursor:hander;"> 
+  </div>
 	</div>
   <div class="panel-body" id="div_exam_table">
 <#if rhs["groupby"] == "paper" ||rhs["groupby"] == "user">

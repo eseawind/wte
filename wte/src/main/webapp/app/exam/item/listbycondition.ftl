@@ -21,9 +21,6 @@
 		  		</tr>
 		  	</#if>
 		  </tbody>
-		  </table>
-		 
-
-   	
+		  </table>	
    	<br>
    	 

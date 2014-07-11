@@ -1,5 +1,18 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <#include "../../../common/freemarker/include_custom.ftl">
+<style type="text/css">
+.popup-panel {
+	border-color: #c19cbb;
+}
+.popup-heading {
+	padding: 2px 7px;;
+}
+.popup-panel>.popup-heading {
+	color: #8f3f7b;
+	background-color: #dfcddd;
+	border-bottom: 1px solid #c19cbb;
+}
+</style>
 <script type="text/javascript" src="<@context_module/>paper.js"></script>
 <script type="text/javascript" src="<@context_module/>template.js"></script>
 <script>
@@ -83,10 +96,10 @@
 							<#--<td><@i18n "title_single" /></td>
 							<td><@i18n "title_req" />:<input type="text" disabled name="paper.template.singlechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].template.singlechoice}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
 							<td><@i18n "title_rmd" />:<input type="text" disabled name="paper.template.rmdsinglechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].template.rmdsinglechoice}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>-->
-							<td width=20%><@i18n "title_single_mark" /></td>
-							<td><input type="text" style="width:30px;" name="paper.singlechoicemark" onblur="javascript:counttotalmark();" id="singlechoicemark" value="<#if rhs["paper"]?exists >${rhs["paper"].singlechoicemark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
-							<td width=20%><@i18n "title_multi_mark" /></td>
-							<td><input type="text" style="width:30px;" name="paper.multichoicemark" onblur="javascript:counttotalmark();" id="multichoicemark" value="<#if rhs["paper"]?exists >${rhs["paper"].multichoicemark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td width=15%><@i18n "title_single_mark" /></td>
+							<td width=35%><input type="text" style="width:30px;" name="paper.singlechoicemark" onblur="javascript:counttotalmark();" id="singlechoicemark" value="<#if rhs["paper"]?exists >${rhs["paper"].singlechoicemark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
+							<td width=15%><@i18n "title_multi_mark" /></td>
+							<td width=35%><input type="text" style="width:30px;" name="paper.multichoicemark" onblur="javascript:counttotalmark();" id="multichoicemark" value="<#if rhs["paper"]?exists >${rhs["paper"].multichoicemark?if_exists}</#if>" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}"/></td>
 						</tr>
 						<tr>
 							<td><@i18n "title_single_rmd" /></td>
@@ -103,7 +116,7 @@
 						
 						<#if rhs["paper"]?exists >
 						<tr>
-							<td><@i18n "title_single_req" /> <br/><br/> <button onclick="javascript:additem(1,${rhs["paper"].id?if_exists });return false;" class="btn btn-xs btn-custom"><@i18n "menu_item_new" /></button></td>
+							<td style="width: 15px;"><@i18n "title_single_req" /> <br/><br/> <button onclick="javascript:additem(1,${rhs["paper"].id?if_exists });return false;" class="btn btn-xs btn-custom"><@i18n "menu_item_new" /></button></td>
 							<td >
 								<div style="height:150px;overflow:auto;" id="reqsinglechoice">
 									<#assign i = 0 />
@@ -212,8 +225,8 @@
 					</div>
 				</div>
 			</form>
-			<div id="div_scoll" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;z-index:10000;display:none;" class="panel panel-custom"><!--style="border:2px solid #eee;"-->
-			 	<div id="operation_title" class="panel-heading">
+			<div id="div_scoll" class="panel popup-panel" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;z-index:10000;display:none;" ><!--style="border:2px solid #eee;"-->
+			 	<div class="popup-heading" id="operation_title">
 			 		<strong>选择题目</strong>
 			 	</div>
 			 	

@@ -5,7 +5,7 @@
 
 <form name="form_item" action="exam_exam_complete_task.do" method="post">
 <input type="hidden" value="<#if rhs.method?exists >${rhs["method"]}</#if>" name="method"/>
-<div class="panel panel-primary" style="margin-top: 18px;">
+<div class="panel panel-custom" style="margin-top: 18px;">
       <div class="panel-heading"><strong>Arrange Examination</strong></div>
       <div class="panel-body">
       	 <table class="table table-condensed table-bordered table-striped">
@@ -39,7 +39,7 @@
       		</tr>
       		</#if>
       		<tr>
-      			<td><input type="button" class="btn btn-xs btn-primary" value="Save" id="submitButton"/></td>
+      			<td><input type="button" class="btn btn-xs btn-custom" value="Save" id="submitButton"/></td>
       		</tr>
       	</table>
       
