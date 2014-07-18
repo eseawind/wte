@@ -5,12 +5,37 @@ function action_exam(url,para){
          data:"id="+para,
          cache: false,
          success: function(html){
-        	 document.getElementById('div_exam_table').innerHTML=html;
-        	 executeScript(html);
+        	 if(url == 'ajax_page_data.do'){
+        		 document.getElementById('exam_table').innerHTML=html;
+        	 }else{
+	        	 document.getElementById('div_exam_table').innerHTML=html;
+	        	 executeScript(html);
+        	 }
            }
   });  
 }
-
+function page_exam(url,para){
+	  $.ajax({
+	         type:"POST",
+	         url: "exam_exam_"+url,
+	         data: para,
+	         cache: false,
+	         success: function(html){
+	        	document.getElementById('exam_table').innerHTML=html;
+	           }
+	  });  
+}
+function page_history(url,para){
+	  $.ajax({
+	         type:"POST",
+	         url: "exam_exam_"+url,
+	         data: para,
+	         cache: false,
+	         success: function(html){
+	        	document.getElementById('history_table').innerHTML=html;
+	           }
+	  });  
+}
 function executeScript(html)
 {
     var reg = /<script[^>]*>([^\x00]+)$/i;

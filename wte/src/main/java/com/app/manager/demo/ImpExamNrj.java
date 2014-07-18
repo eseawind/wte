@@ -48,7 +48,7 @@ public class ImpExamNrj extends ParentDemo implements InfDemo{
 		Resource r07 = create_sub_resource(r0, "考试结果查询 ","query-admin", "exam_exam_exam_record_list.do?groupby=user");
 		Resource r08 = create_sub_resource(r0, "试题导入 ","import-admin", "exam_item_import_itembyxls.do");
 		Resource r09 = create_sub_resource(r0, "选项作答情况","result-admin", "exam_exam_show_answer.do");
-		Resource r10 = create_sub_resource(r0, "考试管理","exam-admin","exam_exam_");
+		//Resource r10 = create_sub_resource(r0, "考试管理","exam-admin","exam_exam_");
 		
 		admin.getResources().add(r0);
 		admin.getResources().add(r01);
@@ -60,7 +60,7 @@ public class ImpExamNrj extends ParentDemo implements InfDemo{
 		admin.getResources().add(r07);
 		admin.getResources().add(r08);
 		admin.getResources().add(r09);
-		admin.getResources().add(r10);
+		//admin.getResources().add(r10);
 		//add exam information
 		Set<Knowledge> knowledges1 = new HashSet<Knowledge>();
 		//知识领域

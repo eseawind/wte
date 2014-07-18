@@ -1,0 +1,1 @@
+<#include "ajax_exam_list.ftl">

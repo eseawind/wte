@@ -1,0 +1,1 @@
+<#include "ajax_history_list.ftl">

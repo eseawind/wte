@@ -75,10 +75,12 @@
 </table>     
  <#if (rhs.maxPage> 1)>
 	<p align=right>
-				<#if (rhs.currentPage > 1) ><a onclick="javascript:action_user('ajax_page_data.do','pageId=1')">第一页</a></#if>
-				<#if (rhs.currentPage > 1) ><a   onclick="javascript:action_user('ajax_page_data.do','pageId=${rhs.currentPage-1}')">上一页</a></#if>
-				<#if (rhs.currentPage < rhs.maxPage) ><a  onclick="javascript:action_user('ajax_page_data.do','pageId=${rhs.currentPage+1}')">下一页</a></#if>
-				<#if (rhs.currentPage < rhs.maxPage) ><a   onclick="javascript:action_user('ajax_page_data.do','pageId=${rhs.maxPage}')">最后页</a></#if>
+				<#if (rhs.currentPage > 1) ><a   onclick="javascript:action_user('ajax_page_data.do','pageId=${rhs.currentPage-1}')">«</a></#if>
+				page
+				<#if (rhs.currentPage > 1) ><a onclick="javascript:action_user('ajax_page_data.do','pageId=1')">1</a></#if>
+				<a href="#">${rhs.currentPage}</a><#-- 本页 -->
+				<#if (rhs.currentPage < rhs.maxPage) ><a   onclick="javascript:action_user('ajax_page_data.do','pageId=${rhs.maxPage}')">${rhs.maxPage}</a></#if>
+				<#if (rhs.currentPage < rhs.maxPage) ><a  onclick="javascript:action_user('ajax_page_data.do','pageId=${rhs.currentPage+1}')">»</a></#if>
 
 			Current:${rhs.currentPage}/${rhs.maxPage} Page,
 			${rhs.count} Records &nbsp;

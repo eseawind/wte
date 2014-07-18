@@ -17,7 +17,8 @@ function page_list_commit(pageNo){
 	    <#if (rhs.currentPage < rhs.maxPage)><a onclick="javascript:page_list_commit(${rhs.maxPage})" href="#">${rhs.maxPage}</a></#if><#-- 最后一页 -->
 	    <#if (rhs.currentPage < rhs.maxPage)><a onclick="javascript:page_list_commit(${rhs.currentPage+1})" href="#">»</a></#if><#-- 下一页  -->
 	   
-	   
+	   &nbsp;Current:${rhs.currentPage}/${rhs.maxPage} Page,
+		${rhs.count} Records &nbsp;
 		<select style="WIDTH: 60px"  id=changeMaxSize onchange="javascript:page_list_commit(1)" >
 		    <option value="${rhs.maxSize}">${rhs.maxSize}</option>
 			<option value="5">5</option>

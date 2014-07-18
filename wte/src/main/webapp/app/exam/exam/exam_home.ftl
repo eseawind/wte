@@ -19,6 +19,7 @@
 	vertical-align: middle;
 }
 </style>
+<script type="text/javascript" src="<@context_module/>exam.js"></script>
 <div class="exam-frame">
 	<div style="margin-bottom:5px;">
 		<img style="vertical-align: text-bottom;" src="common/images/e_note_orange.png" />
@@ -36,45 +37,8 @@
 		<span style="padding-left:5px; font-size:18px; color:#C6C6C6;">Exam Information</span>
 	</div>
 	<div class="alert alert-info">
-		<div class="panel-body">
-  			<table class="table table-condensed table-hover table-bordered">
-		  		<tr>
-		  			<th width=25px>#</th>
-					<th ><@i18n "title_name" /></th>
-					<th ><@i18n "title_passmark" /></th>
-					<th ><@i18n "title_totalmark" /></th>
-					<th ><@i18n "title_examtime" /></th>
-					<th ><@i18n "title_starttime" /></th>
-					<th ><@i18n "title_operation" /></th>
-				</tr>
-				<#list rhs["oatasklist"] as item>
-				<#if item.obj?exists>
-				<tr>
-					<td>${item_index+1}</td>
-					<td>${item.obj.name}</td>
-					<td >${item.obj.passmark}</td>
-					<td >${item.obj.totalmark}</td>
-					<td >${item.obj.time}(minutes)</td>
-					<td id="starttime_${item.task.id}">${item.starttime}</td> <#--${item.task.createTime?datetime}-->
-					<td >
-					<#--<a href="common_activiti_process_diagram.do?processInstanceId=${item.task.processInstanceId}" target=_blank>
-							View
-						</a>-->
-					<a  <#if item.method == "Start"> onclick="javascript:toFull('${item.handleTaskUrl?if_exists}&taskId=${item.task.id}')"<#else>href="${item.handleTaskUrl?if_exists}&taskId=${item.task.id}"</#if> class="btn btn-xs btn-info">
-									${item.method}
-					</a>
-					</td>
-				</tr>
-				</#if>
-				</#list>
-			</table>
-			<form action="exam_exam_exam_list.do" id="search_form" method="post" style="display:none;">
-				<input type="hidden" name="search" value="search">
-				<input type="hidden" name="pageId" id="pageId">
-				<input type="hidden" name="maxSize" id="pageMaxSize">
-			</form>
-			<#include "../../../common/freemarker/macro_pagination.ftl">
-			<@pagination  "search_form" />
+		<div class="panel-body" id="exam_table">
+  			<#include "ajax_exam_list.ftl">
         </div>
 	</div>
 </div>
@@ -100,7 +64,7 @@
 	$(document).ready(function(){
 		<#list rhs["oatasklist"] as item>
 			<#if item.obj?exists>
-				setInterval("getstarttime('${item.task.id}')",30000);
+				//setInterval("getstarttime('${item.task.id}')",30000);
 			</#if>
 		</#list>
 	});
@@ -125,72 +89,8 @@
 		<span style="padding-left:5px; font-size:18px; color:#C6C6C6;">Exam History</span>
 	</div>
 	<div class="alert alert-info">
-		<div class="panel-body">
-			<table class="table table-condensed table-hover table-bordered">
-				<tr>
-					<th width=25px>#</th>
-					<th ><@i18n "title_name" /></th>
-					<#--<th >User ID</th>
-					<th ><@i18n "title_totalmark" /></th>-->
-					<th ><@i18n "title_passmark" /></th>
-					<th ><@i18n "title_result" /></th>
-					<th><@i18n "title_time" /></th>
-					<#--<th ><@i18n "title_result" /></th>-->
-					<#--<th ><@i18n "title_remark" /></th>-->
-					<th></th>
-				</tr>
-				<#assign index=1 />
-				<#list rhs["datalist"]?keys as papername>
-				<#assign index=1>
-				<#list (rhs["datalist"][papername]?sort_by("id"))?reverse as record>
-				<tr>
-					<td>${index}</td>
-					<td>${rhs["datalist"][papername][0].paper.name} </td><#--onclick="javascript:showresult(${rhs["datalist"][papername][0].paper.id});"-->
-					<td>${rhs["datalist"][papername][0].paper.passmark}</td>
-					<td>
-					<#if record.remark?exists && record.remark == "Wait for judge">
-						${record.remark}
-					<#else>
-						${record.singlechoicemark?number + record.multichoicemark?number + record.blankmark?number + record.essaymark?number}
-					</#if>
-					</td>
-					<td>${record.recorddate?if_exists}</td><#--<#if rhs["export"]><div class="pull-right"><a href="exam_exam_export_record.do?paperId=${rhs["datalist"][papername][0].paper.id}" class="btn btn-xs btn-primary" >Export to Excel</a></div></#if>-->
-					<td><#if rhs["export"]><a onclick="javascript:showlog('${record.taskid}','${record.paper.id}','${record.userid}');" class="btn btn-xs btn-primary">Show Log</a></#if></td>
-				</tr>
-				<#assign index = index + 1 />
-				</#list>
-				</#list>
-			</table>
-			<br/>
-			<#if rhs["oatasklist_outdate"]?size gt 0 >	
-			<strong style="display:block; padding-bottom: 5px;"> You missed exam: </strong>
-			<table class="table table-condensed table-hover table-bordered">
-				<tr>
-					<th width=25px>#</th>
-					<th ><@i18n "title_name" /></th>
-					<th ><@i18n "title_examtime" /></th>
-					<th ><@i18n "title_starttime" /></th>
-				</tr>
-				<#list rhs["oatasklist_outdate"] as item>
-				<#if item.obj?exists>
-				<tr>
-					<td>${item_index+1}</td>
-					<td>${item.obj.name}</td>
-					<td >${item.obj.time}(minutes)</td>
-					<td id="starttime_${item.task.id}">${item.starttime}</td>
-				</tr>
-				</#if>
-				</#list>
-			</table>			
-			</#if>
-			
-			<form action="exam_exam_exam_record_list.do" id="search_form" method="post" style="display:none;">
-				<input type="hidden" name="search" value="search">
-				<input type="hidden" name="pageId" id="pageId">
-				<input type="hidden" name="maxSize" id="pageMaxSize">
-			</form>
-			<#include "../../../common/freemarker/macro_pagination.ftl">
-			<@pagination  "search_form" />
+		<div class="panel-body" id="history_table">
+			<#include "ajax_history_list.ftl">
   		</div>
 	</div>
 </div>
@@ -233,42 +133,3 @@ $(function() {$( "#div_scoll" ).draggable();});
 	}
 	
 </script>
-
-<#--
-<div class="panel panel-primary" style="float:left;position:relative;width:46%;left:5px;">
-       
-  <div class="panel-heading">
-  	<strong>Out of Date List</strong>
-  </div>
-  <div class="panel-body">
-		<table class="table table-condensed table-hover table-bordered">
-				<tr>
-					<td width=25px><strong>#</strong></td>
-					<td ><strong><@i18n "title_name" /></strong></td>
-					<td ><strong><@i18n "title_passmark" /></strong></td>
-					<td ><strong><@i18n "title_totalmark" /></strong></td>
-					<td ><strong><@i18n "title_examtime" /></strong></td>
-					<td ><strong><@i18n "title_starttime" /></strong></td>
-					<td ><strong><@i18n "title_operation" /></strong></td>
-				</tr>
-				<#list rhs["oatasklist_outdate"] as item>
-					<#if item.obj?exists>
-					<tr>
-						<td>${item_index+1}</td>
-						<td>${item.obj.name}</td>
-						<td >${item.obj.passmark}</td>
-						<td >${item.obj.totalmark}</td>
-						<td >${item.obj.time}(minutes)</td>
-						<td id="starttime_${item.task.id}">${item.starttime}</td>
-						<td >
-							<a  <#if item.method == "Start"> onclick="javascript:toFull('${item.handleTaskUrl?if_exists}&taskId=${item.task.id}')"<#else>href="${item.handleTaskUrl?if_exists}&taskId=${item.task.id}"</#if> class="btn btn-xs btn-primary">
-								${item.method}
-							</a>
-						</td>
-					</tr>
-					</#if>
-				</#list>
-			</table>
-  </div>
-</div>
--->

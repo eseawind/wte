@@ -106,7 +106,7 @@
 					</tr>
 				</#list>
 			</table>
-			<form action="exam_exam_exam_record_list.do" id="search_form" method="post" style="display:none;">
+			<form action="exam_exam_exam_record_list.do?groupby=schedule" id="search_form" method="post" style="display:none;">
 				<input type="hidden" name="search" value="search">
 				<input type="hidden" name="pageId" id="pageId">
 				<input type="hidden" name="maxSize" id="pageMaxSize">
