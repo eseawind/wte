@@ -60,6 +60,11 @@
 	  var a =window.open(url,"fullscreen","fullscreen=1,scrollbars=yes");
 	}
 	
+	function   showMissExam(url){
+	  if(window.name=="fullscreen")
+	  	return; 
+	  var a =window.open(url,"fullscreen","fullscreen=0,scrollbars=yes,height=300,width=400");
+	}
 	
 	$(document).ready(function(){
 		<#list rhs["oatasklist"] as item>

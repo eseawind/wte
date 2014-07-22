@@ -31,8 +31,8 @@
 				</#if>
 				</#list>
 			</table>
-			     
- <#if (rhs.maxPage> 1)>
+			   
+<#if (rhs.maxPage> 1) &&rhs["oatasklist"]?size gt rhs["maxSize"] >
 	<p align=right>
 				<#if (rhs.currentPage > 1) ><a   onclick="javascript:page_exam('ajax_page_data.do','pageId=${rhs.currentPage-1}')">«</a></#if>
 				page

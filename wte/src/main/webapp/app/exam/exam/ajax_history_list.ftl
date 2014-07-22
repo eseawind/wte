@@ -35,29 +35,7 @@
 				</#list>
 				</#list>
 			</table>
-			<br/>
-			<#if rhs["oatasklist_outdate"]?size gt 0 >	
-			<strong style="display:block; padding-bottom: 5px;"> You missed exam: </strong>
-			<table class="table table-condensed table-hover table-bordered">
-				<tr>
-					<th width=25px>#</th>
-					<th ><@i18n "title_name" /></th>
-					<th ><@i18n "title_examtime" /></th>
-					<th ><@i18n "title_starttime" /></th>
-				</tr>
-				<#list rhs["oatasklist_outdate"] as item>
-				<#if item.obj?exists>
-				<tr>
-					<td>${item_index+1}</td>
-					<td>${item.obj.name}</td>
-					<td >${item.obj.time}(minutes)</td>
-					<td id="starttime_${item.task.id}">${item.starttime}</td>
-				</tr>
-				</#if>
-				</#list>
-			</table>			
-			</#if>
-			<#if (rhs.historymaxPage> 1)>
+<#if (rhs.historymaxPage> 1)>
 	<p align=right>
 				<#if (rhs.historycurrentPage > 1) ><a   onclick="javascript:page_history('ajax_historypage_data.do','pageId=${rhs.historycurrentPage-1}')">«</a></#if>
 				page
@@ -79,3 +57,34 @@
 		 			<select>		
 	</p>
 </#if>
+			 <br/>
+		<#assign n=1>
+		<#if rhs["oatasklist_outdate"]?size gt 0 >
+				<strong style="display:block; padding-bottom: 5px;"> You missed exam: </strong>
+				<table class="table table-condensed table-hover table-bordered">
+					<tr>
+						<th width=25px>#</th>
+						<th ><@i18n "title_name" /></th>
+						<th ><@i18n "title_examtime" /></th>
+						<th ><@i18n "title_starttime" /></th>
+					</tr>
+					<#list rhs["oatasklist_outdate"] as item>
+						<#if n <11 >
+							<#assign n = n+1>
+							<#if item.obj?exists>
+							<tr>
+								<td>${item_index+1}</td>
+								<td>${item.obj.name}</td>
+								<td >${item.obj.time}(minutes)</td>
+								<td id="starttime_${item.task.id}">${item.starttime}</td>
+							</tr>
+							</#if>
+						</#if>
+					</#list>
+				</table>
+			<#if n == 11>
+				<a  onclick="javascript:showMissExam('exam_exam_show_miss_exam.do')" class="btn btn-xs btn-info pull-right">
+									Show All
+					</a>
+			</#if>
+		</#if>			
