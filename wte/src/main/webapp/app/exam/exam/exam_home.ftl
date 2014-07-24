@@ -69,7 +69,7 @@
 	$(document).ready(function(){
 		<#list rhs["oatasklist"] as item>
 			<#if item.obj?exists>
-				//setInterval("getstarttime('${item.task.id}')",30000);
+				setInterval("getstarttime('${item.task.id}')",30000);
 			</#if>
 		</#list>
 	});

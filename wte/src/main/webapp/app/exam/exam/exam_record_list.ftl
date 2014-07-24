@@ -70,6 +70,7 @@
 							<table class="table table-condensed table-bordered table-hover" style="background-color: #ebf2d9; width:100%; border:none;">
 								<#assign i=1>
 								<tr style="text-align: center;">
+									<th style="border:none;"></th>
 									<th style="border:none;"><strong>></strong></th>
 									<#if rhs["groupby"] == "user" >
 										<th style="border:none;"><strong>User ID</strong></th>
@@ -83,6 +84,7 @@
 								</tr>
 								<#list (rhs["datalist"][papername]?sort_by("id"))?reverse as record>
 									<tr style="text-align: center;">
+										<td style="border-bottom: 1px solid #fff; border-top: none; border-left: none; border-right: none;"></td>
 										<td style="border-bottom: 1px solid #fff; border-top: none; border-left: none; border-right: none;">${i}</td>
 										<#--<td ></td><a href="exam_exam_exam_record_detail.do?paperId=${record.paper.id}&recordsId=${record.id}" ></a>-->
 										<#if rhs["groupby"] == "user" >

@@ -20,10 +20,13 @@
 		 success: function(html){
 		    
 		     document.getElementById('div_result').innerHTML=html;
-		     setTimeout( "document.getElementById('div_result').innerHTML=''", 2000);
+		     setTimeout( "close()", 2000);
          }
      });   
     
+     }
+     function close(){
+     	document.getElementById('div_result').innerHTML='';
      }
 </SCRIPT>
 <body style="padding: 15px 18px;">
