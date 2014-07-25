@@ -39,7 +39,7 @@
 					<#--<td ><strong><@i18n "title_remark" /></strong></td>-->
 				</tr>
 				<#assign index=1 />
-				<#list rhs["datalist"] as examarrange>
+				<#list (rhs["datalist"]?sort_by("id"))?reverse as examarrange>
 					<tr>
 						<td>${index}</td>
 						<#--paper information-->
@@ -74,6 +74,7 @@
 							<table class="table table-condensed table-bordered table-hover" style="background:#ebf2d9; width:100%; border: none;">
 								<#assign i=1>
 								<tr style="text-align: center;">
+									<th style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"></th>
 									<th style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>*</strong></th>
 									<th style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>User ID</strong></th>
 									<th style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong><@i18n "title_result" /></strong></th>
@@ -85,6 +86,7 @@
 										<#assign recordlist = rhs["recordlist"][examarrangeid] />
 										<#list recordlist as record>
 										<tr style="text-align: center;">
+											<td style="border:none;"></td>
 											<td style="border:none;">${i}</td>
 											<td style="border:none;">${record.userid}</td>
 											<td style="border:none;">${record.singlechoicemark?number + record.multichoicemark?number + record.blankmark?number + record.essaymark?number}</td>

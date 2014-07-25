@@ -25,7 +25,12 @@ public class TestApiTest extends ParentTest {
 		List countList = baseDao.find(hsql);
 		log.debug("查询个数"+countList.size());
 	}
-	
+	@Test
+	public void test_sql() throws Exception {
+		String hsql = "from Item i left join i.knowledge k where (k.id='5' or k.id='9') and (i.type='1' or i.type='2')";
+		List countList = baseDao.find(hsql);
+		log.debug("查询个数"+countList.size());
+	}
 	//根据项目ID取得展开所在项目的 
 	@Test
 	public void test_userlist_by_roletree() throws Exception {
