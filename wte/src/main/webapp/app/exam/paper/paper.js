@@ -98,6 +98,7 @@ function action_paper(url,para){
 	         success: function(html){
 	        	 document.getElementById('div_paper_table').innerHTML=html;
 	        	 executeScript(html);
+	        	 tip_info(); 
 	           }
 	  });  
 }

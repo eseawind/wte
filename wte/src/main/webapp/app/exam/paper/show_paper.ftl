@@ -69,6 +69,10 @@
 							</td>
 						</tr>
 						<tr><td  colspan="4"><br></td>
+						</tr>
+						<tr>
+							<td  colspan="2">Single Choice Inventory: <#if rhs["maxsinglechoicecount"]?exists>${rhs["maxsinglechoicecount"]}<#else>0</#if></td>
+							<td  colspan="2">Multiple Choice Inventory: <#if rhs["maxmultichoicecount"]?exists>${rhs["maxmultichoicecount"]}<#else>0</#if></td>
 						</tr>					
 						<#--
 						<tr>
@@ -104,11 +108,11 @@
 						<tr>
 							<td><@i18n "title_single_rmd" /></td>
 							<td><input type="text" style="width:30px;" name="paper.rmdsinglechoice" onblur="javascript:counttotalmark();" id="rmdsinglechoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdsinglechoice?if_exists}</#if>" onKeyUp="checkvalue(this,1);"/>
-								(Max:<span id="maxsinglechoicecount">${rhs["maxsinglechoicecount"]}</span>)
+								<span style="display:none;">(Max:<span id="maxsinglechoicecount">${rhs["maxsinglechoicecount"]}</span>)</span>
 							</td>
 							<td><@i18n "title_multi_rmd" /></td>
 							<td><input type="text" style="width:30px;" name="paper.rmdmultichoice" onblur="javascript:counttotalmark();" id="rmdmultichoice" value="<#if rhs["paper"]?exists >${rhs["paper"].rmdmultichoice?if_exists}</#if>" onKeyUp="checkvalue(this,2);"/>
-								(Max:<span id="maxmultichoicecount">${rhs["maxmultichoicecount"]}</span>)
+								<span style="display:none;">(Max:<span id="maxmultichoicecount">${rhs["maxmultichoicecount"]}</span>)</span>
 							</td>
 						</tr>
 						
