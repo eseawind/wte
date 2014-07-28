@@ -12,9 +12,8 @@ function action_user(url,para){
         
          cache: false,
          success: function(html){
-      
+        	 executeScript(html);
          	if(url=="update.do"){
-         		executeScript(html);
          		 document.getElementById('div_action_result').innerHTML=html;
          		
         	}else{

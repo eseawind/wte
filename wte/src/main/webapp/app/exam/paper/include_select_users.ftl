@@ -246,6 +246,10 @@ function add_to_selected(){
 		}else{
 			for(var i = 0; i < window.selectNodeIds.length; i++){
 				if($("#users_selected option[value='" + window.selectNodeIds[i] + "']").length == 0){
+					if(window.selectNodeNames[i] == "Organize" || window.selectNodeNames[i] == "All User"){
+						alert("Please select user!");
+						return false;
+					}
 					h += "<option value='" + window.selectNodeIds[i] + "'>" + window.selectNodeNames[i] + "</option>";
 				}
 			}

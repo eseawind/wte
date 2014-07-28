@@ -3,7 +3,7 @@
 <#include "include_select_users.ftl">
 <script type="text/javascript" src="<@context_module/>assign.js"></script>
 
-<form name="form_item" action="exam_exam_complete_task.do" method="post">
+<form id="form_item" name="form_item" action="exam_exam_complete_task.do" method="post">
 <input type="hidden" value="<#if rhs.method?exists >${rhs["method"]}</#if>" name="method"/>
 <div class="panel panel-custom" style="margin-top: 18px;">
       <div class="panel-heading"><strong>Arrange Examination</strong></div>
@@ -15,7 +15,7 @@
       		</tr>
       		<tr>
       			<td>
-      			<strong>Start Time from: <input type="text"  style="width:135px" class="input-small" id="starttime" name="starttime" onclick="javascript:WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'});" value='' />
+      			<strong>Enter Time from: <input type="text"  style="width:135px" class="input-small" id="starttime" name="starttime" onclick="javascript:WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'});" value='' />
 				 to <input type="text"  style="width:135px" class="input-small" id="endtime" name="endtime" onclick="javascript:WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'});" value='' />
       			</strong>
       			</td>
@@ -46,6 +46,7 @@
       </div>
 </div>
 </form>
+	<div id="result"></div>
 <script>
 	$('#submitButton').click(function () {
 		var btn = $(this);
@@ -70,7 +71,20 @@
 		if (confirm("Are you sure start the exam?")){
 			$("#dialog").dialog("open");
 			btn.button("loading");
-			document.getElementsByName("form_item")[0].submit();
+			//document.getElementsByName("form_item")[0].submit();
+			$.ajax({
+                cache: true,
+                type: "POST",
+                url: "exam_exam_complete_task.do",
+                data:$("#form_item").serialize(),// 你的formid
+                async: false,
+                error: function(request) {
+                    alert("Connection error");
+                },
+                success: function(data) {
+                    $("#result").html(data);
+                }
+            });
 		}
 	});
 	

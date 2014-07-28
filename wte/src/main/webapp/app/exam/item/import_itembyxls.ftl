@@ -9,7 +9,7 @@
              <table >
                  <tr>
                  	<td>
-                 		<b>Please select Excel file which you want to upload.</b><input type="File" style="width:300px" name="file" /> 
+                 		<b>Please select Excel file which you want to upload.</b><input type="File" style="width:300px" name="file" id="file"/> 
 						<br>
 						<p align=left>
 							&nbsp;<input type="button" class="btn btn-xs btn-custom" value="Submit" id="submitButton"/>	
@@ -52,6 +52,17 @@
 </form>
 <script>
 	$('#submitButton').click(function () {
+		var file = $('#file').val();
+		var index=file.lastIndexOf('.'); 
+        var filetype=file.substr(index,4);
+		if(file == ""){
+			alert("Please select Question Template File!");
+			return false;
+		}
+		if(filetype != ".xls"){
+			alert("Please select Excel File!");
+			return false;
+		}
 		var btn = $(this);
 		btn.button('loading');
 		$('#dialog').dialog('open');

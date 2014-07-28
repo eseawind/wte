@@ -240,7 +240,7 @@ p:first-child {
 		}
 		if((e.ctrlKey)&&(e.keyCode==67)){
 			record_keycode("Ctrl + C");
-			alert('Can not use Ctrl + C！');
+			alert('Can not copy in this page！');
 			e.keyCode = 0;
 			return false;
 		}
