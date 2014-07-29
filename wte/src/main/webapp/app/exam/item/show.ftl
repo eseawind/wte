@@ -85,6 +85,49 @@
 			</form>
 <script>
 	$('#submitButton').click(function () {
+		//先判断是否选择了题型
+		var type = "";
+		$("input:radio[name='item.type']:checked").each(function(i) {
+			if (0 == i) {
+				type = $(this).val();
+			} else {
+				type += ("," + $(this).val());
+			}
+		});
+		if(type == ""){
+			alert("Please select one question type!");
+			return false;
+		}
+		var tagid = "";
+		if(type == "1"){
+			$("input:radio[name='item.refkey']:checked").each(function(i) {//拿到选中的正确答案
+				if (0 == i) {
+					tagid = $(this).val();
+				} else {
+					tagid += ("," + $(this).val());
+				}
+			});
+		}else{
+			$("input:checkbox[name='item.refkey']:checked").each(function(i) {//拿到选中的正确答案
+				if (0 == i) {
+					tagid = $(this).val();
+				} else {
+					tagid += ("," + $(this).val());
+				}
+			});
+		}
+		if(tagid == ""){
+			alert("At least select one right answer!");
+			return false;
+		}else{
+			var refkey = tagid.split(",");
+			for(var i = 0; i < refkey.length; i++){
+				if($("#" + refkey[i]).val()==""){
+					alert("The right answer is empty!");
+					return false;
+				}
+			}
+		}
 		var btn = $(this);
 		btn.button('loading');
 		$('#dialog').dialog('open');
@@ -95,10 +138,10 @@
 	function generateitem(type){
 		switch(type){
 			case 1:
-				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-custom' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='radio' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='radio' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='radio'  value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
+				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-custom' onclick='javascript:addoption(1);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='radio' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' id='1' type='text' name='choiceitemvalue' /><input type='hidden' name='choiceitemrefid' value='1'/><br/><input type='radio' value='2' name='item.refkey' /><input type='text' id='2' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><input type='hidden' name='choiceitemrefid' value='2'/><br/><input type='radio' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' id='3' type='text' name='choiceitemvalue' /><input type='hidden' name='choiceitemrefid' value='3'/><br/><input type='radio'  value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' id='4' type='text' name='choiceitemvalue' /><input type='hidden' name='choiceitemrefid' value='4'/><br/></div>");
 				break;
 			case 2:
-				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-custom' onclick='javascript:addoption(2);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='checkbox' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' name='choiceitemvalue' /><br/><input type='checkbox' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/><input type='checkbox' value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/></div>");
+				$("#itemcontent").html("<button style='margin-top:6px;' class='btn btn-xs btn-custom' onclick='javascript:addoption(2);return false;'><@i18n "title_option_new" /></button><div id='choice' ><input type='checkbox' name='item.refkey' value='1'/><input style='margin-left:3px;width:700px;' type='text' id='1' name='choiceitemvalue' /><input type='hidden' name='choiceitemrefid' value='1'/><br/><input type='checkbox' value='2' name='item.refkey' /><input type='text' style='margin-left:3px;width:700px;' id='2' name='choiceitemvalue' /><input type='hidden' name='choiceitemrefid' value='2'/><br/><input type='checkbox' value='3' name='item.refkey' /><input style='margin-left:3px;width:700px;' id='3' type='text' name='choiceitemvalue' /><input type='hidden' name='choiceitemrefid' value='3'/><br/><input type='checkbox' value='4' name='item.refkey' /><input style='margin-left:3px;width:700px;' id='4' type='text' name='choiceitemvalue' /><input type='hidden' name='choiceitemrefid' value='4'/><br/></div>");
 				break;
 			case 3:
 				$("#itemcontent").html("<div class='btn btn-xs btn-custom'><@i18n "title_refkey" /><input class='input' style='width:340px;' type='text' value='' name='item.refkey' /></div>");
@@ -115,11 +158,11 @@
 		var content = $("#choice").html();
 		switch(type){
 			case 1:
-				$("#choice").html(content + "<input type='radio' name='item.refkey' value='"+ option_input_num +"'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/>");
+				$("#choice").html(content + "<input type='radio' name='item.refkey' value='"+ option_input_num +"'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' id='"+ option_input_num +"' /><input type='hidden' name='choiceitemrefid' value='"+ option_input_num +"'/><br/>");
 				break;
 				
 			case 2:
-				$("#choice").html(content + "<input type='checkbox' name='item.refkey' value='"+ option_input_num +"'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' /><br/>");
+				$("#choice").html(content + "<input type='checkbox' name='item.refkey' value='"+ option_input_num +"'/><input style='margin-left:3px;width:700px;' type='text' name='choiceitemvalue' id='"+ option_input_num +"' /><input type='hidden' name='choiceitemrefid' value='"+ option_input_num +"'/><br/>");
 				break;
 		
 		}
