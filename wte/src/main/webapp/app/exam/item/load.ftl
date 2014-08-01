@@ -139,6 +139,11 @@
 				type += ("," + $(this).val());
 			}
 		});
+		var oEditor = CKEDITOR.instances.text;
+		if(""==oEditor.getData()){
+			alert("The question content cannot be empty!");
+			return false;
+		}
 		var tagid = "";
 		if(type == "1"){
 			$("input:radio[name='item.refkey']:checked").each(function(i) {//拿到选中的正确答案

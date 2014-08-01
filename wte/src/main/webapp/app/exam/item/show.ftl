@@ -36,7 +36,7 @@
 						<td style="vertical-align: middle; text-align: center;"><@i18n "title_content" /></td>
 						<td>
 							<div>
-								<textarea class='input' style='width:400px;' type='text' id='text' name='item.content' > </textarea>
+								<textarea class='input' style='width:400px;' id='text' name='item.content'> </textarea>
 							</div>
 							<div id="itemcontent">
 								
@@ -96,6 +96,11 @@
 		});
 		if(type == ""){
 			alert("Please select one question type!");
+			return false;
+		}
+		var oEditor = CKEDITOR.instances.text;
+		if(""==oEditor.getData()){
+			alert("The question content cannot be empty!");
 			return false;
 		}
 		var tagid = "";
