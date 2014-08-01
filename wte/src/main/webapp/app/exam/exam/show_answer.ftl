@@ -29,7 +29,7 @@
 				<#list singleitem.item.choiceitem?sort_by("id") as choiceitem>
 					<#assign select = 0 >
 					<tr>
-						<td <#if singleitem.item.refkey?number==choiceitem.refid> style='color:#F08A00;'</#if> ><input disabled  type="radio" value="${choiceitem.refid}" name="" /> ${choiceitem.value}
+						<td <#if singleitem.item.refkey?exists ><#if singleitem.item.refkey?number==choiceitem.refid> style='color:#F08A00;'</#if></#if> ><input disabled  type="radio" value="${choiceitem.refid}" name="" /> ${choiceitem.value}
 						(
 						<#list rhs["singleitems"][itemid] as result>
 							<#if result.answer?exists>
@@ -60,7 +60,7 @@
 				<#list multiitem.item.choiceitem?sort_by("id") as choiceitem>
 					<#assign select = 0 >
 					<tr>
-						<td <#list multiitem.item.refkey?split(",") as key><#if (key?trim)?number==choiceitem.refid> style='color:#F08A00;'</#if> </#list>><input disabled  type="checkbox" value="${choiceitem.refid}" name="" /> ${choiceitem.value}
+						<td <#if multiitem.item.refkey?exists ><#list multiitem.item.refkey?split(",") as key><#if (key?trim)?number==choiceitem.refid> style='color:#F08A00;'</#if> </#list></#if> ><input disabled  type="checkbox" value="${choiceitem.refid}" name="" /> ${choiceitem.value}
 						(
 						<#list rhs["multiitems"][itemid] as result>
 							<#if result.answer?exists>
