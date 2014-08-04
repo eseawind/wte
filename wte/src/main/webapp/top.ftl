@@ -86,6 +86,9 @@
 </html>
 
 <script type="text/javascript">
+	$(document).ready(function(){
+		setInterval("tip_info()",500);
+	});
 	function action_login(url,para){
 	  $.ajax({
 	         type:"POST",
