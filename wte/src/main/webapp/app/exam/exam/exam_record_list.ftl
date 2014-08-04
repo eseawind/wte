@@ -21,11 +21,11 @@
   <div class="panel-heading">
   	<strong>Exam History List</strong>
   </div>
-  <div id="div_scoll" style="margin-left:150px; margin-top:-350px; cursor:hander;position:absolute;width:400px;z-index:10000;display:none;" class="panel panel-default"><!--style="border:2px solid #eee;"-->
-  	<div id="operation_title" class="panel-heading"><strong>Log</strong><a class="pull-right" onclick="show_dir();" class="btn btn-xs  btn-default" ><span class=ui-icon ui-icon-close></span></a></div>
+  <div id="div_scoll" style="margin-left:150px; margin-top:-350px; cursor:hander;position:absolute;width:400px;z-index:10000;display:none;" class="panel panel-custom"><!--style="border:2px solid #eee;"-->
+  	<div id="operation_title" class="panel-heading"><strong>Log</strong><a onclick='show_dir();' class='pull-right' ><span class='ui-icon-white ui-icon-close'></span></a></div>
 	<div class="panel-body" id="div_select_item" style="cursor:hander;"> 
+  	</div>
   </div>
-	</div>
   <div class="panel-body" id="div_exam_table">
 <#if rhs["groupby"] == "paper" ||rhs["groupby"] == "user">
 		<table class="table table-condensed table-bordered">
