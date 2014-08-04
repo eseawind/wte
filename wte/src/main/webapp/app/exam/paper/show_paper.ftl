@@ -48,13 +48,13 @@ p:first-child {
 								<#list rhs["knowledgeRootList"] as knowledge>
 									<#if knowledge.getChildKnowledges()?exists >
 										<#list knowledge.getChildKnowledges() as knowledgenode>
-											<input type="checkbox" checked name="knowledgevalue" value="${knowledgenode.id}" onclick="getmaxitemcount(${knowledgenode.id});"
+											<#if knowledgenode.name != ""><input type="checkbox" checked name="knowledgevalue" value="${knowledgenode.id}" onclick="getmaxitemcount(${knowledgenode.id});"
 											<#if rhs["paper"]?exists && rhs["paper"].knowledge?exists >
 												<#list rhs["paper"].knowledge as paperknowledge>
 													<#if paperknowledge.id == knowledgenode.id> checked</#if>
 												</#list>
 											</#if>
-											/>&nbsp;&nbsp;${knowledgenode.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											/>&nbsp;&nbsp;${knowledgenode.name}</#if>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										</#list>
 									</#if>
 								</#list>
