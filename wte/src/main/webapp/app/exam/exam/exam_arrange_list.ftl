@@ -72,7 +72,6 @@
 					<tr id="${examarrange.id}" style="display:none;">
 						<td colspan="6" style="padding:0;">
 							<table class="table table-condensed table-bordered table-hover" style="background:#ebf2d9; width:100%; border: none;">
-								<#assign i=1>
 								<tr style="text-align: center;">
 									<th style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"></th>
 									<th style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"><strong>*</strong></th>
@@ -82,6 +81,7 @@
 									<th style="border-bottom: 1px solid #fff; border-top: none; border-left:none; border-right:none;"></th>
 								</tr>
 								<#list rhs["recordlist"]?keys as examarrangeid>
+									<#assign i=1>
 									<#if examarrangeid?number == examarrange.id>
 										<#assign recordlist = rhs["recordlist"][examarrangeid] />
 										<#list recordlist as record>
@@ -99,9 +99,9 @@
 												</#list>-->
 											</td>
 										</tr>
+										<#assign i = i + 1 />
 										</#list>
 									</#if>
-									<#assign i = i + 1 />
 								</#list>
 							</table>
 						</td>

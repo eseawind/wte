@@ -5,7 +5,7 @@
 <script type="text/javascript">
 
 	$(document).ready(function(){
-     	setTimeout("refresh()",1000);
+     	setTimeout("refresh()",3000);
 	});
 	
 	function refresh(){
