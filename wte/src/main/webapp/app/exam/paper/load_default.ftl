@@ -14,7 +14,7 @@
 }
 </style>
 <script type="text/javascript" src="<@context_module/>paper.js"></script>
-<script type="text/javascript" src="<@context_module/>template.js"></script>
+<!--<script type="text/javascript" src="<@context_module/>template.js"></script>-->
 <script>
 	function counttotalmark(){
 		var singlechoice = parseInt($("#reqsinglechoicecount").val()) + parseInt($("#rmdsinglechoice").val());

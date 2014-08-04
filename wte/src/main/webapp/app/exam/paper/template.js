@@ -13,7 +13,7 @@ function additem(type,templateid) {
 		return false;
 	}
 	$("#operation_title").html("Add question" + "<a onclick='show_dir();' class='pull-right' ><span class='ui-icon-white ui-icon-close'></span></a>");
-	$('#div_scoll').attr("style","margin-left:150px; margin-top:-350px; cursor:hander; position:absolute; z-index:10000; display:block;");
+	$('#div_scoll').attr("style","margin-left:150px; margin-top:-350px; cursor:hander; position:absolute; z-index:10000; display:block;border: 1px solid #c19cbb;");
 	$.ajax({
 		type : "POST",
 		url : "exam_item_listbycondition.do",
