@@ -1,4 +1,4 @@
-<div class="panel panel-primary" style="margin-top: 18px;">
+<div class="panel panel-custom" style="margin-top: 18px;">
       <div class="panel-heading"><strong>Log</strong></div>
       <div class="panel-body">
       	 <table class="table table-condensed table-bordered table-striped">
