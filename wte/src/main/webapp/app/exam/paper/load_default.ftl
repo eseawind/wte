@@ -1,5 +1,6 @@
 <#include "../../../common/freemarker/include_header.ftl">
 <#include "../../../common/freemarker/include_custom.ftl">
+
 <script type="text/javascript" src="<@context_module/>paper.js"></script>
 <!--<script type="text/javascript" src="<@context_module/>template.js"></script>-->
 <script>
@@ -218,8 +219,8 @@
 					</div>
 				</div>
 			</form>
-			<div id="div_scoll" class="panel popup-custom" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;z-index:10000;display:none;" ><!--style="border:2px solid #eee;"-->
-			 	<div class="popup-heading" id="operation_title">
+			<div id="div_scoll" class="panel panel-custom" style="margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;z-index:10000;display:none;" ><!--style="border:2px solid #eee;"-->
+			 	<div class="panel-heading" id="operation_title">
 			 		<strong>选择题目</strong>
 			 	</div>
 			 	
