@@ -1,10 +1,10 @@
-<div class="panel panel-custom" style="margin-top: 18px;">
+<!--<div class="panel panel-custom" style="margin-top: 18px;">
       <div class="panel-heading"><strong>Log</strong></div>
-      <div class="panel-body">
+      <div class="panel-body">-->
       	 <table class="table table-condensed table-bordered table-striped">
       	 <tr>
-      	 	<td>Date</td>
-      	 	<td>Operation</td>
+      	 	<th>Date</th>
+      	 	<th>Operation</th>
       	 </tr>
       	 
       	 <#list rhs["dataList"] as log>
@@ -18,5 +18,5 @@
       	 	</tr>
 		</#list>
       	 </table>
-      </div>
-</div>
+      <!--</div>
+</div>-->
