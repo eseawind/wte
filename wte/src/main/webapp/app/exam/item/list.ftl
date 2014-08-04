@@ -12,8 +12,8 @@
 </div>
 
 <div style="margin:5px;"> 
-	<div class="panel panel-custom" style="clear:both;position:relative;">
-      <div class="panel-heading" style="clear: both;"><strong><@i18n "title_item" /></strong></div>
+	<div class="panel panel-custom" style="clear:both;position:relative;" id="query_result">
+      <div class="panel-heading"><strong><@i18n "title_item" /></strong></div>
       <div class="panel-body" id="div_item_table">
 		<#include "ajax_item.ftl">
       </div>

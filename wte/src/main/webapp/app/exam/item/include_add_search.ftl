@@ -81,11 +81,13 @@ function  show_dir(){  //定位层
 	  	document.getElementById('form_style').value = 'block';
 	  	document.getElementById('div_style').value = '35px 10px 10px 0';
 	  	document.getElementById('panel').style.margin = '35px 10px 10px 0';
+	  	document.getElementById('query_result').style.top = '10px';
 	  }else{
 	    document.getElementById('content').style.display='none';
 	    document.getElementById('form_style').value = 'none';
 	    document.getElementById('div_style').value = '0 10px 0 0';
 	    document.getElementById('panel').style.margin = '0 10px 0 0';
+	    document.getElementById('query_result').style.top = '0';
 	  }
 }
 
