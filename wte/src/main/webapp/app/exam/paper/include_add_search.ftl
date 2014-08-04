@@ -23,10 +23,10 @@
 				<input type="hidden" name="divstyle" id="div_style" value="${rhs["divstyle"]}">
 				<input type="hidden" name="orderBy" id="orderBy" value=${rhs["orderBy"]?if_exists}>
 				<#list rhs["knowledgeRootList"] as knowledge>
-					<input type="checkbox" <#list rhs["knowledgevalue"] as val> <#if val?number == knowledge.id >checked</#if> </#list> onclick="document.getElementById('search_form').submit();" name="knowledgevalue" value="${knowledge.id}"/>&nbsp;&nbsp;<font color='red'>${knowledge.name}</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<#if knowledge.name!=""><input type="checkbox" <#list rhs["knowledgevalue"] as val> <#if val?number == knowledge.id >checked</#if> </#list> onclick="document.getElementById('search_form').submit();" name="knowledgevalue" value="${knowledge.id}"/>&nbsp;&nbsp;<font color='red'>${knowledge.name}</font></#if>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<#if knowledge.getChildKnowledges()?exists >
 						<#list knowledge.getChildKnowledges() as knowledgenode>
-							<input type="checkbox" <#list rhs["knowledgevalue"] as val> <#if val?number == knowledgenode.id >checked</#if> </#list> onclick="document.getElementById('search_form').submit();" name="knowledgevalue" value="${knowledgenode.id}" />&nbsp;&nbsp;${knowledgenode.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<#if knowledgenode.name!=""><input type="checkbox" <#list rhs["knowledgevalue"] as val> <#if val?number == knowledgenode.id >checked</#if> </#list> onclick="document.getElementById('search_form').submit();" name="knowledgevalue" value="${knowledgenode.id}" />&nbsp;&nbsp;${knowledgenode.name}</#if>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						</#list>
 					</#if>
 				</#list>

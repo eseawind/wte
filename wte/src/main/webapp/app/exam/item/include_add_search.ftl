@@ -26,10 +26,10 @@
 				<input onclick="document.getElementById('search_form').submit();" <#list rhs["itemtype"] as val> <#if (val?number == 2) >checked</#if> </#list> type="checkbox" name="itemtype" value="2"/>&nbsp;&nbsp;Multi Choice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br><b>Knowledge Area</b>&nbsp;&nbsp;&nbsp;&nbsp;
 				<#list rhs["knowledgeRootList"] as knowledge>
-					<input type="checkbox" <#list rhs["knowledgevalue"] as val> <#if val?number == knowledge.id >checked</#if> </#list> onclick="document.getElementById('search_form').submit();" name="knowledgevalue" value="${knowledge.id}"/>&nbsp;&nbsp;<font color='red'>${knowledge.name}</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<#if knowledge.name!=""><input type="checkbox" <#list rhs["knowledgevalue"] as val> <#if val?number == knowledge.id >checked</#if> </#list> onclick="document.getElementById('search_form').submit();" name="knowledgevalue" value="${knowledge.id}"/>&nbsp;&nbsp;<font color='red'>${knowledge.name}</font></#if>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<#if knowledge.getChildKnowledges()?exists >
 						<#list knowledge.getChildKnowledges() as knowledgenode>
-							<input type="checkbox" <#list rhs["knowledgevalue"] as val> <#if val?number == knowledgenode.id >checked</#if> </#list> onclick="document.getElementById('search_form').submit();" name="knowledgevalue" value="${knowledgenode.id}"/>&nbsp;&nbsp;${knowledgenode.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<#if knowledgenode.name!=""><input type="checkbox" <#list rhs["knowledgevalue"] as val> <#if val?number == knowledgenode.id >checked</#if> </#list> onclick="document.getElementById('search_form').submit();" name="knowledgevalue" value="${knowledgenode.id}"/>&nbsp;&nbsp;${knowledgenode.name}</#if>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						</#list>
 					</#if>
 				</#list>
