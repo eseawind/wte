@@ -12,8 +12,8 @@ function additem(type,templateid) {
 		alert("Please select one knowledge!");
 		return false;
 	}
-	$("#operation_title").text("Add Question");
-	$('#div_scoll').attr("style","margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:400px;z-index:10000;display:block;");
+	$("#operation_title").html("Add question" + "<a onclick='show_dir();' class='pull-right' ><span class='ui-icon-white ui-icon-close'></span></a>");
+	$('#div_scoll').attr("style","margin-left:150px;margin-top:-350px; cursor:hander;position:absolute;width:700px;z-index:10000;display:block;");
 	$.ajax({
 		type : "POST",
 		url : "exam_item_listbycondition.do",

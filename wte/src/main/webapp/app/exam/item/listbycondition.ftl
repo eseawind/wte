@@ -20,6 +20,7 @@
 		  			<td>${rhs["info"]}</td>
 		  		</tr>
 		  	</#if>
+		  	<tr><td align=center><a  class="btn btn-xs btn-custom" href="#" onclick="show_dir();">Close</a></td></tr>
 		  </tbody>
 		  </table>	
    	<br>
