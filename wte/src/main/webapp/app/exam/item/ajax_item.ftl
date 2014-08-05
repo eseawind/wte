@@ -12,7 +12,7 @@
 			<#list (rhs["dataList"]?sort_by("id"))?reverse as x>
 			 <tr>
 			    <td class=nob style="padding-left: 15px;">${x_index+1}</td>
-				<td>${x.content?if_exists}</td>
+				<td title="Answer:&#13&#10<#list x.choiceitem as choiceitem><#if x.type==1><#if x.refkey?number == choiceitem.refid?number>${choiceitem.value}</#if><#else><#list x.refkey?split(",") as key><#if key?number==choiceitem.refid?number>${choiceitem.value}&#13&#10</#if></#list></#if></#list>" >${x.content?if_exists}</td>
 				<td>
 					<#if x.type == 1>
 						<@i18n "title_single" />
