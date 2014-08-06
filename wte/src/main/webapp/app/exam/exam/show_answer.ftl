@@ -16,10 +16,11 @@
       			<td><#if rhs["paper"]?exists > ${rhs["paper"].passmark}</#if></td>
       		</tr>
       	</table>
+      	<br/>
       	<#assign i = 0 >
       	<#if (rhs["singleitems"]?size > 0) >
   		<table class="table table-condensed table-bordered table-striped">
-		  	<strong><@i18n "title_single" /></strong>(total:${rhs["paper"].singlechoice + rhs["paper"].rmdsinglechoice}, each: ${rhs["paper"].singlechoicemark})
+		  	<strong><@i18n "title_single" /></strong>
 		  	<#list rhs["singleitems"]?keys as itemid>
 		  		<#assign singleitem = rhs["singleitems"][itemid][0] />
 				<tr>
