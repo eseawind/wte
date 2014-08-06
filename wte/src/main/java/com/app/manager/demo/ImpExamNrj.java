@@ -76,7 +76,7 @@ public class ImpExamNrj extends ParentDemo implements InfDemo{
 		knowledges1.add(kl1);
 		
 		Knowledge kl12 = new Knowledge();
-		kl12.setName(" SCM(Site Control Manager))");
+		kl12.setName("SCM(Site Control Manager))");
 		kl12.setParentModel(kl1);
 		knowledges1.add(kl1);		
 		
