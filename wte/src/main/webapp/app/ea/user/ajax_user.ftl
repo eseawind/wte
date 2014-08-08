@@ -73,7 +73,7 @@
 	</#list> 
 	</tbody>
 </table>     
- <#if (rhs.maxPage> 1)>
+ <#--<#if (rhs.maxPage> 1)>-->
 	<p align=right>
 				<#if (rhs.currentPage > 1) ><a   onclick="javascript:action_user('ajax_page_data.do','pageId=${rhs.currentPage-1}')">«</a></#if>
 				page
@@ -94,5 +94,5 @@
 		  				<option value="1000">1000</option>
 		 			<select>		
 	</p>
-</#if>
+<#--</#if>-->
 <span id="div_action_result" style="display:none">${rhs["info"]?if_exists}</span>   
