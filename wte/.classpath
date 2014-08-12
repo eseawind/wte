@@ -140,6 +140,5 @@
 	<classpathentry kind="var" path="M2_REPO/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/websocket/websocket-server/9.1.2.v20140210/websocket-server-9.1.2.v20140210.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/ea-core"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/ea-template"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
